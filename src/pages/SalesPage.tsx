@@ -4,6 +4,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import bookCover from '@/assets/book-cover.png';
+import marshallPhoto from '@/assets/marshall-wilkinson.png';
 import { 
   Eye, 
   CheckCircle2, 
@@ -463,6 +464,57 @@ const SalesPage: React.FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Author Bio Section */}
+      <section className="py-24 px-6 border-t border-border">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-12 items-start">
+            <div className="lg:col-span-1 flex justify-center lg:justify-start">
+              <img 
+                src={marshallPhoto} 
+                alt="Marshall Wilkinson" 
+                className="w-64 lg:w-full max-w-xs rounded-sm shadow-xl"
+              />
+            </div>
+            
+            <div className="lg:col-span-2">
+              <h2 className="section-heading text-2xl md:text-3xl mb-6">
+                About the Author
+              </h2>
+              
+              <div className="body-text space-y-5 opacity-80">
+                <p>
+                  Marshall Wilkinson is a second-generation contractor, construction executive, and entrepreneur with over two decades of experience operating at the highest levels of the construction industry.
+                </p>
+                
+                <p>
+                  Over the course of his career, Marshall has executed and advised on more than <span className="body-text-emphasis">$2.5 billion in New York City public works construction</span>, spanning complex infrastructure, municipal projects, and large-scale commercial work. His experience extends beyond execution into the legal, contractual, and strategic dimensions of construction — where real leverage is created or lost.
+                </p>
+                
+                <p>
+                  Marshall is also responsible for the <span className="body-text-emphasis">largest construction delay claim settlement in the City of New York</span>, a distinction earned not through litigation theatrics, but through disciplined documentation, schedule control, entitlement strategy, and relentless command of facts. That outcome was the product of systems — not luck.
+                </p>
+                
+                <p>
+                  Raised inside the construction business, Marshall was immersed in estimating, operations, scheduling, contracts, and negotiation from an early age. As his career progressed, he recognized a consistent pattern: contractors rarely fail because they lack effort or technical skill — they fail because they lack an operating system that holds under pressure.
+                </p>
+                
+                <p>
+                  That realization led to the creation of <span className="body-text-emphasis">ALP (Altitude, Logic, Pressure)</span> — an entrepreneurial operating framework designed to help contractors think clearly, decide decisively, and scale without losing control. ALP is not theory. It is a codified system built from real jobs, real disputes, real negotiations, and real consequences.
+                </p>
+                
+                <p>
+                  Today, Marshall mentors contractors, founders, and operators who want more than growth — they want control, leverage, and durability. His work focuses on turning chaos into structure, disruption into entitlement, and pressure into clarity.
+                </p>
+                
+                <p className="body-text-emphasis text-lg pt-2">
+                  The ALP Handbook is the culmination of that experience — a practical operating system for contractors who intend to play at the highest level and stay there.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
