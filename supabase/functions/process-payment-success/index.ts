@@ -166,6 +166,43 @@ serve(async (req) => {
       .single();
 
     if (insertError) {
+      // React StrictMode / retry behavior can call the success endpoint more than once.
+      // Treat unique-constraint duplicates as success.
+      const isDuplicate =
+        // Postgres unique violation
+        (insertError as any)?.code === '23505' ||
+        insertError.message.includes('duplicate key value');
+
+      if (isDuplicate) {
+        logStep('Duplicate purchase insert detected; returning existing record', {
+          uniquePaymentId,
+        });
+
+        const { data: existingAfterInsert } = await supabaseAdmin
+          .from('book_purchases')
+          .select('*')
+          .eq('stripe_payment_intent_id', uniquePaymentId)
+          .maybeSingle();
+
+        if (existingAfterInsert) {
+          return new Response(
+            JSON.stringify({
+              success: true,
+              already_recorded: true,
+              purchase: existingAfterInsert,
+              user_id: existingAfterInsert.user_id,
+              is_new_user: false,
+              password_reset_required: false,
+              email: customerEmail,
+            }),
+            {
+              headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+              status: 200,
+            }
+          );
+        }
+      }
+
       logStep("Error inserting purchase", { error: insertError.message });
       throw new Error(`Failed to record purchase: ${insertError.message}`);
     }
