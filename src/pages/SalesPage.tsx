@@ -18,7 +18,9 @@ import {
   Zap,
   Moon,
   Sun,
-  Quote
+  Quote,
+  Lock,
+  CreditCard
 } from 'lucide-react';
 
 const testimonials = [
@@ -184,6 +186,22 @@ const SalesPage: React.FC = () => {
                   Preview Experience
                 </Button>
               </Link>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap items-center gap-6 mt-6 text-sm opacity-60">
+              <div className="flex items-center gap-2">
+                <Zap className="w-4 h-4" />
+                <span>Instant Access</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Lock className="w-4 h-4" />
+                <span>Secure Checkout</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CreditCard className="w-4 h-4" />
+                <span>One-Time Payment</span>
+              </div>
             </div>
           </div>
 
@@ -597,6 +615,22 @@ const SalesPage: React.FC = () => {
             >
               {checkoutLoading ? 'Loading...' : 'Get Immediate Access — $47'}
             </Button>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap justify-center items-center gap-6 mt-8 text-sm opacity-70">
+            <div className="flex items-center gap-2">
+              <Zap className="w-4 h-4" />
+              <span>Instant Access</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Lock className="w-4 h-4" />
+              <span>Secure Checkout</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <CreditCard className="w-4 h-4" />
+              <span>One-Time Payment</span>
+            </div>
           </div>
 
           {!user && (
