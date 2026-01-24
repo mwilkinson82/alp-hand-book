@@ -10,11 +10,6 @@ const corsHeaders = {
 // ALP Handbook price ID
 const PRICE_ID = "price_1StCqDJdDAUSVXbNzofxJS3X";
 
-// Valid coupon codes (Stripe coupon IDs)
-const VALID_COUPONS: Record<string, string> = {
-  "ALPHARDCORE": "Q2V10Tg6", // 100% off for existing clients
-};
-
 const logStep = (step: string, details?: Record<string, unknown>) => {
   const detailsStr = details ? ` - ${JSON.stringify(details)}` : '';
   console.log(`[CREATE-CHECKOUT] ${step}${detailsStr}`);
@@ -36,15 +31,6 @@ serve(async (req) => {
     const stripeKey = Deno.env.get("STRIPE_SECRET_KEY");
     if (!stripeKey) throw new Error("STRIPE_SECRET_KEY is not set");
     logStep("Stripe key verified");
-
-    // Parse request body for coupon code
-    let couponCode: string | undefined;
-    try {
-      const body = await req.json();
-      couponCode = body?.coupon_code?.toUpperCase().trim();
-    } catch {
-      // No body or invalid JSON, that's fine
-    }
 
     // Check if user is authenticated (optional for guest checkout)
     let user: { id: string; email: string } | null = null;
@@ -79,19 +65,6 @@ serve(async (req) => {
 
     const origin = req.headers.get("origin") || "http://localhost:5173";
 
-    // Validate coupon code if provided
-    let stripeCouponId: string | undefined;
-    if (couponCode && VALID_COUPONS[couponCode]) {
-      stripeCouponId = VALID_COUPONS[couponCode];
-      logStep("Valid coupon code provided", { couponCode, stripeCouponId });
-    } else if (couponCode) {
-      logStep("Invalid coupon code provided", { couponCode });
-      return new Response(JSON.stringify({ error: "Invalid coupon code" }), {
-        headers: { ...corsHeaders, "Content-Type": "application/json" },
-        status: 400,
-      });
-    }
-
     // Create checkout session - works for both authenticated and guest users
     const sessionParams: Stripe.Checkout.SessionCreateParams = {
       customer: customerId,
@@ -122,17 +95,14 @@ serve(async (req) => {
       logStep("Guest checkout - Stripe will collect email");
     }
 
-    // Add discount if coupon is valid
-    if (stripeCouponId) {
-      sessionParams.discounts = [{ coupon: stripeCouponId }];
-    }
+    // Enable promo code entry in Stripe Checkout
+    sessionParams.allow_promotion_codes = true;
 
     const session = await stripe.checkout.sessions.create(sessionParams);
 
     logStep("Checkout session created", { 
       sessionId: session.id, 
       url: session.url, 
-      hasCoupon: !!stripeCouponId,
       isGuest: !user 
     });
 
