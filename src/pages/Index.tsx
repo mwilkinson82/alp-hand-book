@@ -8,6 +8,7 @@ import Chapter1 from '../components/handbook/content/Chapter1';
 import Chapter2 from '../components/handbook/content/Chapter2';
 import Chapter3 from '../components/handbook/content/Chapter3';
 import Chapter4 from '../components/handbook/content/Chapter4';
+import Chapter5 from '../components/handbook/content/Chapter5';
 import Chapter8 from '../components/handbook/content/Chapter8';
 import Chapter11 from '../components/handbook/content/Chapter11';
 import Chapter16 from '../components/handbook/content/Chapter16';
@@ -44,7 +45,7 @@ const Index = () => {
         {/* Part II */}
         <PartHeader number="II" title="The Stool (Systems)" />
         <Chapter4 />
-        <PlaceholderChapter id="chapter-5" number={5} title='Upstream Marketing & Being "In the Know"' />
+        <Chapter5 />
         <PlaceholderChapter id="chapter-6" number={6} title="Sales, Pressure, and Clarity" />
         <PlaceholderChapter id="chapter-7" number={7} title="Operations as Margin Protection" />
         <Chapter8 />
