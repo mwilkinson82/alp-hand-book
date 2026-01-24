@@ -62,7 +62,7 @@ const tocData: TocSection[] = [
     items: [
       { id: 'chapter-18', chapter: '18', title: 'Change Order Velocity and Monetizing Disruption' },
       { id: 'chapter-19', chapter: '19', title: 'Notices, Documentation, and Playing Offense' },
-      { id: 'chapter-20', chapter: '20', title: 'Financial Command: Seeing the Business Clearly' },
+      { id: 'chapter-20', chapter: '20', title: 'Financial Authority at Scale' },
       { id: 'chapter-21', chapter: '21', title: 'The Decision Matrix: How Operators Decide Under Pressure' },
       { id: 'chapter-22', chapter: '22', title: 'Identity, Pressure, and the Entrepreneur\'s Responsibility' },
     ],
