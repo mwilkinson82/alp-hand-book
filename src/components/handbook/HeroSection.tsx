@@ -3,11 +3,11 @@ import bookCover from '@/assets/book-cover.png';
 
 const HeroSection: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-center px-8 py-16 bg-gradient-to-b from-hero-gradient-start via-hero-gradient-mid to-background">
+    <div className="min-h-screen flex flex-col items-center justify-center text-center px-8 py-16">
       <img 
         src={bookCover} 
         alt="The ALP Handbook - To Operating a Top-Tier Contracting Company by Marshall Wilkinson" 
-        className="max-w-sm md:max-w-md lg:max-w-lg w-full h-auto shadow-2xl rounded-sm animate-float hover:scale-105 transition-transform duration-300"
+        className="max-w-sm md:max-w-md lg:max-w-lg w-full h-auto shadow-2xl rounded-sm"
       />
       
       {/* Scroll indicator */}
