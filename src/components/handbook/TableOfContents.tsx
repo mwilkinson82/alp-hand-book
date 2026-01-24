@@ -52,8 +52,8 @@ const tocData: TocSection[] = [
       { id: 'chapter-13', chapter: '13', title: 'Scheduling as Time Control' },
       { id: 'chapter-14', chapter: '14', title: 'Start–Stop Work and Productivity Loss' },
       { id: 'chapter-15', chapter: '15', title: 'Financial Command: Seeing the Business Clearly' },
-      { id: 'chapter-16', chapter: '16', title: 'CPM Schedules, Start–Stop Work, and the Cost of Disorder' },
-      { id: 'chapter-17', chapter: '17', title: 'Documentation, Entitlement, and Proof' },
+      { id: 'chapter-16', chapter: '16', title: 'General Conditions Are Not Overhead — They Are a Profit Center' },
+      { id: 'chapter-17', chapter: '17', title: 'CPM Schedules, Start–Stop Work, and the Cost of Disorder' },
     ],
   },
   {
