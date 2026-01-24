@@ -1,6 +1,8 @@
 import React from 'react';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
+import AudioPlayer from '../AudioPlayer';
+import authorsNoteAudio from '@/assets/audio/authors-note.mp3';
 
 const Foreword: React.FC = () => {
   return (
@@ -10,6 +12,9 @@ const Foreword: React.FC = () => {
           Foreword
         </div>
         <h2 className="chapter-heading">Author's Note</h2>
+        <div className="flex justify-center mt-8">
+          <AudioPlayer src={authorsNoteAudio} title="Listen to the Author's Note" />
+        </div>
       </header>
 
       <div className="body-text space-y-6 max-w-3xl">
