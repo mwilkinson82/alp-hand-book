@@ -64,6 +64,10 @@ export default {
         brand: {
           accent: "hsl(var(--brand-accent))",
         },
+        hero: {
+          "gradient-start": "hsl(var(--hero-gradient-start))",
+          "gradient-mid": "hsl(var(--hero-gradient-mid))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
