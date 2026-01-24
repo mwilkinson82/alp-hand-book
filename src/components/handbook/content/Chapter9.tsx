@@ -3,6 +3,7 @@ import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
 import Parable from '../Parable';
+import ExpandableImage from '../ExpandableImage';
 import alpDecisionMatrix from '@/assets/alp-decision-matrix.png';
 
 const Chapter9: React.FC = () => {
@@ -44,7 +45,7 @@ const Chapter9: React.FC = () => {
       </div>
 
       <figure className="my-16">
-        <img 
+        <ExpandableImage 
           src={alpDecisionMatrix} 
           alt="The ALP Decision Matrix - Altitude (Zoom Out) → Logic (Define Reality) → Pressure (Take Action). Think Clearly. Move Decisively." 
           className="w-full max-w-2xl mx-auto rounded-lg shadow-lg"
