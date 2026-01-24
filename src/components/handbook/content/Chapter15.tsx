@@ -7,313 +7,289 @@ import DoctrineList from '../DoctrineList';
 const Chapter15 = () => {
   return (
     <section id="chapter-15" className="chapter-section">
-      <ChapterHeader number={15} title="Financial Command: Seeing the Business Clearly" />
-      
-      <p className="body-text">Most contractors don't lack profit.</p>
-      
-      <p className="body-text">They lack visibility.</p>
+      <ChapterHeader number={15} title="Start–Stop Work and Productivity Loss" />
       
       <p className="body-text">
-        They work hard.<br />
-        They stay busy.<br />
-        They close jobs.
+        Few things destroy profit faster — or more quietly — than start–stop work.
       </p>
-      
-      <p className="body-text">And still feel uncertain.</p>
       
       <p className="body-text">
-        Not because the business is broken —<br />
-        but because they don't actually see it.
+        It doesn't show up as a line item.<br />
+        It doesn't trigger immediate alarms.<br />
+        It doesn't feel catastrophic in the moment.
       </p>
       
-      <p className="body-text font-semibold">Financial command is not accounting.</p>
+      <p className="body-text">
+        But it bleeds productivity, morale, schedule, and margin every single time it occurs.
+      </p>
       
-      <p className="body-text">It is clarity.</p>
+      <p className="body-text font-semibold">Start–stop work is not a labor problem.</p>
+      
+      <p className="body-text">It is a leadership and sequencing failure.</p>
 
-      <Section title="Why Money Feels Confusing in Construction">
-        <p className="body-text">Construction hides financial truth.</p>
-        
-        <p className="body-text">
-          Costs are delayed.<br />
-          Revenue is uneven.<br />
-          Problems surface late.<br />
-          Margins erode quietly.
-        </p>
-        
-        <p className="body-text">You can be:</p>
+      <Section title="What Start–Stop Work Really Is">
+        <p className="body-text">Start–stop work happens when crews are forced to:</p>
         
         <DoctrineList items={[
-          "Busy and losing money",
-          "Profitable on paper and broke in cash",
-          "Ahead in production and behind financially"
+          "Mobilize before prerequisites are ready",
+          "Demobilize due to missing information or access",
+          "Remobilize later to \"finish up\"",
+          "Relearn conditions they already solved once"
         ]} />
         
-        <p className="body-text">
-          This is why operators often feel uneasy even when work is strong.
-        </p>
-        
-        <p className="body-text font-semibold">The numbers lag reality.</p>
-      </Section>
-
-      <Section title="Financial Command Is Not About Reports">
-        <p className="body-text">Most contractors equate financial awareness with reports.</p>
+        <p className="body-text">This creates friction that compounds invisibly.</p>
         
         <p className="body-text">
-          Monthly P&Ls.<br />
-          Job cost summaries.<br />
-          Accounting software dashboards.
+          The work technically progresses.<br />
+          The job technically moves forward.
         </p>
         
-        <p className="body-text">Those are necessary — but insufficient.</p>
-        
-        <p className="body-text">Reports describe what already happened.</p>
-        
-        <p className="body-text font-semibold">
-          Financial command is about understanding what is happening right now — 
-          and what is about to happen next.
-        </p>
+        <p className="body-text">But efficiency collapses.</p>
       </Section>
 
-      <Section title="The Core Failure: Blended Thinking">
-        <p className="body-text">Here's the fundamental mistake:</p>
-        
-        <p className="body-text font-semibold">
-          Most contractors blend job performance with business performance.
-        </p>
-        
-        <p className="body-text">They don't separate:</p>
+      <Section title="Why Start–Stop Work Is So Dangerous">
+        <p className="body-text">Start–stop work attacks productivity from multiple angles at once:</p>
         
         <DoctrineList items={[
-          "Cash vs. profit",
-          "Revenue vs. margin",
-          "Progress vs. entitlement",
-          "Activity vs. productivity"
+          "Loss of momentum",
+          "Loss of task familiarity",
+          "Loss of crew rhythm",
+          "Increased errors and rework",
+          "Expanded supervision needs",
+          "Increased General Conditions",
+          "Morale erosion"
         ]} />
         
-        <p className="body-text">So everything feels vague.</p>
+        <p className="body-text">None of this shows up immediately.</p>
         
-        <p className="body-text">
-          Vagueness creates anxiety.<br />
-          Anxiety creates bad decisions.
-        </p>
+        <p className="body-text font-semibold">It shows up in the final margin.</p>
       </Section>
 
-      <Section title="Profit Is Not a Feeling">
-        <p className="body-text">Operators often say:</p>
+      <Section title="Productivity Is Fragile">
+        <p className="body-text">Productivity is not linear.</p>
         
-        <p className="body-text">"This job feels good."</p>
+        <p className="body-text">
+          Crews don't perform at the same efficiency every time they touch an activity.
+        </p>
         
-        <p className="body-text">Or:</p>
-        
-        <p className="body-text">"That one never felt right."</p>
-        
-        <p className="body-text">Feelings are signals — not proof.</p>
-        
-        <p className="body-text">Profit must be:</p>
+        <p className="body-text">Productivity improves when:</p>
         
         <DoctrineList items={[
-          "Measured",
-          "Protected",
-          "Verified"
+          "Scope is continuous",
+          "Access is uninterrupted",
+          "Decisions are final",
+          "Crews stay mentally and physically engaged"
         ]} />
         
-        <p className="body-text">
-          If you can't explain why a job is profitable or unprofitable, you're guessing.
-        </p>
+        <p className="body-text">Start–stop work resets that curve.</p>
         
-        <p className="body-text font-semibold">Guessing is not command.</p>
+        <p className="body-text font-semibold">Every restart is a step backward.</p>
       </Section>
 
-      <Section title="Cash Flow Is Not Profit">
-        <p className="body-text">This confusion ruins more contractors than bad estimating.</p>
+      <Section title="The Myth of 'We'll Just Come Back'">
+        <p className="body-text">This phrase has destroyed more profit than bad estimating.</p>
         
-        <p className="body-text">Cash flow answers:</p>
+        <p className="body-text font-semibold">"We'll just come back and finish it."</p>
         
-        <p className="body-text">"Can I pay my bills right now?"</p>
+        <p className="body-text">Coming back is never neutral.</p>
         
-        <p className="body-text">Profit answers:</p>
-        
-        <p className="body-text">"Is this job actually working?"</p>
-        
-        <p className="body-text">
-          You can have cash and be losing money.<br />
-          You can be profitable and starved for cash.
-        </p>
-        
-        <p className="body-text">
-          Operators who don't separate the two eventually collapse — usually when growth accelerates.
-        </p>
-      </Section>
-
-      <Section title="Margin Dies Before You Feel It">
-        <p className="body-text">Margin does not disappear suddenly.</p>
-        
-        <p className="body-text">It erodes through:</p>
+        <p className="body-text">Coming back means:</p>
         
         <DoctrineList items={[
-          "Time drift",
-          "Start–stop work",
-          "Productivity loss",
-          "Unrecovered GC's",
-          "Silent concessions"
+          "New setup",
+          "New orientation",
+          "New coordination",
+          "New risk",
+          "New supervision"
         ]} />
         
-        <p className="body-text">By the time the P&L confirms it, the damage is done.</p>
-        
-        <p className="body-text font-semibold">
-          Financial command requires early indicators, not autopsies.
-        </p>
+        <p className="body-text">The job pays for that friction — whether it's priced or not.</p>
       </Section>
 
-      <Section title="The Job Is the Unit of Truth">
-        <p className="body-text">The business is an aggregation of jobs.</p>
-        
-        <p className="body-text">If you don't understand:</p>
-        
-        <DoctrineList items={[
-          "Which jobs are carrying the business",
-          "Which jobs are bleeding",
-          "Which jobs are masking problems elsewhere"
-        ]} />
-        
-        <p className="body-text">You don't understand the business.</p>
-        
-        <p className="body-text font-semibold">Everything starts at the job level.</p>
-        
-        <p className="body-text">Always.</p>
-      </Section>
-
-      <Parable title="The Profitable Company That Wasn't">
-        <p className="body-text">A contractor looked successful.</p>
+      <Parable title="The Interrupted Trade">
+        <p className="body-text">A trade was started before preceding work was complete.</p>
         
         <p className="body-text">
-          Strong revenue.<br />
-          Busy crews.<br />
-          Growing backlog.
+          They worked around obstacles.<br />
+          Installed partial scope.<br />
+          Left.
         </p>
         
-        <p className="body-text">But three jobs were quietly underwater.</p>
-        
-        <p className="body-text">They consumed:</p>
-        
-        <DoctrineList items={[
-          "Management attention",
-          "Cash",
-          "Schedule flexibility"
-        ]} />
+        <p className="body-text">Weeks later, they returned.</p>
         
         <p className="body-text">
-          New jobs paid the bills.<br />
-          Old jobs drained margin.
+          Different crew.<br />
+          Different site conditions.<br />
+          Different constraints.
         </p>
         
-        <p className="body-text">The company wasn't profitable.</p>
+        <p className="body-text">
+          Productivity was half.<br />
+          Errors increased.<br />
+          Supervision doubled.
+        </p>
         
-        <p className="body-text font-semibold">It was floating on activity.</p>
+        <p className="body-text">The estimate was fine.</p>
         
-        <p className="body-text">When the backlog slowed, reality arrived.</p>
+        <p className="body-text font-semibold">The execution was broken by interruption.</p>
       </Parable>
 
-      <Section title="Financial Command Requires Separation">
-        <p className="body-text">Strong operators separate relentlessly:</p>
+      <Section title="Start–Stop Work Is a Scheduling Failure">
+        <p className="body-text">Start–stop work does not happen randomly.</p>
+        
+        <p className="body-text">It happens when:</p>
         
         <DoctrineList items={[
-          "Estimated margin vs. earned margin",
-          "Approved changes vs. pending exposure",
-          "Contract value vs. collectible value",
-          "Progress billed vs. progress earned",
-          "Cash received vs. cash owed"
+          "Sequence is ignored",
+          "Prerequisites are not enforced",
+          "Access is granted prematurely",
+          "Decisions lag",
+          "The schedule is treated as flexible"
         ]} />
         
-        <p className="body-text">This separation creates clarity.</p>
+        <p className="body-text">This is not bad luck.</p>
         
-        <p className="body-text font-semibold">Clarity enables decisions.</p>
+        <p className="body-text font-semibold">It is weak time control.</p>
       </Section>
 
-      <Section title="Why Contractors Avoid Financial Precision">
-        <p className="body-text">Precision removes excuses.</p>
+      <Section title="Why Contractors Tolerate It">
+        <p className="body-text">Contractors tolerate start–stop work because it feels cooperative.</p>
         
-        <p className="body-text">It forces acknowledgment of:</p>
+        <p className="body-text">They want to:</p>
         
         <DoctrineList items={[
-          "Bad jobs",
-          "Weak controls",
-          "Avoided conversations",
-          "Deferred decisions"
+          "Be flexible",
+          "Keep trades \"busy\"",
+          "Avoid confrontation",
+          "Keep owners happy",
+          "Maintain momentum"
         ]} />
         
-        <p className="body-text">Ambiguity feels safer.</p>
+        <p className="body-text font-semibold">But busyness is not progress.</p>
         
-        <p className="body-text">Until it isn't.</p>
+        <p className="body-text">And flexibility without control is chaos.</p>
       </Section>
 
-      <Section title="Financial Command Drives Behavior">
-        <p className="body-text">When financial clarity exists:</p>
+      <Section title="Start–Stop Work Expands General Conditions Automatically">
+        <p className="body-text">Every interruption extends:</p>
         
         <DoctrineList items={[
-          "Schedules tighten",
-          "Documentation improves",
-          "Decisions accelerate",
-          "Tolerance for chaos drops"
+          "Supervision",
+          "Management involvement",
+          "Site presence",
+          "Temporary facilities",
+          "Administrative overhead"
         ]} />
         
-        <p className="body-text">Why?</p>
+        <p className="body-text">
+          No argument.<br />
+          No negotiation.
+        </p>
         
-        <p className="body-text">Because consequences become visible.</p>
+        <p className="body-text">Time expands — and GC's expand with it.</p>
         
-        <p className="body-text font-semibold">Nothing sharpens leadership like clear numbers.</p>
+        <p className="body-text">
+          This is why start–stop work is a financial event, not just an operational one.
+        </p>
       </Section>
 
-      <Section title="The Operator's Role in Financial Command">
-        <p className="body-text">You can delegate bookkeeping.</p>
-        
-        <p className="body-text font-semibold">You cannot delegate financial understanding.</p>
-        
-        <p className="body-text">The operator must:</p>
+      <Section title="Why Productivity Loss Is Rarely Recovered">
+        <p className="body-text">Most contractors fail to recover productivity loss because:</p>
         
         <DoctrineList items={[
-          "Read job performance in real time",
-          "Ask uncomfortable questions",
-          "Tie operations to financial impact",
-          "Act early when numbers drift"
+          "They don't document interruptions clearly",
+          "They don't tie disruption to measurable impact",
+          "They don't update schedules to reflect resequencing",
+          "They don't issue notice early",
+          "They normalize inefficiency instead of flagging it"
         ]} />
         
-        <p className="body-text font-semibold">Leadership that avoids numbers forfeits control.</p>
+        <p className="body-text">Owners don't pay for "harder work."</p>
+        
+        <p className="body-text font-semibold">They pay for demonstrated disruption.</p>
+      </Section>
+
+      <Section title="Documentation Is the Only Defense">
+        <p className="body-text">Every start–stop event should trigger immediate action:</p>
+        
+        <DoctrineList items={[
+          "Field documentation",
+          "Schedule analysis",
+          "Notice consideration",
+          "Cost impact tracking"
+        ]} />
+        
+        <p className="body-text">If interruption is not recorded, it is assumed to be normal.</p>
+        
+        <p className="body-text font-semibold">And normal inefficiency is never compensated.</p>
+      </Section>
+
+      <Section title="Start–Stop Work Is a Leadership Choice">
+        <p className="body-text">This is the uncomfortable truth:</p>
+        
+        <p className="body-text font-semibold">
+          Start–stop work persists because leadership allows it.
+        </p>
+        
+        <p className="body-text">Strong operators:</p>
+        
+        <DoctrineList items={[
+          "Enforce prerequisites",
+          "Protect sequence",
+          "Delay starts until work can flow",
+          "Accept short-term discomfort to protect long-term margin"
+        ]} />
+        
+        <p className="body-text">Weak operators trade control for peace.</p>
+        
+        <p className="body-text">The bill comes later.</p>
+      </Section>
+
+      <Section title="The Operator's Responsibility">
+        <p className="body-text">The operator must decide:</p>
+        
+        <p className="body-text">
+          Do we start work to appear cooperative —<br />
+          or do we start work when it can be done productively?
+        </p>
+        
+        <p className="body-text">Those are not the same thing.</p>
+        
+        <p className="body-text">Every premature start is a hidden concession.</p>
+        
+        <p className="body-text font-semibold">And concessions compound.</p>
       </Section>
 
       <Section title="Bringing It Back to ALP">
         <p className="body-text">
-          <strong>Altitude</strong> allows you to see the business, not just the work.<br />
-          <strong>Logic</strong> connects operations, time, and money.<br />
-          <strong>Pressure</strong> forces decisions when numbers signal danger — not months later.
+          <strong>Altitude</strong> allows you to see interruption as systemic damage, not inconvenience.<br />
+          <strong>Logic</strong> connects start–stop work to productivity loss and GC expansion.<br />
+          <strong>Pressure</strong> requires you to say "not yet" — even when others push.
         </p>
         
-        <p className="body-text">Remove any one — and finances become reactive.</p>
+        <p className="body-text">Remove any one — and inefficiency becomes normal.</p>
       </Section>
 
       <Section title="Final Truth">
         <p className="body-text font-semibold">
-          Most contractors don't fail because they lack work.
+          Most contractors don't lose money because crews worked slowly.
         </p>
         
         <p className="body-text">
-          They fail because they didn't see the truth early enough to act.
+          They lose money because crews were forced to restart work that should have flowed.
         </p>
         
-        <p className="body-text">Financial command is not about sophistication.</p>
+        <p className="body-text">Start–stop work is not a cost of doing business.</p>
         
-        <p className="body-text font-semibold">It is about visibility, separation, and discipline.</p>
+        <p className="body-text font-semibold">It is a failure of sequencing, enforcement, and leadership.</p>
         
         <p className="body-text">
-          See clearly.<br />
-          Decide early.<br />
-          Act decisively.
+          Protect flow.<br />
+          Protect productivity.<br />
+          Protect time.
         </p>
         
-        <p className="body-text">
-          That is how control is maintained —<br />
-          and how businesses scale without breaking.
-        </p>
+        <p className="body-text font-semibold">Or watch margin die quietly — one restart at a time.</p>
       </Section>
     </section>
   );

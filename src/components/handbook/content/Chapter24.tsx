@@ -9,195 +9,331 @@ const Chapter24: React.FC = () => {
     <div id="chapter-24" className="chapter-container">
       <ChapterHeader 
         number={24} 
-        title="Scaling Without Losing Control" 
+        title="Using the ALP Handbook in Real Time" 
       />
       
       <Section>
-        <p>Most contractors do not fail early.</p>
-        <p>They fail <strong>after growth begins</strong>.</p>
-        <p>Revenue increases.<br />
-        Backlog grows.<br />
-        Headcount expands.<br />
-        Work accelerates.</p>
-        <p>And control quietly erodes.</p>
-        <p>This chapter exists to explain why that happens — and how ALP prevents it.</p>
+        <p>This handbook is not meant to be read once.</p>
+        <p>It is meant to be <strong>used under pressure</strong>.</p>
+        <p>When things are calm, most operators feel competent.<br />
+        When things become chaotic, clarity disappears.</p>
+        <p>This chapter exists for those moments.</p>
       </Section>
 
-      <Section title="Growth Is Not Scale">
-        <p><strong>Growth</strong> is volume.</p>
-        <p><strong>Scale</strong> is control at volume.</p>
-        <p>Many businesses grow.<br />
-        Very few scale.</p>
-        <p>Growth without control:</p>
+      <Section title="The Purpose of the Handbook">
+        <p>The ALP Handbook is not motivational.<br />
+        It is not inspirational.<br />
+        It is not theoretical.</p>
+        <p>It is a <strong>diagnostic and decision tool</strong>.</p>
+        <p>Its job is to:</p>
         <DoctrineList items={[
-          "Increases stress",
-          "Magnifies mistakes",
-          "Exposes weak systems",
-          "Accelerates burnout"
+          "Remove emotional noise",
+          "Identify root causes",
+          "Restore order",
+          "Drive correct action"
         ]} />
-        <p>Scale absorbs volume without losing clarity.</p>
-        <p>ALP is a scaling doctrine, not a growth hack.</p>
+        <p>If you only read this handbook when things are going well, you are missing its purpose.</p>
       </Section>
 
-      <Section title="Why Businesses Break During Growth">
-        <p>Growth introduces three forces simultaneously:</p>
+      <Section title="Step One: Stop Treating Symptoms">
+        <p>When something goes wrong, the instinct is to react to the loudest problem.</p>
+        <p>Cash feels tight.<br />
+        A job feels out of control.<br />
+        People are frustrated.<br />
+        Clients are difficult.</p>
+        <p>These are symptoms, not causes.</p>
+        <p>The first rule of ALP is this:</p>
+        <p className="italic"><strong>Never solve at the level of pain.<br />
+        Always solve at the level of structure.</strong></p>
+      </Section>
+
+      <Section title="Step Two: Use the Stool to Diagnose">
+        <p>When pressure appears, return to the ALP Scaling Stool.</p>
+        <p>Ask one question:</p>
+        <p className="italic"><strong>Which leg is weak right now?</strong></p>
         <DoctrineList items={[
-          "Speed — decisions must be made faster",
-          "Distance — the operator is further from the work",
-          "Complexity — more people, jobs, variables"
+          "Marketing → leads dry up, desperation increases",
+          "Sales → bad deals, poor terms, misaligned clients",
+          "Operations → chaos, inefficiency, rework",
+          "People → morale issues, turnover, inconsistency",
+          "Financial Command → surprises, confusion, anxiety"
         ]} />
-        <p>If control systems are not already in place, growth overwhelms the operator.</p>
-        <p>The business does not collapse because it is too big.</p>
-        <p><strong>It collapses because command did not scale with size.</strong></p>
+        <p>Do not guess.<br />
+        Do not rationalize.<br />
+        Identify the weakest leg.</p>
+        <p>That leg is where attention belongs.</p>
       </Section>
 
-      <Section title="The Myth of 'We'll Fix It Later'">
-        <p>Many operators postpone discipline until after growth stabilizes.</p>
-        <p>This is backwards.</p>
-        <p>You cannot retrofit control easily.<br />
-        You must install it early.</p>
-        <p>Deferred discipline compounds:</p>
-        <DoctrineList items={[
-          "Weak sales terms become systemic losses",
-          "Poor scheduling multiplies disruption",
-          "Inconsistent documentation kills entitlement",
-          "Financial blindness grows with revenue"
-        ]} />
-        <p>Later never comes.<br />
-        Pressure always does.</p>
-      </Section>
-
-      <Section title="Scaling the Operator First">
-        <p>The constraint in scaling is not the business.</p>
-        <p><strong>It is the operator.</strong></p>
-        <p>If the entrepreneur:</p>
-        <DoctrineList items={[
-          "Avoids decisions",
-          "Seeks approval",
-          "Hesitates under pressure",
-          "Relies on instinct",
-          "Resists structure"
-        ]} />
-        <p>The business cannot scale beyond them.</p>
-        <p>ALP requires the operator to grow <em>ahead</em> of the business, not behind it.</p>
-      </Section>
-
-      <Section title="Control Must Precede Delegation">
-        <p>Delegation without control creates chaos.</p>
-        <p>Before handing work off, the operator must ensure:</p>
-        <DoctrineList items={[
-          "Standards are defined",
-          "Systems are documented",
-          "Authority is clear",
-          "Accountability is enforced",
-          "Financial visibility exists"
-        ]} />
-        <p>You cannot delegate responsibility without first establishing command structure.</p>
-        <p>Otherwise, you are not scaling.<br />
-        You are dispersing risk.</p>
-      </Section>
-
-      <Parable title="The Expanding Circle">
-        <p>An owner grew from two jobs to twelve.</p>
-        <p>Revenue tripled.<br />
-        So did problems.</p>
-        <p>He hired more people.<br />
-        Added more meetings.<br />
-        Installed new software.</p>
-        <p>Nothing improved.</p>
-        <p>The issue was not capacity.<br />
-        It was clarity.</p>
-        <p>Once decision authority, scheduling discipline, and financial reporting were standardized, the business stabilized — without reducing volume.</p>
-        <p>The circle didn't need to shrink.<br />
-        <strong>It needed structure.</strong></p>
+      <Parable title="The Owner Who Fixed the Wrong Thing">
+        <p>An owner thought his problem was operations.</p>
+        <p>Jobs felt heavy.<br />
+        Stress was high.<br />
+        Margins were thin.</p>
+        <p>He focused on field efficiency.<br />
+        New tools.<br />
+        New supervisors.</p>
+        <p>Nothing changed.</p>
+        <p>The real issue was sales.<br />
+        Bad contracts.<br />
+        Weak terms.<br />
+        Unclear scope.</p>
+        <p>Once sales discipline was restored, operations stabilized naturally.</p>
+        <p>He didn't have an operations problem.</p>
+        <p><strong>He had a diagnosis problem.</strong></p>
       </Parable>
 
-      <Section title="Scaling Each Leg of the Stool">
-        <p>Scale must be balanced.</p>
-        <p>If one leg grows faster than the others, instability follows.</p>
-        <DoctrineList items={[
-          "Marketing without sales discipline creates bad backlog",
-          "Sales without operations creates chaos",
-          "Operations without people creates burnout",
-          "People without financial command creates drift"
-        ]} />
-        <p>The stool must be reinforced evenly as volume increases.</p>
-        <p>This is non-negotiable.</p>
+      <Section title="Step Three: Move From Chaos to Control">
+        <p>Once the weak leg is identified, apply the From Chaos to Control flow:</p>
+        <div className="space-y-4 mt-6">
+          <div>
+            <p className="font-semibold">1. See Clearly</p>
+            <p className="opacity-80">Gather facts. Numbers. Schedules. Reality.<br />
+            No stories. No emotion.</p>
+          </div>
+          <div>
+            <p className="font-semibold">2. Decide Correctly</p>
+            <p className="opacity-80">Use the Decision Matrix.<br />
+            Altitude → Logic → Pressure.</p>
+          </div>
+          <div>
+            <p className="font-semibold">3. Apply Pressure</p>
+            <p className="opacity-80">Execute the decision decisively.<br />
+            Delay is a decision — and usually the wrong one.</p>
+          </div>
+          <div>
+            <p className="font-semibold">4. Protect Margin</p>
+            <p className="opacity-80">Confirm the action stabilizes time, money, and exposure.</p>
+          </div>
+        </div>
+        <p className="mt-6">This flow should be automatic.</p>
       </Section>
 
-      <Section title="Financial Command Becomes Mandatory at Scale">
-        <p>At low volume, intuition masks weakness.</p>
-        <p>At scale, intuition fails.</p>
-        <p>Scaling requires:</p>
+      <Section title="Step Four: Use the Decision Matrix Under Stress">
+        <p>The Decision Matrix exists because stress distorts thinking.</p>
+        <p>When pressure rises:</p>
         <DoctrineList items={[
-          "Cost-coded jobs",
-          "Real-time WIP tracking",
-          "Cash flow forecasting",
-          "Margin visibility by project",
-          "Clear exposure awareness"
+          "Altitude collapses",
+          "Logic gets emotional",
+          "Pressure gets avoided or misapplied"
         ]} />
-        <p>If you cannot see the business clearly, you cannot scale it safely.</p>
-        <p>Growth hides problems.<br />
-        Scale exposes them.</p>
+        <p>The matrix forces order:</p>
+        <div className="space-y-4 mt-6">
+          <p><strong>Altitude:</strong> Zoom out. What actually matters?</p>
+          <p><strong>Logic:</strong> What are the facts? Constraints? Options?</p>
+          <p><strong>Pressure:</strong> What must be done now — cleanly and responsibly?</p>
+        </div>
+        <p className="mt-6">If a decision feels heavy, it usually means one step was skipped.</p>
       </Section>
 
-      <Section title="Pressure Increases — Identity Is Tested">
-        <p>As the business scales:</p>
+      <Parable title="The Clean Decision">
+        <p>An operator delayed terminating a bad subcontractor.</p>
+        <p>He gathered more data.<br />
+        Asked more opinions.<br />
+        Waited.</p>
+        <p>Costs mounted.</p>
+        <p>When he finally used the matrix, the answer was obvious.</p>
+        <p>The delay wasn't strategic.<br />
+        It was emotional.</p>
+        <p>Once the decision was made, the job stabilized within weeks.</p>
+        <p><strong>Clarity feels harsh — until you experience the cost of avoidance.</strong></p>
+      </Parable>
+
+      <Section title="Step Five: Return to Identity">
+        <p>If you find yourself resisting a decision, ask this question:</p>
+        <p className="italic"><strong>What am I afraid this decision says about me?</strong></p>
+        <p>Most hesitation is not operational.<br />
+        It is personal.</p>
         <DoctrineList items={[
-          "Decisions affect more people",
-          "Mistakes cost more money",
-          "Conflict becomes unavoidable",
-          "Visibility increases"
+          "Fear of being disliked.",
+          "Fear of being wrong.",
+          "Fear of confrontation.",
+          "Fear of responsibility."
         ]} />
-        <p>This is where identity collapses or solidifies.</p>
-        <p>Operators who need approval shrink.<br />
-        Operators who trust themselves stabilize the business.</p>
-        <p><strong>Scale does not forgive insecurity.</strong></p>
+        <p>ALP requires confronting identity first — then acting anyway.</p>
       </Section>
 
-      <Section title="Systems Reduce Emotional Load">
-        <p>ALP systems exist to remove emotion from execution.</p>
-        <p>Clear systems:</p>
+      <Section title="How to Use This Handbook Weekly">
+        <p>High-performing operators do not wait for chaos.</p>
+        <p>They review this handbook:</p>
         <DoctrineList items={[
-          "Reduce decision fatigue",
-          "Prevent overreaction",
-          "Eliminate firefighting",
-          "Protect the operator's energy"
+          "Weekly",
+          "Monthly",
+          "Before major decisions",
+          "After major disruptions"
         ]} />
-        <p>Energy is finite.<br />
-        Systems preserve it.</p>
+        <p>They ask:</p>
+        <DoctrineList items={[
+          "Where am I drifting?",
+          "Which leg needs reinforcement?",
+          "Where is pressure building?",
+          "What decision am I avoiding?"
+        ]} />
+        <p>This is how stability compounds.</p>
       </Section>
 
-      <Section title="Scaling Is a Discipline, Not a Goal">
-        <p>Scale is not a finish line.</p>
-        <p>It is a continuous discipline.</p>
-        <p>Every new level of volume requires:</p>
+      <Section title="Using the Handbook With Teams">
+        <p>This handbook is not private.</p>
+        <p>It is a <strong>leadership alignment tool</strong>.</p>
+        <p>Use it to:</p>
         <DoctrineList items={[
-          "Re-evaluating weak legs",
-          "Tightening standards",
-          "Reinforcing documentation",
-          "Sharpening decision-making"
+          "Train supervisors",
+          "Frame meetings",
+          "Diagnose problems",
+          "Remove emotion from discussion",
+          "Create a shared language"
         ]} />
-        <p>Operators who stop reinforcing control fall behind their own growth.</p>
-      </Section>
-
-      <Section title="Bringing It Back to ALP">
-        <p><strong>Altitude</strong> allows you to see scale clearly.<br />
-        <strong>Logic</strong> ensures systems make sense.<br />
-        <strong>Pressure</strong> ensures standards are enforced.</p>
-        <p>Remove any one — scale collapses.</p>
-        <p>ALP is not optional at higher levels.<br />
-        It is required infrastructure.</p>
+        <p>When everyone understands the framework, accountability becomes clean.</p>
       </Section>
 
       <Section title="Final Truth">
-        <p>Most businesses fail not because they grow too slowly —<br />
-        but because they grow faster than they can control.</p>
-        <p><strong>Scale rewards discipline.<br />
-        It punishes hope.</strong></p>
-        <p>Those who scale with ALP do not fear growth.</p>
-        <p>They command it.</p>
+        <p>Most businesses do not fail from lack of effort.</p>
+        <p>They fail from:</p>
+        <DoctrineList items={[
+          "Poor diagnosis",
+          "Emotional decisions",
+          "Avoidance under pressure"
+        ]} />
+        <p>The ALP Handbook exists to prevent that.</p>
+        <p>Use it when things feel unclear.<br />
+        Use it when pressure rises.<br />
+        Use it when decisions matter most.</p>
+        <p><strong>Clarity is not accidental.</strong></p>
+        <p>It is built — deliberately — by those willing to operate at a higher level.</p>
       </Section>
+
+      {/* ALP Field Checklist */}
+      <div className="mt-24 pt-16 border-t border-chapter-divider">
+        <h3 className="text-2xl md:text-3xl font-semibold font-serif mb-4">The ALP Field Checklist</h3>
+        <p className="text-lg opacity-70 mb-8 italic">(Jobs • Leadership • Decisions • Pressure)</p>
+        
+        <p className="body-text mb-8"><strong>Purpose:</strong><br />
+        To restore clarity, control, and correct action under real-world pressure.</p>
+        <p className="body-text mb-12">Use this checklist whenever something feels off.</p>
+
+        <div className="space-y-12">
+          <div className="checklist-section">
+            <h4 className="subsection-heading">STEP 1 — STOP THE NOISE</h4>
+            <p className="text-sm opacity-60 mb-4">(Do not act emotionally)</p>
+            <div className="space-y-2 body-text">
+              <p>☐ Pause reactive decisions</p>
+              <p>☐ Lower urgency before increasing effort</p>
+              <p>☐ Separate facts from feelings</p>
+              <p>☐ Refuse to solve at the level of stress</p>
+            </div>
+            <p className="mt-4 text-sm opacity-70 italic">Rule: If it feels urgent, slow down. Urgency without clarity creates damage.</p>
+          </div>
+
+          <div className="checklist-section">
+            <h4 className="subsection-heading">STEP 2 — DIAGNOSE USING THE STOOL</h4>
+            <p className="text-sm opacity-60 mb-4">(Find the weak leg)</p>
+            <p className="body-text mb-4">Ask: Which leg is failing right now?</p>
+            <div className="space-y-2 body-text">
+              <p>☐ Marketing — leads drying up, desperation rising</p>
+              <p>☐ Sales — bad deals, poor terms, misalignment</p>
+              <p>☐ Operations — chaos, inefficiency, rework</p>
+              <p>☐ People — morale issues, turnover, inconsistency</p>
+              <p>☐ Financial Command — surprises, confusion, anxiety</p>
+            </div>
+            <p className="mt-4 text-sm opacity-70 italic">Rule: Symptoms appear everywhere. Causes live in one place.</p>
+          </div>
+
+          <div className="checklist-section">
+            <h4 className="subsection-heading">STEP 3 — SEE CLEARLY (FINANCIAL COMMAND)</h4>
+            <div className="space-y-2 body-text">
+              <p>☐ Do I know the real numbers?</p>
+              <p>☐ Do I know where margin is leaking?</p>
+              <p>☐ Do I know what this issue is costing per week?</p>
+              <p>☐ Am I guessing — or measuring?</p>
+            </div>
+            <p className="mt-4 text-sm opacity-70 italic">Rule: If you cannot see clearly, you cannot decide correctly.</p>
+          </div>
+
+          <div className="checklist-section">
+            <h4 className="subsection-heading">STEP 4 — DECIDE USING THE ALP DECISION MATRIX</h4>
+            <div className="space-y-6 body-text mt-4">
+              <div>
+                <p className="font-semibold">ALTITUDE</p>
+                <p>☐ Am I zoomed out enough to see reality?</p>
+                <p>☐ What actually matters long-term?</p>
+                <p>☐ What is noise vs signal?</p>
+              </div>
+              <div>
+                <p className="font-semibold">LOGIC</p>
+                <p>☐ What are the facts?</p>
+                <p>☐ What are the constraints?</p>
+                <p>☐ What options actually exist?</p>
+              </div>
+              <div>
+                <p className="font-semibold">PRESSURE</p>
+                <p>☐ What decision must be made now?</p>
+                <p>☐ What am I avoiding?</p>
+                <p>☐ What action restores control?</p>
+              </div>
+            </div>
+            <p className="mt-4 text-sm opacity-70 italic">Rule: Delay is a decision — and usually the wrong one.</p>
+          </div>
+
+          <div className="checklist-section">
+            <h4 className="subsection-heading">STEP 5 — APPLY PRESSURE CLEANLY</h4>
+            <p className="text-sm opacity-60 mb-4">(Execution)</p>
+            <div className="space-y-2 body-text">
+              <p>☐ Clear direction given</p>
+              <p>☐ Accountability assigned</p>
+              <p>☐ Timeline established</p>
+              <p>☐ Standards enforced</p>
+              <p>☐ No re-negotiation midstream</p>
+            </div>
+            <p className="mt-4 text-sm opacity-70 italic">Rule: Pressure applied correctly stabilizes systems. Pressure avoided multiplies problems.</p>
+          </div>
+
+          <div className="checklist-section">
+            <h4 className="subsection-heading">STEP 6 — CHECK IDENTITY</h4>
+            <p className="text-sm opacity-60 mb-4">(The hidden failure point)</p>
+            <p className="body-text mb-4">Ask yourself honestly:</p>
+            <div className="space-y-2 body-text">
+              <p>☐ Am I avoiding this because I want to be liked?</p>
+              <p>☐ Am I hesitating because I fear being wrong?</p>
+              <p>☐ Am I over-explaining to seek validation?</p>
+              <p>☐ Am I protecting comfort instead of standards?</p>
+            </div>
+            <p className="mt-4 text-sm opacity-70 italic">Rule: If identity is weak, execution will fail.</p>
+          </div>
+
+          <div className="checklist-section">
+            <h4 className="subsection-heading">STEP 7 — DOCUMENT & PROTECT</h4>
+            <p className="text-sm opacity-60 mb-4">(Lock in control)</p>
+            <div className="space-y-2 body-text">
+              <p>☐ Is this documented?</p>
+              <p>☐ Was notice issued if required?</p>
+              <p>☐ Is schedule impact recorded?</p>
+              <p>☐ Is cost exposure captured?</p>
+            </div>
+            <p className="mt-4 text-sm opacity-70 italic">Rule: What is not documented does not exist.</p>
+          </div>
+
+          <div className="checklist-section">
+            <h4 className="subsection-heading">STEP 8 — RETURN TO ORDER</h4>
+            <p className="text-sm opacity-60 mb-4">(Stabilization)</p>
+            <div className="space-y-2 body-text">
+              <p>☐ Has chaos reduced?</p>
+              <p>☐ Has clarity increased?</p>
+              <p>☐ Has margin been protected?</p>
+              <p>☐ Has pressure normalized?</p>
+            </div>
+            <p className="mt-4 text-sm opacity-70 italic">If no — repeat the checklist.</p>
+          </div>
+        </div>
+
+        <div className="mt-16 pt-8 border-t border-chapter-divider">
+          <h4 className="subsection-heading mb-4">FINAL TRUTH</h4>
+          <p className="body-text">You do not need more effort.<br />
+          You need more clarity under pressure.</p>
+          <p className="body-text mt-4">This checklist is not optional.<br />
+          It is how professionals operate when things matter.</p>
+          <p className="body-text mt-4 font-semibold">Altitude. Logic. Pressure.<br />
+          Applied daily — not occasionally.</p>
+        </div>
+      </div>
     </div>
   );
 };

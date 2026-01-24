@@ -2,404 +2,431 @@ import React from 'react';
 import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
-import Parable from '../Parable';
 
 const Chapter18: React.FC = () => {
   return (
     <div id="chapter-18" className="py-24 border-t border-chapter-divider">
       <ChapterHeader 
         number={18} 
-        title="Change Order Velocity and Monetizing Disruption" 
+        title="CPM Schedules, Start–Stop Work, and the Cost of Disorder" 
       />
 
       <div className="body-text space-y-6 max-w-3xl">
         <p>
-          Most contractors experience change.
-        </p>
-        <p className="body-text-emphasis">
-          Few contractors monetize it well.
+          Most contractors treat schedules as a formality.
         </p>
         <p>
-          That difference is not intelligence.<br />
-          It is not aggression.<br />
-          It is not luck.
-        </p>
-        <p className="body-text-emphasis">
-          It is velocity.
+          Something required by the owner.<br />
+          Something submitted once.<br />
+          Something referenced occasionally.
         </p>
         <p>
-          Change orders are not lost because disruption didn't occur.<br />
-          They are lost because the contractor moved too slowly — or not at all.
+          That misunderstanding costs more profit than almost any other operational failure.
+        </p>
+        <p>
+          A schedule is not paperwork.
+        </p>
+        <p className="body-text-emphasis">
+          A schedule is time control.
+        </p>
+        <p>
+          And time is the most expensive input on a construction project.
         </p>
       </div>
 
       <div className="chapter-divider" />
 
-      <Section title="Disruption Is Not the Problem">
+      <Section title="Why Time Is the Only Resource You Cannot Recover">
         <p>
-          Disruption is inevitable.
-        </p>
-        <p>
-          Every project experiences:
-        </p>
-        <DoctrineList items={[
-          "Design changes",
-          "Scope clarifications",
-          "Resequencing",
-          "Delays",
-          "Interference",
-          "Access issues"
-        ]} />
-        <p>
-          These are not exceptions.
-        </p>
-        <p>
-          They are normal conditions of construction.
-        </p>
-        <p>
-          The mistake contractors make is treating disruption as something to "push through" instead of something to <strong>capture and convert</strong>.
-        </p>
-      </Section>
-
-      <Section title="What Change Order Velocity Really Means">
-        <p>
-          Change order velocity is the speed at which disruption is:
-        </p>
-        <DoctrineList items={[
-          "Identified",
-          "Documented",
-          "Priced",
-          "Submitted",
-          "Resolved"
-        ]} />
-        <p>
-          The faster this cycle moves, the more leverage the contractor retains.
-        </p>
-        <p>
-          The slower it moves, the more leverage shifts to the owner.
-        </p>
-        <p>
-          Delay does not create goodwill.<br />
-          Delay creates dispute.
-        </p>
-      </Section>
-
-      <Section title="Why Contractors Lose Change Orders">
-        <p>
-          Contractors lose change orders for predictable reasons:
-        </p>
-        <DoctrineList items={[
-          "They wait too long to document",
-          "They continue working without direction",
-          'They absorb disruption "to keep things moving"',
-          "They lack schedule proof",
-          "They rely on memory instead of records"
-        ]} />
-        <p>
-          By the time the change is submitted, the job has moved on — and so has the owner's willingness to pay.
-        </p>
-      </Section>
-
-      <Section title="Work First, Argue Later Is a Losing Strategy">
-        <p>
-          Many contractors operate under an unspoken rule:<br />
-          "Just do the work and we'll figure it out later."
-        </p>
-        <p>
-          This feels cooperative.<br />
-          It feels professional.<br />
-          It feels necessary in the moment.
+          Labor can be replaced.<br />
+          Materials can be reordered.<br />
+          Money can be borrowed.
         </p>
         <p className="body-text-emphasis">
-          It is also how entitlement disappears.
+          Time cannot be recovered.
         </p>
         <p>
-          Once work is performed:
+          Every lost day compounds:
         </p>
         <DoctrineList items={[
-          "Urgency drops",
-          "Leverage fades",
-          "Disruption becomes invisible",
-          "Memory replaces proof"
+          "Supervision costs",
+          "General conditions",
+          "Management effort",
+          "Financing pressure",
+          "Morale degradation"
         ]} />
         <p>
-          Owners pay for <strong>impact</strong>, not effort.
-        </p>
-        <p>
-          If the impact is not captured in real time, it becomes negotiable — or deniable.
+          When contractors lose control of time, everything else deteriorates shortly after.
         </p>
       </Section>
 
-      <Section title="Documentation Is the Engine of Velocity">
+      <Section title="What a CPM Schedule Actually Is">
         <p>
-          Change order velocity is impossible without documentation.
+          A CPM (Critical Path Method) schedule is not a calendar.
         </p>
         <p>
-          At minimum, this includes:
+          It is a <strong>logic model</strong>.
+        </p>
+        <p>
+          It defines:
         </p>
         <DoctrineList items={[
-          "Daily reports",
-          "Schedule updates",
-          "Photos",
-          "Logs",
-          "Correspondence"
+          "What must happen",
+          "In what sequence",
+          "With what dependencies",
+          "And which activities control completion"
         ]} />
         <p>
-          Documentation is not bureaucracy.
+          The critical path is not theoretical.
         </p>
         <p className="body-text-emphasis">
-          It is how disruption is transformed into entitlement.
+          It is the chain of events that governs cash flow, risk, and exposure.
         </p>
         <p>
-          Without it, every change becomes an argument.<br />
-          With it, changes become transactions.
+          If you do not control the critical path, you do not control the job.
         </p>
       </Section>
 
-      <Section title="The Role of the Schedule in Change Orders">
+      <Section title="Why Schedules Fail in the Real World">
         <p>
-          Schedules give context to disruption.
+          Schedules fail for predictable reasons:
+        </p>
+        <DoctrineList items={[
+          "They are created to satisfy a contract requirement, not to run the job",
+          "They are not updated when conditions change",
+          "They are disconnected from field reality",
+          "They are treated as static instead of living tools"
+        ]} />
+        <p>
+          When a schedule is not respected, it becomes fiction.
+        </p>
+        <p className="body-text-emphasis">
+          And fiction cannot protect profit.
+        </p>
+      </Section>
+
+      <Section title="Start–Stop Work Is a Scheduling Failure">
+        <p>
+          Start–stop work is not bad luck.<br />
+          It is not lazy labor.<br />
+          It is not "just construction."
+        </p>
+        <p className="body-text-emphasis">
+          It is disorder caused by broken sequencing.
         </p>
         <p>
-          They show:
+          Start–stop work happens when:
+        </p>
+        <DoctrineList items={[
+          "Trades are stacked without separation",
+          "Materials arrive out of sequence",
+          "Access is not controlled",
+          "Decisions lag behind work",
+          "Dependencies are ignored"
+        ]} />
+        <p>
+          Every stop resets momentum.
+        </p>
+        <p>
+          Momentum is productivity.<br />
+          Productivity is margin.
+        </p>
+      </Section>
+
+      <Section title="The Hidden Cost of Start–Stop Work">
+        <p>
+          Start–stop work creates losses that never show up cleanly in reports:
+        </p>
+        <DoctrineList items={[
+          "Crews lose rhythm",
+          "Supervisors spend time re-explaining work",
+          "Rework increases",
+          "Safety risk rises",
+          "Morale erodes"
+        ]} />
+        <p>
+          The job still "moves," but efficiency collapses.
+        </p>
+        <p className="body-text-emphasis">
+          This is how jobs that look fine on paper quietly die.
+        </p>
+      </Section>
+
+      <Section title="Scheduling as a Financial Weapon">
+        <p>
+          A properly managed schedule does three critical things:
+        </p>
+        <DoctrineList items={[
+          "Protects productivity",
+          "Documents disruption",
+          "Creates entitlement"
+        ]} />
+        <p>
+          When disruption occurs, the schedule answers:
         </p>
         <DoctrineList items={[
           "What was planned",
           "What changed",
-          "Where the critical path was impacted",
-          "How time was extended"
+          "Who caused it",
+          "And what it cost"
         ]} />
         <p>
-          Without schedule impact, change orders are reduced to opinions about inconvenience.
+          Without a schedule, you have opinions.
         </p>
         <p className="body-text-emphasis">
-          With schedule impact, they become claims of time and cost.
-        </p>
-        <p>
-          Time is where money lives.
+          With a schedule, you have proof.
         </p>
       </Section>
 
-      <Section title="Velocity Protects Relationships">
+      <Section title="Why Contractors Avoid Real Scheduling">
         <p>
-          Slow change order processes create tension.
+          Real scheduling forces discipline.
         </p>
         <p>
-          Owners feel blindsided.<br />
-          Contractors feel exploited.<br />
-          Trust erodes.
-        </p>
-        <p>
-          Fast, clean change management:
+          It requires:
         </p>
         <DoctrineList items={[
-          "Reduces emotion",
-          "Creates clarity",
-          "Preserves professionalism",
-          "Maintains momentum"
+          "Thinking ahead",
+          "Defining logic",
+          "Committing to sequence",
+          "Updating reality honestly"
         ]} />
         <p>
-          Velocity is not aggressive.
+          Many contractors avoid this because:
+        </p>
+        <DoctrineList items={[
+          "It exposes weak planning",
+          "It removes excuses",
+          "It demands accountability"
+        ]} />
+        <p>
+          But avoiding discipline does not remove cost.
         </p>
         <p className="body-text-emphasis">
-          It is respectful.
+          It simply hides it until it is unrecoverable.
         </p>
       </Section>
 
-      <Section title="Change Orders as a System, Not an Event">
+      <Section title="Field Alignment Is Non-Negotiable">
         <p>
-          Top-tier contractors do not treat change orders as isolated incidents.
+          A schedule that lives only in the office is useless.
         </p>
         <p>
-          They treat them as a <strong>system</strong>.
-        </p>
-        <p>
-          That system answers:
+          Field leadership must:
         </p>
         <DoctrineList items={[
-          "Who identifies change?",
-          "Who documents it?",
-          "Who prices it?",
-          "Who submits it?",
-          "Who tracks resolution?"
+          "Understand the sequence",
+          "Enforce separation",
+          "Anticipate constraints",
+          "Communicate changes immediately"
         ]} />
         <p>
-          When this system is unclear, velocity collapses.
+          When the field operates independently of the schedule, disorder takes over.
         </p>
-        <p>
-          When it is clear, disruption becomes manageable — and profitable.
+        <p className="body-text-emphasis">
+          Strong operators ensure the schedule leads the field, not the other way around.
         </p>
       </Section>
 
-      <Section title="Why Owners Respect Fast Contractors">
+      <Section title="CPM and Change Orders">
         <p>
-          Owners do not like surprises.<br />
-          They also do not like ambiguity.
+          Schedules are foundational to change order velocity.
         </p>
         <p>
-          Contractors who surface change early:
-        </p>
-        <DoctrineList items={[
-          "Appear organized",
-          "Appear controlled",
-          "Appear trustworthy"
-        ]} />
-        <p>
-          Contractors who wait:
+          If work is disrupted and you cannot show:
         </p>
         <DoctrineList items={[
-          "Appear disorganized",
-          "Appear reactive",
-          "Appear desperate"
+          "Critical path impact",
+          "Resource stacking",
+          "Resequencing",
+          "Extended durations"
         ]} />
+        <p>
+          You will struggle to monetize change.
+        </p>
+        <p>
+          Owners do not pay for inconvenience.<br />
+          They pay for <strong>demonstrated time impact</strong>.
+        </p>
         <p className="body-text-emphasis">
-          Velocity signals competence.
+          That proof comes from the schedule.
         </p>
       </Section>
 
-      <Section title="Bringing It Back to the Stool">
+      <Section title="The Cost of Disorder">
         <p>
-          Change order velocity sits at the intersection of:
+          Disorder is expensive.
+        </p>
+        <p>
+          It looks like:
         </p>
         <DoctrineList items={[
-          "Operations",
-          "Scheduling",
-          "General conditions",
-          "Financial command",
-          "Sales discipline"
+          "Crowded sites",
+          "Conflicting instructions",
+          "Constant firefighting",
+          "Emotional supervision",
+          "Reactive decisions"
         ]} />
         <p>
-          Weak velocity destabilizes the stool.
+          Order feels slow at first.
+        </p>
+        <p>
+          It is not.
         </p>
         <p className="body-text-emphasis">
-          Strong velocity reinforces control across the business.
+          Order accelerates execution by removing friction.
         </p>
       </Section>
 
       <Section title="The Operator's Responsibility">
         <p>
-          The entrepreneur must design the change system.
+          The entrepreneur must insist on scheduling discipline.
         </p>
         <p>
-          Not personally chase every change —<br />
-          but ensure the system exists and is enforced.
+          Not perfection.<br />
+          Discipline.
         </p>
         <p>
           That means:
         </p>
         <DoctrineList items={[
-          "Clear triggers",
-          "Clear documentation standards",
-          "Clear timelines",
-          "Clear authority"
+          "Treating schedules as operational tools",
+          "Updating them when reality changes",
+          "Using them to drive decisions",
+          "Defending them contractually"
         ]} />
         <p>
-          If disruption is unmanaged, margin will absorb it.
+          If the schedule is ignored, time is lost.<br />
+          If time is lost, margin pays the price.
         </p>
       </Section>
 
-      <Parable title="The Change Order That Died Quietly">
+      <Section title="Bringing It Back to the Stool">
         <p>
-          A design conflict stopped work for half a day.
+          Scheduling sits at the intersection of:
         </p>
+        <DoctrineList items={[
+          "Operations",
+          "General conditions",
+          "Financial command",
+          "Change entitlement"
+        ]} />
         <p>
-          The superintendent adjusted.<br />
-          Crews shifted tasks.<br />
-          Everyone stayed "productive."
-        </p>
-        <p>
-          No notice was issued.<br />
-          No documentation captured impact.<br />
-          The schedule wasn't updated.
-        </p>
-        <p>
-          Weeks later, the contractor submitted a change order.
-        </p>
-        <p>
-          The owner responded calmly:<br />
-          "You worked through it."
-        </p>
-        <p>
-          And that was the end of it.
-        </p>
-        <p>
-          The disruption was real.<br />
-          The cost was real.<br />
-          But the moment had passed.
+          Weak scheduling destabilizes the stool.
         </p>
         <p className="body-text-emphasis">
-          Velocity was lost.
+          Strong scheduling reinforces every leg.
         </p>
-        <p>
-          Change orders don't die in rejection.<br />
-          They die in <strong>delay</strong>.
-        </p>
-        <p>
-          By the time many contractors speak up, the project has already moved on — and so has entitlement.
-        </p>
-      </Parable>
+      </Section>
+
+      <div className="parable-container">
+        <div className="parable-label">Example</div>
+        <h4 className="subsection-heading italic">The One-Day Delay That Cost Three Weeks</h4>
+        <div className="body-text space-y-4">
+          <p>
+            A job was scheduled tightly but logically.
+          </p>
+          <p>
+            One delivery slipped by a single day.<br />
+            No notice was issued.<br />
+            The schedule wasn't updated.<br />
+            The crew improvised.
+          </p>
+          <p>
+            That one-day slip stacked trades.<br />
+            Access became contested.<br />
+            Work started and stopped.<br />
+            Rework followed.
+          </p>
+          <p>
+            By the time the dust settled, the project was three weeks behind.
+          </p>
+          <p>
+            No single moment felt catastrophic.<br />
+            No one decision looked fatal.
+          </p>
+          <p className="body-text-emphasis">
+            But time drifted — unchecked.
+          </p>
+          <p>
+            When the contractor later attempted to recover costs, the owner asked:<br />
+            "Where is the schedule impact?"
+          </p>
+          <p>
+            There wasn't one.
+          </p>
+          <p>
+            The delay was real.<br />
+            The cost was real.<br />
+            But without time control, the loss was <strong>unrecoverable</strong>.
+          </p>
+          <p className="body-text-emphasis">
+            Schedules don't prevent problems.<br />
+            They prevent unpaid problems.
+          </p>
+        </div>
+      </div>
 
       <div className="parable-container">
         <div className="parable-label">Identity Parable</div>
-        <h4 className="subsection-heading italic">The Nice Contractor</h4>
+        <h4 className="subsection-heading italic">The Operator Who Hated Planning</h4>
         <div className="body-text space-y-4">
           <p>
-            Everyone liked him.
+            An operator avoided scheduling.
           </p>
           <p>
-            He was agreeable.<br />
-            Flexible.<br />
-            Understanding.
+            He said:<br />
+            "I like to stay flexible."<br />
+            "I don't want to overcomplicate things."<br />
+            "We'll figure it out in the field."
           </p>
           <p>
-            He didn't issue notices.<br />
-            Didn't push change orders.<br />
-            Didn't want to "rock the boat."
+            But the truth was simpler.
           </p>
           <p>
-            He believed being liked would protect him.
+            Planning made him confront reality.<br />
+            Planning exposed tradeoffs.<br />
+            Planning removed excuses.
+          </p>
+          <p>
+            Without a schedule, failure felt external.<br />
+            With a schedule, failure felt personal.
           </p>
           <p className="body-text-emphasis">
-            It didn't.
+            So he avoided structure.
           </p>
           <p>
-            Costs piled up.<br />
-            Scope blurred.<br />
-            Disruption went unpaid.
-          </p>
-          <p>
-            By the end of the job, the relationship he tried to protect no longer mattered.
+            And time drifted.<br />
+            And margin eroded.<br />
+            And blame multiplied.
           </p>
           <p className="body-text-emphasis">
-            Niceness without boundaries is not professionalism.
+            Order is uncomfortable for people whose identity relies on improvisation.
           </p>
           <p>
-            It is fear of disapproval.
-          </p>
-          <p>
-            Velocity requires identity strong enough to tolerate tension.
+            Professionals choose order anyway.
           </p>
         </div>
       </div>
 
       <Section title="Final Truth">
         <p>
-          Disruption is not optional in construction.
+          Jobs do not fail because people are incapable.
         </p>
         <p className="body-text-emphasis">
-          Profit from disruption is.
+          They fail because time is allowed to drift without control.
         </p>
         <p>
-          Those who move slowly subsidize the project.
+          A CPM schedule is not bureaucracy.
         </p>
         <p>
-          Those who move with velocity get paid for reality.
+          It is how professionals impose order on chaos — and protect profit while doing it.
         </p>
         <p>
-          Change does not kill margin.
+          Those who respect time control outcomes.
         </p>
-        <p className="body-text-emphasis">
-          Delay does.
+        <p>
+          Those who don't spend their careers chasing lost days.
         </p>
       </Section>
     </div>

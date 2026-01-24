@@ -2,378 +2,403 @@ import React from 'react';
 import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
-import Parable from '../Parable';
-import MediaPlaceholder from '../MediaPlaceholder';
 
 const Chapter20: React.FC = () => {
   return (
     <div id="chapter-20" className="py-24 border-t border-chapter-divider">
       <ChapterHeader 
         number={20} 
-        title="Financial Authority at Scale" 
+        title="Notices, Documentation, and Playing Offense" 
       />
 
       <div className="body-text space-y-6 max-w-3xl">
         <p>
-          Most contractors believe they understand their finances.
+          Most contractors treat notices and documentation as a necessary evil.
         </p>
         <p>
-          They know revenue.<br />
-          They know payroll.<br />
-          They know whether the bank balance feels tight or loose.
+          Something legal demands.<br />
+          Something lawyers care about.<br />
+          Something you deal with when things go bad.
         </p>
         <p>
-          That is not financial command.
+          That mindset costs money.
+        </p>
+        <p>
+          Documentation is not defensive.
         </p>
         <p className="body-text-emphasis">
-          That is financial awareness — and awareness is not control.
+          It is offensive leverage.
         </p>
         <p>
-          Businesses do not fail because owners don't work hard.<br />
-          They fail because owners <strong>cannot see clearly enough to decide early</strong>.
-        </p>
-        <p className="body-text-emphasis">
-          Financial command is the ability to see reality before it becomes pain.
+          And contractors who understand this stop reacting to problems —<br />
+          they position themselves to get paid for reality.
         </p>
       </div>
 
       <div className="chapter-divider" />
 
-      <Section title="Revenue Is Not Control">
+      <Section title="Why Most Contractors Hate Documentation">
         <p>
-          Revenue is noise.
-        </p>
-        <p>
-          It creates confidence when it rises.<br />
-          It creates panic when it falls.
-        </p>
-        <p>
-          But revenue alone tells you nothing about:
+          Documentation feels:
         </p>
         <DoctrineList items={[
-          "Risk",
-          "Margin erosion",
-          "Cash exposure",
-          "Future instability"
+          "Administrative",
+          "Time-consuming",
+          "Bureaucratic",
+          "Unproductive"
         ]} />
         <p>
-          Many contractors go bankrupt on record revenue.
+          It doesn't feel like "real work."
         </p>
         <p>
-          Not because they were unlucky —<br />
-          but because they were blind.
+          So it gets delayed.<br />
+          It gets skipped.<br />
+          It gets done poorly — or not at all.
+        </p>
+        <p>
+          And then, when conflict arises, the contractor is surprised to learn:
+        </p>
+        <p className="blockquote-doctrine">
+          What wasn't documented doesn't exist.
+        </p>
+        <p>
+          That surprise is expensive.
         </p>
       </Section>
 
-      <Section title="What Financial Command Actually Means">
+      <Section title="Notices Are Not Threats — They Are Signals">
         <p>
-          Financial command is knowing:
+          Contractual notices are misunderstood.
+        </p>
+        <p>
+          They are not accusations.<br />
+          They are not hostility.<br />
+          They are not escalation.
+        </p>
+        <p className="body-text-emphasis">
+          They are signals.
+        </p>
+        <p>
+          They signal:
         </p>
         <DoctrineList items={[
-          "Where money is made",
-          "Where money is lost",
-          "Where money is at risk",
-          "And where money will be in the future"
+          "Conditions have changed",
+          "Risk has shifted",
+          "Impact is occurring",
+          "Entitlement is being preserved"
         ]} />
         <p>
-          It is proactive, not reactive.
+          Professionals issue notices early.<br />
+          Amateurs wait until frustration builds.
         </p>
-        <p>
-          It allows the entrepreneur to:
-        </p>
-        <DoctrineList items={[
-          "Decide early",
-          "Correct quickly",
-          "Apply pressure intentionally",
-          "Avoid emotional decision-making"
-        ]} />
-        <p>
-          Without command, every decision feels urgent.<br />
-          With command, urgency disappears.
+        <p className="body-text-emphasis">
+          By then, leverage is gone.
         </p>
       </Section>
 
-      <Parable title="The Profitable Company That Collapsed">
+      <Section title="The Timing of Notice Is Everything">
         <p>
-          A contractor was growing fast.
+          Late notice is worse than no notice.
         </p>
         <p>
-          Revenue doubled in three years.<br />
-          The backlog looked strong.<br />
-          The market respected them.
+          Why?
         </p>
         <p>
-          Then one job slipped.<br />
-          Then another.<br />
-          Then cash tightened.
-        </p>
-        <p>
-          By the time the owner realized there was a problem, the problem was already fatal.
-        </p>
-        <p>
-          The issue wasn't bad jobs.<br />
-          It wasn't theft.<br />
-          It wasn't fraud.
-        </p>
-        <p className="body-text-emphasis">
-          It was lack of visibility.
-        </p>
-        <p>
-          No one could see margin erosion early.<br />
-          No one could see cash lag building.<br />
-          No one could see exposure stacking.
-        </p>
-        <p>
-          The company didn't collapse suddenly.
-        </p>
-        <p>
-          It <strong>ran out of time to react</strong>.
-        </p>
-      </Parable>
-
-      <Section title="Cash Flow Is a Lagging Indicator">
-        <p>
-          Cash problems feel sudden.
-        </p>
-        <p>
-          They are not.
-        </p>
-        <p>
-          Cash reflects decisions made months earlier:
+          Because notice exists to:
         </p>
         <DoctrineList items={[
-          "Under-carried general conditions",
-          "Unpriced disruption",
-          "Slow change orders",
-          "Poor billing discipline",
-          "Loose scheduling"
+          "Preserve rights",
+          "Create awareness",
+          "Enable mitigation",
+          "Establish timelines"
         ]} />
         <p>
-          When cash becomes the problem, it is already late.
+          When notice is delayed:
+        </p>
+        <DoctrineList items={[
+          "Owners feel blindsided",
+          "Impact becomes disputable",
+          "Memory replaces fact",
+          "Goodwill evaporates"
+        ]} />
+        <p>
+          Speed is not aggression.
         </p>
         <p className="body-text-emphasis">
-          Financial command moves the lens upstream —<br />
-          to where correction is still possible.
+          Speed is clarity.
         </p>
       </Section>
 
-      <MediaPlaceholder type="diagram" label="Financial Command Dashboard Example" />
-
-      <Section title="Job-Level Visibility Is Non-Negotiable">
+      <Section title="Documentation Creates Reality">
         <p>
-          Financial command does not live in company-wide summaries.
+          Construction disputes are not decided by effort.<br />
+          They are decided by <strong>records</strong>.
         </p>
         <p>
-          It lives at the job level.
-        </p>
-        <p>
-          Every job must answer:
-        </p>
-        <DoctrineList items={[
-          "What was the planned margin?",
-          "What is the current margin?",
-          "What has changed?",
-          "What is at risk?",
-          "What is recoverable?"
-        ]} />
-        <p>
-          If you cannot answer these questions in real time,<br />
-          you do not control the business.
+          Daily reports, photos, logs, schedules, and correspondence do one thing extremely well:
         </p>
         <p className="body-text-emphasis">
-          You are reacting to it.
+          They replace opinion with evidence.
+        </p>
+        <p>
+          Evidence is calm.<br />
+          Evidence is objective.<br />
+          Evidence wins.
+        </p>
+        <p>
+          Without documentation, every conversation becomes emotional.<br />
+          With documentation, conversations stay professional.
         </p>
       </Section>
 
-      <Section title="Cost Coding Is Not Accounting — It Is Intelligence">
+      <Section title="Memory Is Unreliable">
         <p>
-          Cost codes are not bookkeeping.
+          Human memory is unreliable — especially under pressure.
+        </p>
+        <p>
+          Details blur.<br />
+          Timelines shift.<br />
+          Perspectives diverge.
         </p>
         <p className="body-text-emphasis">
-          They are diagnostic tools.
+          Documentation removes ambiguity.
         </p>
         <p>
-          They reveal:
-        </p>
-        <DoctrineList items={[
-          "Where inefficiency is occurring",
-          "Where labor is drifting",
-          "Where supervision is absorbing disruption",
-          "Where margin is leaking quietly"
-        ]} />
-        <p>
-          Poor cost coding hides problems.<br />
-          Strong cost coding exposes them early.
+          It anchors events in time.<br />
+          It captures cause and effect.<br />
+          It protects against revisionist history.
         </p>
         <p>
-          Early exposure creates options.<br />
-          Late discovery creates panic.
+          Strong operators document <strong>while events are happening</strong>, not after the fact.
         </p>
       </Section>
 
-      <Section title="Financial Command Eliminates Emotional Decisions">
+      <Section title="Playing Offense Instead of Defense">
         <p>
-          When visibility is weak, decisions become emotional:
+          Most contractors document reactively:
         </p>
         <DoctrineList items={[
-          "Chasing bad work to fill gaps",
-          "Cutting pricing to keep crews busy",
-          "Accepting risk you don't understand",
-          "Avoiding necessary confrontation"
+          "After disputes arise",
+          "After money is withheld",
+          "After trust erodes"
         ]} />
-        <p className="body-text-emphasis">
-          Clarity removes emotion.
+        <p>
+          That is defense.
         </p>
         <p>
-          When you can see:
+          Offense means:
         </p>
         <DoctrineList items={[
-          "Exposure",
-          "Timing",
-          "Margin",
-          "Leverage"
+          "Documenting before conflict",
+          "Issuing notice early",
+          "Updating schedules continuously",
+          "Connecting impact to time and cost immediately"
         ]} />
         <p>
-          Decisions become calm and deliberate.
+          Offensive documentation shapes the narrative.
         </p>
         <p className="body-text-emphasis">
-          That calm is power.
+          Defensive documentation argues about it.
         </p>
       </Section>
 
-      <Section title="The Owner's Real Financial Role">
+      <Section title="The Relationship Myth">
         <p>
-          The entrepreneur is not the bookkeeper.<br />
-          The entrepreneur is not the accountant.
-        </p>
-        <p className="body-text-emphasis">
-          The entrepreneur is the commander.
+          Many contractors avoid notices because they fear damaging relationships.
         </p>
         <p>
-          That means:
+          In reality, unclear expectations damage relationships far more than early communication.
+        </p>
+        <p>
+          Professional owners expect:
         </p>
         <DoctrineList items={[
-          "Demanding clear reporting",
-          "Reviewing it consistently",
-          "Asking uncomfortable questions",
-          "Acting before problems grow teeth"
+          "Transparency",
+          "Timely notice",
+          "Clear documentation"
         ]} />
         <p>
-          Delegation without visibility is abdication.
+          Silence creates suspicion.<br />
+          Late claims create resentment.
+        </p>
+        <p className="body-text-emphasis">
+          Clarity preserves trust.
         </p>
       </Section>
 
-      <Section title="Financial Command and the Scaling Stool">
+      <Section title="Documentation Is a System, Not a Reaction">
         <p>
-          Financial command stabilizes every leg of the stool.
+          Top-tier operators do not rely on individual discipline.
         </p>
         <p>
-          It:
+          They build systems.
+        </p>
+        <p>
+          Those systems define:
         </p>
         <DoctrineList items={[
-          "Informs marketing spend",
-          "Sharpens sales discipline",
-          "Exposes operational drift",
-          "Reveals people inefficiencies",
-          "Prevents surprise collapse"
+          "What gets documented",
+          "Who documents it",
+          "When it is issued",
+          "How it is stored",
+          "How it connects to cost and schedule"
         ]} />
         <p>
-          Without financial command, the stool stands — until it doesn't.
+          When documentation is systemic, it is consistent.<br />
+          When it is personal, it degrades under pressure.
         </p>
       </Section>
 
-      <Parable title="The Calm Operator">
+      <Section title="The Entrepreneur's Role">
         <p>
-          Two owners faced the same problem:<br />
-          A major job fell behind schedule.
+          The entrepreneur does not write every notice.
         </p>
         <p>
-          One panicked.<br />
-          Cut costs blindly.<br />
-          Pressed crews.<br />
-          Damaged morale.
+          The entrepreneur <strong>demands the system exists</strong>.
         </p>
         <p>
-          The other reviewed the numbers.<br />
-          Saw where exposure was contained.<br />
-          Issued notices.<br />
-          Adjusted billing.<br />
-          Applied pressure precisely.
+          That includes:
         </p>
+        <DoctrineList items={[
+          "Clear triggers for notice",
+          "Standard formats",
+          "Defined authority",
+          "Training for field leadership"
+        ]} />
         <p>
-          Same problem.<br />
-          Different outcome.
-        </p>
-        <p>
-          The difference wasn't intelligence.
+          If documentation depends on heroics, it will fail.
         </p>
         <p className="body-text-emphasis">
-          It was clarity.
+          If it is built into operations, it becomes effortless.
         </p>
-      </Parable>
+      </Section>
+
+      <Section title="Bringing It Back to the Stool">
+        <p>
+          Documentation and notice live at the intersection of:
+        </p>
+        <DoctrineList items={[
+          "Operations",
+          "Scheduling",
+          "Change order velocity",
+          "Financial command",
+          "Risk management"
+        ]} />
+        <p>
+          Weak documentation destabilizes the stool.
+        </p>
+        <p className="body-text-emphasis">
+          Strong documentation reinforces control across the business.
+        </p>
+      </Section>
+
+      <div className="parable-container">
+        <div className="parable-label">Example</div>
+        <h4 className="subsection-heading italic">Silence That Cost Seven Figures</h4>
+        <div className="body-text space-y-4">
+          <p>
+            A contractor encountered repeated access issues.
+          </p>
+          <p>
+            The owner promised to "look into it."<br />
+            Weeks passed.<br />
+            Work continued.<br />
+            Costs accumulated.
+          </p>
+          <p>
+            No formal notice was issued.<br />
+            Daily reports mentioned issues casually.<br />
+            Emails stayed polite and vague.
+          </p>
+          <p>
+            When the job closed, the contractor submitted a claim.
+          </p>
+          <p>
+            The response was simple:<br />
+            "You never told us it was impacting you."
+          </p>
+          <p>
+            Legally, that was true.
+          </p>
+          <p>
+            Silence felt cooperative in the moment.<br />
+            It became fatal later.
+          </p>
+          <p className="body-text-emphasis">
+            Notices are not about hostility.<br />
+            They are about creating a record while leverage still exists.
+          </p>
+          <p>
+            What you do not signal early, you do not get paid for later.
+          </p>
+        </div>
+      </div>
 
       <div className="parable-container">
         <div className="parable-label">Identity Parable</div>
-        <h4 className="subsection-heading italic">The Owner Who Avoided the Numbers</h4>
+        <h4 className="subsection-heading italic">The Contractor Afraid of Being Wrong</h4>
         <div className="body-text space-y-4">
           <p>
-            He said:<br />
-            "I'm not a numbers guy."<br />
-            "I trust my accountant."<br />
-            "I just build."
+            He delayed documentation.
           </p>
           <p>
-            But the truth was discomfort.
+            Not because he was lazy—<br />
+            but because documentation felt like commitment.
           </p>
           <p>
-            Numbers made him feel exposed.<br />
-            Numbers forced accountability.<br />
-            Numbers removed plausible deniability.
+            "What if I'm wrong?"<br />
+            "What if this resolves itself?"<br />
+            "What if I overreact?"
           </p>
           <p className="body-text-emphasis">
-            So he stayed busy instead.
+            So he waited.
           </p>
           <p>
-            Revenue rose.<br />
-            Stress rose faster.<br />
-            Clarity never arrived.
+            And waiting cost him leverage.
+          </p>
+          <p>
+            By the time he was certain, it no longer mattered.
           </p>
           <p className="body-text-emphasis">
-            Avoiding numbers is not humility.
+            Documentation is not about being right.
           </p>
           <p>
-            It is identity avoidance.
+            It is about being clear.
           </p>
           <p>
-            Those who refuse to look cannot lead.
+            Entrepreneurs who need certainty before acting<br />
+            will always act too late.
           </p>
         </div>
       </div>
 
       <Section title="Final Truth">
         <p>
-          You cannot control what you cannot see.
-        </p>
-        <p className="body-text-emphasis">
-          Financial command is not about fear.<br />
-          It is about freedom.
+          Contractors do not lose money because disruption occurs.
         </p>
         <p>
-          Freedom to:
+          They lose money because disruption is:
         </p>
         <DoctrineList items={[
-          "Say no",
-          "Wait",
-          "Apply pressure",
-          "Protect margin",
-          "Scale deliberately"
+          "Undocumented",
+          "Unnoticed",
+          "Unpriced",
+          "Uncontrolled"
         ]} />
         <p>
-          Entrepreneurs who see clearly move early.<br />
-          Those who don't spend their careers reacting late.
+          Documentation is not about conflict.
         </p>
         <p className="body-text-emphasis">
-          Financial command is the difference.
+          It is about control.
+        </p>
+        <p>
+          Those who document early, clearly, and consistently<br />
+          do not fight for entitlement —<br />
+          they establish it.
+        </p>
+        <p>
+          Those who do not spend their careers explaining what happened —<br />
+          after it is too late.
         </p>
       </Section>
     </div>
