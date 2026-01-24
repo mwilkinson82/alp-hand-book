@@ -3,6 +3,8 @@ import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
 import Parable from '../Parable';
+import AudioPlayer from '../AudioPlayer';
+import chapter2Audio from '@/assets/audio/chapter-2.mp3';
 
 const Chapter2: React.FC = () => {
   return (
@@ -11,6 +13,8 @@ const Chapter2: React.FC = () => {
         number={2} 
         title="All Problems Are Entrepreneurial Problems" 
       />
+      
+      <AudioPlayer src={chapter2Audio} title="Listen to Chapter 2" />
 
       <div className="body-text space-y-6 max-w-3xl">
         <p>
