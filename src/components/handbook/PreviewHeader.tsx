@@ -55,26 +55,26 @@ const PreviewHeader: React.FC = () => {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-sm border-b border-border">
-      <div className="max-w-5xl mx-auto px-6 md:px-12 h-14 flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <span className="text-sm font-medium tracking-wide uppercase opacity-60" style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.1em' }}>
+      <div className="max-w-5xl mx-auto px-3 sm:px-6 md:px-12 h-12 sm:h-14 flex items-center justify-between">
+        <div className="flex items-center gap-2 sm:gap-4 min-w-0">
+          <span className="text-xs sm:text-sm font-medium tracking-wide uppercase opacity-60 truncate" style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.1em' }}>
             The ALP Handbook
           </span>
-          <span className="text-xs px-2 py-0.5 rounded-full bg-accent opacity-60 font-sans">
+          <span className="text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-full bg-accent opacity-60 font-sans shrink-0">
             Preview
           </span>
         </div>
         
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <button
             onClick={toggleTheme}
-            className="p-2 rounded-md hover:bg-accent transition-colors"
+            className="p-1.5 sm:p-2 rounded-md hover:bg-accent transition-colors"
             aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
           >
             {isDark ? (
-              <Sun className="w-5 h-5 opacity-70" />
+              <Sun className="w-4 h-4 sm:w-5 sm:h-5 opacity-70" />
             ) : (
-              <Moon className="w-5 h-5 opacity-70" />
+              <Moon className="w-4 h-4 sm:w-5 sm:h-5 opacity-70" />
             )}
           </button>
           
@@ -82,8 +82,8 @@ const PreviewHeader: React.FC = () => {
             <>
               {user && hasPurchased ? (
                 <Link to="/read">
-                  <Button size="sm" className="font-sans text-xs uppercase tracking-widest">
-                    Read Book
+                  <Button size="sm" className="font-sans text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest px-2 sm:px-3">
+                    Read
                   </Button>
                 </Link>
               ) : user ? (
@@ -91,14 +91,15 @@ const PreviewHeader: React.FC = () => {
                   size="sm" 
                   onClick={handlePurchase}
                   disabled={checkoutLoading}
-                  className="font-sans text-xs uppercase tracking-widest gap-2"
+                  className="font-sans text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest gap-1 sm:gap-2 px-2 sm:px-3"
                 >
-                  <ShoppingCart className="w-4 h-4" />
-                  {checkoutLoading ? 'Loading...' : 'Purchase $47'}
+                  <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4" />
+                  <span className="hidden xs:inline">{checkoutLoading ? '...' : '$47'}</span>
+                  <span className="xs:hidden">{checkoutLoading ? '...' : '$47'}</span>
                 </Button>
               ) : (
                 <Link to="/auth">
-                  <Button size="sm" variant="outline" className="font-sans text-xs uppercase tracking-widest">
+                  <Button size="sm" variant="outline" className="font-sans text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest px-2 sm:px-3">
                     Sign In
                   </Button>
                 </Link>

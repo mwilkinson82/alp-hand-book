@@ -111,27 +111,28 @@ const SalesPage: React.FC = () => {
     <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <span className="text-sm uppercase tracking-[0.2em] font-medium opacity-70">
+        <div className="max-w-6xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+          <span className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] font-medium opacity-70">
             The ALP Handbook
           </span>
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4">
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-full hover:bg-muted transition-colors"
+              className="p-1.5 sm:p-2 rounded-full hover:bg-muted transition-colors"
               aria-label="Toggle theme"
             >
               {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
             {user ? (
               <Link to="/read">
-                <Button variant="outline" size="sm" className="font-sans uppercase tracking-wider text-xs">
-                  My Handbook
+                <Button variant="outline" size="sm" className="font-sans uppercase tracking-wider text-[10px] sm:text-xs px-2 sm:px-3">
+                  <span className="hidden sm:inline">My Handbook</span>
+                  <span className="sm:hidden">Read</span>
                 </Button>
               </Link>
             ) : (
               <Link to="/auth">
-                <Button variant="ghost" size="sm" className="font-sans uppercase tracking-wider text-xs">
+                <Button variant="ghost" size="sm" className="font-sans uppercase tracking-wider text-[10px] sm:text-xs px-2 sm:px-3">
                   Sign In
                 </Button>
               </Link>
@@ -141,48 +142,48 @@ const SalesPage: React.FC = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="min-h-screen flex items-center justify-center pt-20 px-6">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+      <section className="min-h-[calc(100vh-60px)] lg:min-h-screen flex items-center justify-center pt-16 lg:pt-20 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-center py-8">
           <div className="order-2 lg:order-1">
             <p className="text-sm uppercase tracking-[0.3em] opacity-50 mb-6 font-sans">
               The Operating Doctrine
             </p>
-            <h1 className="handbook-title text-4xl md:text-5xl lg:text-6xl mb-6 leading-tight">
+            <h1 className="handbook-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight">
               THE ALP HANDBOOK
             </h1>
-            <p className="text-xl md:text-2xl font-light mb-8 opacity-80 leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl font-light mb-6 sm:mb-8 opacity-80 leading-relaxed">
               The Operating System for Contractors Who Want to Scale — Without Losing Control
             </p>
             
-            <div className="body-text space-y-4 mb-10 opacity-70">
+            <div className="body-text space-y-3 sm:space-y-4 mb-8 sm:mb-10 opacity-70">
               <p>Most contractors don't fail because they lack skill.</p>
               <p className="body-text-emphasis text-foreground opacity-100">They fail because they lack command.</p>
             </div>
 
-            <p className="body-text mb-8 opacity-70">
+            <p className="body-text mb-6 sm:mb-8 opacity-70 text-sm sm:text-base">
               The ALP Handbook is a practical, field-tested operating system for contractors who want to scale revenue, protect margin, and regain control — without chaos, burnout, or constant firefighting.
             </p>
 
-            <div className="space-y-2 mb-10">
-              <p className="body-text opacity-60">This is not motivation.</p>
-              <p className="body-text opacity-60">This is not theory.</p>
-              <p className="body-text-emphasis">This is how top-tier operators actually run their businesses.</p>
+            <div className="space-y-1 sm:space-y-2 mb-8 sm:mb-10">
+              <p className="body-text opacity-60 text-sm sm:text-base">This is not motivation.</p>
+              <p className="body-text opacity-60 text-sm sm:text-base">This is not theory.</p>
+              <p className="body-text-emphasis text-sm sm:text-base">This is how top-tier operators actually run their businesses.</p>
             </div>
 
-            <p className="text-sm uppercase tracking-widest opacity-50 mb-8">By Marshall Wilkinson</p>
+            <p className="text-xs sm:text-sm uppercase tracking-widest opacity-50 mb-6 sm:mb-8">By Marshall Wilkinson</p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col gap-3 sm:gap-4">
               <Button 
                 onClick={handlePurchase}
                 disabled={checkoutLoading || loading}
                 size="lg"
-                className="font-sans uppercase tracking-widest"
+                className="font-sans uppercase tracking-widest text-sm sm:text-base w-full sm:w-auto"
               >
                 {checkoutLoading ? 'Loading...' : 'Get the Handbook — $47'}
               </Button>
               
-              <Link to="/preview">
-                <Button variant="outline" size="lg" className="font-sans uppercase tracking-widest w-full sm:w-auto animate-pulse border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white">
+              <Link to="/preview" className="w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="font-sans uppercase tracking-widest w-full animate-pulse border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white text-sm sm:text-base">
                   <Eye className="w-4 h-4 mr-2" />
                   Preview Experience
                 </Button>
@@ -190,7 +191,7 @@ const SalesPage: React.FC = () => {
             </div>
 
             {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center gap-6 mt-6 text-sm opacity-60">
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-5 sm:mt-6 text-xs sm:text-sm opacity-60">
               <div className="flex items-center gap-2">
                 <Zap className="w-4 h-4" />
                 <span>Instant Access</span>
@@ -210,7 +211,7 @@ const SalesPage: React.FC = () => {
             <img 
               src={bookCover} 
               alt="The ALP Handbook by Marshall Wilkinson" 
-              className="max-w-xs md:max-w-sm lg:max-w-md w-full h-auto shadow-2xl rounded-sm"
+              className="max-w-[200px] sm:max-w-xs md:max-w-sm lg:max-w-md w-full h-auto shadow-2xl rounded-sm"
             />
           </div>
         </div>
@@ -574,62 +575,62 @@ const SalesPage: React.FC = () => {
       </AnimatedSection>
 
       {/* Final CTA Section */}
-      <section className="py-32 px-6 bg-primary text-primary-foreground">
+      <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="handbook-title text-3xl md:text-4xl lg:text-5xl mb-8">
+          <h2 className="handbook-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-6 sm:mb-8">
             Get the ALP Handbook
           </h2>
           
-          <div className="space-y-4 mb-10 opacity-90">
-            <p className="text-lg">This is not a book you read once.</p>
-            <p className="text-lg font-medium">
+          <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-10 opacity-90">
+            <p className="text-base sm:text-lg">This is not a book you read once.</p>
+            <p className="text-base sm:text-lg font-medium">
               It's a reference you return to — in real time, while decisions are being made.
             </p>
           </div>
 
-          <p className="opacity-90 mb-6">If you're ready to:</p>
+          <p className="opacity-90 mb-4 sm:mb-6 text-sm sm:text-base">If you're ready to:</p>
           
-          <ul className="inline-block text-left space-y-2 mb-10">
-            <li className="flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 shrink-0" />
+          <ul className="inline-block text-left space-y-2 mb-8 sm:mb-10 text-sm sm:text-base">
+            <li className="flex items-center gap-2 sm:gap-3">
+              <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
               Stop reacting
             </li>
-            <li className="flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 shrink-0" />
+            <li className="flex items-center gap-2 sm:gap-3">
+              <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
               Stop leaking margin
             </li>
-            <li className="flex items-center gap-3">
-              <CheckCircle2 className="w-5 h-5 shrink-0" />
+            <li className="flex items-center gap-2 sm:gap-3">
+              <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
               Stop operating from stress
             </li>
           </ul>
 
-          <p className="text-xl font-medium mb-10">Then it's time to operate with ALP.</p>
+          <p className="text-lg sm:text-xl font-medium mb-8 sm:mb-10">Then it's time to operate with ALP.</p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col gap-4 justify-center px-4 sm:px-0">
             <Button 
               onClick={handlePurchase}
               disabled={checkoutLoading || loading}
               size="lg"
               variant="secondary"
-              className="font-sans uppercase tracking-widest text-lg px-10 py-6"
+              className="font-sans uppercase tracking-widest text-sm sm:text-base lg:text-lg px-6 sm:px-10 py-5 sm:py-6 w-full sm:w-auto"
             >
               {checkoutLoading ? 'Loading...' : 'Get Immediate Access — $47'}
             </Button>
           </div>
 
           {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-6 mt-8 text-sm opacity-70">
-            <div className="flex items-center gap-2">
-              <Zap className="w-4 h-4" />
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mt-6 sm:mt-8 text-xs sm:text-sm opacity-70">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <Zap className="w-3 h-3 sm:w-4 sm:h-4" />
               <span>Instant Access</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Lock className="w-4 h-4" />
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <Lock className="w-3 h-3 sm:w-4 sm:h-4" />
               <span>Secure Checkout</span>
             </div>
-            <div className="flex items-center gap-2">
-              <CreditCard className="w-4 h-4" />
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <CreditCard className="w-3 h-3 sm:w-4 sm:h-4" />
               <span>One-Time Payment</span>
             </div>
           </div>

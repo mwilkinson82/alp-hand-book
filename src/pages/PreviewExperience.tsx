@@ -173,9 +173,9 @@ const SalesLanding: React.FC = () => {
             onClick={handlePurchase}
             disabled={checkoutLoading || loading}
             size="lg"
-            className="font-sans uppercase tracking-widest"
+            className="font-sans uppercase tracking-widest text-sm sm:text-base w-full sm:w-auto"
           >
-            {checkoutLoading ? 'Loading...' : 'Purchase the Full Handbook — $47'}
+            {checkoutLoading ? 'Loading...' : 'Purchase Full Handbook — $47'}
           </Button>
 
           {!user && (
