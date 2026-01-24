@@ -209,27 +209,27 @@ const PurchaseSuccess: React.FC = () => {
   // Existing user (not logged in) - show magic link option
   if (!user && result?.email) {
     return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8 text-center">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent mb-8">
-          <CheckCircle className="w-10 h-10 text-foreground opacity-70" />
-        </div>
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8">
+        <div className="w-full max-w-md text-center">
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent mb-8">
+            <CheckCircle className="w-10 h-10 text-foreground opacity-70" />
+          </div>
 
-        <h1 className="chapter-heading text-3xl md:text-4xl mb-4">You're All Set!</h1>
+          <h1 className="chapter-heading text-3xl md:text-4xl mb-4">You're All Set!</h1>
 
-        <p className="body-text opacity-70 mb-6 max-w-md">
-          You now have lifetime access to The ALP Handbook.
-        </p>
+          <p className="body-text opacity-70 mb-6">
+            You now have lifetime access to The ALP Handbook.
+          </p>
 
-        <div className="flex items-center gap-2 bg-muted px-4 py-3 rounded-md mb-8">
-          <Mail className="w-4 h-4 opacity-70" />
-          <span className="font-mono text-sm">{result.email}</span>
-        </div>
+          <div className="flex items-center gap-2 bg-muted px-4 py-3 rounded-md mb-8 justify-center">
+            <Mail className="w-4 h-4 opacity-70" />
+            <span className="font-mono text-sm">{result.email}</span>
+          </div>
 
-        {magicLinkError && (
-          <p className="text-sm text-destructive mb-4">{magicLinkError}</p>
-        )}
+          {magicLinkError && (
+            <p className="text-sm text-destructive mb-4">{magicLinkError}</p>
+          )}
 
-        <div className="w-full max-w-sm space-y-4">
           <Button
             type="button"
             size="lg"
@@ -246,12 +246,6 @@ const PurchaseSuccess: React.FC = () => {
               'Email Me a Sign-In Link'
             )}
           </Button>
-
-          <Link to={`/auth?from=purchase&email=${encodeURIComponent(result.email)}`}>
-            <Button variant="outline" size="lg" className="w-full font-sans uppercase tracking-widest">
-              Sign In with Password
-            </Button>
-          </Link>
         </div>
       </div>
     );
