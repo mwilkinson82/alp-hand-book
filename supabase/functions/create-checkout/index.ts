@@ -10,6 +10,11 @@ const corsHeaders = {
 // ALP Handbook price ID
 const PRICE_ID = "price_1StCqDJdDAUSVXbNzofxJS3X";
 
+// Valid coupon codes (Stripe coupon IDs)
+const VALID_COUPONS: Record<string, string> = {
+  "ALPHARDCORE": "Q2V10Tg6", // 100% off for existing clients
+};
+
 const logStep = (step: string, details?: Record<string, unknown>) => {
   const detailsStr = details ? ` - ${JSON.stringify(details)}` : '';
   console.log(`[CREATE-CHECKOUT] ${step}${detailsStr}`);
@@ -42,6 +47,15 @@ serve(async (req) => {
     if (!user?.email) throw new Error("User not authenticated or email not available");
     logStep("User authenticated", { userId: user.id, email: user.email });
 
+    // Parse request body for coupon code
+    let couponCode: string | undefined;
+    try {
+      const body = await req.json();
+      couponCode = body?.coupon_code?.toUpperCase().trim();
+    } catch {
+      // No body or invalid JSON, that's fine
+    }
+
     const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
 
     // Check if customer exists
@@ -54,8 +68,21 @@ serve(async (req) => {
 
     const origin = req.headers.get("origin") || "http://localhost:5173";
 
-    // Create checkout session
-    const session = await stripe.checkout.sessions.create({
+    // Validate coupon code if provided
+    let stripeCouponId: string | undefined;
+    if (couponCode && VALID_COUPONS[couponCode]) {
+      stripeCouponId = VALID_COUPONS[couponCode];
+      logStep("Valid coupon code provided", { couponCode, stripeCouponId });
+    } else if (couponCode) {
+      logStep("Invalid coupon code provided", { couponCode });
+      return new Response(JSON.stringify({ error: "Invalid coupon code" }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        status: 400,
+      });
+    }
+
+    // Create checkout session with optional discount
+    const sessionParams: Stripe.Checkout.SessionCreateParams = {
       customer: customerId,
       customer_email: customerId ? undefined : user.email,
       line_items: [
@@ -76,9 +103,16 @@ serve(async (req) => {
       metadata: {
         user_id: user.id,
       },
-    });
+    };
 
-    logStep("Checkout session created", { sessionId: session.id, url: session.url });
+    // Add discount if coupon is valid
+    if (stripeCouponId) {
+      sessionParams.discounts = [{ coupon: stripeCouponId }];
+    }
+
+    const session = await stripe.checkout.sessions.create(sessionParams);
+
+    logStep("Checkout session created", { sessionId: session.id, url: session.url, hasCoupon: !!stripeCouponId });
 
     return new Response(JSON.stringify({ url: session.url }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
