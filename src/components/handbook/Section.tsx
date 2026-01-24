@@ -7,9 +7,9 @@ interface SectionProps {
 
 const Section: React.FC<SectionProps> = ({ title, children }) => {
   return (
-    <section className="mb-16">
+    <section className="mb-20">
       {title && <h3 className="section-heading">{title}</h3>}
-      <div className="body-text space-y-6">
+      <div className="body-text">
         {children}
       </div>
     </section>

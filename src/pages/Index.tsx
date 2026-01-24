@@ -41,7 +41,7 @@ const Index = () => {
       <ReadingHeader />
       <ReadingProgress />
       
-      <div className="max-w-4xl mx-auto px-6 md:px-12 pt-14">
+      <div className="max-w-5xl mx-auto px-8 md:px-16 lg:px-24 pt-14">
         <HeroSection />
         
         <TableOfContents />

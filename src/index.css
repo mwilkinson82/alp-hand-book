@@ -157,14 +157,25 @@
   }
 
   .body-text {
-    @apply text-lg md:text-xl leading-relaxed;
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
+    @apply text-lg md:text-xl leading-loose tracking-wide;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    color: hsl(var(--foreground));
+  }
+
+  .body-text p {
+    @apply mb-5;
+    text-indent: 1.5em;
+  }
+
+  .body-text p:first-child {
+    text-indent: 0;
   }
 
   .body-text-emphasis {
-    @apply text-lg md:text-xl leading-relaxed font-medium;
-    font-family: 'Inter', sans-serif;
+    @apply text-lg md:text-xl leading-loose tracking-wide font-semibold;
+    font-family: 'Cormorant Garamond', serif;
+    color: hsl(var(--foreground));
   }
 
   .parable-container {
@@ -221,25 +232,27 @@
   }
 
   .list-doctrine {
-    @apply space-y-2 my-6 pl-6;
+    @apply space-y-3 my-8 pl-8;
   }
 
   .list-doctrine li {
-    @apply text-lg md:text-xl leading-relaxed relative;
-    font-family: 'Inter', sans-serif;
-    font-weight: 300;
+    @apply text-lg md:text-xl leading-loose relative;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
   }
 
   .list-doctrine li::before {
-    content: '•';
-    @apply absolute -left-5 opacity-40;
+    content: '—';
+    @apply absolute -left-7 opacity-50;
+    font-weight: 300;
   }
 
   .blockquote-doctrine {
-    @apply pl-6 py-2 my-8 border-l italic;
-    border-color: hsl(var(--foreground) / 0.2);
+    @apply pl-8 py-4 my-10 border-l-2 italic;
+    border-color: hsl(var(--foreground) / 0.25);
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.25rem;
+    font-size: 1.35rem;
+    line-height: 1.8;
   }
 
   .toc-item {
