@@ -2,87 +2,90 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 40 20% 98%;
+    --foreground: 30 10% 10%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 40 15% 96%;
+    --card-foreground: 30 10% 10%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 40 20% 98%;
+    --popover-foreground: 30 10% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 30 10% 10%;
+    --primary-foreground: 40 20% 98%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 35 10% 92%;
+    --secondary-foreground: 30 10% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 35 8% 90%;
+    --muted-foreground: 30 8% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 35 10% 94%;
+    --accent-foreground: 30 10% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 35 12% 88%;
+    --input: 35 12% 88%;
+    --ring: 30 10% 10%;
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
+
+    /* Handbook-specific tokens */
+    --parable-bg: 35 15% 95%;
+    --parable-border: 30 10% 25%;
+    --chapter-divider: 35 10% 85%;
+    --media-placeholder: 35 8% 92%;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 30 10% 6%;
+    --foreground: 40 15% 92%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 30 10% 8%;
+    --card-foreground: 40 15% 92%;
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 30 10% 6%;
+    --popover-foreground: 40 15% 92%;
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 40 15% 92%;
+    --primary-foreground: 30 10% 6%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 30 8% 14%;
+    --secondary-foreground: 40 15% 92%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 30 8% 18%;
+    --muted-foreground: 35 10% 55%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 30 8% 14%;
+    --accent-foreground: 40 15% 92%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --border: 30 8% 18%;
+    --input: 30 8% 18%;
+    --ring: 40 15% 80%;
+
+    --parable-bg: 30 8% 10%;
+    --parable-border: 40 10% 60%;
+    --chapter-divider: 30 8% 20%;
+    --media-placeholder: 30 8% 12%;
+
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -100,6 +103,127 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', sans-serif;
   }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cormorant Garamond', serif;
+  }
+}
+
+@layer components {
+  .handbook-title {
+    @apply text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-none;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .handbook-subtitle {
+    @apply text-lg md:text-xl font-light tracking-wide uppercase;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.2em;
+  }
+
+  .chapter-heading {
+    @apply text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-8;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .section-heading {
+    @apply text-2xl md:text-3xl font-medium tracking-tight mb-6;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .subsection-heading {
+    @apply text-xl md:text-2xl font-medium tracking-tight mb-4;
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  .body-text {
+    @apply text-lg md:text-xl leading-relaxed;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+
+  .body-text-emphasis {
+    @apply text-lg md:text-xl leading-relaxed font-medium;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .parable-container {
+    @apply relative pl-8 py-8 my-12 border-l-2;
+    border-color: hsl(var(--parable-border));
+    background: linear-gradient(90deg, hsl(var(--parable-bg)) 0%, transparent 100%);
+  }
+
+  .parable-label {
+    @apply text-sm uppercase tracking-widest mb-4 opacity-60;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.25em;
+  }
+
+  .media-placeholder {
+    @apply flex items-center justify-center py-16 my-12 border border-dashed rounded-sm;
+    border-color: hsl(var(--chapter-divider));
+    background-color: hsl(var(--media-placeholder));
+  }
+
+  .media-placeholder-text {
+    @apply text-sm uppercase tracking-widest opacity-50;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.15em;
+  }
+
+  .chapter-divider {
+    @apply w-16 h-px my-20 mx-auto;
+    background-color: hsl(var(--chapter-divider));
+  }
+
+  .part-divider {
+    @apply w-24 h-px my-32 mx-auto;
+    background-color: hsl(var(--foreground) / 0.3);
+  }
+
+  .list-doctrine {
+    @apply space-y-2 my-6 pl-6;
+  }
+
+  .list-doctrine li {
+    @apply text-lg md:text-xl leading-relaxed relative;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+  }
+
+  .list-doctrine li::before {
+    content: '•';
+    @apply absolute -left-5 opacity-40;
+  }
+
+  .blockquote-doctrine {
+    @apply pl-6 py-2 my-8 border-l italic;
+    border-color: hsl(var(--foreground) / 0.2);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem;
+  }
+
+  .toc-item {
+    @apply py-3 border-b transition-colors cursor-pointer hover:bg-accent/50;
+    border-color: hsl(var(--chapter-divider));
+  }
+
+  .toc-part {
+    @apply text-sm uppercase tracking-widest opacity-60 pt-8 pb-4;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.2em;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+::selection {
+  background-color: hsl(var(--foreground) / 0.1);
 }
