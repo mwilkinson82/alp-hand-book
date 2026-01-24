@@ -1,9 +1,14 @@
 import React from 'react';
+import AudioPlayer from '../AudioPlayer';
+import dedicationAudio from '@/assets/audio/dedication.m4a';
 
 const Dedication: React.FC = () => {
   return (
     <div id="dedication" className="py-24 border-t border-chapter-divider">
       <h2 className="chapter-heading text-center mb-16">Dedication</h2>
+      <div className="flex justify-center">
+        <AudioPlayer src={dedicationAudio} title="Listen to the Dedication" />
+      </div>
       <div className="body-text space-y-8 max-w-3xl mx-auto text-center italic font-serif text-xl md:text-2xl leading-relaxed">
         <p>
           This work is dedicated to the men who shaped my understanding of this business — and the responsibility that comes with it.
