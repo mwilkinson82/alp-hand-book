@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
+import { AnimatedSection } from '@/components/AnimatedSection';
 import bookCover from '@/assets/book-cover.png';
 import marshallPhoto from '@/assets/marshall-wilkinson.png';
 import { 
@@ -216,7 +217,7 @@ const SalesPage: React.FC = () => {
       </section>
 
       {/* Pain Points Section */}
-      <section className="py-24 px-6 border-t border-border">
+      <AnimatedSection className="py-24 px-6 border-t border-border">
         <div className="max-w-4xl mx-auto">
           <h2 className="section-heading text-2xl md:text-3xl mb-4">
             If This Feels Familiar, This Handbook Was Written for You
@@ -252,10 +253,10 @@ const SalesPage: React.FC = () => {
             <p className="body-text-emphasis text-xl">You need a system.</p>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Why ALP Section */}
-      <section className="py-24 px-6 bg-muted/30">
+      <AnimatedSection className="py-24 px-6 bg-muted/30">
         <div className="max-w-4xl mx-auto">
           <h2 className="section-heading text-2xl md:text-3xl mb-6">
             Why ALP Is Different
@@ -289,10 +290,10 @@ const SalesPage: React.FC = () => {
 
           <p className="body-text-emphasis">This handbook is the codified version of that system.</p>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Operating System Section */}
-      <section className="py-24 px-6 border-t border-border">
+      <AnimatedSection className="py-24 px-6 border-t border-border">
         <div className="max-w-4xl mx-auto">
           <h2 className="section-heading text-2xl md:text-3xl mb-6">
             This Is an Operating System — Not a Collection of Tips
@@ -321,10 +322,10 @@ const SalesPage: React.FC = () => {
             <p className="body-text-emphasis text-xl">This is how order replaces chaos.</p>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* What You'll Learn Section */}
-      <section className="py-24 px-6 bg-muted/30">
+      <AnimatedSection className="py-24 px-6 bg-muted/30">
         <div className="max-w-4xl mx-auto">
           <h2 className="section-heading text-2xl md:text-3xl mb-8">
             Inside the ALP Handbook, You'll Learn How To:
@@ -354,10 +355,10 @@ const SalesPage: React.FC = () => {
             <p className="body-text-emphasis text-xl">It's about operating at a higher level.</p>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Who This Is For Section */}
-      <section className="py-24 px-6 border-t border-border">
+      <AnimatedSection className="py-24 px-6 border-t border-border">
         <div className="max-w-4xl mx-auto">
           <h2 className="section-heading text-2xl md:text-3xl mb-8">
             Who This Handbook Is For
@@ -403,10 +404,10 @@ const SalesPage: React.FC = () => {
             ALP rewards operators who are willing to think clearly — and act decisively.
           </p>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Before/After Section */}
-      <section className="py-24 px-6 bg-muted/30">
+      <AnimatedSection className="py-24 px-6 bg-muted/30">
         <div className="max-w-4xl mx-auto">
           <h2 className="section-heading text-2xl md:text-3xl mb-10 text-center">
             From Chaos to Control
@@ -454,10 +455,10 @@ const SalesPage: React.FC = () => {
             This handbook is the bridge.
           </p>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Testimonials Section */}
-      <section className="py-24 px-6 border-t border-border">
+      <AnimatedSection className="py-24 px-6 border-t border-border">
         <div className="max-w-5xl mx-auto">
           <h2 className="section-heading text-2xl md:text-3xl mb-4 text-center">
             What Operators Are Saying
@@ -484,10 +485,10 @@ const SalesPage: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Author Bio Section */}
-      <section className="py-24 px-6 border-t border-border">
+      <AnimatedSection className="py-24 px-6 border-t border-border">
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-12 items-start">
             <div className="lg:col-span-1 flex justify-center lg:justify-start">
@@ -535,10 +536,10 @@ const SalesPage: React.FC = () => {
             </div>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Not Best Practices Section */}
-      <section className="py-24 px-6 bg-muted/30">
+      <AnimatedSection className="py-24 px-6 bg-muted/30">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="section-heading text-2xl md:text-3xl mb-6">
             This Handbook Doesn't Teach "Best Practices"
@@ -570,7 +571,7 @@ const SalesPage: React.FC = () => {
             <p className="body-text-emphasis">You just needed the right operating system.</p>
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* Final CTA Section */}
       <section className="py-32 px-6 bg-primary text-primary-foreground">
