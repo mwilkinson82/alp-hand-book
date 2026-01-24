@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -11,6 +11,9 @@ const emailSchema = z.string().email('Please enter a valid email address');
 const passwordSchema = z.string().min(6, 'Password must be at least 6 characters');
 
 const Auth: React.FC = () => {
+  const [searchParams] = useSearchParams();
+  const fromPurchase = searchParams.get('from') === 'purchase';
+  
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -100,12 +103,16 @@ const Auth: React.FC = () => {
       <div className="w-full max-w-sm">
         <div className="text-center mb-12">
           <h1 className="chapter-heading text-3xl md:text-4xl mb-4">
-            {isLogin ? 'Welcome Back' : 'Create Account'}
+            {fromPurchase 
+              ? 'Access Your Handbook' 
+              : (isLogin ? 'Welcome Back' : 'Create Account')}
           </h1>
           <p className="body-text text-base opacity-70">
-            {isLogin 
-              ? 'Sign in to access your purchased content' 
-              : 'Create an account to purchase the handbook'}
+            {fromPurchase 
+              ? 'Sign in with the email you used to purchase'
+              : (isLogin 
+                ? 'Sign in to access your purchased content' 
+                : 'Create an account to purchase the handbook')}
           </p>
         </div>
 
