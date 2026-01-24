@@ -2,365 +2,368 @@ import React from 'react';
 import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
-import MediaPlaceholder from '../MediaPlaceholder';
+import Parable from '../Parable';
 
 const Chapter8: React.FC = () => {
   return (
     <div id="chapter-8" className="py-24 border-t border-chapter-divider">
       <ChapterHeader 
         number={8} 
-        title="The Scaling Stool Explained" 
+        title="General Conditions & Invisible Costs" 
       />
 
       <div className="body-text space-y-6 max-w-3xl">
         <p>
-          Most contracting businesses do not fail dramatically.
+          Most contractors treat General Conditions as overhead.
         </p>
         <p>
-          They wobble.
+          Something to minimize.<br />
+          Something to "absorb."<br />
+          Something that doesn't feel like real construction.
         </p>
         <p>
-          They feel unstable.<br />
-          They feel reactive.<br />
-          They feel unpredictable.
-        </p>
-        <p>
-          Owners describe it as:
-        </p>
-        <DoctrineList items={[
-          '"We\'re busy but stressed"',
-          '"Cash feels tight even though revenue is up"',
-          '"Everything depends on me"',
-          '"One problem turns into ten"'
-        ]} />
-        <p>
-          That instability is not random.
+          That misunderstanding destroys more profit than bad labor, bad subs, or bad estimating ever will.
         </p>
         <p className="body-text-emphasis">
-          It is structural.
+          General Conditions are not overhead.
+        </p>
+        <p>
+          They are time-based costs, and time is the most dangerous variable in construction.
         </p>
       </div>
 
       <div className="chapter-divider" />
 
-      <Section title="Why the Ladder Model Fails">
+      <Section title="Why General Conditions Are Invisible Until They Aren't">
         <p>
-          Most people believe business growth works like a ladder.
+          General Conditions don't arrive all at once.
         </p>
         <p>
-          You climb rung by rung:<br />
-          More jobs → more people → more revenue → more success.
+          They leak.
         </p>
         <p>
-          That mental model is wrong.
+          Quietly.<br />
+          Daily.<br />
+          Predictably.
         </p>
         <p>
-          Ladders assume balance automatically.<br />
-          Businesses do not work that way.
+          Supervision stays a little longer.<br />
+          Trailers remain on site a little longer.<br />
+          Temporary power keeps running.<br />
+          Management keeps checking in.<br />
+          Schedules keep slipping.
         </p>
         <p>
-          In contracting, adding weight without support doesn't lift you.<br />
-          It <strong>breaks you</strong>.
-        </p>
-      </Section>
-
-      <Section title="The Stool Is the Correct Model">
-        <p>
-          A contracting business behaves like a stool.
-        </p>
-        <p>
-          It stands on multiple legs <strong>at the same time</strong>.
-        </p>
-        <p>
-          If one leg weakens, the stool wobbles.<br />
-          If two weaken, it becomes unstable.<br />
-          If three weaken, it collapses — regardless of how strong the remaining leg is.
-        </p>
-        <p>
-          The stool does not reward strength in one area.<br />
-          It requires <strong>balance across all areas</strong>.
-        </p>
-        <p>
-          This is why many contractors feel fine at one level of scale and overwhelmed at the next.
+          Nothing explodes.
         </p>
         <p className="body-text-emphasis">
-          Growth exposed imbalance that already existed.
+          Margin just disappears.
+        </p>
+        <p>
+          This is why General Conditions are so dangerous — they don't feel expensive in isolation, but they compound relentlessly.
         </p>
       </Section>
 
-      <MediaPlaceholder type="diagram" label="The ALP Scaling Stool Diagram" />
-
-      <Section title="The Five Legs of the ALP Scaling Stool">
+      <Section title="The Core Misunderstanding">
         <p>
-          The ALP Scaling Stool consists of five legs:
-        </p>
-        <DoctrineList items={[
-          "Marketing",
-          "Sales",
-          "Operations",
-          "People",
-          "Financial Command"
-        ]} />
-        <p>
-          These legs are not departments.<br />
-          They are <strong>functions</strong>.
-        </p>
-        <p>
-          Every contracting business has all five — whether intentionally built or not.
-        </p>
-        <p>
-          The question is not whether they exist.
-        </p>
-        <p className="body-text-emphasis">
-          The question is whether they are strong enough to carry the current load.
-        </p>
-      </Section>
-
-      <Section title="The Seat of the Stool">
-        <p>
-          At the top of the stool sits the business itself:
-        </p>
-        <DoctrineList items={[
-          "Contracts",
-          "Cash flow",
-          "Delivery",
-          "Reputation",
-          "Longevity"
-        ]} />
-        <p>
-          The business is not a leg.
-        </p>
-        <p>
-          It is <strong>supported</strong> by the legs.
-        </p>
-        <p>
-          This distinction matters, because most entrepreneurs try to fix the seat while ignoring the structure underneath it.
-        </p>
-      </Section>
-
-      <Section title="Marketing — The Visibility Leg">
-        <p>
-          Marketing ensures the business is known.
-        </p>
-        <p>
-          Its job is not creativity.<br />
-          Its job is <strong>consistency</strong>.
-        </p>
-        <p>
-          Marketing feeds attention into the business.<br />
-          Without it, sales starves.<br />
-          When sales starves, panic sets in.
-        </p>
-        <p className="body-text-emphasis">
-          Inconsistent marketing produces inconsistent opportunity.
-        </p>
-        <p className="italic font-serif text-xl">
-          Water beats the rock not by force, but by repetition.
-        </p>
-      </Section>
-
-      <Section title="Sales — The Commitment Leg">
-        <p>
-          Sales converts attention into contracts.
-        </p>
-        <p>
-          Sales is not persuasion.<br />
-          It is clarity.
-        </p>
-        <p>
-          A contract is signed when a client believes:
-        </p>
-        <DoctrineList items={[
-          "Risk is understood",
-          "Risk is priced",
-          "Risk is managed"
-        ]} />
-        <p>
-          Without sales, marketing is wasted motion.
-        </p>
-        <p className="body-text-emphasis">
-          Sales is oxygen.<br />
-          Everything else depends on it.
-        </p>
-      </Section>
-
-      <Section title="Operations — The Delivery Leg">
-        <p>
-          Operations is where most contractors believe their business lives.
-        </p>
-        <p>
-          That belief is incomplete.
-        </p>
-        <p>
-          Operations is not labor.<br />
-          It is <strong>logistics</strong>.
-        </p>
-        <p>
-          It is the coordination of:
-        </p>
-        <DoctrineList items={[
-          "People",
-          "Time",
-          "Materials",
-          "Information",
-          "Sequencing"
-        ]} />
-        <p>
-          Poor operations quietly erode profit, even on good jobs.
-        </p>
-        <p className="body-text-emphasis">
-          Strong operations turn complexity into predictability.
-        </p>
-      </Section>
-
-      <Section title="People — The Capacity Leg">
-        <p>
-          People determine whether the business can grow beyond the owner.
-        </p>
-        <p>
-          If everything routes through one person, scale is impossible.
-        </p>
-        <p>
-          People systems include:
-        </p>
-        <DoctrineList items={[
-          "Recruiting",
-          "Accountability",
-          "Role clarity",
-          "Culture",
-          "Standards"
-        ]} />
-        <p>
-          A business without people systems does not scale.<br />
-          It multiplies stress.
-        </p>
-      </Section>
-
-      <Section title="Financial Command — The Control Leg">
-        <p>
-          Revenue is not control.
-        </p>
-        <p className="body-text-emphasis">
-          Visibility is control.
-        </p>
-        <p>
-          Financial command means:
-        </p>
-        <DoctrineList items={[
-          "Knowing where money is made",
-          "Knowing where it is lost",
-          "Knowing where risk is accumulating",
-          "Knowing cash position in real time"
-        ]} />
-        <p>
-          Businesses do not fail from lack of revenue.<br />
-          They fail from lack of financial command.
-        </p>
-      </Section>
-
-      <div className="chapter-divider" />
-
-      <Section title="Why Marketing and Sales Are Oxygen Legs">
-        <p>
-          All five legs matter.
-        </p>
-        <p>
-          But two legs feed the rest:
-        </p>
-        <DoctrineList items={[
-          "Marketing",
-          "Sales"
-        ]} />
-        <p>
-          Without them:
-        </p>
-        <DoctrineList items={[
-          "Operations panics",
-          "People become unstable",
-          "Financial pressure increases",
-          "Decision-making degrades"
-        ]} />
-        <p>
-          This is why ALP addresses these legs early.
-        </p>
-        <p className="body-text-emphasis">
-          Without oxygen, nothing else survives long enough to improve.
-        </p>
-      </Section>
-
-      <Section title="Balance Over Strength">
-        <p>
-          The goal is not to perfect each leg.
-        </p>
-        <p>
-          The goal is to keep every leg <strong>functional and improving together</strong>.
-        </p>
-        <p>
-          An exceptional operations leg does not save weak sales.<br />
-          Strong sales does not save financial blindness.<br />
-          Great people do not fix poor delivery.
-        </p>
-        <p className="body-text-emphasis">
-          The stool requires balance, not heroics.
-        </p>
-      </Section>
-
-      <Section title="Diagnosing Instability">
-        <p>
-          When the business feels "off," the question is never:<br />
-          "What tactic do I need?"
-        </p>
-        <p>
-          The question is:
+          Most contractors think:
         </p>
         <p className="blockquote-doctrine">
-          Which leg is failing right now?
+          "If the job is moving, we're fine."
         </p>
         <p>
-          This diagnostic lens eliminates guesswork.
+          That's false.
+        </p>
+        <p>
+          General Conditions are not tied to production.
+        </p>
+        <p>
+          They are tied to <strong>time</strong>.
+        </p>
+        <p>
+          A job can look active and still be bleeding.
         </p>
         <p className="body-text-emphasis">
-          Instability always points to imbalance.
+          If the duration extends, General Conditions expand — regardless of how hard people are working.
         </p>
       </Section>
 
-      <Section title="The Entrepreneur's Role">
+      <Section title="What General Conditions Really Are">
         <p>
-          The entrepreneur is responsible for the stool.
-        </p>
-        <p>
-          Not by doing everything —<br />
-          but by <strong>seeing everything clearly</strong>.
-        </p>
-        <p>
-          This requires:
+          General Conditions include, but are not limited to:
         </p>
         <DoctrineList items={[
-          "Altitude to zoom out",
-          "Logic to diagnose accurately",
-          "Pressure to act decisively"
+          "Project supervision",
+          "Site management",
+          "Scheduling and coordination",
+          "Temporary facilities and utilities",
+          "Safety compliance",
+          "QA/QC processes",
+          "Professional services",
+          "Administrative oversight",
+          "Logistics and access control"
+        ]} />
+        <p>
+          None of these pour concrete.<br />
+          None of these install material.
+        </p>
+        <p>
+          But all of them exist for as long as the job exists.
+        </p>
+        <p className="body-text-emphasis">
+          That's the key.
+        </p>
+      </Section>
+
+      <Section title="Time Is the Multiplier">
+        <p>
+          Labor is a variable cost.<br />
+          Materials are a variable cost.
+        </p>
+        <p className="body-text-emphasis">
+          General Conditions are a duration cost.
+        </p>
+        <p>
+          Every additional day multiplies:
+        </p>
+        <DoctrineList items={[
+          "Supervision cost",
+          "Overhead allocation",
+          "Administrative load",
+          "Opportunity cost",
+          "Emotional strain on leadership"
+        ]} />
+        <p>
+          This is why schedule control is financial control.
+        </p>
+        <p className="body-text-emphasis">
+          Lose time — and General Conditions expand automatically.
+        </p>
+      </Section>
+
+      <Section title="The Lie Contractors Tell Themselves">
+        <p>
+          Here's the lie:
+        </p>
+        <p className="blockquote-doctrine">
+          "It's only a small delay."
+        </p>
+        <p>
+          There is no such thing.
+        </p>
+        <p>
+          Small delays stack.<br />
+          Small delays compound.<br />
+          Small delays metastasize.
+        </p>
+        <p className="body-text-emphasis">
+          And General Conditions are always there to collect the bill.
+        </p>
+      </Section>
+
+      <Parable title="The One-Week Extension">
+        <p>
+          A project slipped one week.
+        </p>
+        <p>
+          No formal change.<br />
+          No notice.<br />
+          No documentation.
+        </p>
+        <p>
+          Superintendent stayed.<br />
+          Trailer stayed.<br />
+          Temporary utilities stayed.<br />
+          PM stayed involved.
+        </p>
+        <p>
+          No one felt alarmed.
+        </p>
+        <p>
+          By the time the job closed, the margin was gone.
+        </p>
+        <p>
+          Not because of a mistake.
+        </p>
+        <p className="body-text-emphasis">
+          Because time was allowed to drift — and General Conditions followed it faithfully.
+        </p>
+      </Parable>
+
+      <Section title="Why General Conditions Are Rarely Recovered">
+        <p>
+          Most contractors fail to recover GC's because:
+        </p>
+        <DoctrineList items={[
+          "They don't tie them to time explicitly",
+          "They don't document disruption early",
+          "They don't issue notice",
+          "They don't update schedules",
+          "They don't quantify duration impact"
+        ]} />
+        <p>
+          Owners don't pay for effort.<br />
+          They pay for demonstrated time impact.
+        </p>
+        <p className="body-text-emphasis">
+          If you can't show how time extended, GC's become "your problem."
+        </p>
+      </Section>
+
+      <Section title="GC's Connect the Entire Stool">
+        <p>
+          General Conditions sit at the intersection of:
+        </p>
+        <DoctrineList items={[
+          "Operations",
+          "Scheduling",
+          "Documentation",
+          "Notices",
+          "Financial command"
+        ]} />
+        <p>
+          Weakness in any one of those legs shows up here first.
+        </p>
+        <p className="body-text-emphasis">
+          This is why GC's are diagnostic.
+        </p>
+        <p>
+          If your General Conditions are always "tight," something upstream is broken.
+        </p>
+      </Section>
+
+      <Section title="Why Operators Emotionally Avoid GC's">
+        <p>
+          General Conditions feel abstract.
+        </p>
+        <p>
+          They don't feel like:
+        </p>
+        <DoctrineList items={[
+          "Concrete",
+          "Steel",
+          "Labor hours"
+        ]} />
+        <p>
+          They feel like "soft costs."
+        </p>
+        <p>
+          But soft does not mean optional.
+        </p>
+        <p className="body-text-emphasis">
+          It means unprotected.
+        </p>
+        <p>
+          Contractors who avoid GC's emotionally tend to:
+        </p>
+        <DoctrineList items={[
+          "Accept delays casually",
+          "Over-accommodate clients",
+          "Avoid conflict",
+          "Delay notices",
+          "Rationalize lost time"
+        ]} />
+        <p>
+          Those behaviors don't feel dangerous.
+        </p>
+        <p className="body-text-emphasis">
+          Until the job ends.
+        </p>
+      </Section>
+
+      <Section title="General Conditions Are Not a Back-End Problem">
+        <p>
+          Most contractors try to deal with GC's at the end of the job.
+        </p>
+        <p className="body-text-emphasis">
+          That's too late.
+        </p>
+        <p>
+          General Conditions must be managed daily, not reconciled later.
+        </p>
+        <p>
+          You protect GC's by:
+        </p>
+        <DoctrineList items={[
+          "Enforcing sequence",
+          "Preventing start–stop work",
+          "Controlling access",
+          "Driving decisions",
+          "Documenting disruption",
+          "Updating schedules",
+          "Issuing timely notice"
         ]} />
         <p className="body-text-emphasis">
-          That is ALP in practice.
+          GC's are not recovered retroactively.
+        </p>
+        <p>
+          They are preserved proactively.
+        </p>
+      </Section>
+
+      <Section title="The Operator's Responsibility">
+        <p>
+          The entrepreneur must understand this clearly:
+        </p>
+        <p className="blockquote-doctrine">
+          If time slips and General Conditions are not protected,<br />
+          profit is being given away silently.
+        </p>
+        <p>
+          Not stolen.<br />
+          Not disputed.
+        </p>
+        <p className="body-text-emphasis">
+          Given away.
+        </p>
+        <p>
+          Strong operators don't argue about GC's emotionally.
+        </p>
+        <p>
+          They structure the job so GC's are either:
+        </p>
+        <DoctrineList items={[
+          "Protected, or",
+          "Entitled, or",
+          "Eliminated through time control"
+        ]} />
+        <p className="body-text-emphasis">
+          Anything else is hope.
+        </p>
+      </Section>
+
+      <Section title="Bringing It Back to ALP">
+        <p>
+          <strong>Altitude</strong> lets you see General Conditions as time exposure, not overhead.<br />
+          <strong>Logic</strong> forces you to connect duration to cost explicitly.<br />
+          <strong>Pressure</strong> requires you to enforce schedules, notices, and decisions early.
+        </p>
+        <p className="body-text-emphasis">
+          Remove any one of these — and GC's will bleed unnoticed.
         </p>
       </Section>
 
       <Section title="Final Truth">
         <p>
-          Growth does not fix weak legs.
+          Most contractors don't lose money on labor.
         </p>
         <p className="body-text-emphasis">
-          Growth exposes them.
+          They lose it on time they failed to control.
         </p>
         <p>
-          The scaling stool is not theory.<br />
-          It is reality, whether acknowledged or not.
+          General Conditions are not invisible.
         </p>
         <p>
-          Those who understand it early build businesses that last.
+          They are ignored.
         </p>
         <p>
-          Those who ignore it relearn the lesson under pressure.
+          And whatever is ignored in this business eventually gets paid for —<br />
+          just not by the person who caused it.
+        </p>
+        <p className="body-text-emphasis">
+          Control time.<br />
+          Protect General Conditions.<br />
+          Or watch profit disappear quietly.
         </p>
       </Section>
     </div>
