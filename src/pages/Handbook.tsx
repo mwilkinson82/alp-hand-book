@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
+import { useAuth } from '@/contexts/AuthContext';
 import HeroSection from '../components/handbook/HeroSection';
 import TableOfContents from '../components/handbook/TableOfContents';
 import PartHeader from '../components/handbook/PartHeader';
@@ -34,8 +36,42 @@ import FinalChapter from '../components/handbook/content/FinalChapter';
 import ReadingHeader from '../components/handbook/ReadingHeader';
 import ReadingProgress from '../components/handbook/ReadingProgress';
 import FloatingTOC from '../components/handbook/FloatingTOC';
+import { Button } from '@/components/ui/button';
+import { Loader2 } from 'lucide-react';
 
-const Index = () => {
+const Handbook: React.FC = () => {
+  const { user, hasPurchased, loading, purchaseLoading, signOut } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // If not loading and either not logged in or hasn't purchased, redirect
+    if (!loading && !purchaseLoading) {
+      if (!user) {
+        navigate('/');
+        return;
+      }
+      if (!hasPurchased) {
+        navigate('/');
+        return;
+      }
+    }
+  }, [user, hasPurchased, loading, purchaseLoading, navigate]);
+
+  // Show loading state
+  if (loading || purchaseLoading) {
+    return (
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center">
+        <Loader2 className="w-8 h-8 animate-spin opacity-50" />
+        <p className="mt-4 font-sans text-sm opacity-70">Loading your content...</p>
+      </div>
+    );
+  }
+
+  // If not authorized, show nothing (will redirect)
+  if (!user || !hasPurchased) {
+    return null;
+  }
+
   return (
     <div className="min-h-screen bg-background">
       <ReadingHeader />
@@ -103,6 +139,12 @@ const Index = () => {
           <p className="text-sm opacity-30 mt-4 font-sans">
             © Marshall Wilkinson
           </p>
+          <button 
+            onClick={() => signOut()} 
+            className="mt-6 text-sm font-sans opacity-50 hover:opacity-70 underline"
+          >
+            Sign Out
+          </button>
         </footer>
       </div>
       
@@ -111,4 +153,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Handbook;
