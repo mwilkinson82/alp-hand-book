@@ -16,6 +16,10 @@ import Chapter19 from '../components/handbook/content/Chapter19';
 import Chapter20 from '../components/handbook/content/Chapter20';
 import Chapter21 from '../components/handbook/content/Chapter21';
 import Chapter22 from '../components/handbook/content/Chapter22';
+import Chapter23 from '../components/handbook/content/Chapter23';
+import Chapter24 from '../components/handbook/content/Chapter24';
+import Chapter25 from '../components/handbook/content/Chapter25';
+import FinalChapter from '../components/handbook/content/FinalChapter';
 import PlaceholderChapter from '../components/handbook/content/PlaceholderChapter';
 
 const Index = () => {
@@ -62,10 +66,17 @@ const Index = () => {
         <Chapter19 />
         <Chapter20 />
         <Chapter21 />
+        <Chapter22 />
         
         {/* Part V */}
-        <PartHeader number="V" title="Commitment" />
-        <Chapter22 />
+        <PartHeader number="V" title="Real-Time Application" />
+        <Chapter23 />
+        <Chapter24 />
+        <Chapter25 />
+        
+        {/* Part VI */}
+        <PartHeader number="VI" title="Commitment" />
+        <FinalChapter />
         
         {/* Footer */}
         <footer className="py-32 text-center border-t border-chapter-divider">

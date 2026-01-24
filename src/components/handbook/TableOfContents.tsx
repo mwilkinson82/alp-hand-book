@@ -60,17 +60,27 @@ const tocData: TocSection[] = [
     part: 'IV',
     title: 'Identity & Scale',
     items: [
-      { id: 'chapter-18', chapter: '18', title: 'Scaling Without Losing Control' },
-      { id: 'chapter-19', chapter: '19', title: 'Leadership, Standards, and Cultural Enforcement' },
-      { id: 'chapter-20', chapter: '20', title: 'Identity, Self-Opinion, and Pressure' },
-      { id: 'chapter-21', chapter: '21', title: 'Using the ALP Handbook in Real Time' },
+      { id: 'chapter-18', chapter: '18', title: 'Change Order Velocity and Monetizing Disruption' },
+      { id: 'chapter-19', chapter: '19', title: 'Notices, Documentation, and Playing Offense' },
+      { id: 'chapter-20', chapter: '20', title: 'Financial Command: Seeing the Business Clearly' },
+      { id: 'chapter-21', chapter: '21', title: 'The Decision Matrix: How Operators Decide Under Pressure' },
+      { id: 'chapter-22', chapter: '22', title: 'Identity, Pressure, and the Entrepreneur\'s Responsibility' },
     ],
   },
   {
     part: 'V',
+    title: 'Real-Time Application',
+    items: [
+      { id: 'chapter-23', chapter: '23', title: 'Using the ALP Handbook in Real Time' },
+      { id: 'chapter-24', chapter: '24', title: 'Scaling Without Losing Control' },
+      { id: 'chapter-25', chapter: '25', title: 'Leadership, Standards, and Cultural Enforcement' },
+    ],
+  },
+  {
+    part: 'VI',
     title: 'Commitment',
     items: [
-      { id: 'chapter-22', chapter: '22', title: 'The ALP Way (Doctrine & Commitment)' },
+      { id: 'final-chapter', title: 'The ALP Way — Doctrine & Commitment' },
     ],
   },
 ];
