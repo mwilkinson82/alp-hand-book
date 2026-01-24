@@ -1,300 +1,341 @@
 import React from 'react';
 import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
-import Parable from '../Parable';
 import DoctrineList from '../DoctrineList';
+import Parable from '../Parable';
 
 const Chapter12 = () => {
   return (
     <section id="chapter-12" className="chapter-section">
-      <ChapterHeader number={12} title="Notices & Playing Offense" />
+      <ChapterHeader number={12} title="Documentation, Entitlement, and Proof" />
       
-      <p className="body-text">Most contractors treat notices as paperwork.</p>
+      <p className="body-text">Most contractors believe documentation exists for disputes.</p>
+      
+      <p className="body-text">That belief is too small — and too late.</p>
+      
+      <p className="body-text font-semibold">Documentation does not exist to fight.</p>
+      
+      <p className="body-text">It exists to prove.</p>
       
       <p className="body-text">
-        Something defensive.<br />
-        Something adversarial.<br />
-        Something you send when things are already bad.
+        And in construction, proof is the only currency that converts disruption into money.
       </p>
-      
-      <p className="body-text">That misunderstanding costs them leverage, entitlement, and control.</p>
-      
-      <p className="body-text font-semibold">Notices are not paperwork.</p>
-      
-      <p className="body-text">They are offensive tools.</p>
 
-      <Section title="Why Notices Exist">
-        <p className="body-text">Notices exist for one reason:</p>
-        
-        <p className="body-text font-semibold">To preserve rights in real time.</p>
-        
-        <p className="body-text">
-          Not to argue later.<br />
-          Not to threaten.<br />
-          Not to posture.
-        </p>
-        
-        <p className="body-text">
-          Notices exist so that when disruption occurs, responsibility is documented before memory, 
-          emotion, and narrative take over.
-        </p>
-        
-        <p className="body-text">Construction does not reward hindsight.</p>
-        
-        <p className="body-text">It rewards contemporaneous record.</p>
-      </Section>
-
-      <Section title="Defense vs. Offense">
-        <p className="body-text">Most contractors play defense.</p>
-        
-        <p className="body-text">
-          They wait.<br />
-          They hope.<br />
-          They accommodate.<br />
-          They "work it out."<br />
-          They send a notice only when payment is threatened.
-        </p>
-        
-        <p className="body-text">By then, it's too late.</p>
-        
-        <p className="body-text">Offensive contractors issue notices:</p>
+      <Section title="The Fatal Misunderstanding About Documentation">
+        <p className="body-text">Most operators treat documentation as:</p>
         
         <DoctrineList items={[
-          "Early",
-          "Calmly",
-          "Factually",
-          "Consistently"
+          "A defensive habit",
+          "A back-office task",
+          "Something you \"clean up later\"",
+          "A burden imposed by lawyers"
+        ]} />
+        
+        <p className="body-text">That mindset guarantees one outcome:</p>
+        
+        <p className="body-text font-semibold">
+          You will work harder — and get paid less — than the contract allows.
+        </p>
+        
+        <p className="body-text">Documentation is not administrative.</p>
+        
+        <p className="body-text font-semibold">It is financial infrastructure.</p>
+      </Section>
+
+      <Section title="Entitlement Is Not Fairness">
+        <p className="body-text">This is one of the most important truths in this handbook:</p>
+        
+        <p className="body-text font-semibold">
+          You are not paid based on what is fair.<br />
+          You are paid based on what is provable.
+        </p>
+        
+        <p className="body-text">
+          Entitlement is not emotion.<br />
+          It is not effort.<br />
+          It is not inconvenience.
+        </p>
+        
+        <p className="body-text">Entitlement exists only when three things align:</p>
+        
+        <DoctrineList items={[
+          "Contract language",
+          "Documented facts",
+          "Demonstrated impact"
+        ]} />
+        
+        <p className="body-text font-semibold">Miss any one — and entitlement collapses.</p>
+      </Section>
+
+      <Section title="Why Contractors Lose Entitlement They Technically Have">
+        <p className="body-text">Most contractors lose valid entitlement because they fail at proof.</p>
+        
+        <p className="body-text">They:</p>
+        
+        <DoctrineList items={[
+          "Document late",
+          "Document inconsistently",
+          "Document emotionally",
+          "Document without structure",
+          "Document without tying cause to effect"
+        ]} />
+        
+        <p className="body-text">By the time money is discussed, the record is already broken.</p>
+        
+        <p className="body-text font-semibold">And broken records don't get paid.</p>
+      </Section>
+
+      <Section title="Documentation Is a Real-Time Discipline">
+        <p className="body-text">Documentation only works while the job is happening.</p>
+        
+        <p className="body-text">
+          Not after.<br />
+          Not at closeout.<br />
+          Not when lawyers are involved.
+        </p>
+        
+        <p className="body-text">Documentation must occur:</p>
+        
+        <DoctrineList items={[
+          "When disruption happens",
+          "When access is denied",
+          "When sequence breaks",
+          "When decisions lag",
+          "When start–stop work begins"
         ]} />
         
         <p className="body-text">
-          Not because they are aggressive —<br />
-          but because they are disciplined.
+          Memory decays.<br />
+          Narratives harden.<br />
+          Positions calcify.
+        </p>
+        
+        <p className="body-text font-semibold">
+          Real-time documentation preserves truth before it gets rewritten.
         </p>
       </Section>
 
-      <Section title="What 'Playing Offense' Actually Means">
-        <p className="body-text">Playing offense does not mean being combative.</p>
+      <Parable title="The Unwritten Delay">
+        <p className="body-text">A project suffered months of owner-caused disruption.</p>
         
-        <p className="body-text">It means setting the narrative early.</p>
+        <p className="body-text">
+          Everyone knew it.<br />
+          Everyone felt it.<br />
+          Everyone talked about it.
+        </p>
         
-        <p className="body-text">When disruption occurs, one of two things will happen:</p>
+        <p className="body-text">But nothing was documented clearly.</p>
         
-        <p className="body-text">Either:</p>
-        <p className="body-text ml-4">You define the event, its cause, and its impact</p>
+        <p className="body-text">At the end:</p>
         
-        <p className="body-text">Or:</p>
-        <p className="body-text ml-4">Someone else will</p>
+        <DoctrineList items={[
+          "The owner denied responsibility",
+          "The schedule didn't show impact",
+          "Notices were late",
+          "The contractor absorbed the loss"
+        ]} />
         
-        <p className="body-text">Silence is not neutral.</p>
+        <p className="body-text">The problem wasn't entitlement.</p>
         
-        <p className="body-text font-semibold">Silence concedes narrative control.</p>
-      </Section>
+        <p className="body-text font-semibold">It was proof.</p>
+      </Parable>
 
-      <Section title="Notices Are About Time, Not Blame">
-        <p className="body-text">Here's where most contractors get it wrong:</p>
+      <Section title="Proof Requires Cause and Effect">
+        <p className="body-text">Documentation without structure is noise.</p>
         
-        <p className="body-text">They think notices are about fault.</p>
-        
-        <p className="body-text">They're not.</p>
-        
-        <p className="body-text font-semibold">They're about time and impact.</p>
-        
-        <p className="body-text">A proper notice answers four questions:</p>
+        <p className="body-text">Strong documentation always answers four questions:</p>
         
         <DoctrineList items={[
           "What happened?",
-          "When did it happen?",
-          "What is the impact on time and/or cost?",
-          "What rights are being reserved?"
+          "Why did it happen?",
+          "What did it affect?",
+          "How long did the effect last?"
         ]} />
         
         <p className="body-text">
-          No emotion.<br />
-          No accusation.<br />
-          No argument.
+          Photos without context are useless.<br />
+          Emails without timelines are weak.<br />
+          Daily reports without causation are incomplete.
         </p>
         
-        <p className="body-text">Just record.</p>
+        <p className="body-text font-semibold">Proof is not volume.</p>
+        
+        <p className="body-text">Proof is clarity.</p>
       </Section>
 
-      <Section title="Why Contractors Delay Notices">
-        <p className="body-text">Contractors delay notices because they:</p>
+      <Section title="Documentation Is Not Complaining">
+        <p className="body-text">
+          Many operators avoid documentation because they fear it feels adversarial.
+        </p>
         
-        <DoctrineList items={[
-          "Don't want to upset the owner",
-          "Want to be \"easy to work with\"",
-          "Think the issue might resolve itself",
-          "Fear conflict",
-          "Don't fully understand entitlement"
-        ]} />
-        
-        <p className="body-text">This feels reasonable.</p>
-        
-        <p className="body-text">It is also how leverage evaporates.</p>
+        <p className="body-text">That fear is misplaced.</p>
         
         <p className="body-text">
-          By the time the issue "doesn't resolve,"<br />
-          the notice window has closed.
-        </p>
-      </Section>
-
-      <Parable title="The Polite Contractor">
-        <p className="body-text">A contractor accommodated repeated owner delays.</p>
-        
-        <p className="body-text">
-          No notice.<br />
-          No documentation.<br />
-          Just cooperation.
+          Clear documentation is not aggressive.<br />
+          It is not emotional.<br />
+          It is not hostile.
         </p>
         
-        <p className="body-text">Months later, the schedule was blown and costs mounted.</p>
+        <p className="body-text font-semibold">It is factual.</p>
         
-        <p className="body-text">When the contractor finally raised the issue, the response was simple:</p>
+        <p className="body-text">And facts reduce conflict — they don't create it.</p>
         
-        <p className="body-text font-semibold">"You never said anything."</p>
-        
-        <p className="body-text">Politeness did not preserve entitlement.</p>
-        
-        <p className="body-text">Documentation would have.</p>
-      </Parable>
-
-      <Section title="Notices Protect Relationships — They Don't Damage Them">
-        <p className="body-text">This is counterintuitive, but true:</p>
-        
-        <p className="body-text font-semibold">Clear notices often reduce conflict.</p>
-        
-        <p className="body-text">Why?<br />Because:</p>
+        <p className="body-text">Disputes escalate when:</p>
         
         <DoctrineList items={[
-          "Expectations are set early",
-          "Surprises are minimized",
-          "Memory doesn't get rewritten",
-          "Responsibility stays clear"
+          "Records are vague",
+          "Facts are missing",
+          "Positions are argued instead of demonstrated"
         ]} />
         
-        <p className="body-text">Conflict escalates when issues surface late.</p>
-        
-        <p className="body-text">Notices surface them early.</p>
+        <p className="body-text font-semibold">
+          Strong documentation short-circuits arguments before they form.
+        </p>
       </Section>
 
-      <Section title="Notice Is a System, Not an Event">
-        <p className="body-text">Strong operators do not "remember" to issue notices.</p>
+      <Section title="Entitlement Lives in the Schedule">
+        <p className="body-text">
+          No matter how much documentation you have, entitlement dies without schedule support.
+        </p>
         
-        <p className="body-text">They systematize them.</p>
-        
-        <p className="body-text">That means:</p>
+        <p className="body-text">Schedules:</p>
         
         <DoctrineList items={[
-          "Defined triggers",
-          "Standard language",
-          "Consistent timing",
-          "Centralized tracking"
+          "Show sequence",
+          "Prove dependency",
+          "Demonstrate delay",
+          "Quantify duration impact"
+        ]} />
+        
+        <p className="body-text font-semibold">Documentation and scheduling are inseparable.</p>
+        
+        <p className="body-text">
+          One records events.<br />
+          The other proves impact.
+        </p>
+        
+        <p className="body-text">Together, they create entitlement.</p>
+      </Section>
+
+      <Section title="Why Owners Resist Documentation">
+        <p className="body-text">Owners don't resist documentation because it's annoying.</p>
+        
+        <p className="body-text font-semibold">They resist it because it limits flexibility.</p>
+        
+        <p className="body-text">Once something is documented:</p>
+        
+        <DoctrineList items={[
+          "Responsibility becomes visible",
+          "Time impact becomes traceable",
+          "Narrative control weakens"
         ]} />
         
         <p className="body-text">
-          If notices rely on memory, emotion, or judgment calls under pressure, they will fail.
+          This is why pushback increases when documentation improves.
         </p>
         
-        <p className="body-text">Every time.</p>
+        <p className="body-text font-semibold">
+          That pushback is confirmation — not a warning.
+        </p>
       </Section>
 
-      <Section title="What Triggers a Notice">
-        <p className="body-text">At minimum, notices should be triggered by:</p>
+      <Section title="Documentation Is an Offensive Tool">
+        <p className="body-text">Most contractors document defensively.</p>
+        
+        <p className="body-text font-semibold">Strong operators document offensively.</p>
+        
+        <p className="body-text">They document to:</p>
         
         <DoctrineList items={[
-          "Owner-caused delay",
-          "Design ambiguity",
-          "Late approvals",
-          "Resequencing",
-          "Start–stop work",
-          "Trade stacking",
-          "Scope growth",
-          "Access restrictions"
+          "Preserve leverage",
+          "Force decisions",
+          "Protect time",
+          "Control narrative",
+          "Monetize disruption"
         ]} />
         
         <p className="body-text">
-          If something impacts time, cost, or sequence —<br />
-          it deserves a notice.
+          When documentation is consistent and unemotional, it changes behavior upstream.
         </p>
-      </Section>
-
-      <Section title="Notice Does Not Equal Escalation">
-        <p className="body-text">Issuing notice does not mean you stop working.</p>
-        
-        <p className="body-text">It means you keep working with protection.</p>
-        
-        <p className="body-text">This is the difference between:</p>
-        
-        <DoctrineList items={[
-          "Cooperation",
-          "Capitulation"
-        ]} />
-        
-        <p className="body-text">Offensive operators cooperate without surrendering rights.</p>
-      </Section>
-
-      <Section title="The Cost of 'We'll Deal With It Later'">
-        <p className="body-text">Later never comes.</p>
-        
-        <p className="body-text">What comes instead:</p>
-        
-        <DoctrineList items={[
-          "Denied change orders",
-          "Unpaid GC's",
-          "Rejected claims",
-          "Strained relationships",
-          "Emotional arguments"
-        ]} />
-        
-        <p className="body-text">All because the record was never built.</p>
         
         <p className="body-text">
-          Notices are how you build that record — calmly, methodically, and without drama.
+          People decide faster.<br />
+          Access improves.<br />
+          Interference decreases.
         </p>
+        
+        <p className="body-text">Not because you argued — but because proof existed.</p>
       </Section>
 
-      <Section title="Notices as a Leadership Act">
-        <p className="body-text">Issuing notice is a leadership decision.</p>
+      <Section title="The Operator Sets the Standard">
+        <p className="body-text">Documentation culture does not come from the field.</p>
         
-        <p className="body-text">It signals:</p>
+        <p className="body-text font-semibold">It comes from leadership.</p>
+        
+        <p className="body-text">If leadership:</p>
         
         <DoctrineList items={[
-          "Professionalism",
-          "Discipline",
-          "Clarity",
-          "Command"
+          "Minimizes documentation",
+          "Delays review",
+          "Ignores incomplete records",
+          "Avoids notice"
         ]} />
         
-        <p className="body-text">Teams follow leaders who protect the business.</p>
+        <p className="body-text">The team will too.</p>
         
-        <p className="body-text">Silence teaches people that protection is optional.</p>
+        <p className="body-text">If leadership demands:</p>
+        
+        <DoctrineList items={[
+          "Daily clarity",
+          "Cause-and-effect language",
+          "Schedule alignment",
+          "Immediate escalation"
+        ]} />
+        
+        <p className="body-text font-semibold">Documentation becomes automatic.</p>
       </Section>
 
       <Section title="Bringing It Back to ALP">
         <p className="body-text">
-          <strong>Altitude</strong> lets you recognize disruption early.<br />
-          <strong>Logic</strong> tells you when entitlement is at risk.<br />
-          <strong>Pressure</strong> forces you to act before windows close.
+          <strong>Altitude</strong> allows you to see documentation as leverage, not paperwork.<br />
+          <strong>Logic</strong> forces cause, effect, and proof to align.<br />
+          <strong>Pressure</strong> requires you to document even when it feels uncomfortable.
         </p>
         
-        <p className="body-text">Remove any one — and notices fail.</p>
+        <p className="body-text">Remove any one — and entitlement erodes.</p>
       </Section>
 
       <Section title="Final Truth">
-        <p className="body-text font-semibold">Most contractors don't lose claims because they were wrong.</p>
-        
-        <p className="body-text">They lose them because they were quiet.</p>
-        
-        <p className="body-text">Notices are not aggression.</p>
-        
-        <p className="body-text">They are responsibility in written form.</p>
-        
-        <p className="body-text">
-          If you don't play offense in real time,<br />
-          you will always be defending yourself later.
+        <p className="body-text font-semibold">
+          Most contractors don't lose money because entitlement didn't exist.
         </p>
         
-        <p className="body-text font-semibold">And later is where leverage goes to die.</p>
+        <p className="body-text">They lose money because proof didn't.</p>
+        
+        <p className="body-text">
+          Documentation is not about protecting yourself from the worst case.
+        </p>
+        
+        <p className="body-text font-semibold">
+          It is about ensuring you get paid for the reality that actually occurred.
+        </p>
+        
+        <p className="body-text">In this business:</p>
+        
+        <p className="body-text">
+          Work is easy to forget<br />
+          Disruption is easy to deny<br />
+          Time is easy to steal
+        </p>
+        
+        <p className="body-text font-semibold">Unless it's documented.</p>
+        
+        <p className="body-text">
+          Proof turns truth into leverage.<br />
+          Leverage turns disruption into money.
+        </p>
+        
+        <p className="body-text font-semibold">And money only moves where proof exists.</p>
       </Section>
     </section>
   );

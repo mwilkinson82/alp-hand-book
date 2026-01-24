@@ -9,180 +9,194 @@ const Chapter25: React.FC = () => {
     <div id="chapter-25" className="chapter-container">
       <ChapterHeader 
         number={25} 
-        title="Leadership, Standards, and Cultural Enforcement" 
+        title="Scaling Without Losing Control" 
       />
       
       <Section>
-        <p>Culture does not drift upward.</p>
-        <p>It always drifts <strong>downward</strong>.</p>
-        <p>If it is not actively enforced, it degrades.<br />
-        If standards are not protected, they erode.<br />
-        If leadership hesitates, disorder fills the gap.</p>
-        <p>This chapter exists to clarify one truth:</p>
-        <p className="italic"><strong>Culture is not what you say.<br />
-        It is what you tolerate.</strong></p>
+        <p>Most contractors do not fail early.</p>
+        <p>They fail <strong>after growth begins</strong>.</p>
+        <p>Revenue increases.<br />
+        Backlog grows.<br />
+        Headcount expands.<br />
+        Work accelerates.</p>
+        <p>And control quietly erodes.</p>
+        <p>This chapter exists to explain why that happens — and how ALP prevents it.</p>
       </Section>
 
-      <Section title="Leadership Is Not Personality">
-        <p>Many contractors confuse leadership with personality.</p>
-        <p>They believe leadership means:</p>
+      <Section title="Growth Is Not Scale">
+        <p><strong>Growth</strong> is volume.</p>
+        <p><strong>Scale</strong> is control at volume.</p>
+        <p>Many businesses grow.<br />
+        Very few scale.</p>
+        <p>Growth without control:</p>
         <DoctrineList items={[
-          "Being liked",
-          "Being charismatic",
-          "Being inspiring",
-          "Being agreeable"
+          "Increases stress",
+          "Magnifies mistakes",
+          "Exposes weak systems",
+          "Accelerates burnout"
         ]} />
-        <p>Those traits may help — but they are not leadership.</p>
-        <p><strong>Leadership is standards under pressure.</strong></p>
-        <p>When things are easy, anyone can lead.<br />
-        When pressure rises, real leadership is revealed.</p>
+        <p>Scale absorbs volume without losing clarity.</p>
+        <p>ALP is a scaling doctrine, not a growth hack.</p>
       </Section>
 
-      <Section title="Standards Are the Real Culture">
-        <p>Culture is not values on a wall.<br />
-        It is not slogans.<br />
-        It is not meetings.</p>
-        <p><strong>Culture is the sum of enforced standards.</strong></p>
-        <p>What gets corrected becomes culture.<br />
-        What gets ignored becomes culture.<br />
-        What gets excused becomes culture.</p>
-        <p>There is no neutral ground.</p>
-      </Section>
-
-      <Section title="Why Standards Slip">
-        <p>Standards erode for predictable reasons:</p>
+      <Section title="Why Businesses Break During Growth">
+        <p>Growth introduces three forces simultaneously:</p>
         <DoctrineList items={[
-          "Leaders avoid conflict",
-          "Leaders seek approval",
-          "Leaders fear turnover",
-          "Leaders rationalize exceptions",
-          "Leaders delay hard conversations"
+          "Speed — decisions must be made faster",
+          "Distance — the operator is further from the work",
+          "Complexity — more people, jobs, variables"
         ]} />
-        <p>None of these are operational failures.</p>
-        <p>They are <strong>identity failures</strong>.</p>
-        <p>And once standards slip, recovery becomes expensive.</p>
+        <p>If control systems are not already in place, growth overwhelms the operator.</p>
+        <p>The business does not collapse because it is too big.</p>
+        <p><strong>It collapses because command did not scale with size.</strong></p>
       </Section>
 
-      <Parable title="The First Exception">
-        <p>A supervisor violated a clear standard.</p>
-        <p>The owner noticed.<br />
-        He hesitated.<br />
-        He let it slide — just once.</p>
-        <p>That exception became precedent.<br />
-        Precedent became permission.<br />
-        Permission became culture.</p>
-        <p>Six months later, the owner blamed "the team."</p>
-        <p><strong>The team was only following what was tolerated.</strong></p>
-      </Parable>
-
-      <Section title="Leadership Is Willingness to Enforce">
-        <p>Leadership does not require volume.<br />
-        It requires resolve.</p>
-        <p>Enforcement means:</p>
+      <Section title="The Myth of 'We'll Fix It Later'">
+        <p>Many operators postpone discipline until after growth stabilizes.</p>
+        <p>This is backwards.</p>
+        <p>You cannot retrofit control easily.<br />
+        You must install it early.</p>
+        <p>Deferred discipline compounds:</p>
         <DoctrineList items={[
-          "Addressing issues early",
-          "Having uncomfortable conversations",
-          "Correcting behavior immediately",
-          "Holding lines consistently",
-          "Removing people who refuse standards"
+          "Weak sales terms become systemic losses",
+          "Poor scheduling multiplies disruption",
+          "Inconsistent documentation kills entitlement",
+          "Financial blindness grows with revenue"
         ]} />
-        <p>This is not cruelty.</p>
-        <p><strong>It is clarity.</strong></p>
+        <p>Later never comes.<br />
+        Pressure always does.</p>
       </Section>
 
-      <Section title="Standards Protect Good People">
-        <p>Many leaders avoid enforcement because they believe it is harsh.</p>
-        <p>In reality, weak enforcement punishes high performers.</p>
-        <p>When standards are not enforced:</p>
-        <DoctrineList items={[
-          "Strong people carry weak ones",
-          "Accountability feels unfair",
-          "Morale erodes",
-          "Resentment grows"
-        ]} />
-        <p><strong>Clear standards protect the right people.</strong></p>
-      </Section>
-
-      <Section title="Culture Is Enforced Daily — Not Announced">
-        <p>Culture is built through:</p>
-        <DoctrineList items={[
-          "What leaders correct",
-          "What leaders praise",
-          "What leaders ignore",
-          "What leaders allow to repeat"
-        ]} />
-        <p>Daily behavior matters more than quarterly meetings.</p>
-        <p>ALP leaders understand this and act accordingly.</p>
-      </Section>
-
-      <Section title="Leadership at Scale Requires Consistency">
-        <p>As the business grows, leadership becomes less visible.</p>
-        <p>This makes standards more important — not less.</p>
-        <p>At scale:</p>
-        <DoctrineList items={[
-          "Tone travels slower",
-          "Intent gets diluted",
-          "Exceptions multiply faster"
-        ]} />
-        <p>This is why systems, documentation, and enforcement must replace intuition.</p>
-        <p><strong>Consistency is the only scalable form of leadership.</strong></p>
-      </Section>
-
-      <Section title="The Cost of Weak Leadership">
-        <p>Weak leadership does not feel dangerous at first.</p>
-        <p>It feels:</p>
-        <DoctrineList items={[
-          "Polite",
-          "Flexible",
-          "Understanding"
-        ]} />
-        <p>Then it becomes:</p>
-        <DoctrineList items={[
-          "Confusing",
-          "Inconsistent",
-          "Frustrating"
-        ]} />
-        <p>Eventually, it becomes expensive.</p>
-        <p><strong>Chaos is not random.<br />
-        It is tolerated.</strong></p>
-      </Section>
-
-      <Section title="The Entrepreneur's Responsibility">
-        <p>The entrepreneur sets the ceiling.</p>
+      <Section title="Scaling the Operator First">
+        <p>The constraint in scaling is not the business.</p>
+        <p><strong>It is the operator.</strong></p>
         <p>If the entrepreneur:</p>
         <DoctrineList items={[
-          "Avoids conflict",
-          "Compromises standards",
-          "Explains instead of enforces",
-          "Seeks consensus instead of clarity"
+          "Avoids decisions",
+          "Seeks approval",
+          "Hesitates under pressure",
+          "Relies on instinct",
+          "Resists structure"
         ]} />
-        <p>The culture will reflect it.</p>
-        <p><strong>Leadership is not delegated.<br />
-        It is modeled.</strong></p>
+        <p>The business cannot scale beyond them.</p>
+        <p>ALP requires the operator to grow <em>ahead</em> of the business, not behind it.</p>
+      </Section>
+
+      <Section title="Control Must Precede Delegation">
+        <p>Delegation without control creates chaos.</p>
+        <p>Before handing work off, the operator must ensure:</p>
+        <DoctrineList items={[
+          "Standards are defined",
+          "Systems are documented",
+          "Authority is clear",
+          "Accountability is enforced",
+          "Financial visibility exists"
+        ]} />
+        <p>You cannot delegate responsibility without first establishing command structure.</p>
+        <p>Otherwise, you are not scaling.<br />
+        You are dispersing risk.</p>
+      </Section>
+
+      <Parable title="The Expanding Circle">
+        <p>An owner grew from two jobs to twelve.</p>
+        <p>Revenue tripled.<br />
+        So did problems.</p>
+        <p>He hired more people.<br />
+        Added more meetings.<br />
+        Installed new software.</p>
+        <p>Nothing improved.</p>
+        <p>The issue was not capacity.<br />
+        It was clarity.</p>
+        <p>Once decision authority, scheduling discipline, and financial reporting were standardized, the business stabilized — without reducing volume.</p>
+        <p>The circle didn't need to shrink.<br />
+        <strong>It needed structure.</strong></p>
+      </Parable>
+
+      <Section title="Scaling Each Leg of the Stool">
+        <p>Scale must be balanced.</p>
+        <p>If one leg grows faster than the others, instability follows.</p>
+        <DoctrineList items={[
+          "Marketing without sales discipline creates bad backlog",
+          "Sales without operations creates chaos",
+          "Operations without people creates burnout",
+          "People without financial command creates drift"
+        ]} />
+        <p>The stool must be reinforced evenly as volume increases.</p>
+        <p>This is non-negotiable.</p>
+      </Section>
+
+      <Section title="Financial Command Becomes Mandatory at Scale">
+        <p>At low volume, intuition masks weakness.</p>
+        <p>At scale, intuition fails.</p>
+        <p>Scaling requires:</p>
+        <DoctrineList items={[
+          "Cost-coded jobs",
+          "Real-time WIP tracking",
+          "Cash flow forecasting",
+          "Margin visibility by project",
+          "Clear exposure awareness"
+        ]} />
+        <p>If you cannot see the business clearly, you cannot scale it safely.</p>
+        <p>Growth hides problems.<br />
+        Scale exposes them.</p>
+      </Section>
+
+      <Section title="Pressure Increases — Identity Is Tested">
+        <p>As the business scales:</p>
+        <DoctrineList items={[
+          "Decisions affect more people",
+          "Mistakes cost more money",
+          "Conflict becomes unavoidable",
+          "Visibility increases"
+        ]} />
+        <p>This is where identity collapses or solidifies.</p>
+        <p>Operators who need approval shrink.<br />
+        Operators who trust themselves stabilize the business.</p>
+        <p><strong>Scale does not forgive insecurity.</strong></p>
+      </Section>
+
+      <Section title="Systems Reduce Emotional Load">
+        <p>ALP systems exist to remove emotion from execution.</p>
+        <p>Clear systems:</p>
+        <DoctrineList items={[
+          "Reduce decision fatigue",
+          "Prevent overreaction",
+          "Eliminate firefighting",
+          "Protect the operator's energy"
+        ]} />
+        <p>Energy is finite.<br />
+        Systems preserve it.</p>
+      </Section>
+
+      <Section title="Scaling Is a Discipline, Not a Goal">
+        <p>Scale is not a finish line.</p>
+        <p>It is a continuous discipline.</p>
+        <p>Every new level of volume requires:</p>
+        <DoctrineList items={[
+          "Re-evaluating weak legs",
+          "Tightening standards",
+          "Reinforcing documentation",
+          "Sharpening decision-making"
+        ]} />
+        <p>Operators who stop reinforcing control fall behind their own growth.</p>
       </Section>
 
       <Section title="Bringing It Back to ALP">
-        <p><strong>Altitude</strong> clarifies what standards matter.<br />
-        <strong>Logic</strong> defines them clearly.<br />
-        <strong>Pressure</strong> enforces them consistently.</p>
-        <p>Remove any one — culture degrades.</p>
-        <p>ALP leaders do not negotiate standards.<br />
-        They defend them.</p>
+        <p><strong>Altitude</strong> allows you to see scale clearly.<br />
+        <strong>Logic</strong> ensures systems make sense.<br />
+        <strong>Pressure</strong> ensures standards are enforced.</p>
+        <p>Remove any one — scale collapses.</p>
+        <p>ALP is not optional at higher levels.<br />
+        It is required infrastructure.</p>
       </Section>
 
       <Section title="Final Truth">
-        <p>Culture is not fragile.</p>
-        <p><strong>It is honest.</strong></p>
-        <p>It tells the truth about leadership every day.</p>
-        <p>If you want a stronger culture:</p>
-        <DoctrineList items={[
-          "Raise standards",
-          "Enforce them early",
-          "Accept discomfort",
-          "Protect the mission"
-        ]} />
-        <p>Leadership is not about being followed.</p>
-        <p><strong>It is about being respected under pressure.</strong></p>
+        <p>Most businesses fail not because they grow too slowly —<br />
+        but because they grow faster than they can control.</p>
+        <p><strong>Scale rewards discipline.<br />
+        It punishes hope.</strong></p>
+        <p>Those who scale with ALP do not fear growth.</p>
+        <p>They command it.</p>
       </Section>
     </div>
   );

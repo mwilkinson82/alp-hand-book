@@ -2,431 +2,409 @@ import React from 'react';
 import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
+import Parable from '../Parable';
+import MediaPlaceholder from '../MediaPlaceholder';
 
 const Chapter17: React.FC = () => {
   return (
     <div id="chapter-17" className="py-24 border-t border-chapter-divider">
       <ChapterHeader 
         number={17} 
-        title="CPM Schedules, Start–Stop Work, and the Cost of Disorder" 
+        title="General Conditions Are Not Overhead — They Are a Profit Center" 
       />
 
       <div className="body-text space-y-6 max-w-3xl">
         <p>
-          Most contractors treat schedules as a formality.
+          Most contractors misunderstand general conditions.
         </p>
         <p>
-          Something required by the owner.<br />
-          Something submitted once.<br />
-          Something referenced occasionally.
+          They treat them as overhead.<br />
+          They minimize them to win work.<br />
+          They under-carry them to stay competitive.
         </p>
         <p>
-          That misunderstanding costs more profit than almost any other operational failure.
+          And then they wonder why profitable jobs quietly fail.
         </p>
         <p>
-          A schedule is not paperwork.
+          General conditions are not a burden on the job.
         </p>
         <p className="body-text-emphasis">
-          A schedule is time control.
+          They are the control system of the job.
         </p>
         <p>
-          And time is the most expensive input on a construction project.
+          When general conditions are weak, profit erodes invisibly — regardless of how good the estimate looks on paper.
         </p>
       </div>
 
       <div className="chapter-divider" />
 
-      <Section title="Why Time Is the Only Resource You Cannot Recover">
+      <Section title="What General Conditions Actually Are">
         <p>
-          Labor can be replaced.<br />
-          Materials can be reordered.<br />
-          Money can be borrowed.
-        </p>
-        <p className="body-text-emphasis">
-          Time cannot be recovered.
+          General conditions are the resources required to <strong>control time, coordination, and execution</strong>.
         </p>
         <p>
-          Every lost day compounds:
+          They include:
         </p>
         <DoctrineList items={[
-          "Supervision costs",
-          "General conditions",
-          "Management effort",
-          "Financing pressure",
-          "Morale degradation"
+          "Supervision",
+          "Project management",
+          "Scheduling",
+          "Site logistics",
+          "Safety",
+          "Temporary facilities",
+          "Testing and inspections",
+          "Professional fees",
+          "Documentation",
+          "Communication infrastructure"
         ]} />
         <p>
-          When contractors lose control of time, everything else deteriorates shortly after.
+          These are not extras.
+        </p>
+        <p className="body-text-emphasis">
+          They are the systems that prevent chaos.
         </p>
       </Section>
 
-      <Section title="What a CPM Schedule Actually Is">
+      <Section title="Why Contractors Underestimate General Conditions">
         <p>
-          A CPM (Critical Path Method) schedule is not a calendar.
-        </p>
-        <p>
-          It is a <strong>logic model</strong>.
-        </p>
-        <p>
-          It defines:
+          Contractors under-carry general conditions for three reasons:
         </p>
         <DoctrineList items={[
-          "What must happen",
-          "In what sequence",
-          "With what dependencies",
-          "And which activities control completion"
+          "Fear of being uncompetitive",
+          "Pressure to hit a number",
+          "Misunderstanding where profit is actually lost"
         ]} />
         <p>
-          The critical path is not theoretical.
+          General conditions are the first thing cut during estimating — and the first thing desperately needed during execution.
         </p>
         <p className="body-text-emphasis">
-          It is the chain of events that governs cash flow, risk, and exposure.
-        </p>
-        <p>
-          If you do not control the critical path, you do not control the job.
+          That contradiction alone should tell you something.
         </p>
       </Section>
 
-      <Section title="Why Schedules Fail in the Real World">
+      <Section title="Time Is the Real Currency of the Job">
         <p>
-          Schedules fail for predictable reasons:
+          Labor, materials, and equipment are easy to see.
         </p>
-        <DoctrineList items={[
-          "They are created to satisfy a contract requirement, not to run the job",
-          "They are not updated when conditions change",
-          "They are disconnected from field reality",
-          "They are treated as static instead of living tools"
-        ]} />
         <p>
-          When a schedule is not respected, it becomes fiction.
+          Time is not.
         </p>
         <p className="body-text-emphasis">
-          And fiction cannot protect profit.
+          General conditions exist to protect time.
+        </p>
+        <p>
+          Every day a job drags:
+        </p>
+        <DoctrineList items={[
+          "Supervision costs increase",
+          "Management hours stack",
+          "Temporary facilities remain",
+          "Cash flow stretches",
+          "Morale degrades"
+        ]} />
+        <p>
+          Time overruns do not announce themselves loudly.
+        </p>
+        <p>
+          They accumulate quietly — until margin disappears.
         </p>
       </Section>
 
-      <Section title="Start–Stop Work Is a Scheduling Failure">
+      <MediaPlaceholder type="diagram" label="General Conditions Breakdown Chart" />
+
+      <Section title="Separation of Men and the Cost of Disorder">
         <p>
-          Start–stop work is not bad luck.<br />
-          It is not lazy labor.<br />
-          It is not "just construction."
-        </p>
-        <p className="body-text-emphasis">
-          It is disorder caused by broken sequencing.
+          One of the clearest indicators of weak general conditions is poor separation of men.
         </p>
         <p>
-          Start–stop work happens when:
+          When crews:
         </p>
         <DoctrineList items={[
-          "Trades are stacked without separation",
-          "Materials arrive out of sequence",
-          "Access is not controlled",
-          "Decisions lag behind work",
-          "Dependencies are ignored"
+          "Interfere with one another",
+          "Compete for space",
+          "Wait for access",
+          "Rework completed areas"
         ]} />
         <p>
-          Every stop resets momentum.
+          You are paying twice for the same work.
         </p>
         <p>
-          Momentum is productivity.<br />
-          Productivity is margin.
+          Strong general conditions enforce separation:
+        </p>
+        <DoctrineList items={[
+          "Clear work zones",
+          "Defined sequencing",
+          "Controlled access",
+          "Coordinated trades"
+        ]} />
+        <p>
+          Order is not aesthetic.
+        </p>
+        <p className="body-text-emphasis">
+          Order is financial discipline.
         </p>
       </Section>
 
-      <Section title="The Hidden Cost of Start–Stop Work">
+      <Section title="Start–Stop Work Is a General Conditions Failure">
         <p>
-          Start–stop work creates losses that never show up cleanly in reports:
+          Start–stop work is rarely a labor issue.
+        </p>
+        <p>
+          It is almost always a general conditions failure.
+        </p>
+        <p>
+          When materials are late, drawings unclear, or sequencing loose, crews stop — and momentum dies.
+        </p>
+        <p>
+          Every stop:
         </p>
         <DoctrineList items={[
-          "Crews lose rhythm",
-          "Supervisors spend time re-explaining work",
-          "Rework increases",
-          "Safety risk rises",
-          "Morale erodes"
+          "Breaks rhythm",
+          "Lowers morale",
+          "Reduces output",
+          "Increases supervision time"
         ]} />
         <p>
-          The job still "moves," but efficiency collapses.
+          You cannot "push" productivity back into a broken system.
         </p>
         <p className="body-text-emphasis">
-          This is how jobs that look fine on paper quietly die.
+          You must remove the friction.
         </p>
       </Section>
 
-      <Section title="Scheduling as a Financial Weapon">
+      <Section title="Why GC Costs Create Profit">
         <p>
-          A properly managed schedule does three critical things:
-        </p>
-        <DoctrineList items={[
-          "Protects productivity",
-          "Documents disruption",
-          "Creates entitlement"
-        ]} />
-        <p>
-          When disruption occurs, the schedule answers:
-        </p>
-        <DoctrineList items={[
-          "What was planned",
-          "What changed",
-          "Who caused it",
-          "And what it cost"
-        ]} />
-        <p>
-          Without a schedule, you have opinions.
+          Here is the truth most contractors never internalize:
         </p>
         <p className="body-text-emphasis">
-          With a schedule, you have proof.
+          Strong general conditions make money.
+        </p>
+        <p>
+          They do this by:
+        </p>
+        <DoctrineList items={[
+          "Preventing inefficiency",
+          "Maintaining flow",
+          "Preserving schedule",
+          "Supporting change order entitlement",
+          "Protecting cash flow"
+        ]} />
+        <p>
+          Weak general conditions save money only on bid day.
+        </p>
+        <p>
+          They lose it every day afterward.
         </p>
       </Section>
 
-      <Section title="Why Contractors Avoid Real Scheduling">
+      <Section title="General Conditions and Change Orders">
         <p>
-          Real scheduling forces discipline.
+          General conditions are a prerequisite for change order velocity.
         </p>
         <p>
-          It requires:
-        </p>
-        <DoctrineList items={[
-          "Thinking ahead",
-          "Defining logic",
-          "Committing to sequence",
-          "Updating reality honestly"
-        ]} />
-        <p>
-          Many contractors avoid this because:
+          If you lack:
         </p>
         <DoctrineList items={[
-          "It exposes weak planning",
-          "It removes excuses",
-          "It demands accountability"
+          "Documentation",
+          "Schedules",
+          "Logs",
+          "Communication structure"
         ]} />
         <p>
-          But avoiding discipline does not remove cost.
+          You cannot prove impact.
+        </p>
+        <p>
+          And if you cannot prove impact, you cannot monetize change.
+        </p>
+        <p>
+          Change orders are not created in the field.
         </p>
         <p className="body-text-emphasis">
-          It simply hides it until it is unrecoverable.
+          They are created in the systems that capture disruption.
         </p>
       </Section>
 
-      <Section title="Field Alignment Is Non-Negotiable">
+      <Section title='The Illusion of "Good Jobs"'>
         <p>
-          A schedule that lives only in the office is useless.
+          Many contractors say:<br />
+          "The job went well, but we didn't make what we thought."
         </p>
         <p>
-          Field leadership must:
+          That usually means:
         </p>
         <DoctrineList items={[
-          "Understand the sequence",
-          "Enforce separation",
-          "Anticipate constraints",
-          "Communicate changes immediately"
+          "General conditions were underfunded",
+          "Time stretched",
+          "Supervision absorbed disruption",
+          "Margin paid the price"
         ]} />
         <p>
-          When the field operates independently of the schedule, disorder takes over.
+          The job didn't fail.
         </p>
         <p className="body-text-emphasis">
-          Strong operators ensure the schedule leads the field, not the other way around.
-        </p>
-      </Section>
-
-      <Section title="CPM and Change Orders">
-        <p>
-          Schedules are foundational to change order velocity.
-        </p>
-        <p>
-          If work is disrupted and you cannot show:
-        </p>
-        <DoctrineList items={[
-          "Critical path impact",
-          "Resource stacking",
-          "Resequencing",
-          "Extended durations"
-        ]} />
-        <p>
-          You will struggle to monetize change.
-        </p>
-        <p>
-          Owners do not pay for inconvenience.<br />
-          They pay for <strong>demonstrated time impact</strong>.
-        </p>
-        <p className="body-text-emphasis">
-          That proof comes from the schedule.
-        </p>
-      </Section>
-
-      <Section title="The Cost of Disorder">
-        <p>
-          Disorder is expensive.
-        </p>
-        <p>
-          It looks like:
-        </p>
-        <DoctrineList items={[
-          "Crowded sites",
-          "Conflicting instructions",
-          "Constant firefighting",
-          "Emotional supervision",
-          "Reactive decisions"
-        ]} />
-        <p>
-          Order feels slow at first.
-        </p>
-        <p>
-          It is not.
-        </p>
-        <p className="body-text-emphasis">
-          Order accelerates execution by removing friction.
+          The control system did.
         </p>
       </Section>
 
       <Section title="The Operator's Responsibility">
         <p>
-          The entrepreneur must insist on scheduling discipline.
+          The entrepreneur must protect general conditions.
         </p>
         <p>
-          Not perfection.<br />
-          Discipline.
+          Not emotionally.<br />
+          Not defensively.<br />
+          Strategically.
         </p>
         <p>
           That means:
         </p>
         <DoctrineList items={[
-          "Treating schedules as operational tools",
-          "Updating them when reality changes",
-          "Using them to drive decisions",
-          "Defending them contractually"
+          "Carrying them properly",
+          "Defending them during negotiation",
+          "Monitoring them during execution",
+          "Adjusting when scope or schedule changes"
         ]} />
-        <p>
-          If the schedule is ignored, time is lost.<br />
-          If time is lost, margin pays the price.
+        <p className="body-text-emphasis">
+          If you do not fight for control, you will pay for chaos.
         </p>
       </Section>
 
       <Section title="Bringing It Back to the Stool">
         <p>
-          Scheduling sits at the intersection of:
+          General conditions sit at the intersection of:
         </p>
         <DoctrineList items={[
           "Operations",
-          "General conditions",
-          "Financial command",
-          "Change entitlement"
+          "Financial Command",
+          "Sales discipline"
         ]} />
         <p>
-          Weak scheduling destabilizes the stool.
+          Weak general conditions destabilize the stool.
         </p>
         <p className="body-text-emphasis">
-          Strong scheduling reinforces every leg.
+          Strong general conditions reinforce every leg.
         </p>
       </Section>
 
-      <div className="parable-container">
-        <div className="parable-label">Example</div>
-        <h4 className="subsection-heading italic">The One-Day Delay That Cost Three Weeks</h4>
-        <div className="body-text space-y-4">
-          <p>
-            A job was scheduled tightly but logically.
-          </p>
-          <p>
-            One delivery slipped by a single day.<br />
-            No notice was issued.<br />
-            The schedule wasn't updated.<br />
-            The crew improvised.
-          </p>
-          <p>
-            That one-day slip stacked trades.<br />
-            Access became contested.<br />
-            Work started and stopped.<br />
-            Rework followed.
-          </p>
-          <p>
-            By the time the dust settled, the project was three weeks behind.
-          </p>
-          <p>
-            No single moment felt catastrophic.<br />
-            No one decision looked fatal.
-          </p>
-          <p className="body-text-emphasis">
-            But time drifted — unchecked.
-          </p>
-          <p>
-            When the contractor later attempted to recover costs, the owner asked:<br />
-            "Where is the schedule impact?"
-          </p>
-          <p>
-            There wasn't one.
-          </p>
-          <p>
-            The delay was real.<br />
-            The cost was real.<br />
-            But without time control, the loss was <strong>unrecoverable</strong>.
-          </p>
-          <p className="body-text-emphasis">
-            Schedules don't prevent problems.<br />
-            They prevent unpaid problems.
-          </p>
-        </div>
-      </div>
+      <Parable title="The Job That Looked Profitable">
+        <p>
+          Two contractors bid the same project.
+        </p>
+        <p>
+          Both won work.<br />
+          Both had similar labor rates.<br />
+          Both had similar material pricing.<br />
+          Both were competent builders.
+        </p>
+        <p>
+          Six months in, one was profitable.<br />
+          The other was exhausted and angry.
+        </p>
+        <p>
+          The difference wasn't effort.<br />
+          It wasn't intelligence.<br />
+          It wasn't luck.
+        </p>
+        <p className="body-text-emphasis">
+          It was general conditions.
+        </p>
+        <p>
+          The losing contractor cut supervision to win the job.<br />
+          Reduced project management.<br />
+          Assumed they could "stay on top of it."
+        </p>
+        <p>
+          They were always on site.<br />
+          Always fixing issues.<br />
+          Always answering questions.<br />
+          Always absorbing disruption.
+        </p>
+        <p>
+          The job looked fine in the estimate.<br />
+          It died slowly in execution.
+        </p>
+        <p>
+          The winning contractor carried full general conditions.<br />
+          Clear supervision.<br />
+          Clear scheduling.<br />
+          Clear control.
+        </p>
+        <p>
+          They didn't work harder.<br />
+          They worked calmer.
+        </p>
+        <p>
+          Profit didn't come from pushing labor.<br />
+          It came from <strong>preventing chaos</strong>.
+        </p>
+        <p>
+          General conditions didn't cost them money.<br />
+          They <strong>made them money</strong>.
+        </p>
+      </Parable>
 
       <div className="parable-container">
         <div className="parable-label">Identity Parable</div>
-        <h4 className="subsection-heading italic">The Operator Who Hated Planning</h4>
+        <h4 className="subsection-heading italic">The Owner Who Had to Be Needed</h4>
         <div className="body-text space-y-4">
           <p>
-            An operator avoided scheduling.
+            A contractor insisted on being everywhere.
           </p>
           <p>
-            He said:<br />
-            "I like to stay flexible."<br />
-            "I don't want to overcomplicate things."<br />
-            "We'll figure it out in the field."
+            He answered every call.<br />
+            Solved every problem.<br />
+            Made every decision.
           </p>
           <p>
-            But the truth was simpler.
-          </p>
-          <p>
-            Planning made him confront reality.<br />
-            Planning exposed tradeoffs.<br />
-            Planning removed excuses.
-          </p>
-          <p>
-            Without a schedule, failure felt external.<br />
-            With a schedule, failure felt personal.
+            He told himself this was leadership.
           </p>
           <p className="body-text-emphasis">
-            So he avoided structure.
+            In reality, it was identity.
           </p>
           <p>
-            And time drifted.<br />
-            And margin eroded.<br />
-            And blame multiplied.
+            He needed to be needed.<br />
+            He needed to feel indispensable.<br />
+            He needed validation through exhaustion.
+          </p>
+          <p>
+            General conditions were underfunded.<br />
+            Supervision was thin.<br />
+            Systems never matured.
+          </p>
+          <p>
+            The business did not fail because of construction.<br />
+            It stalled because the owner's identity required chaos.
           </p>
           <p className="body-text-emphasis">
-            Order is uncomfortable for people whose identity relies on improvisation.
+            When identity is tied to heroics, control is impossible.
           </p>
           <p>
-            Professionals choose order anyway.
+            True leadership is not being needed.
+          </p>
+          <p className="body-text-emphasis">
+            It is being replaceable without losing authority.
           </p>
         </div>
       </div>
 
       <Section title="Final Truth">
         <p>
-          Jobs do not fail because people are incapable.
+          Profit is not made by pushing harder.
         </p>
         <p className="body-text-emphasis">
-          They fail because time is allowed to drift without control.
+          It is made by controlling time, flow, and order.
         </p>
         <p>
-          A CPM schedule is not bureaucracy.
+          General conditions are not overhead.
         </p>
         <p>
-          It is how professionals impose order on chaos — and protect profit while doing it.
+          They are the profit center that separates professional operators from exhausted ones.
         </p>
         <p>
-          Those who respect time control outcomes.
+          Those who understand this stop leaking margin.
         </p>
         <p>
-          Those who don't spend their careers chasing lost days.
+          Those who don't keep wondering where it went.
         </p>
       </Section>
     </div>

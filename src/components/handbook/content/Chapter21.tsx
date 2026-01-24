@@ -3,379 +3,379 @@ import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
 import Parable from '../Parable';
+import MediaPlaceholder from '../MediaPlaceholder';
 
 const Chapter21: React.FC = () => {
   return (
     <div id="chapter-21" className="py-24 border-t border-chapter-divider">
       <ChapterHeader 
         number={21} 
-        title="The Decision Matrix: How Operators Decide Under Pressure" 
+        title="Financial Authority at Scale" 
       />
 
       <div className="body-text space-y-6 max-w-3xl">
         <p>
-          Most entrepreneurs do not fail because they lack intelligence.
+          Most contractors believe they understand their finances.
         </p>
         <p>
-          They fail because they make decisions too late, too emotionally, or without context.
+          They know revenue.<br />
+          They know payroll.<br />
+          They know whether the bank balance feels tight or loose.
         </p>
         <p>
-          Pressure does not reveal character.<br />
-          It reveals decision quality.
+          That is not financial command.
         </p>
         <p className="body-text-emphasis">
-          The ALP Decision Matrix exists to eliminate guesswork when stakes are high.
+          That is financial awareness — and awareness is not control.
+        </p>
+        <p>
+          Businesses do not fail because owners don't work hard.<br />
+          They fail because owners <strong>cannot see clearly enough to decide early</strong>.
+        </p>
+        <p className="body-text-emphasis">
+          Financial command is the ability to see reality before it becomes pain.
         </p>
       </div>
 
       <div className="chapter-divider" />
 
-      <Section title="Why Most Decisions Go Wrong">
+      <Section title="Revenue Is Not Control">
         <p>
-          Under pressure, operators default to instinct.
+          Revenue is noise.
         </p>
         <p>
-          Instinct feels fast.<br />
-          Instinct feels confident.<br />
-          Instinct feels decisive.
+          It creates confidence when it rises.<br />
+          It creates panic when it falls.
         </p>
         <p>
-          Instinct is also shaped by:
+          But revenue alone tells you nothing about:
         </p>
         <DoctrineList items={[
-          "Fear",
-          "Fatigue",
-          "Ego",
-          "Past trauma",
-          "Incomplete information"
+          "Risk",
+          "Margin erosion",
+          "Cash exposure",
+          "Future instability"
         ]} />
         <p>
-          That combination produces inconsistency.
+          Many contractors go bankrupt on record revenue.
         </p>
-        <p className="body-text-emphasis">
-          And inconsistent decisions create unstable businesses.
+        <p>
+          Not because they were unlucky —<br />
+          but because they were blind.
         </p>
       </Section>
 
-      <Section title="Decisions Are Not Isolated Events">
+      <Section title="What Financial Command Actually Means">
         <p>
-          Every decision compounds.
-        </p>
-        <p>
-          One delayed decision creates:
+          Financial command is knowing:
         </p>
         <DoctrineList items={[
-          "Operational drift",
-          "Financial exposure",
-          "People confusion",
-          "Lost leverage"
+          "Where money is made",
+          "Where money is lost",
+          "Where money is at risk",
+          "And where money will be in the future"
         ]} />
         <p>
-          Another poor decision on top of that accelerates the slide.
+          It is proactive, not reactive.
         </p>
         <p>
-          By the time the entrepreneur feels "overwhelmed," the damage has already been done.
-        </p>
-        <p>
-          The problem wasn't workload.
-        </p>
-        <p className="body-text-emphasis">
-          It was decision sequencing.
-        </p>
-      </Section>
-
-      <Section title="The ALP Decision Matrix Explained">
-        <p>
-          Every meaningful decision must be filtered through three lenses:
-        </p>
-        <p className="body-text-emphasis">
-          Altitude.<br />
-          Logic.<br />
-          Pressure.
-        </p>
-        <p>
-          In that order.
-        </p>
-        <p>
-          Skipping steps is how entrepreneurs sabotage themselves.
-        </p>
-      </Section>
-
-      <Section title="Altitude — Zooming Out Before Acting">
-        <p>
-          Altitude means perspective.
-        </p>
-        <p>
-          Before acting, the operator must ask:
+          It allows the entrepreneur to:
         </p>
         <DoctrineList items={[
-          "Is this a symptom or a cause?",
-          "Is this temporary or structural?",
-          "Is this local or systemic?",
-          "What happens if nothing is done?"
+          "Decide early",
+          "Correct quickly",
+          "Apply pressure intentionally",
+          "Avoid emotional decision-making"
         ]} />
         <p>
-          Altitude prevents reactive behavior.
-        </p>
-        <p className="body-text-emphasis">
-          Most bad decisions are made because the operator is standing too close to the problem.
+          Without command, every decision feels urgent.<br />
+          With command, urgency disappears.
         </p>
       </Section>
 
-      <Section title="Logic — Defining the Reality Precisely">
+      <Parable title="The Profitable Company That Collapsed">
         <p>
-          Logic removes emotion.
+          A contractor was growing fast.
         </p>
         <p>
-          This step asks:
-        </p>
-        <DoctrineList items={[
-          "What are the facts?",
-          "What data is missing?",
-          "What assumptions am I making?",
-          "What are the actual options?"
-        ]} />
-        <p>
-          Logic narrows the field.
+          Revenue doubled in three years.<br />
+          The backlog looked strong.<br />
+          The market respected them.
         </p>
         <p>
-          It replaces anxiety with clarity.
+          Then one job slipped.<br />
+          Then another.<br />
+          Then cash tightened.
+        </p>
+        <p>
+          By the time the owner realized there was a problem, the problem was already fatal.
+        </p>
+        <p>
+          The issue wasn't bad jobs.<br />
+          It wasn't theft.<br />
+          It wasn't fraud.
         </p>
         <p className="body-text-emphasis">
-          If you cannot explain the problem clearly, you are not ready to decide.
-        </p>
-      </Section>
-
-      <Section title="Pressure — Decisive, Responsible Action">
-        <p>
-          Pressure is where most entrepreneurs hesitate.
+          It was lack of visibility.
         </p>
         <p>
-          Pressure is not aggression.<br />
-          It is ownership.
+          No one could see margin erosion early.<br />
+          No one could see cash lag building.<br />
+          No one could see exposure stacking.
         </p>
         <p>
-          Pressure asks:
-        </p>
-        <DoctrineList items={[
-          "What must be decided now?",
-          "What decision creates momentum?",
-          "What am I avoiding?"
-        ]} />
-        <p>
-          Pressure converts clarity into motion.
+          The company didn't collapse suddenly.
         </p>
         <p>
-          Avoiding pressure does not reduce risk.<br />
-          It transfers risk into the future — where it grows.
-        </p>
-      </Section>
-
-      <Parable title="The Fork in the Road">
-        <p>
-          Two operators faced the same issue:<br />
-          A client refused to acknowledge disruption.
-        </p>
-        <p>
-          One delayed.<br />
-          Hoped it resolved itself.<br />
-          Absorbed cost.
-        </p>
-        <p>
-          The other applied the matrix.
-        </p>
-        <p>
-          <strong>Altitude:</strong> This was a pattern, not a one-off.<br />
-          <strong>Logic:</strong> The contract required notice and schedule impact.<br />
-          <strong>Pressure:</strong> Notice issued, work paused, terms clarified.
-        </p>
-        <p>
-          Same situation.<br />
-          Different outcome.
-        </p>
-        <p>
-          One subsidized the job.<br />
-          The other preserved leverage.
-        </p>
-        <p className="body-text-emphasis">
-          The difference was not courage.
-        </p>
-        <p className="body-text-emphasis">
-          It was process.
+          It <strong>ran out of time to react</strong>.
         </p>
       </Parable>
 
-      <Section title="The Matrix Eliminates Regret">
+      <Section title="Cash Flow Is a Lagging Indicator">
         <p>
-          Regret comes from knowing you avoided something.
+          Cash problems feel sudden.
         </p>
         <p>
-          The matrix prevents avoidance.
+          They are not.
         </p>
         <p>
-          Even hard decisions feel clean when they are:
+          Cash reflects decisions made months earlier:
         </p>
         <DoctrineList items={[
-          "Thought through",
-          "Logically framed",
-          "Decisively executed"
+          "Under-carried general conditions",
+          "Unpriced disruption",
+          "Slow change orders",
+          "Poor billing discipline",
+          "Loose scheduling"
         ]} />
         <p>
-          You may not like every outcome.<br />
-          But you will trust yourself.
+          When cash becomes the problem, it is already late.
         </p>
         <p className="body-text-emphasis">
-          That trust is everything.
+          Financial command moves the lens upstream —<br />
+          to where correction is still possible.
         </p>
       </Section>
 
-      <Section title="The Operator's Responsibility">
+      <MediaPlaceholder type="diagram" label="Financial Command Dashboard Example" />
+
+      <Section title="Job-Level Visibility Is Non-Negotiable">
         <p>
-          The entrepreneur's job is not to be right every time.
+          Financial command does not live in company-wide summaries.
+        </p>
+        <p>
+          It lives at the job level.
+        </p>
+        <p>
+          Every job must answer:
+        </p>
+        <DoctrineList items={[
+          "What was the planned margin?",
+          "What is the current margin?",
+          "What has changed?",
+          "What is at risk?",
+          "What is recoverable?"
+        ]} />
+        <p>
+          If you cannot answer these questions in real time,<br />
+          you do not control the business.
         </p>
         <p className="body-text-emphasis">
-          It is to decide cleanly and early.
-        </p>
-        <p>
-          Delegation without a decision framework creates chaos.<br />
-          Leadership without clarity creates fear.
-        </p>
-        <p>
-          The matrix creates consistency —<br />
-          and consistency creates confidence.
+          You are reacting to it.
         </p>
       </Section>
+
+      <Section title="Cost Coding Is Not Accounting — It Is Intelligence">
+        <p>
+          Cost codes are not bookkeeping.
+        </p>
+        <p className="body-text-emphasis">
+          They are diagnostic tools.
+        </p>
+        <p>
+          They reveal:
+        </p>
+        <DoctrineList items={[
+          "Where inefficiency is occurring",
+          "Where labor is drifting",
+          "Where supervision is absorbing disruption",
+          "Where margin is leaking quietly"
+        ]} />
+        <p>
+          Poor cost coding hides problems.<br />
+          Strong cost coding exposes them early.
+        </p>
+        <p>
+          Early exposure creates options.<br />
+          Late discovery creates panic.
+        </p>
+      </Section>
+
+      <Section title="Financial Command Eliminates Emotional Decisions">
+        <p>
+          When visibility is weak, decisions become emotional:
+        </p>
+        <DoctrineList items={[
+          "Chasing bad work to fill gaps",
+          "Cutting pricing to keep crews busy",
+          "Accepting risk you don't understand",
+          "Avoiding necessary confrontation"
+        ]} />
+        <p className="body-text-emphasis">
+          Clarity removes emotion.
+        </p>
+        <p>
+          When you can see:
+        </p>
+        <DoctrineList items={[
+          "Exposure",
+          "Timing",
+          "Margin",
+          "Leverage"
+        ]} />
+        <p>
+          Decisions become calm and deliberate.
+        </p>
+        <p className="body-text-emphasis">
+          That calm is power.
+        </p>
+      </Section>
+
+      <Section title="The Owner's Real Financial Role">
+        <p>
+          The entrepreneur is not the bookkeeper.<br />
+          The entrepreneur is not the accountant.
+        </p>
+        <p className="body-text-emphasis">
+          The entrepreneur is the commander.
+        </p>
+        <p>
+          That means:
+        </p>
+        <DoctrineList items={[
+          "Demanding clear reporting",
+          "Reviewing it consistently",
+          "Asking uncomfortable questions",
+          "Acting before problems grow teeth"
+        ]} />
+        <p>
+          Delegation without visibility is abdication.
+        </p>
+      </Section>
+
+      <Section title="Financial Command and the Scaling Stool">
+        <p>
+          Financial command stabilizes every leg of the stool.
+        </p>
+        <p>
+          It:
+        </p>
+        <DoctrineList items={[
+          "Informs marketing spend",
+          "Sharpens sales discipline",
+          "Exposes operational drift",
+          "Reveals people inefficiencies",
+          "Prevents surprise collapse"
+        ]} />
+        <p>
+          Without financial command, the stool stands — until it doesn't.
+        </p>
+      </Section>
+
+      <Parable title="The Calm Operator">
+        <p>
+          Two owners faced the same problem:<br />
+          A major job fell behind schedule.
+        </p>
+        <p>
+          One panicked.<br />
+          Cut costs blindly.<br />
+          Pressed crews.<br />
+          Damaged morale.
+        </p>
+        <p>
+          The other reviewed the numbers.<br />
+          Saw where exposure was contained.<br />
+          Issued notices.<br />
+          Adjusted billing.<br />
+          Applied pressure precisely.
+        </p>
+        <p>
+          Same problem.<br />
+          Different outcome.
+        </p>
+        <p>
+          The difference wasn't intelligence.
+        </p>
+        <p className="body-text-emphasis">
+          It was clarity.
+        </p>
+      </Parable>
 
       <div className="parable-container">
         <div className="parable-label">Identity Parable</div>
-        <h4 className="subsection-heading italic">The Delayer</h4>
+        <h4 className="subsection-heading italic">The Owner Who Avoided the Numbers</h4>
         <div className="body-text space-y-4">
           <p>
-            He gathered more information.<br />
-            Asked for more opinions.<br />
-            Waited for certainty.
+            He said:<br />
+            "I'm not a numbers guy."<br />
+            "I trust my accountant."<br />
+            "I just build."
           </p>
           <p>
-            He told himself he was being responsible.
+            But the truth was discomfort.
+          </p>
+          <p>
+            Numbers made him feel exposed.<br />
+            Numbers forced accountability.<br />
+            Numbers removed plausible deniability.
           </p>
           <p className="body-text-emphasis">
-            In reality, he was protecting himself from blame.
+            So he stayed busy instead.
           </p>
           <p>
-            By delaying decisions, he avoided ownership.<br />
-            By avoiding ownership, he avoided growth.
-          </p>
-          <p>
-            Pressure does not punish indecision immediately.
+            Revenue rose.<br />
+            Stress rose faster.<br />
+            Clarity never arrived.
           </p>
           <p className="body-text-emphasis">
-            It compounds it quietly.
+            Avoiding numbers is not humility.
           </p>
           <p>
-            The Decision Matrix is not a thinking tool.
+            It is identity avoidance.
           </p>
           <p>
-            It is a self-confrontation tool.
+            Those who refuse to look cannot lead.
           </p>
         </div>
       </div>
 
       <Section title="Final Truth">
         <p>
-          Pressure does not ruin businesses.
+          You cannot control what you cannot see.
         </p>
         <p className="body-text-emphasis">
-          Indecision does.
+          Financial command is not about fear.<br />
+          It is about freedom.
         </p>
         <p>
-          Those who master the decision matrix stop reacting to problems<br />
-          and start commanding outcomes.
+          Freedom to:
         </p>
+        <DoctrineList items={[
+          "Say no",
+          "Wait",
+          "Apply pressure",
+          "Protect margin",
+          "Scale deliberately"
+        ]} />
         <p>
-          This is what separates operators from owners.
+          Entrepreneurs who see clearly move early.<br />
+          Those who don't spend their careers reacting late.
         </p>
-        <p>
-          And owners from leaders.
+        <p className="body-text-emphasis">
+          Financial command is the difference.
         </p>
       </Section>
-
-      <div className="chapter-divider" />
-
-      {/* Financial Command Checklist */}
-      <div className="py-16">
-        <h3 className="section-heading text-center mb-4">The ALP Financial Command Checklist</h3>
-        <p className="text-center text-lg opacity-70 font-sans mb-16">Seeing the Business Clearly — Weekly Review</p>
-        
-        <p className="body-text mb-12 italic text-center max-w-2xl mx-auto">
-          If you cannot answer these questions clearly, you do not have financial command.
-        </p>
-
-        <div className="space-y-12 max-w-3xl">
-          <div>
-            <h4 className="subsection-heading">Job-Level Visibility</h4>
-            <DoctrineList items={[
-              "Do I know planned vs current margin on every active job?",
-              "Do I know which jobs are drifting — and why?",
-              "Do I know what exposure is unrecoverable vs recoverable?"
-            ]} />
-          </div>
-
-          <div>
-            <h4 className="subsection-heading">Time & Schedule</h4>
-            <DoctrineList items={[
-              "Are schedules current and respected?",
-              "Is critical path clearly identified?",
-              "Are delays documented and time-stamped?"
-            ]} />
-          </div>
-
-          <div>
-            <h4 className="subsection-heading">General Conditions</h4>
-            <DoctrineList items={[
-              "Are general conditions fully carried and defended?",
-              "Are supervision and management absorbing disruption?",
-              "Is time being protected — or leaking quietly?"
-            ]} />
-          </div>
-
-          <div>
-            <h4 className="subsection-heading">Change & Entitlement</h4>
-            <DoctrineList items={[
-              "Are changes identified immediately?",
-              "Are notices issued early and consistently?",
-              "Is change order velocity fast or lagging?"
-            ]} />
-          </div>
-
-          <div>
-            <h4 className="subsection-heading">Cash & Billing</h4>
-            <DoctrineList items={[
-              "Is billing aligned with progress?",
-              "Is cash lag increasing?",
-              "Are retainage and receivables controlled?"
-            ]} />
-          </div>
-
-          <div>
-            <h4 className="subsection-heading">People & Decisions</h4>
-            <DoctrineList items={[
-              "Are decisions being delayed due to discomfort?",
-              "Is pressure being applied where clarity exists?",
-              "Is the business reacting — or commanding?"
-            ]} />
-          </div>
-
-          <div className="pt-8 border-t border-chapter-divider">
-            <h4 className="subsection-heading">Final Question</h4>
-            <p className="body-text-emphasis text-xl">
-              If nothing changed for 90 days, would the business be stronger — or weaker?
-            </p>
-            <p className="body-text mt-4">
-              If the answer is unclear, clarity is your next priority.
-            </p>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

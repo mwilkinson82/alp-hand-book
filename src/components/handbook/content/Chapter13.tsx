@@ -7,307 +7,294 @@ import DoctrineList from '../DoctrineList';
 const Chapter13 = () => {
   return (
     <section id="chapter-13" className="chapter-section">
-      <ChapterHeader number={13} title="Scheduling as Time Control" />
+      <ChapterHeader number={13} title="Notices & Playing Offense" />
       
-      <p className="body-text">Most contractors treat the schedule as a requirement.</p>
-      
-      <p className="body-text">
-        Something to submit.<br />
-        Something to update occasionally.<br />
-        Something that lives in software.
-      </p>
-      
-      <p className="body-text">That misunderstanding turns time into an enemy.</p>
-      
-      <p className="body-text font-semibold">Scheduling is not administration.</p>
+      <p className="body-text">Most contractors treat notices as paperwork.</p>
       
       <p className="body-text">
-        Scheduling is time control — and time is the currency everything else trades on.
+        Something defensive.<br />
+        Something adversarial.<br />
+        Something you send when things are already bad.
       </p>
+      
+      <p className="body-text">That misunderstanding costs them leverage, entitlement, and control.</p>
+      
+      <p className="body-text font-semibold">Notices are not paperwork.</p>
+      
+      <p className="body-text">They are offensive tools.</p>
 
-      <Section title="Why Time Is the Real Battlefield">
-        <p className="body-text">Money does not disappear randomly in construction.</p>
+      <Section title="Why Notices Exist">
+        <p className="body-text">Notices exist for one reason:</p>
         
-        <p className="body-text">It disappears through time.</p>
-        
-        <p className="body-text">Every problem eventually becomes:</p>
-        
-        <DoctrineList items={[
-          "A delay",
-          "A resequence",
-          "A compression",
-          "A start–stop event"
-        ]} />
-        
-        <p className="body-text">And every one of those events has a cost.</p>
-        
-        <p className="body-text">If you don't control time, you don't control:</p>
-        
-        <DoctrineList items={[
-          "General Conditions",
-          "Productivity",
-          "Cash flow",
-          "Entitlement",
-          "Margin"
-        ]} />
-        
-        <p className="body-text">The schedule is where all of that is decided.</p>
-      </Section>
-
-      <Section title="The Schedule Is Not a Forecast">
-        <p className="body-text">Most contractors treat the schedule like a prediction.</p>
-        
-        <p className="body-text">"This is how long we think it will take."</p>
-        
-        <p className="body-text">That's wrong.</p>
-        
-        <p className="body-text font-semibold">A schedule is not a forecast.</p>
-        
-        <p className="body-text">It is a control document.</p>
-        
-        <p className="body-text">It defines:</p>
-        
-        <DoctrineList items={[
-          "Sequence",
-          "Access",
-          "Responsibility",
-          "Dependency",
-          "Entitlement"
-        ]} />
-        
-        <p className="body-text">If the schedule is weak, every downstream argument is weak.</p>
-      </Section>
-
-      <Section title="What the Schedule Actually Does">
-        <p className="body-text">A real schedule answers five questions:</p>
-        
-        <DoctrineList items={[
-          "What happens first?",
-          "What must finish before something else can start?",
-          "Who controls each activity?",
-          "Where is float — and who owns it?",
-          "What happens when something slips?"
-        ]} />
-        
-        <p className="body-text">If your schedule doesn't answer those questions clearly, it is decorative.</p>
-      </Section>
-
-      <Section title="Why Contractors Avoid Schedule Discipline">
-        <p className="body-text">Schedule discipline forces uncomfortable conversations.</p>
-        
-        <p className="body-text">It exposes:</p>
-        
-        <DoctrineList items={[
-          "Unrealistic timelines",
-          "Owner indecision",
-          "Design incompleteness",
-          "Trade stacking",
-          "Resource constraints"
-        ]} />
-        
-        <p className="body-text">It also forces decisions.</p>
-        
-        <p className="body-text">Many contractors avoid schedules because:</p>
-        
-        <DoctrineList items={[
-          "They don't want conflict",
-          "They don't want to appear rigid",
-          "They hope things \"work themselves out\""
-        ]} />
-        
-        <p className="body-text">They won't.</p>
-      </Section>
-
-      <Parable title="The Flexible Timeline">
-        <p className="body-text">An owner wanted flexibility.</p>
-        
-        <p className="body-text">The contractor agreed.</p>
+        <p className="body-text font-semibold">To preserve rights in real time.</p>
         
         <p className="body-text">
-          No firm milestones.<br />
-          No enforced sequence.<br />
-          No consequences.
+          Not to argue later.<br />
+          Not to threaten.<br />
+          Not to posture.
         </p>
         
         <p className="body-text">
-          Trades overlapped.<br />
-          Decisions lagged.<br />
-          Work restarted repeatedly.
+          Notices exist so that when disruption occurs, responsibility is documented before memory, 
+          emotion, and narrative take over.
         </p>
         
-        <p className="body-text">The job stayed "busy."</p>
+        <p className="body-text">Construction does not reward hindsight.</p>
         
-        <p className="body-text">But productivity collapsed.</p>
+        <p className="body-text">It rewards contemporaneous record.</p>
+      </Section>
+
+      <Section title="Defense vs. Offense">
+        <p className="body-text">Most contractors play defense.</p>
         
-        <p className="body-text">Flexibility felt cooperative.</p>
+        <p className="body-text">
+          They wait.<br />
+          They hope.<br />
+          They accommodate.<br />
+          They "work it out."<br />
+          They send a notice only when payment is threatened.
+        </p>
         
-        <p className="body-text font-semibold">It was just uncontrolled time.</p>
+        <p className="body-text">By then, it's too late.</p>
+        
+        <p className="body-text">Offensive contractors issue notices:</p>
+        
+        <DoctrineList items={[
+          "Early",
+          "Calmly",
+          "Factually",
+          "Consistently"
+        ]} />
+        
+        <p className="body-text">
+          Not because they are aggressive —<br />
+          but because they are disciplined.
+        </p>
+      </Section>
+
+      <Section title="What 'Playing Offense' Actually Means">
+        <p className="body-text">Playing offense does not mean being combative.</p>
+        
+        <p className="body-text">It means setting the narrative early.</p>
+        
+        <p className="body-text">When disruption occurs, one of two things will happen:</p>
+        
+        <p className="body-text">Either:</p>
+        <p className="body-text ml-4">You define the event, its cause, and its impact</p>
+        
+        <p className="body-text">Or:</p>
+        <p className="body-text ml-4">Someone else will</p>
+        
+        <p className="body-text">Silence is not neutral.</p>
+        
+        <p className="body-text font-semibold">Silence concedes narrative control.</p>
+      </Section>
+
+      <Section title="Notices Are About Time, Not Blame">
+        <p className="body-text">Here's where most contractors get it wrong:</p>
+        
+        <p className="body-text">They think notices are about fault.</p>
+        
+        <p className="body-text">They're not.</p>
+        
+        <p className="body-text font-semibold">They're about time and impact.</p>
+        
+        <p className="body-text">A proper notice answers four questions:</p>
+        
+        <DoctrineList items={[
+          "What happened?",
+          "When did it happen?",
+          "What is the impact on time and/or cost?",
+          "What rights are being reserved?"
+        ]} />
+        
+        <p className="body-text">
+          No emotion.<br />
+          No accusation.<br />
+          No argument.
+        </p>
+        
+        <p className="body-text">Just record.</p>
+      </Section>
+
+      <Section title="Why Contractors Delay Notices">
+        <p className="body-text">Contractors delay notices because they:</p>
+        
+        <DoctrineList items={[
+          "Don't want to upset the owner",
+          "Want to be \"easy to work with\"",
+          "Think the issue might resolve itself",
+          "Fear conflict",
+          "Don't fully understand entitlement"
+        ]} />
+        
+        <p className="body-text">This feels reasonable.</p>
+        
+        <p className="body-text">It is also how leverage evaporates.</p>
+        
+        <p className="body-text">
+          By the time the issue "doesn't resolve,"<br />
+          the notice window has closed.
+        </p>
+      </Section>
+
+      <Parable title="The Polite Contractor">
+        <p className="body-text">A contractor accommodated repeated owner delays.</p>
+        
+        <p className="body-text">
+          No notice.<br />
+          No documentation.<br />
+          Just cooperation.
+        </p>
+        
+        <p className="body-text">Months later, the schedule was blown and costs mounted.</p>
+        
+        <p className="body-text">When the contractor finally raised the issue, the response was simple:</p>
+        
+        <p className="body-text font-semibold">"You never said anything."</p>
+        
+        <p className="body-text">Politeness did not preserve entitlement.</p>
+        
+        <p className="body-text">Documentation would have.</p>
       </Parable>
 
-      <Section title="Float Is Not Free Time">
-        <p className="body-text">This is one of the most misunderstood concepts in construction.</p>
+      <Section title="Notices Protect Relationships — They Don't Damage Them">
+        <p className="body-text">This is counterintuitive, but true:</p>
         
-        <p className="body-text font-semibold">Float is not "extra time."</p>
+        <p className="body-text font-semibold">Clear notices often reduce conflict.</p>
         
-        <p className="body-text">Float is risk capacity.</p>
-        
-        <p className="body-text">And whoever controls float controls leverage.</p>
-        
-        <p className="body-text">If float is not clearly defined:</p>
+        <p className="body-text">Why?<br />Because:</p>
         
         <DoctrineList items={[
-          "It gets consumed silently",
-          "It gets reassigned emotionally",
-          "It gets blamed on the contractor"
+          "Expectations are set early",
+          "Surprises are minimized",
+          "Memory doesn't get rewritten",
+          "Responsibility stays clear"
         ]} />
         
-        <p className="body-text">Strong operators protect float explicitly.</p>
+        <p className="body-text">Conflict escalates when issues surface late.</p>
         
-        <p className="body-text">They don't give it away casually.</p>
+        <p className="body-text">Notices surface them early.</p>
       </Section>
 
-      <Section title="Scheduling Is the Backbone of Entitlement">
-        <p className="body-text">Every successful claim traces back to one thing:</p>
+      <Section title="Notice Is a System, Not an Event">
+        <p className="body-text">Strong operators do not "remember" to issue notices.</p>
         
-        <p className="body-text font-semibold">A schedule that proves cause and effect.</p>
+        <p className="body-text">They systematize them.</p>
         
-        <p className="body-text">Without a schedule:</p>
-        
-        <DoctrineList items={[
-          "Delays are opinions",
-          "Disruption is subjective",
-          "Impact is arguable"
-        ]} />
-        
-        <p className="body-text">With a schedule:</p>
+        <p className="body-text">That means:</p>
         
         <DoctrineList items={[
-          "Cause is visible",
-          "Effect is traceable",
-          "Responsibility is clear"
-        ]} />
-        
-        <p className="body-text">This is why owners fight schedule updates.</p>
-        
-        <p className="body-text">They know what it represents.</p>
-      </Section>
-
-      <Section title="Start–Stop Work Is a Scheduling Failure">
-        <p className="body-text">When work starts, stops, and restarts, productivity dies.</p>
-        
-        <p className="body-text">This is not a labor problem.</p>
-        
-        <p className="body-text">It is a sequencing problem.</p>
-        
-        <p className="body-text">Start–stop work:</p>
-        
-        <DoctrineList items={[
-          "Destroys momentum",
-          "Increases error rates",
-          "Expands General Conditions",
-          "Burns morale"
-        ]} />
-        
-        <p className="body-text">Every start–stop event should trigger:</p>
-        
-        <DoctrineList items={[
-          "Documentation",
-          "Schedule review",
-          "Notice consideration"
-        ]} />
-        
-        <p className="body-text">If it doesn't, profit leaks quietly.</p>
-      </Section>
-
-      <Section title="Updating the Schedule Is an Offensive Move">
-        <p className="body-text">Most contractors update schedules defensively.</p>
-        
-        <p className="body-text">
-          To respond.<br />
-          To explain.<br />
-          To justify.
-        </p>
-        
-        <p className="body-text">Strong operators update schedules offensively.</p>
-        
-        <p className="body-text">To:</p>
-        
-        <DoctrineList items={[
-          "Capture impact",
-          "Preserve entitlement",
-          "Force decisions",
-          "Control narrative"
-        ]} />
-        
-        <p className="body-text">A stale schedule is a liability.</p>
-        
-        <p className="body-text font-semibold">An updated schedule is leverage.</p>
-      </Section>
-
-      <Section title="The Schedule as a Leadership Tool">
-        <p className="body-text">Teams behave differently when the schedule is enforced.</p>
-        
-        <p className="body-text">
-          Clarity increases.<br />
-          Excuses decrease.<br />
-          Decisions accelerate.
-        </p>
-        
-        <p className="body-text">Why?</p>
-        
-        <p className="body-text">Because ambiguity disappears.</p>
-        
-        <p className="body-text">
-          A leader who controls time controls behavior — without raising their voice.
-        </p>
-      </Section>
-
-      <Section title="Scheduling Is Not Delegation-Proof">
-        <p className="body-text">You can delegate schedule maintenance.</p>
-        
-        <p className="body-text font-semibold">You cannot delegate schedule ownership.</p>
-        
-        <p className="body-text">The operator must:</p>
-        
-        <DoctrineList items={[
-          "Understand the logic",
-          "Respect the dependencies",
-          "Enforce the sequence",
-          "Use the schedule as a decision tool"
+          "Defined triggers",
+          "Standard language",
+          "Consistent timing",
+          "Centralized tracking"
         ]} />
         
         <p className="body-text">
-          If leadership treats the schedule as paperwork, everyone else will too.
+          If notices rely on memory, emotion, or judgment calls under pressure, they will fail.
         </p>
+        
+        <p className="body-text">Every time.</p>
+      </Section>
+
+      <Section title="What Triggers a Notice">
+        <p className="body-text">At minimum, notices should be triggered by:</p>
+        
+        <DoctrineList items={[
+          "Owner-caused delay",
+          "Design ambiguity",
+          "Late approvals",
+          "Resequencing",
+          "Start–stop work",
+          "Trade stacking",
+          "Scope growth",
+          "Access restrictions"
+        ]} />
+        
+        <p className="body-text">
+          If something impacts time, cost, or sequence —<br />
+          it deserves a notice.
+        </p>
+      </Section>
+
+      <Section title="Notice Does Not Equal Escalation">
+        <p className="body-text">Issuing notice does not mean you stop working.</p>
+        
+        <p className="body-text">It means you keep working with protection.</p>
+        
+        <p className="body-text">This is the difference between:</p>
+        
+        <DoctrineList items={[
+          "Cooperation",
+          "Capitulation"
+        ]} />
+        
+        <p className="body-text">Offensive operators cooperate without surrendering rights.</p>
+      </Section>
+
+      <Section title="The Cost of 'We'll Deal With It Later'">
+        <p className="body-text">Later never comes.</p>
+        
+        <p className="body-text">What comes instead:</p>
+        
+        <DoctrineList items={[
+          "Denied change orders",
+          "Unpaid GC's",
+          "Rejected claims",
+          "Strained relationships",
+          "Emotional arguments"
+        ]} />
+        
+        <p className="body-text">All because the record was never built.</p>
+        
+        <p className="body-text">
+          Notices are how you build that record — calmly, methodically, and without drama.
+        </p>
+      </Section>
+
+      <Section title="Notices as a Leadership Act">
+        <p className="body-text">Issuing notice is a leadership decision.</p>
+        
+        <p className="body-text">It signals:</p>
+        
+        <DoctrineList items={[
+          "Professionalism",
+          "Discipline",
+          "Clarity",
+          "Command"
+        ]} />
+        
+        <p className="body-text">Teams follow leaders who protect the business.</p>
+        
+        <p className="body-text">Silence teaches people that protection is optional.</p>
       </Section>
 
       <Section title="Bringing It Back to ALP">
         <p className="body-text">
-          <strong>Altitude</strong> allows you to see time as exposure, not inconvenience.<br />
-          <strong>Logic</strong> forces sequence, dependency, and cause-and-effect.<br />
-          <strong>Pressure</strong> requires you to enforce the schedule when it's uncomfortable.
+          <strong>Altitude</strong> lets you recognize disruption early.<br />
+          <strong>Logic</strong> tells you when entitlement is at risk.<br />
+          <strong>Pressure</strong> forces you to act before windows close.
         </p>
         
-        <p className="body-text">Remove any one — and time drifts.</p>
+        <p className="body-text">Remove any one — and notices fail.</p>
       </Section>
 
       <Section title="Final Truth">
-        <p className="body-text font-semibold">Most contractors don't lose money because work was hard.</p>
+        <p className="body-text font-semibold">Most contractors don't lose claims because they were wrong.</p>
         
-        <p className="body-text">They lose it because time was allowed to float without control.</p>
+        <p className="body-text">They lose them because they were quiet.</p>
         
-        <p className="body-text">The schedule is not a formality.</p>
+        <p className="body-text">Notices are not aggression.</p>
         
-        <p className="body-text font-semibold">It is a weapon.</p>
+        <p className="body-text">They are responsibility in written form.</p>
         
         <p className="body-text">
-          Those who control time control margin.<br />
-          Those who fail to control time spend their careers reacting to it.
+          If you don't play offense in real time,<br />
+          you will always be defending yourself later.
         </p>
         
-        <p className="body-text">In construction, time always wins.</p>
-        
-        <p className="body-text font-semibold">Unless you command it.</p>
+        <p className="body-text font-semibold">And later is where leverage goes to die.</p>
       </Section>
     </section>
   );

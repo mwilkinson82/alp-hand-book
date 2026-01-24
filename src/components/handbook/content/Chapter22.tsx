@@ -9,308 +9,373 @@ const Chapter22: React.FC = () => {
     <div id="chapter-22" className="py-24 border-t border-chapter-divider">
       <ChapterHeader 
         number={22} 
-        title="Identity, Pressure, and the Entrepreneur's Responsibility" 
+        title="The Decision Matrix: How Operators Decide Under Pressure" 
       />
 
       <div className="body-text space-y-6 max-w-3xl">
         <p>
-          Every system eventually meets pressure.
+          Most entrepreneurs do not fail because they lack intelligence.
         </p>
         <p>
-          Marketing meets rejection.<br />
-          Sales meets resistance.<br />
-          Operations meet disruption.<br />
-          Money meets constraint.
+          They fail because they make decisions too late, too emotionally, or without context.
         </p>
         <p>
-          At that point, outcomes are no longer determined by tools.
+          Pressure does not reveal character.<br />
+          It reveals decision quality.
         </p>
         <p className="body-text-emphasis">
-          They are determined by identity.
+          The ALP Decision Matrix exists to eliminate guesswork when stakes are high.
         </p>
       </div>
 
       <div className="chapter-divider" />
 
-      <Section title="Why Identity Is the Hidden Variable">
+      <Section title="Why Most Decisions Go Wrong">
         <p>
-          Two entrepreneurs can run the same systems.<br />
-          Follow the same playbook.<br />
-          Face the same problems.
+          Under pressure, operators default to instinct.
         </p>
         <p>
-          One collapses.<br />
-          The other stabilizes the business and moves forward.
+          Instinct feels fast.<br />
+          Instinct feels confident.<br />
+          Instinct feels decisive.
         </p>
         <p>
-          The difference is not intelligence.<br />
-          It is not experience.<br />
-          It is not resources.
-        </p>
-        <p className="body-text-emphasis">
-          It is who they believe they are under pressure.
-        </p>
-      </Section>
-
-      <Section title="Pressure Does Not Create Weakness — It Reveals It">
-        <p>
-          Pressure does not break people.
-        </p>
-        <p className="body-text-emphasis">
-          It exposes unresolved identity gaps.
-        </p>
-        <p>
-          Under pressure:
+          Instinct is also shaped by:
         </p>
         <DoctrineList items={[
-          "Some people seek approval",
-          "Some people avoid conflict",
-          "Some people delay decisions",
-          "Some people abandon standards",
-          "Some people turn inward and collapse"
+          "Fear",
+          "Fatigue",
+          "Ego",
+          "Past trauma",
+          "Incomplete information"
         ]} />
         <p>
-          These are not situational failures.
+          That combination produces inconsistency.
         </p>
         <p className="body-text-emphasis">
-          They are identity-based responses.
+          And inconsistent decisions create unstable businesses.
         </p>
       </Section>
 
-      <Section title="The Role of Self-Opinion">
+      <Section title="Decisions Are Not Isolated Events">
         <p>
-          The most dangerous force acting on an entrepreneur is not the market.
-        </p>
-        <p className="body-text-emphasis">
-          It is unexamined dependence on external opinion.
+          Every decision compounds.
         </p>
         <p>
-          Here is the rule:
-        </p>
-        <p className="blockquote-doctrine">
-          When someone's opinion of you differs from your opinion of yourself, it is meaningless.<br />
-          When someone's opinion of you matches your opinion of yourself, you've found alignment — or an ally.
-        </p>
-        <p>
-          The problem is not criticism.
-        </p>
-        <p>
-          The problem is self-doubt that allows criticism to land.
-        </p>
-      </Section>
-
-      <Section title="Why the Opinions of Others Have Power">
-        <p>
-          Other people's opinions only matter when they confirm what you already believe about yourself.
-        </p>
-        <p>
-          If you do not trust yourself, you will:
+          One delayed decision creates:
         </p>
         <DoctrineList items={[
-          "Over-explain",
-          "Over-defend",
-          "Over-accommodate",
-          "Overwork",
-          "Under-decide"
+          "Operational drift",
+          "Financial exposure",
+          "People confusion",
+          "Lost leverage"
         ]} />
         <p>
-          This is not professionalism.
+          Another poor decision on top of that accelerates the slide.
+        </p>
+        <p>
+          By the time the entrepreneur feels "overwhelmed," the damage has already been done.
+        </p>
+        <p>
+          The problem wasn't workload.
         </p>
         <p className="body-text-emphasis">
-          It is insecurity disguised as cooperation.
+          It was decision sequencing.
         </p>
       </Section>
 
-      <Section title="Loving Yourself Is Not Soft — It Is Strategic">
+      <Section title="The ALP Decision Matrix Explained">
         <p>
-          Self-love is not ego.<br />
-          It is not arrogance.<br />
-          It is not complacency.
+          Every meaningful decision must be filtered through three lenses:
         </p>
         <p className="body-text-emphasis">
-          It is self-trust.
+          Altitude.<br />
+          Logic.<br />
+          Pressure.
         </p>
         <p>
-          If you do not fundamentally accept yourself:
+          In that order.
+        </p>
+        <p>
+          Skipping steps is how entrepreneurs sabotage themselves.
+        </p>
+      </Section>
+
+      <Section title="Altitude — Zooming Out Before Acting">
+        <p>
+          Altitude means perspective.
+        </p>
+        <p>
+          Before acting, the operator must ask:
         </p>
         <DoctrineList items={[
-          "You can be manipulated",
-          "You can be rushed",
-          "You can be pressured into bad decisions",
-          "You can be shamed into silence"
+          "Is this a symptom or a cause?",
+          "Is this temporary or structural?",
+          "Is this local or systemic?",
+          "What happens if nothing is done?"
         ]} />
         <p>
-          An entrepreneur who does not love themselves can be beaten.
+          Altitude prevents reactive behavior.
         </p>
         <p className="body-text-emphasis">
-          An entrepreneur who does cannot.
+          Most bad decisions are made because the operator is standing too close to the problem.
         </p>
       </Section>
 
-      <Section title="Identity Precedes Change">
+      <Section title="Logic — Defining the Reality Precisely">
         <p>
-          Most people believe they must change their behavior to change who they are.
-        </p>
-        <p className="body-text-emphasis">
-          This is backwards.
+          Logic removes emotion.
         </p>
         <p>
-          Identity changes first.<br />
-          Behavior follows.
-        </p>
-        <p>
-          If you see yourself as:
+          This step asks:
         </p>
         <DoctrineList items={[
-          "Insecure → you will avoid pressure",
-          "Unworthy → you will underprice",
-          "Replaceable → you will tolerate disrespect",
-          "Uncertain → you will delay decisions"
+          "What are the facts?",
+          "What data is missing?",
+          "What assumptions am I making?",
+          "What are the actual options?"
         ]} />
+        <p>
+          Logic narrows the field.
+        </p>
+        <p>
+          It replaces anxiety with clarity.
+        </p>
         <p className="body-text-emphasis">
-          No system can override identity.
+          If you cannot explain the problem clearly, you are not ready to decide.
         </p>
       </Section>
 
-      <Parable title="The Unmoved Operator">
+      <Section title="Pressure — Decisive, Responsible Action">
         <p>
-          An owner faced public criticism from a client.
+          Pressure is where most entrepreneurs hesitate.
         </p>
         <p>
-          The criticism was loud.<br />
-          It was unfair.<br />
-          It was visible.
+          Pressure is not aggression.<br />
+          It is ownership.
         </p>
         <p>
-          He reviewed the facts.<br />
-          Reviewed his conduct.<br />
-          Reviewed his standards.
+          Pressure asks:
+        </p>
+        <DoctrineList items={[
+          "What must be decided now?",
+          "What decision creates momentum?",
+          "What am I avoiding?"
+        ]} />
+        <p>
+          Pressure converts clarity into motion.
         </p>
         <p>
-          He did not argue.<br />
-          He did not appease.<br />
-          He did not spiral.
+          Avoiding pressure does not reduce risk.<br />
+          It transfers risk into the future — where it grows.
+        </p>
+      </Section>
+
+      <Parable title="The Fork in the Road">
+        <p>
+          Two operators faced the same issue:<br />
+          A client refused to acknowledge disruption.
         </p>
         <p>
-          He issued notice.<br />
-          Held position.<br />
-          Moved forward.
+          One delayed.<br />
+          Hoped it resolved itself.<br />
+          Absorbed cost.
         </p>
         <p>
-          Why?
+          The other applied the matrix.
+        </p>
+        <p>
+          <strong>Altitude:</strong> This was a pattern, not a one-off.<br />
+          <strong>Logic:</strong> The contract required notice and schedule impact.<br />
+          <strong>Pressure:</strong> Notice issued, work paused, terms clarified.
+        </p>
+        <p>
+          Same situation.<br />
+          Different outcome.
+        </p>
+        <p>
+          One subsidized the job.<br />
+          The other preserved leverage.
         </p>
         <p className="body-text-emphasis">
-          Because the criticism did not align with his self-opinion.
+          The difference was not courage.
         </p>
-        <p>
-          It had nowhere to land.
+        <p className="body-text-emphasis">
+          It was process.
         </p>
       </Parable>
 
-      <Section title="Pressure Is the Entrepreneur's Natural Environment">
+      <Section title="The Matrix Eliminates Regret">
         <p>
-          Entrepreneurship is not comfort.<br />
-          It is not certainty.<br />
-          It is not validation.
-        </p>
-        <p className="body-text-emphasis">
-          It is pressure by design.
+          Regret comes from knowing you avoided something.
         </p>
         <p>
-          Those who expect relief will quit.<br />
-          Those who expect pressure will grow.
+          The matrix prevents avoidance.
         </p>
         <p>
-          ALP is not about avoiding pressure.
-        </p>
-        <p className="body-text-emphasis">
-          It is about becoming the person who can carry it.
-        </p>
-      </Section>
-
-      <Section title="Responsibility Is the Final Identity Shift">
-        <p>
-          Responsibility is not blame.
-        </p>
-        <p>
-          Responsibility is ownership of:
+          Even hard decisions feel clean when they are:
         </p>
         <DoctrineList items={[
-          "Decisions",
-          "Standards",
-          "Outcomes",
-          "Direction"
+          "Thought through",
+          "Logically framed",
+          "Decisively executed"
         ]} />
         <p>
-          When entrepreneurs stop blaming:
-        </p>
-        <DoctrineList items={[
-          "The market",
-          "Clients",
-          "Employees",
-          "Timing",
-          "Luck"
-        ]} />
-        <p>
-          They regain power.
+          You may not like every outcome.<br />
+          But you will trust yourself.
         </p>
         <p className="body-text-emphasis">
-          Responsibility is where identity solidifies.
+          That trust is everything.
         </p>
       </Section>
 
-      <Section title="Identity and the Decision Matrix">
+      <Section title="The Operator's Responsibility">
         <p>
-          Identity determines whether the Decision Matrix is used — or avoided.
-        </p>
-        <p>
-          Altitude requires humility.<br />
-          Logic requires honesty.<br />
-          Pressure requires courage.
-        </p>
-        <p>
-          If identity is weak, steps are skipped.
+          The entrepreneur's job is not to be right every time.
         </p>
         <p className="body-text-emphasis">
-          If identity is strong, decisions become clean.
+          It is to decide cleanly and early.
+        </p>
+        <p>
+          Delegation without a decision framework creates chaos.<br />
+          Leadership without clarity creates fear.
+        </p>
+        <p>
+          The matrix creates consistency —<br />
+          and consistency creates confidence.
         </p>
       </Section>
 
-      <Section title="Bringing It Back to the Stool">
-        <p>
-          Every leg of the stool ultimately rests on the operator.
-        </p>
-        <p>
-          Marketing reflects confidence.<br />
-          Sales reflects self-trust.<br />
-          Operations reflect discipline.<br />
-          Financial command reflects clarity.<br />
-          Decision-making reflects identity.
-        </p>
-        <p className="body-text-emphasis">
-          If the operator is unstable, the stool will wobble — regardless of systems.
-        </p>
-      </Section>
+      <div className="parable-container">
+        <div className="parable-label">Identity Parable</div>
+        <h4 className="subsection-heading italic">The Delayer</h4>
+        <div className="body-text space-y-4">
+          <p>
+            He gathered more information.<br />
+            Asked for more opinions.<br />
+            Waited for certainty.
+          </p>
+          <p>
+            He told himself he was being responsible.
+          </p>
+          <p className="body-text-emphasis">
+            In reality, he was protecting himself from blame.
+          </p>
+          <p>
+            By delaying decisions, he avoided ownership.<br />
+            By avoiding ownership, he avoided growth.
+          </p>
+          <p>
+            Pressure does not punish indecision immediately.
+          </p>
+          <p className="body-text-emphasis">
+            It compounds it quietly.
+          </p>
+          <p>
+            The Decision Matrix is not a thinking tool.
+          </p>
+          <p>
+            It is a self-confrontation tool.
+          </p>
+        </div>
+      </div>
 
       <Section title="Final Truth">
         <p>
-          You do not rise to the level of your strategy.
+          Pressure does not ruin businesses.
         </p>
         <p className="body-text-emphasis">
-          You fall to the level of your identity.
+          Indecision does.
         </p>
         <p>
-          Entrepreneurs who love themselves cannot be coerced.<br />
-          Entrepreneurs who trust themselves cannot be rushed.<br />
-          Entrepreneurs who know who they are cannot be derailed.
+          Those who master the decision matrix stop reacting to problems<br />
+          and start commanding outcomes.
         </p>
         <p>
-          Identity is not a side topic.
+          This is what separates operators from owners.
         </p>
-        <p className="body-text-emphasis">
-          It is the foundation beneath everything you build.
+        <p>
+          And owners from leaders.
         </p>
       </Section>
+
+      <div className="chapter-divider" />
+
+      {/* Financial Command Checklist */}
+      <div className="py-16">
+        <h3 className="section-heading text-center mb-4">The ALP Financial Command Checklist</h3>
+        <p className="text-center text-lg opacity-70 font-sans mb-16">Seeing the Business Clearly — Weekly Review</p>
+        
+        <p className="body-text mb-12 italic text-center max-w-2xl mx-auto">
+          If you cannot answer these questions clearly, you do not have financial command.
+        </p>
+
+        <div className="space-y-12 max-w-3xl">
+          <div>
+            <h4 className="subsection-heading">Job-Level Visibility</h4>
+            <DoctrineList items={[
+              "Do I know planned vs current margin on every active job?",
+              "Do I know which jobs are drifting — and why?",
+              "Do I know what exposure is unrecoverable vs recoverable?"
+            ]} />
+          </div>
+
+          <div>
+            <h4 className="subsection-heading">Time & Schedule</h4>
+            <DoctrineList items={[
+              "Are schedules current and respected?",
+              "Is critical path clearly identified?",
+              "Are delays documented and time-stamped?"
+            ]} />
+          </div>
+
+          <div>
+            <h4 className="subsection-heading">General Conditions</h4>
+            <DoctrineList items={[
+              "Are general conditions fully carried and defended?",
+              "Are supervision and management absorbing disruption?",
+              "Is time being protected — or leaking quietly?"
+            ]} />
+          </div>
+
+          <div>
+            <h4 className="subsection-heading">Change & Entitlement</h4>
+            <DoctrineList items={[
+              "Are changes identified immediately?",
+              "Are notices issued early and consistently?",
+              "Is change order velocity fast or lagging?"
+            ]} />
+          </div>
+
+          <div>
+            <h4 className="subsection-heading">Cash & Billing</h4>
+            <DoctrineList items={[
+              "Is billing aligned with progress?",
+              "Is cash lag increasing?",
+              "Are retainage and receivables controlled?"
+            ]} />
+          </div>
+
+          <div>
+            <h4 className="subsection-heading">People & Decisions</h4>
+            <DoctrineList items={[
+              "Are decisions being delayed due to discomfort?",
+              "Is pressure being applied where clarity exists?",
+              "Is the business reacting — or commanding?"
+            ]} />
+          </div>
+
+          <div className="pt-8 border-t border-chapter-divider">
+            <h4 className="subsection-heading">Final Question</h4>
+            <p className="body-text-emphasis text-xl">
+              If nothing changed for 90 days, would the business be stronger — or weaker?
+            </p>
+            <p className="body-text mt-4">
+              If the answer is unclear, clarity is your next priority.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

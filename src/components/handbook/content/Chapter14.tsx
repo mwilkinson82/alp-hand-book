@@ -7,289 +7,307 @@ import DoctrineList from '../DoctrineList';
 const Chapter14 = () => {
   return (
     <section id="chapter-14" className="chapter-section">
-      <ChapterHeader number={14} title="Start–Stop Work and Productivity Loss" />
+      <ChapterHeader number={14} title="Scheduling as Time Control" />
+      
+      <p className="body-text">Most contractors treat the schedule as a requirement.</p>
       
       <p className="body-text">
-        Few things destroy profit faster — or more quietly — than start–stop work.
+        Something to submit.<br />
+        Something to update occasionally.<br />
+        Something that lives in software.
       </p>
+      
+      <p className="body-text">That misunderstanding turns time into an enemy.</p>
+      
+      <p className="body-text font-semibold">Scheduling is not administration.</p>
       
       <p className="body-text">
-        It doesn't show up as a line item.<br />
-        It doesn't trigger immediate alarms.<br />
-        It doesn't feel catastrophic in the moment.
+        Scheduling is time control — and time is the currency everything else trades on.
       </p>
-      
-      <p className="body-text">
-        But it bleeds productivity, morale, schedule, and margin every single time it occurs.
-      </p>
-      
-      <p className="body-text font-semibold">Start–stop work is not a labor problem.</p>
-      
-      <p className="body-text">It is a leadership and sequencing failure.</p>
 
-      <Section title="What Start–Stop Work Really Is">
-        <p className="body-text">Start–stop work happens when crews are forced to:</p>
+      <Section title="Why Time Is the Real Battlefield">
+        <p className="body-text">Money does not disappear randomly in construction.</p>
+        
+        <p className="body-text">It disappears through time.</p>
+        
+        <p className="body-text">Every problem eventually becomes:</p>
         
         <DoctrineList items={[
-          "Mobilize before prerequisites are ready",
-          "Demobilize due to missing information or access",
-          "Remobilize later to \"finish up\"",
-          "Relearn conditions they already solved once"
+          "A delay",
+          "A resequence",
+          "A compression",
+          "A start–stop event"
         ]} />
         
-        <p className="body-text">This creates friction that compounds invisibly.</p>
+        <p className="body-text">And every one of those events has a cost.</p>
         
-        <p className="body-text">
-          The work technically progresses.<br />
-          The job technically moves forward.
-        </p>
-        
-        <p className="body-text">But efficiency collapses.</p>
-      </Section>
-
-      <Section title="Why Start–Stop Work Is So Dangerous">
-        <p className="body-text">Start–stop work attacks productivity from multiple angles at once:</p>
+        <p className="body-text">If you don't control time, you don't control:</p>
         
         <DoctrineList items={[
-          "Loss of momentum",
-          "Loss of task familiarity",
-          "Loss of crew rhythm",
-          "Increased errors and rework",
-          "Expanded supervision needs",
-          "Increased General Conditions",
-          "Morale erosion"
+          "General Conditions",
+          "Productivity",
+          "Cash flow",
+          "Entitlement",
+          "Margin"
         ]} />
         
-        <p className="body-text">None of this shows up immediately.</p>
-        
-        <p className="body-text font-semibold">It shows up in the final margin.</p>
+        <p className="body-text">The schedule is where all of that is decided.</p>
       </Section>
 
-      <Section title="Productivity Is Fragile">
-        <p className="body-text">Productivity is not linear.</p>
+      <Section title="The Schedule Is Not a Forecast">
+        <p className="body-text">Most contractors treat the schedule like a prediction.</p>
         
-        <p className="body-text">
-          Crews don't perform at the same efficiency every time they touch an activity.
-        </p>
+        <p className="body-text">"This is how long we think it will take."</p>
         
-        <p className="body-text">Productivity improves when:</p>
+        <p className="body-text">That's wrong.</p>
+        
+        <p className="body-text font-semibold">A schedule is not a forecast.</p>
+        
+        <p className="body-text">It is a control document.</p>
+        
+        <p className="body-text">It defines:</p>
         
         <DoctrineList items={[
-          "Scope is continuous",
-          "Access is uninterrupted",
-          "Decisions are final",
-          "Crews stay mentally and physically engaged"
+          "Sequence",
+          "Access",
+          "Responsibility",
+          "Dependency",
+          "Entitlement"
         ]} />
         
-        <p className="body-text">Start–stop work resets that curve.</p>
-        
-        <p className="body-text font-semibold">Every restart is a step backward.</p>
+        <p className="body-text">If the schedule is weak, every downstream argument is weak.</p>
       </Section>
 
-      <Section title="The Myth of 'We'll Just Come Back'">
-        <p className="body-text">This phrase has destroyed more profit than bad estimating.</p>
-        
-        <p className="body-text font-semibold">"We'll just come back and finish it."</p>
-        
-        <p className="body-text">Coming back is never neutral.</p>
-        
-        <p className="body-text">Coming back means:</p>
+      <Section title="What the Schedule Actually Does">
+        <p className="body-text">A real schedule answers five questions:</p>
         
         <DoctrineList items={[
-          "New setup",
-          "New orientation",
-          "New coordination",
-          "New risk",
-          "New supervision"
+          "What happens first?",
+          "What must finish before something else can start?",
+          "Who controls each activity?",
+          "Where is float — and who owns it?",
+          "What happens when something slips?"
         ]} />
         
-        <p className="body-text">The job pays for that friction — whether it's priced or not.</p>
+        <p className="body-text">If your schedule doesn't answer those questions clearly, it is decorative.</p>
       </Section>
 
-      <Parable title="The Interrupted Trade">
-        <p className="body-text">A trade was started before preceding work was complete.</p>
+      <Section title="Why Contractors Avoid Schedule Discipline">
+        <p className="body-text">Schedule discipline forces uncomfortable conversations.</p>
+        
+        <p className="body-text">It exposes:</p>
+        
+        <DoctrineList items={[
+          "Unrealistic timelines",
+          "Owner indecision",
+          "Design incompleteness",
+          "Trade stacking",
+          "Resource constraints"
+        ]} />
+        
+        <p className="body-text">It also forces decisions.</p>
+        
+        <p className="body-text">Many contractors avoid schedules because:</p>
+        
+        <DoctrineList items={[
+          "They don't want conflict",
+          "They don't want to appear rigid",
+          "They hope things \"work themselves out\""
+        ]} />
+        
+        <p className="body-text">They won't.</p>
+      </Section>
+
+      <Parable title="The Flexible Timeline">
+        <p className="body-text">An owner wanted flexibility.</p>
+        
+        <p className="body-text">The contractor agreed.</p>
         
         <p className="body-text">
-          They worked around obstacles.<br />
-          Installed partial scope.<br />
-          Left.
-        </p>
-        
-        <p className="body-text">Weeks later, they returned.</p>
-        
-        <p className="body-text">
-          Different crew.<br />
-          Different site conditions.<br />
-          Different constraints.
+          No firm milestones.<br />
+          No enforced sequence.<br />
+          No consequences.
         </p>
         
         <p className="body-text">
-          Productivity was half.<br />
-          Errors increased.<br />
-          Supervision doubled.
+          Trades overlapped.<br />
+          Decisions lagged.<br />
+          Work restarted repeatedly.
         </p>
         
-        <p className="body-text">The estimate was fine.</p>
+        <p className="body-text">The job stayed "busy."</p>
         
-        <p className="body-text font-semibold">The execution was broken by interruption.</p>
+        <p className="body-text">But productivity collapsed.</p>
+        
+        <p className="body-text">Flexibility felt cooperative.</p>
+        
+        <p className="body-text font-semibold">It was just uncontrolled time.</p>
       </Parable>
 
+      <Section title="Float Is Not Free Time">
+        <p className="body-text">This is one of the most misunderstood concepts in construction.</p>
+        
+        <p className="body-text font-semibold">Float is not "extra time."</p>
+        
+        <p className="body-text">Float is risk capacity.</p>
+        
+        <p className="body-text">And whoever controls float controls leverage.</p>
+        
+        <p className="body-text">If float is not clearly defined:</p>
+        
+        <DoctrineList items={[
+          "It gets consumed silently",
+          "It gets reassigned emotionally",
+          "It gets blamed on the contractor"
+        ]} />
+        
+        <p className="body-text">Strong operators protect float explicitly.</p>
+        
+        <p className="body-text">They don't give it away casually.</p>
+      </Section>
+
+      <Section title="Scheduling Is the Backbone of Entitlement">
+        <p className="body-text">Every successful claim traces back to one thing:</p>
+        
+        <p className="body-text font-semibold">A schedule that proves cause and effect.</p>
+        
+        <p className="body-text">Without a schedule:</p>
+        
+        <DoctrineList items={[
+          "Delays are opinions",
+          "Disruption is subjective",
+          "Impact is arguable"
+        ]} />
+        
+        <p className="body-text">With a schedule:</p>
+        
+        <DoctrineList items={[
+          "Cause is visible",
+          "Effect is traceable",
+          "Responsibility is clear"
+        ]} />
+        
+        <p className="body-text">This is why owners fight schedule updates.</p>
+        
+        <p className="body-text">They know what it represents.</p>
+      </Section>
+
       <Section title="Start–Stop Work Is a Scheduling Failure">
-        <p className="body-text">Start–stop work does not happen randomly.</p>
+        <p className="body-text">When work starts, stops, and restarts, productivity dies.</p>
         
-        <p className="body-text">It happens when:</p>
+        <p className="body-text">This is not a labor problem.</p>
+        
+        <p className="body-text">It is a sequencing problem.</p>
+        
+        <p className="body-text">Start–stop work:</p>
         
         <DoctrineList items={[
-          "Sequence is ignored",
-          "Prerequisites are not enforced",
-          "Access is granted prematurely",
-          "Decisions lag",
-          "The schedule is treated as flexible"
+          "Destroys momentum",
+          "Increases error rates",
+          "Expands General Conditions",
+          "Burns morale"
         ]} />
         
-        <p className="body-text">This is not bad luck.</p>
-        
-        <p className="body-text font-semibold">It is weak time control.</p>
-      </Section>
-
-      <Section title="Why Contractors Tolerate It">
-        <p className="body-text">Contractors tolerate start–stop work because it feels cooperative.</p>
-        
-        <p className="body-text">They want to:</p>
+        <p className="body-text">Every start–stop event should trigger:</p>
         
         <DoctrineList items={[
-          "Be flexible",
-          "Keep trades \"busy\"",
-          "Avoid confrontation",
-          "Keep owners happy",
-          "Maintain momentum"
+          "Documentation",
+          "Schedule review",
+          "Notice consideration"
         ]} />
         
-        <p className="body-text font-semibold">But busyness is not progress.</p>
-        
-        <p className="body-text">And flexibility without control is chaos.</p>
+        <p className="body-text">If it doesn't, profit leaks quietly.</p>
       </Section>
 
-      <Section title="Start–Stop Work Expands General Conditions Automatically">
-        <p className="body-text">Every interruption extends:</p>
+      <Section title="Updating the Schedule Is an Offensive Move">
+        <p className="body-text">Most contractors update schedules defensively.</p>
+        
+        <p className="body-text">
+          To respond.<br />
+          To explain.<br />
+          To justify.
+        </p>
+        
+        <p className="body-text">Strong operators update schedules offensively.</p>
+        
+        <p className="body-text">To:</p>
         
         <DoctrineList items={[
-          "Supervision",
-          "Management involvement",
-          "Site presence",
-          "Temporary facilities",
-          "Administrative overhead"
+          "Capture impact",
+          "Preserve entitlement",
+          "Force decisions",
+          "Control narrative"
+        ]} />
+        
+        <p className="body-text">A stale schedule is a liability.</p>
+        
+        <p className="body-text font-semibold">An updated schedule is leverage.</p>
+      </Section>
+
+      <Section title="The Schedule as a Leadership Tool">
+        <p className="body-text">Teams behave differently when the schedule is enforced.</p>
+        
+        <p className="body-text">
+          Clarity increases.<br />
+          Excuses decrease.<br />
+          Decisions accelerate.
+        </p>
+        
+        <p className="body-text">Why?</p>
+        
+        <p className="body-text">Because ambiguity disappears.</p>
+        
+        <p className="body-text">
+          A leader who controls time controls behavior — without raising their voice.
+        </p>
+      </Section>
+
+      <Section title="Scheduling Is Not Delegation-Proof">
+        <p className="body-text">You can delegate schedule maintenance.</p>
+        
+        <p className="body-text font-semibold">You cannot delegate schedule ownership.</p>
+        
+        <p className="body-text">The operator must:</p>
+        
+        <DoctrineList items={[
+          "Understand the logic",
+          "Respect the dependencies",
+          "Enforce the sequence",
+          "Use the schedule as a decision tool"
         ]} />
         
         <p className="body-text">
-          No argument.<br />
-          No negotiation.
+          If leadership treats the schedule as paperwork, everyone else will too.
         </p>
-        
-        <p className="body-text">Time expands — and GC's expand with it.</p>
-        
-        <p className="body-text">
-          This is why start–stop work is a financial event, not just an operational one.
-        </p>
-      </Section>
-
-      <Section title="Why Productivity Loss Is Rarely Recovered">
-        <p className="body-text">Most contractors fail to recover productivity loss because:</p>
-        
-        <DoctrineList items={[
-          "They don't document interruptions clearly",
-          "They don't tie disruption to measurable impact",
-          "They don't update schedules to reflect resequencing",
-          "They don't issue notice early",
-          "They normalize inefficiency instead of flagging it"
-        ]} />
-        
-        <p className="body-text">Owners don't pay for "harder work."</p>
-        
-        <p className="body-text font-semibold">They pay for demonstrated disruption.</p>
-      </Section>
-
-      <Section title="Documentation Is the Only Defense">
-        <p className="body-text">Every start–stop event should trigger immediate action:</p>
-        
-        <DoctrineList items={[
-          "Field documentation",
-          "Schedule analysis",
-          "Notice consideration",
-          "Cost impact tracking"
-        ]} />
-        
-        <p className="body-text">If interruption is not recorded, it is assumed to be normal.</p>
-        
-        <p className="body-text font-semibold">And normal inefficiency is never compensated.</p>
-      </Section>
-
-      <Section title="Start–Stop Work Is a Leadership Choice">
-        <p className="body-text">This is the uncomfortable truth:</p>
-        
-        <p className="body-text font-semibold">
-          Start–stop work persists because leadership allows it.
-        </p>
-        
-        <p className="body-text">Strong operators:</p>
-        
-        <DoctrineList items={[
-          "Enforce prerequisites",
-          "Protect sequence",
-          "Delay starts until work can flow",
-          "Accept short-term discomfort to protect long-term margin"
-        ]} />
-        
-        <p className="body-text">Weak operators trade control for peace.</p>
-        
-        <p className="body-text">The bill comes later.</p>
-      </Section>
-
-      <Section title="The Operator's Responsibility">
-        <p className="body-text">The operator must decide:</p>
-        
-        <p className="body-text">
-          Do we start work to appear cooperative —<br />
-          or do we start work when it can be done productively?
-        </p>
-        
-        <p className="body-text">Those are not the same thing.</p>
-        
-        <p className="body-text">Every premature start is a hidden concession.</p>
-        
-        <p className="body-text font-semibold">And concessions compound.</p>
       </Section>
 
       <Section title="Bringing It Back to ALP">
         <p className="body-text">
-          <strong>Altitude</strong> allows you to see interruption as systemic damage, not inconvenience.<br />
-          <strong>Logic</strong> connects start–stop work to productivity loss and GC expansion.<br />
-          <strong>Pressure</strong> requires you to say "not yet" — even when others push.
+          <strong>Altitude</strong> allows you to see time as exposure, not inconvenience.<br />
+          <strong>Logic</strong> forces sequence, dependency, and cause-and-effect.<br />
+          <strong>Pressure</strong> requires you to enforce the schedule when it's uncomfortable.
         </p>
         
-        <p className="body-text">Remove any one — and inefficiency becomes normal.</p>
+        <p className="body-text">Remove any one — and time drifts.</p>
       </Section>
 
       <Section title="Final Truth">
-        <p className="body-text font-semibold">
-          Most contractors don't lose money because crews worked slowly.
-        </p>
+        <p className="body-text font-semibold">Most contractors don't lose money because work was hard.</p>
+        
+        <p className="body-text">They lose it because time was allowed to float without control.</p>
+        
+        <p className="body-text">The schedule is not a formality.</p>
+        
+        <p className="body-text font-semibold">It is a weapon.</p>
         
         <p className="body-text">
-          They lose money because crews were forced to restart work that should have flowed.
+          Those who control time control margin.<br />
+          Those who fail to control time spend their careers reacting to it.
         </p>
         
-        <p className="body-text">Start–stop work is not a cost of doing business.</p>
+        <p className="body-text">In construction, time always wins.</p>
         
-        <p className="body-text font-semibold">It is a failure of sequencing, enforcement, and leadership.</p>
-        
-        <p className="body-text">
-          Protect flow.<br />
-          Protect productivity.<br />
-          Protect time.
-        </p>
-        
-        <p className="body-text font-semibold">Or watch margin die quietly — one restart at a time.</p>
+        <p className="body-text font-semibold">Unless you command it.</p>
       </Section>
     </section>
   );

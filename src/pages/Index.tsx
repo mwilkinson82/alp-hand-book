@@ -29,8 +29,8 @@ import Chapter22 from '../components/handbook/content/Chapter22';
 import Chapter23 from '../components/handbook/content/Chapter23';
 import Chapter24 from '../components/handbook/content/Chapter24';
 import Chapter25 from '../components/handbook/content/Chapter25';
+import Chapter26 from '../components/handbook/content/Chapter26';
 import FinalChapter from '../components/handbook/content/FinalChapter';
-import PlaceholderChapter from '../components/handbook/content/PlaceholderChapter';
 
 const Index = () => {
   return (
@@ -69,20 +69,21 @@ const Index = () => {
         <Chapter15 />
         <Chapter16 />
         <Chapter17 />
+        <Chapter18 />
         
         {/* Part IV */}
         <PartHeader number="IV" title="Identity & Scale" />
-        <Chapter18 />
         <Chapter19 />
         <Chapter20 />
         <Chapter21 />
         <Chapter22 />
+        <Chapter23 />
         
         {/* Part V */}
         <PartHeader number="V" title="Real-Time Application" />
-        <Chapter23 />
         <Chapter24 />
         <Chapter25 />
+        <Chapter26 />
         
         {/* Part VI */}
         <PartHeader number="VI" title="Commitment" />
