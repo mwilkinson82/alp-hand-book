@@ -18,7 +18,6 @@ const tocData: TocSection[] = [
     items: [
       { id: 'dedication', title: 'Dedication' },
       { id: 'foreword', title: 'Foreword / Author\'s Note' },
-      { id: 'how-to-use', title: 'How to Use This Handbook' },
     ],
   },
   {
