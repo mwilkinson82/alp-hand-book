@@ -367,6 +367,48 @@ const Chapter17: React.FC = () => {
         </div>
       </div>
 
+      <div className="parable-container">
+        <div className="parable-label">Identity Parable</div>
+        <h4 className="subsection-heading italic">The Operator Who Hated Planning</h4>
+        <div className="body-text space-y-4">
+          <p>
+            An operator avoided scheduling.
+          </p>
+          <p>
+            He said:<br />
+            "I like to stay flexible."<br />
+            "I don't want to overcomplicate things."<br />
+            "We'll figure it out in the field."
+          </p>
+          <p>
+            But the truth was simpler.
+          </p>
+          <p>
+            Planning made him confront reality.<br />
+            Planning exposed tradeoffs.<br />
+            Planning removed excuses.
+          </p>
+          <p>
+            Without a schedule, failure felt external.<br />
+            With a schedule, failure felt personal.
+          </p>
+          <p className="body-text-emphasis">
+            So he avoided structure.
+          </p>
+          <p>
+            And time drifted.<br />
+            And margin eroded.<br />
+            And blame multiplied.
+          </p>
+          <p className="body-text-emphasis">
+            Order is uncomfortable for people whose identity relies on improvisation.
+          </p>
+          <p>
+            Professionals choose order anyway.
+          </p>
+        </div>
+      </div>
+
       <Section title="Final Truth">
         <p>
           Jobs do not fail because people are incapable.

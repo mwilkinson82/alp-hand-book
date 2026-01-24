@@ -246,6 +246,40 @@ const Chapter21: React.FC = () => {
         </p>
       </Section>
 
+      <div className="parable-container">
+        <div className="parable-label">Identity Parable</div>
+        <h4 className="subsection-heading italic">The Delayer</h4>
+        <div className="body-text space-y-4">
+          <p>
+            He gathered more information.<br />
+            Asked for more opinions.<br />
+            Waited for certainty.
+          </p>
+          <p>
+            He told himself he was being responsible.
+          </p>
+          <p className="body-text-emphasis">
+            In reality, he was protecting himself from blame.
+          </p>
+          <p>
+            By delaying decisions, he avoided ownership.<br />
+            By avoiding ownership, he avoided growth.
+          </p>
+          <p>
+            Pressure does not punish indecision immediately.
+          </p>
+          <p className="body-text-emphasis">
+            It compounds it quietly.
+          </p>
+          <p>
+            The Decision Matrix is not a thinking tool.
+          </p>
+          <p>
+            It is a self-confrontation tool.
+          </p>
+        </div>
+      </div>
+
       <Section title="Final Truth">
         <p>
           Pressure does not ruin businesses.
