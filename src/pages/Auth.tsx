@@ -19,10 +19,15 @@ const Auth: React.FC = () => {
   const sent = searchParams.get('sent') === '1';
   
   const [isLogin, setIsLogin] = useState(true);
+  const [useMagicLink, setUseMagicLink] = useState(true); // Default to magic link
   const [email, setEmail] = useState(purchaseEmail);
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+  
+  // Magic link state
+  const [magicLinkSent, setMagicLinkSent] = useState(false);
+  const [magicLinkLoading, setMagicLinkLoading] = useState(false);
 
   // Password setup / reset flow
   const [resetEmailSent, setResetEmailSent] = useState(sent);
@@ -111,6 +116,42 @@ const Auth: React.FC = () => {
       }
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleMagicLink = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    const emailResult = emailSchema.safeParse(email);
+    if (!emailResult.success) {
+      setErrors({ email: emailResult.error.errors[0].message });
+      return;
+    }
+    
+    setMagicLinkLoading(true);
+    try {
+      const { error } = await supabase.auth.signInWithOtp({
+        email,
+        options: {
+          emailRedirectTo: `${window.location.origin}/read`,
+        },
+      });
+      
+      if (error) {
+        toast({
+          title: 'Failed to send link',
+          description: error.message,
+          variant: 'destructive',
+        });
+      } else {
+        setMagicLinkSent(true);
+        toast({
+          title: 'Check your email',
+          description: 'We sent you a sign-in link.',
+        });
+      }
+    } finally {
+      setMagicLinkLoading(false);
     }
   };
 
@@ -299,6 +340,92 @@ const Auth: React.FC = () => {
     );
   }
 
+  // Magic link UI (default for returning users)
+  if (useMagicLink && isLogin) {
+    return (
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center px-6">
+        <div className="w-full max-w-sm">
+          <div className="text-center mb-12">
+            <h1 className="chapter-heading text-3xl md:text-4xl mb-4">
+              {fromPurchase ? 'Access Your Handbook' : 'Welcome Back'}
+            </h1>
+            <p className="body-text text-base opacity-70">
+              Enter your email and we'll send you a sign-in link.
+            </p>
+          </div>
+
+          {magicLinkSent ? (
+            <div className="text-center space-y-6">
+              <div className="bg-muted/30 border border-border rounded-lg p-6">
+                <p className="body-text text-lg mb-2">Check your inbox</p>
+                <p className="body-text text-sm opacity-70">
+                  We sent a sign-in link to <strong>{email}</strong>
+                </p>
+              </div>
+              <p className="body-text text-sm opacity-50">
+                Click the link in the email to sign in. Check spam if you don't see it.
+              </p>
+              <button
+                type="button"
+                onClick={() => setMagicLinkSent(false)}
+                className="font-sans text-sm opacity-70 hover:opacity-100 transition-opacity underline"
+              >
+                Use a different email
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleMagicLink} className="space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="email" className="font-sans text-sm uppercase tracking-wide opacity-70">
+                  Email
+                </Label>
+                <Input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  className="bg-background border-border font-sans"
+                  disabled={magicLinkLoading}
+                />
+                {errors.email && (
+                  <p className="text-sm text-destructive font-sans">{errors.email}</p>
+                )}
+              </div>
+
+              <Button 
+                type="submit" 
+                className="w-full font-sans uppercase tracking-widest"
+                disabled={magicLinkLoading}
+              >
+                {magicLinkLoading ? 'Sending...' : 'Send Sign-In Link'}
+              </Button>
+            </form>
+          )}
+
+          <div className="mt-8 text-center space-y-3">
+            <button
+              type="button"
+              onClick={() => setUseMagicLink(false)}
+              className="font-sans text-sm opacity-70 hover:opacity-100 transition-opacity underline"
+            >
+              Sign in with password instead
+            </button>
+            
+            <div>
+              <Link 
+                to="/" 
+                className="font-sans text-sm opacity-50 hover:opacity-70 transition-opacity"
+              >
+                ← Back to home
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center px-6">
       <div className="w-full max-w-sm">
@@ -363,7 +490,17 @@ const Auth: React.FC = () => {
           </Button>
         </form>
 
-        <div className="mt-8 text-center">
+        <div className="mt-8 text-center space-y-3">
+          {isLogin && (
+            <button
+              type="button"
+              onClick={() => setUseMagicLink(true)}
+              className="font-sans text-sm opacity-70 hover:opacity-100 transition-opacity underline block w-full"
+            >
+              Sign in with magic link instead
+            </button>
+          )}
+          
           <button
             type="button"
             onClick={() => {
