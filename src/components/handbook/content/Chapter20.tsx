@@ -2,6 +2,7 @@ import React from 'react';
 import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
+import IdentityParable from '../IdentityParable';
 
 const Chapter20: React.FC = () => {
   return (
@@ -334,43 +335,39 @@ const Chapter20: React.FC = () => {
         </div>
       </div>
 
-      <div className="parable-container">
-        <div className="parable-label">Identity Parable</div>
-        <h4 className="subsection-heading italic">The Contractor Afraid of Being Wrong</h4>
-        <div className="body-text space-y-4">
-          <p>
-            He delayed documentation.
-          </p>
-          <p>
-            Not because he was lazy—<br />
-            but because documentation felt like commitment.
-          </p>
-          <p>
-            "What if I'm wrong?"<br />
-            "What if this resolves itself?"<br />
-            "What if I overreact?"
-          </p>
-          <p className="body-text-emphasis">
-            So he waited.
-          </p>
-          <p>
-            And waiting cost him leverage.
-          </p>
-          <p>
-            By the time he was certain, it no longer mattered.
-          </p>
-          <p className="body-text-emphasis">
-            Documentation is not about being right.
-          </p>
-          <p>
-            It is about being clear.
-          </p>
-          <p>
-            Entrepreneurs who need certainty before acting<br />
-            will always act too late.
-          </p>
-        </div>
-      </div>
+      <IdentityParable title="The Contractor Afraid of Being Wrong">
+        <p>
+          He delayed documentation.
+        </p>
+        <p>
+          Not because he was lazy—<br />
+          but because documentation felt like commitment.
+        </p>
+        <p>
+          "What if I'm wrong?"<br />
+          "What if this resolves itself?"<br />
+          "What if I overreact?"
+        </p>
+        <p className="body-text-emphasis">
+          So he waited.
+        </p>
+        <p>
+          And waiting cost him leverage.
+        </p>
+        <p>
+          By the time he was certain, it no longer mattered.
+        </p>
+        <p className="body-text-emphasis">
+          Documentation is not about being right.
+        </p>
+        <p>
+          It is about being clear.
+        </p>
+        <p>
+          Entrepreneurs who need certainty before acting<br />
+          will always act too late.
+        </p>
+      </IdentityParable>
 
       <Section title="Final Truth">
         <p>

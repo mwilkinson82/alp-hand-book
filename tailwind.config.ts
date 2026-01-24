@@ -55,6 +55,11 @@ export default {
           bg: "hsl(var(--parable-bg))",
           border: "hsl(var(--parable-border))",
         },
+        "identity-parable": {
+          bg: "hsl(var(--identity-parable-bg))",
+          border: "hsl(var(--identity-parable-border))",
+          accent: "hsl(var(--identity-parable-accent))",
+        },
         chapter: {
           divider: "hsl(var(--chapter-divider))",
         },

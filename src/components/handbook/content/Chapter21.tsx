@@ -4,6 +4,7 @@ import Section from '../Section';
 import DoctrineList from '../DoctrineList';
 import Parable from '../Parable';
 import MediaPlaceholder from '../MediaPlaceholder';
+import IdentityParable from '../IdentityParable';
 
 const Chapter21: React.FC = () => {
   return (
@@ -312,43 +313,39 @@ const Chapter21: React.FC = () => {
         </p>
       </Parable>
 
-      <div className="parable-container">
-        <div className="parable-label">Identity Parable</div>
-        <h4 className="subsection-heading italic">The Owner Who Avoided the Numbers</h4>
-        <div className="body-text space-y-4">
-          <p>
-            He said:<br />
-            "I'm not a numbers guy."<br />
-            "I trust my accountant."<br />
-            "I just build."
-          </p>
-          <p>
-            But the truth was discomfort.
-          </p>
-          <p>
-            Numbers made him feel exposed.<br />
-            Numbers forced accountability.<br />
-            Numbers removed plausible deniability.
-          </p>
-          <p className="body-text-emphasis">
-            So he stayed busy instead.
-          </p>
-          <p>
-            Revenue rose.<br />
-            Stress rose faster.<br />
-            Clarity never arrived.
-          </p>
-          <p className="body-text-emphasis">
-            Avoiding numbers is not humility.
-          </p>
-          <p>
-            It is identity avoidance.
-          </p>
-          <p>
-            Those who refuse to look cannot lead.
-          </p>
-        </div>
-      </div>
+      <IdentityParable title="The Owner Who Avoided the Numbers">
+        <p>
+          He said:<br />
+          "I'm not a numbers guy."<br />
+          "I trust my accountant."<br />
+          "I just build."
+        </p>
+        <p>
+          But the truth was discomfort.
+        </p>
+        <p>
+          Numbers made him feel exposed.<br />
+          Numbers forced accountability.<br />
+          Numbers removed plausible deniability.
+        </p>
+        <p className="body-text-emphasis">
+          So he stayed busy instead.
+        </p>
+        <p>
+          Revenue rose.<br />
+          Stress rose faster.<br />
+          Clarity never arrived.
+        </p>
+        <p className="body-text-emphasis">
+          Avoiding numbers is not humility.
+        </p>
+        <p>
+          It is identity avoidance.
+        </p>
+        <p>
+          Those who refuse to look cannot lead.
+        </p>
+      </IdentityParable>
 
       <Section title="Final Truth">
         <p>

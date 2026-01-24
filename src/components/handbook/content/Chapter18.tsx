@@ -2,6 +2,7 @@ import React from 'react';
 import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
+import IdentityParable from '../IdentityParable';
 
 const Chapter18: React.FC = () => {
   return (
@@ -367,47 +368,43 @@ const Chapter18: React.FC = () => {
         </div>
       </div>
 
-      <div className="parable-container">
-        <div className="parable-label">Identity Parable</div>
-        <h4 className="subsection-heading italic">The Operator Who Hated Planning</h4>
-        <div className="body-text space-y-4">
-          <p>
-            An operator avoided scheduling.
-          </p>
-          <p>
-            He said:<br />
-            "I like to stay flexible."<br />
-            "I don't want to overcomplicate things."<br />
-            "We'll figure it out in the field."
-          </p>
-          <p>
-            But the truth was simpler.
-          </p>
-          <p>
-            Planning made him confront reality.<br />
-            Planning exposed tradeoffs.<br />
-            Planning removed excuses.
-          </p>
-          <p>
-            Without a schedule, failure felt external.<br />
-            With a schedule, failure felt personal.
-          </p>
-          <p className="body-text-emphasis">
-            So he avoided structure.
-          </p>
-          <p>
-            And time drifted.<br />
-            And margin eroded.<br />
-            And blame multiplied.
-          </p>
-          <p className="body-text-emphasis">
-            Order is uncomfortable for people whose identity relies on improvisation.
-          </p>
-          <p>
-            Professionals choose order anyway.
-          </p>
-        </div>
-      </div>
+      <IdentityParable title="The Operator Who Hated Planning">
+        <p>
+          An operator avoided scheduling.
+        </p>
+        <p>
+          He said:<br />
+          "I like to stay flexible."<br />
+          "I don't want to overcomplicate things."<br />
+          "We'll figure it out in the field."
+        </p>
+        <p>
+          But the truth was simpler.
+        </p>
+        <p>
+          Planning made him confront reality.<br />
+          Planning exposed tradeoffs.<br />
+          Planning removed excuses.
+        </p>
+        <p>
+          Without a schedule, failure felt external.<br />
+          With a schedule, failure felt personal.
+        </p>
+        <p className="body-text-emphasis">
+          So he avoided structure.
+        </p>
+        <p>
+          And time drifted.<br />
+          And margin eroded.<br />
+          And blame multiplied.
+        </p>
+        <p className="body-text-emphasis">
+          Order is uncomfortable for people whose identity relies on improvisation.
+        </p>
+        <p>
+          Professionals choose order anyway.
+        </p>
+      </IdentityParable>
 
       <Section title="Final Truth">
         <p>
