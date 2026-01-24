@@ -13,6 +13,10 @@ import Chapter11 from '@/components/handbook/content/Chapter11';
 import Chapter15 from '@/components/handbook/content/Chapter15';
 import Chapter19 from '@/components/handbook/content/Chapter19';
 import Chapter23 from '@/components/handbook/content/Chapter23';
+import PreviewHeader from '@/components/handbook/PreviewHeader';
+import ReadingProgress from '@/components/handbook/ReadingProgress';
+import PreviewTableOfContents from '@/components/handbook/PreviewTableOfContents';
+import PreviewFloatingTOC from '@/components/handbook/PreviewFloatingTOC';
 import { Lock } from 'lucide-react';
 
 const SalesLanding: React.FC = () => {
@@ -57,31 +61,10 @@ const SalesLanding: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="max-w-5xl mx-auto px-8 py-4 flex items-center justify-between">
-          <span className="font-sans text-sm uppercase tracking-widest opacity-70">The ALP Handbook</span>
-          <div className="flex items-center gap-4">
-            {user ? (
-              <Button 
-                onClick={handlePurchase}
-                disabled={checkoutLoading}
-                className="font-sans uppercase tracking-widest text-xs"
-              >
-                {checkoutLoading ? 'Loading...' : 'Purchase Now — $47'}
-              </Button>
-            ) : (
-              <Link to="/auth">
-                <Button variant="outline" className="font-sans uppercase tracking-widest text-xs">
-                  Sign In
-                </Button>
-              </Link>
-            )}
-          </div>
-        </div>
-      </header>
+      <PreviewHeader />
+      <ReadingProgress />
 
-      <div className="max-w-5xl mx-auto px-8 md:px-16 lg:px-24 pt-24">
+      <div className="max-w-5xl mx-auto px-8 md:px-16 lg:px-24 pt-20">
         {/* Hero Section */}
         <div className="min-h-[80vh] flex flex-col items-center justify-center text-center py-16">
           <img 
@@ -112,8 +95,8 @@ const SalesLanding: React.FC = () => {
               {checkoutLoading ? 'Loading...' : 'Purchase Now — $47'}
             </Button>
             
-            <a href="#preview" className="font-sans text-sm opacity-70 hover:opacity-100 transition-opacity">
-              ↓ Preview chapters below
+            <a href="#toc" className="font-sans text-sm opacity-70 hover:opacity-100 transition-opacity">
+              ↓ Explore the Table of Contents
             </a>
           </div>
         </div>
@@ -137,15 +120,20 @@ const SalesLanding: React.FC = () => {
           </div>
         </div>
 
-        {/* Preview Section */}
-        <div id="preview" className="py-24 border-t border-chapter-divider">
-          <div className="text-center mb-16">
+        {/* Table of Contents */}
+        <div id="toc" className="border-t border-chapter-divider">
+          <PreviewTableOfContents />
+        </div>
+
+        {/* Preview Section Intro */}
+        <div id="preview" className="py-16 border-t border-chapter-divider">
+          <div className="text-center mb-8">
             <p className="text-sm uppercase tracking-widest opacity-50 mb-4 font-sans" style={{ letterSpacing: '0.2em' }}>
               Free Preview
             </p>
             <h2 className="chapter-heading text-3xl md:text-4xl">Experience the Handbook</h2>
             <p className="body-text mt-4 opacity-70 max-w-2xl mx-auto">
-              Read selected chapters from across the handbook to experience the virtual reading experience before you purchase.
+              Read selected chapters from across the handbook. Try the dark mode toggle and floating navigation to experience the virtual reading experience.
             </p>
           </div>
         </div>
@@ -210,6 +198,8 @@ const SalesLanding: React.FC = () => {
           </p>
         </footer>
       </div>
+
+      <PreviewFloatingTOC />
     </div>
   );
 };
