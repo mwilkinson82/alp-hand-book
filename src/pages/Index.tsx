@@ -9,6 +9,8 @@ import Chapter2 from '../components/handbook/content/Chapter2';
 import Chapter3 from '../components/handbook/content/Chapter3';
 import Chapter4 from '../components/handbook/content/Chapter4';
 import Chapter5 from '../components/handbook/content/Chapter5';
+import Chapter6 from '../components/handbook/content/Chapter6';
+import Chapter7 from '../components/handbook/content/Chapter7';
 import Chapter8 from '../components/handbook/content/Chapter8';
 import Chapter11 from '../components/handbook/content/Chapter11';
 import Chapter16 from '../components/handbook/content/Chapter16';
@@ -46,8 +48,8 @@ const Index = () => {
         <PartHeader number="II" title="The Stool (Systems)" />
         <Chapter4 />
         <Chapter5 />
-        <PlaceholderChapter id="chapter-6" number={6} title="Sales, Pressure, and Clarity" />
-        <PlaceholderChapter id="chapter-7" number={7} title="Operations as Margin Protection" />
+        <Chapter6 />
+        <Chapter7 />
         <Chapter8 />
         <PlaceholderChapter id="chapter-9" number={9} title="The ALP Decision Matrix" />
         <PlaceholderChapter id="chapter-10" number={10} title="From Chaos to Control" />
