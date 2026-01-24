@@ -3,7 +3,7 @@ import bookCover from '@/assets/book-cover.png';
 
 const HeroSection: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-center px-8 py-16">
+    <div className="min-h-screen flex flex-col items-center justify-center text-center px-8 py-16 bg-gradient-to-b from-hero-gradient-start via-hero-gradient-mid to-background">
       <img 
         src={bookCover} 
         alt="The ALP Handbook - To Operating a Top-Tier Contracting Company by Marshall Wilkinson" 
