@@ -25,7 +25,7 @@ const tocData: TocSection[] = [
     part: 'I',
     title: 'The Frame',
     items: [
-      { id: 'chapter-1', chapter: '1', title: 'The ALP Doctrine (Altitude, Logic, Pressure)' },
+      { id: 'chapter-1', chapter: '1', title: 'The ALP Doctrine — Altitude, Logic, Pressure' },
       { id: 'chapter-2', chapter: '2', title: 'All Problems Are Entrepreneurial Problems' },
       { id: 'chapter-3', chapter: '3', title: 'The ALP Scaling Stool' },
     ],
@@ -47,7 +47,7 @@ const tocData: TocSection[] = [
     part: 'III',
     title: 'Time, Money, & Leverage',
     items: [
-      { id: 'chapter-11', chapter: '11', title: 'Documentation as Leverage' },
+      { id: 'chapter-11', chapter: '11', title: 'Operations Is Logistics — Not Labor' },
       { id: 'chapter-12', chapter: '12', title: 'Documentation, Entitlement, and Proof' },
       { id: 'chapter-13', chapter: '13', title: 'Notices & Playing Offense' },
       { id: 'chapter-14', chapter: '14', title: 'Scheduling as Time Control' },
