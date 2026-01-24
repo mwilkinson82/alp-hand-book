@@ -3,6 +3,7 @@ import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
 import Parable from '../Parable';
+import ExpandableImage from '../ExpandableImage';
 import alpScalingStool from '@/assets/alp-scaling-stool.png';
 
 const Chapter3: React.FC = () => {
@@ -90,7 +91,7 @@ const Chapter3: React.FC = () => {
       </Section>
 
       <figure className="my-16">
-        <img 
+        <ExpandableImage 
           src={alpScalingStool} 
           alt="The ALP Scaling Stool - A Contracting Company Does Not Grow by Climbing, It Grows by Balancing. Shows a five-legged stool with Marketing, Sales, Operations, People, and Financial Command as the legs supporting The Business." 
           className="w-full max-w-4xl mx-auto rounded-lg shadow-lg"

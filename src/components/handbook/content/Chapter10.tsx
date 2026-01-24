@@ -3,6 +3,7 @@ import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
 import Parable from '../Parable';
+import ExpandableImage from '../ExpandableImage';
 import chaosToControl from '@/assets/chaos-to-control.png';
 
 const Chapter10: React.FC = () => {
@@ -34,7 +35,7 @@ const Chapter10: React.FC = () => {
       </div>
 
       <figure className="my-16">
-        <img 
+        <ExpandableImage 
           src={chaosToControl} 
           alt="From Chaos to Control - See Clearly (Financial Command) → Decide Correctly (Decision Matrix) → Apply Pressure (Operational Discipline) → Profit Freely (Margin Protection)" 
           className="w-full max-w-4xl mx-auto rounded-lg shadow-lg"
