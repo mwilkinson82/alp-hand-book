@@ -7,7 +7,7 @@ const HeroSection: React.FC = () => {
       <img 
         src={bookCover} 
         alt="The ALP Handbook - To Operating a Top-Tier Contracting Company by Marshall Wilkinson" 
-        className="max-w-sm md:max-w-md lg:max-w-lg w-full h-auto shadow-2xl rounded-sm"
+        className="max-w-sm md:max-w-md lg:max-w-lg w-full h-auto shadow-2xl rounded-sm animate-float hover:scale-105 transition-transform duration-300"
       />
       
       {/* Scroll indicator */}
