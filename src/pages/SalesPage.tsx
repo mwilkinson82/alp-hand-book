@@ -35,6 +35,11 @@ const testimonials = [
     quote: "I have been enrolled in ALP premium for three months and in closer school for six months and it has fundamentally changed how I conduct business. This program is transformative in nature. Life changing.",
     name: "Eric Jacobs",
     company: "HVAC Executive"
+  },
+  {
+    quote: "ALP is Super Impactful! I have tried many other coaching programs and Coaches, and none compare to what I've learned in the past 2 months. So if you are really serious about winning in Business and life. Join ALP! It will change your life.",
+    name: "Julius Davis",
+    company: "Davis Contracting"
   }
 ];
 
@@ -442,7 +447,7 @@ const SalesPage: React.FC = () => {
             Real results from contractors who operate with ALP
           </p>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {testimonials.map((testimonial, i) => (
               <div 
                 key={i} 
