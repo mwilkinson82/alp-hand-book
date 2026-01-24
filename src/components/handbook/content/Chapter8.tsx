@@ -161,7 +161,7 @@ const Chapter8: React.FC = () => {
         </p>
       </Section>
 
-      <Parable title="The One-Week Extension">
+      <Parable id="parable-one-week-extension" title="The One-Week Extension">
         <p>
           A project slipped one week.
         </p>

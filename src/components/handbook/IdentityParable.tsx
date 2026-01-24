@@ -1,13 +1,14 @@
 import React from 'react';
 
 interface IdentityParableProps {
+  id?: string;
   title: string;
   children: React.ReactNode;
 }
 
-const IdentityParable: React.FC<IdentityParableProps> = ({ title, children }) => {
+const IdentityParable: React.FC<IdentityParableProps> = ({ id, title, children }) => {
   return (
-    <div className="identity-parable-container">
+    <div id={id} className="identity-parable-container scroll-mt-20">
       <div className="identity-parable-badge">
         <svg 
           xmlns="http://www.w3.org/2000/svg" 

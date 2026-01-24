@@ -195,7 +195,7 @@ const Chapter10: React.FC = () => {
         </p>
       </Section>
 
-      <Parable title="The Noisy Jobsite">
+      <Parable id="parable-noisy-jobsite" title="The Noisy Jobsite">
         <p>
           A project felt out of control.
         </p>

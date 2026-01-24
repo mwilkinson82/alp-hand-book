@@ -118,7 +118,7 @@ const Chapter14 = () => {
         <p className="body-text">They won't.</p>
       </Section>
 
-      <Parable title="The Flexible Timeline">
+      <Parable id="parable-flexible-timeline" title="The Flexible Timeline">
         <p className="body-text">An owner wanted flexibility.</p>
         
         <p className="body-text">The contractor agreed.</p>

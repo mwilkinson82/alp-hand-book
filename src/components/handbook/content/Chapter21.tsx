@@ -94,7 +94,7 @@ const Chapter21: React.FC = () => {
         </p>
       </Section>
 
-      <Parable title="The Profitable Company That Collapsed">
+      <Parable id="parable-profitable-company-collapsed" title="The Profitable Company That Collapsed">
         <p>
           A contractor was growing fast.
         </p>
@@ -283,7 +283,7 @@ const Chapter21: React.FC = () => {
         </p>
       </Section>
 
-      <Parable title="The Calm Operator">
+      <Parable id="parable-calm-operator-21" title="The Calm Operator">
         <p>
           Two owners faced the same problem:<br />
           A major job fell behind schedule.
@@ -313,7 +313,7 @@ const Chapter21: React.FC = () => {
         </p>
       </Parable>
 
-      <IdentityParable title="The Owner Who Avoided the Numbers">
+      <IdentityParable id="identity-parable-21" title="The Owner Who Avoided the Numbers">
         <p>
           He said:<br />
           "I'm not a numbers guy."<br />

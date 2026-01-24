@@ -335,7 +335,7 @@ const Chapter20: React.FC = () => {
         </div>
       </div>
 
-      <IdentityParable title="The Contractor Afraid of Being Wrong">
+      <IdentityParable id="identity-parable-20" title="The Contractor Afraid of Being Wrong">
         <p>
           He delayed documentation.
         </p>

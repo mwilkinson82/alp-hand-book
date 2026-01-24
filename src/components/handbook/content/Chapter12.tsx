@@ -115,7 +115,7 @@ const Chapter12 = () => {
         </p>
       </Section>
 
-      <Parable title="The Unwritten Delay">
+      <Parable id="parable-unwritten-delay" title="The Unwritten Delay">
         <p className="body-text">A project suffered months of owner-caused disruption.</p>
         
         <p className="body-text">

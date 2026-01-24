@@ -92,7 +92,7 @@ const Chapter2: React.FC = () => {
         </p>
       </Section>
 
-      <Parable title="The Broken Toolbelt">
+      <Parable id="parable-broken-toolbelt" title="The Broken Toolbelt">
         <p>
           An operator replaces tools constantly.
         </p>

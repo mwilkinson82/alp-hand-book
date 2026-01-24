@@ -64,7 +64,7 @@ const Chapter24: React.FC = () => {
         <p>That leg is where attention belongs.</p>
       </Section>
 
-      <Parable title="The Owner Who Fixed the Wrong Thing">
+      <Parable id="parable-owner-fixed-wrong" title="The Owner Who Fixed the Wrong Thing">
         <p>An owner thought his problem was operations.</p>
         <p>Jobs felt heavy.<br />
         Stress was high.<br />
@@ -125,7 +125,7 @@ const Chapter24: React.FC = () => {
         <p className="mt-6">If a decision feels heavy, it usually means one step was skipped.</p>
       </Section>
 
-      <Parable title="The Clean Decision">
+      <Parable id="parable-clean-decision" title="The Clean Decision">
         <p>An operator delayed terminating a bad subcontractor.</p>
         <p>He gathered more data.<br />
         Asked more opinions.<br />

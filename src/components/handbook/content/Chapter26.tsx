@@ -63,7 +63,7 @@ const Chapter26: React.FC = () => {
         <p>And once standards slip, recovery becomes expensive.</p>
       </Section>
 
-      <Parable title="The First Exception">
+      <Parable id="parable-first-exception" title="The First Exception">
         <p>A supervisor violated a clear standard.</p>
         <p>The owner noticed.<br />
         He hesitated.<br />
