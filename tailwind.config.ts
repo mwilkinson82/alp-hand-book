@@ -61,6 +61,9 @@ export default {
         media: {
           placeholder: "hsl(var(--media-placeholder))",
         },
+        brand: {
+          accent: "hsl(var(--brand-accent))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
