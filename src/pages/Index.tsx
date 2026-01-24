@@ -31,11 +31,17 @@ import Chapter24 from '../components/handbook/content/Chapter24';
 import Chapter25 from '../components/handbook/content/Chapter25';
 import Chapter26 from '../components/handbook/content/Chapter26';
 import FinalChapter from '../components/handbook/content/FinalChapter';
+import ReadingHeader from '../components/handbook/ReadingHeader';
+import ReadingProgress from '../components/handbook/ReadingProgress';
+import FloatingTOC from '../components/handbook/FloatingTOC';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-background">
-      <div className="max-w-4xl mx-auto px-6 md:px-12">
+      <ReadingHeader />
+      <ReadingProgress />
+      
+      <div className="max-w-4xl mx-auto px-6 md:px-12 pt-14">
         <HeroSection />
         
         <TableOfContents />
@@ -99,6 +105,8 @@ const Index = () => {
           </p>
         </footer>
       </div>
+      
+      <FloatingTOC />
     </div>
   );
 };

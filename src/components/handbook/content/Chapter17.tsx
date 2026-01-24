@@ -4,6 +4,7 @@ import Section from '../Section';
 import DoctrineList from '../DoctrineList';
 import Parable from '../Parable';
 import MediaPlaceholder from '../MediaPlaceholder';
+import IdentityParable from '../IdentityParable';
 
 const Chapter17: React.FC = () => {
   return (
@@ -343,49 +344,45 @@ const Chapter17: React.FC = () => {
         </p>
       </Parable>
 
-      <div className="parable-container">
-        <div className="parable-label">Identity Parable</div>
-        <h4 className="subsection-heading italic">The Owner Who Had to Be Needed</h4>
-        <div className="body-text space-y-4">
-          <p>
-            A contractor insisted on being everywhere.
-          </p>
-          <p>
-            He answered every call.<br />
-            Solved every problem.<br />
-            Made every decision.
-          </p>
-          <p>
-            He told himself this was leadership.
-          </p>
-          <p className="body-text-emphasis">
-            In reality, it was identity.
-          </p>
-          <p>
-            He needed to be needed.<br />
-            He needed to feel indispensable.<br />
-            He needed validation through exhaustion.
-          </p>
-          <p>
-            General conditions were underfunded.<br />
-            Supervision was thin.<br />
-            Systems never matured.
-          </p>
-          <p>
-            The business did not fail because of construction.<br />
-            It stalled because the owner's identity required chaos.
-          </p>
-          <p className="body-text-emphasis">
-            When identity is tied to heroics, control is impossible.
-          </p>
-          <p>
-            True leadership is not being needed.
-          </p>
-          <p className="body-text-emphasis">
-            It is being replaceable without losing authority.
-          </p>
-        </div>
-      </div>
+      <IdentityParable title="The Owner Who Had to Be Needed">
+        <p>
+          A contractor insisted on being everywhere.
+        </p>
+        <p>
+          He answered every call.<br />
+          Solved every problem.<br />
+          Made every decision.
+        </p>
+        <p>
+          He told himself this was leadership.
+        </p>
+        <p className="body-text-emphasis">
+          In reality, it was identity.
+        </p>
+        <p>
+          He needed to be needed.<br />
+          He needed to feel indispensable.<br />
+          He needed validation through exhaustion.
+        </p>
+        <p>
+          General conditions were underfunded.<br />
+          Supervision was thin.<br />
+          Systems never matured.
+        </p>
+        <p>
+          The business did not fail because of construction.<br />
+          It stalled because the owner's identity required chaos.
+        </p>
+        <p className="body-text-emphasis">
+          When identity is tied to heroics, control is impossible.
+        </p>
+        <p>
+          True leadership is not being needed.
+        </p>
+        <p className="body-text-emphasis">
+          It is being replaceable without losing authority.
+        </p>
+      </IdentityParable>
 
       <Section title="Final Truth">
         <p>

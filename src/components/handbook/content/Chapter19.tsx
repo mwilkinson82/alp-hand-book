@@ -3,6 +3,7 @@ import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
 import Parable from '../Parable';
+import IdentityParable from '../IdentityParable';
 
 const Chapter19: React.FC = () => {
   return (
@@ -339,48 +340,44 @@ const Chapter19: React.FC = () => {
         </p>
       </Parable>
 
-      <div className="parable-container">
-        <div className="parable-label">Identity Parable</div>
-        <h4 className="subsection-heading italic">The Nice Contractor</h4>
-        <div className="body-text space-y-4">
-          <p>
-            Everyone liked him.
-          </p>
-          <p>
-            He was agreeable.<br />
-            Flexible.<br />
-            Understanding.
-          </p>
-          <p>
-            He didn't issue notices.<br />
-            Didn't push change orders.<br />
-            Didn't want to "rock the boat."
-          </p>
-          <p>
-            He believed being liked would protect him.
-          </p>
-          <p className="body-text-emphasis">
-            It didn't.
-          </p>
-          <p>
-            Costs piled up.<br />
-            Scope blurred.<br />
-            Disruption went unpaid.
-          </p>
-          <p>
-            By the end of the job, the relationship he tried to protect no longer mattered.
-          </p>
-          <p className="body-text-emphasis">
-            Niceness without boundaries is not professionalism.
-          </p>
-          <p>
-            It is fear of disapproval.
-          </p>
-          <p>
-            Velocity requires identity strong enough to tolerate tension.
-          </p>
-        </div>
-      </div>
+      <IdentityParable title="The Nice Contractor">
+        <p>
+          Everyone liked him.
+        </p>
+        <p>
+          He was agreeable.<br />
+          Flexible.<br />
+          Understanding.
+        </p>
+        <p>
+          He didn't issue notices.<br />
+          Didn't push change orders.<br />
+          Didn't want to "rock the boat."
+        </p>
+        <p>
+          He believed being liked would protect him.
+        </p>
+        <p className="body-text-emphasis">
+          It didn't.
+        </p>
+        <p>
+          Costs piled up.<br />
+          Scope blurred.<br />
+          Disruption went unpaid.
+        </p>
+        <p>
+          By the end of the job, the relationship he tried to protect no longer mattered.
+        </p>
+        <p className="body-text-emphasis">
+          Niceness without boundaries is not professionalism.
+        </p>
+        <p>
+          It is fear of disapproval.
+        </p>
+        <p>
+          Velocity requires identity strong enough to tolerate tension.
+        </p>
+      </IdentityParable>
 
       <Section title="Final Truth">
         <p>
