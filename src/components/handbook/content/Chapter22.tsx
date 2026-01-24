@@ -172,7 +172,7 @@ const Chapter22: React.FC = () => {
         </p>
       </Section>
 
-      <Parable title="The Fork in the Road">
+      <Parable id="parable-fork-in-road" title="The Fork in the Road">
         <p>
           Two operators faced the same issue:<br />
           A client refused to acknowledge disruption.
@@ -247,7 +247,7 @@ const Chapter22: React.FC = () => {
         </p>
       </Section>
 
-      <IdentityParable title="The Delayer">
+      <IdentityParable id="identity-parable-22" title="The Delayer">
         <p>
           He gathered more information.<br />
           Asked for more opinions.<br />

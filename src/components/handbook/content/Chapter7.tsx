@@ -97,7 +97,7 @@ const Chapter7: React.FC = () => {
         <p>And that's why it's deadly.</p>
       </Section>
 
-      <Parable title="The Crowded Site">
+      <Parable id="parable-crowded-site" title="The Crowded Site">
         <p>A project had plenty of labor.<br />
         Plenty of materials.<br />
         Plenty of effort.</p>

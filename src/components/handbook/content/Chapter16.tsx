@@ -183,7 +183,7 @@ const Chapter16 = () => {
         <p className="body-text">Always.</p>
       </Section>
 
-      <Parable title="The Profitable Company That Wasn't">
+      <Parable id="parable-profitable-company-wasnt" title="The Profitable Company That Wasn't">
         <p className="body-text">A contractor looked successful.</p>
         
         <p className="body-text">

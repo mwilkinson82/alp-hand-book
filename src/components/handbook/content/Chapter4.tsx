@@ -151,7 +151,7 @@ const Chapter4: React.FC = () => {
         <p><strong>It is the one you won't quit.</strong></p>
       </Section>
 
-      <Parable title="The Silent Expert">
+      <Parable id="parable-silent-expert" title="The Silent Expert">
         <p>An operator was technically superior to everyone in his market.</p>
         <p>Better estimating.<br />
         Better execution.<br />

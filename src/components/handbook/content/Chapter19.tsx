@@ -299,7 +299,7 @@ const Chapter19: React.FC = () => {
         </p>
       </Section>
 
-      <Parable title="The Change Order That Died Quietly">
+      <Parable id="parable-change-order-died" title="The Change Order That Died Quietly">
         <p>
           A design conflict stopped work for half a day.
         </p>
@@ -340,7 +340,7 @@ const Chapter19: React.FC = () => {
         </p>
       </Parable>
 
-      <IdentityParable title="The Nice Contractor">
+      <IdentityParable id="identity-parable-19" title="The Nice Contractor">
         <p>
           Everyone liked him.
         </p>

@@ -172,7 +172,7 @@ const Chapter23: React.FC = () => {
         </p>
       </Section>
 
-      <Parable title="The Unmoved Operator">
+      <Parable id="parable-unmoved-operator" title="The Unmoved Operator">
         <p>
           An owner faced public criticism from a client.
         </p>

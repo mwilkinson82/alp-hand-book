@@ -368,7 +368,7 @@ const Chapter18: React.FC = () => {
         </div>
       </div>
 
-      <IdentityParable title="The Operator Who Hated Planning">
+      <IdentityParable id="identity-parable-18" title="The Operator Who Hated Planning">
         <p>
           An operator avoided scheduling.
         </p>

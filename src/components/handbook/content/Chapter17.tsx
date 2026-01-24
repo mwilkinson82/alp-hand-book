@@ -287,7 +287,7 @@ const Chapter17: React.FC = () => {
         </p>
       </Section>
 
-      <Parable title="The Job That Looked Profitable">
+      <Parable id="parable-job-looked-profitable" title="The Job That Looked Profitable">
         <p>
           Two contractors bid the same project.
         </p>
@@ -344,7 +344,7 @@ const Chapter17: React.FC = () => {
         </p>
       </Parable>
 
-      <IdentityParable title="The Owner Who Had to Be Needed">
+      <IdentityParable id="identity-parable-17" title="The Owner Who Had to Be Needed">
         <p>
           A contractor insisted on being everywhere.
         </p>

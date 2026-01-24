@@ -106,7 +106,7 @@ const Chapter15 = () => {
         <p className="body-text">The job pays for that friction — whether it's priced or not.</p>
       </Section>
 
-      <Parable title="The Interrupted Trade">
+      <Parable id="parable-interrupted-trade" title="The Interrupted Trade">
         <p className="body-text">A trade was started before preceding work was complete.</p>
         
         <p className="body-text">

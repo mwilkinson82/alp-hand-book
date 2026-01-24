@@ -97,7 +97,7 @@ const Chapter25: React.FC = () => {
         You are dispersing risk.</p>
       </Section>
 
-      <Parable title="The Expanding Circle">
+      <Parable id="parable-expanding-circle" title="The Expanding Circle">
         <p>An owner grew from two jobs to twelve.</p>
         <p>Revenue tripled.<br />
         So did problems.</p>

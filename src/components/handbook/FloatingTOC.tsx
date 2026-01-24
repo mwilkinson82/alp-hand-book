@@ -96,14 +96,34 @@ const tocData: TocSection[] = [
   },
 ];
 
-// Parable index data - this can be expanded as needed
+// Parable index data - complete list
 const parableData: ParableItem[] = [
+  // Regular Parables (in chapter order)
+  { id: 'parable-calm-operator', title: 'The Calm Operator', chapter: '1', isIdentity: false },
+  { id: 'parable-broken-toolbelt', title: 'The Broken Toolbelt', chapter: '2', isIdentity: false },
   { id: 'parable-uneven-table', title: 'The Uneven Table', chapter: '3', isIdentity: false },
-  { id: 'parable-invisible-contractor', title: 'The Invisible Contractor', chapter: '4', isIdentity: false },
-  { id: 'parable-first-exception', title: 'The First Exception', chapter: '26', isIdentity: false },
-  { id: 'parable-expanding-circle', title: 'The Expanding Circle', chapter: '25', isIdentity: false },
-  { id: 'parable-unmoved-operator', title: 'The Unmoved Operator', chapter: '23', isIdentity: false },
+  { id: 'parable-silent-expert', title: 'The Silent Expert', chapter: '4', isIdentity: false },
+  { id: 'parable-quiet-recommendation', title: 'The Quiet Recommendation', chapter: '5', isIdentity: false },
+  { id: 'parable-indecisive-buyer', title: 'The Indecisive Buyer', chapter: '6', isIdentity: false },
+  { id: 'parable-crowded-site', title: 'The Crowded Site', chapter: '7', isIdentity: false },
+  { id: 'parable-one-week-extension', title: 'The One-Week Extension', chapter: '8', isIdentity: false },
+  { id: 'parable-deferred-call', title: 'The Deferred Call', chapter: '9', isIdentity: false },
+  { id: 'parable-noisy-jobsite', title: 'The Noisy Jobsite', chapter: '10', isIdentity: false },
+  { id: 'parable-unwritten-delay', title: 'The Unwritten Delay', chapter: '12', isIdentity: false },
+  { id: 'parable-polite-contractor', title: 'The Polite Contractor', chapter: '13', isIdentity: false },
+  { id: 'parable-flexible-timeline', title: 'The Flexible Timeline', chapter: '14', isIdentity: false },
+  { id: 'parable-interrupted-trade', title: 'The Interrupted Trade', chapter: '15', isIdentity: false },
+  { id: 'parable-profitable-company-wasnt', title: 'The Profitable Company That Wasn\'t', chapter: '16', isIdentity: false },
+  { id: 'parable-job-looked-profitable', title: 'The Job That Looked Profitable', chapter: '17', isIdentity: false },
+  { id: 'parable-change-order-died', title: 'The Change Order That Died Quietly', chapter: '19', isIdentity: false },
+  { id: 'parable-profitable-company-collapsed', title: 'The Profitable Company That Collapsed', chapter: '21', isIdentity: false },
+  { id: 'parable-calm-operator-21', title: 'The Calm Operator', chapter: '21', isIdentity: false },
   { id: 'parable-fork-in-road', title: 'The Fork in the Road', chapter: '22', isIdentity: false },
+  { id: 'parable-unmoved-operator', title: 'The Unmoved Operator', chapter: '23', isIdentity: false },
+  { id: 'parable-owner-fixed-wrong', title: 'The Owner Who Fixed the Wrong Thing', chapter: '24', isIdentity: false },
+  { id: 'parable-clean-decision', title: 'The Clean Decision', chapter: '24', isIdentity: false },
+  { id: 'parable-expanding-circle', title: 'The Expanding Circle', chapter: '25', isIdentity: false },
+  { id: 'parable-first-exception', title: 'The First Exception', chapter: '26', isIdentity: false },
   // Identity Parables
   { id: 'identity-parable-17', title: 'The Owner Who Had to Be Needed', chapter: '17', isIdentity: true },
   { id: 'identity-parable-18', title: 'The Operator Who Hated Planning', chapter: '18', isIdentity: true },

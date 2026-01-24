@@ -287,7 +287,7 @@ const Chapter9: React.FC = () => {
         </p>
       </Section>
 
-      <Parable title="The Deferred Call">
+      <Parable id="parable-deferred-call" title="The Deferred Call">
         <p>
           A job began slipping.
         </p>

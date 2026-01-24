@@ -126,7 +126,7 @@ const Chapter6: React.FC = () => {
         <p><strong>Sales discipline protects operations before the job ever starts.</strong></p>
       </Section>
 
-      <Parable title="The Indecisive Buyer">
+      <Parable id="parable-indecisive-buyer" title="The Indecisive Buyer">
         <p>Two contractors met with the same client.</p>
         <p>The client delayed decisions.<br />
         Avoided timelines.<br />

@@ -135,7 +135,7 @@ const Chapter1: React.FC = () => {
         </p>
       </Section>
 
-      <Parable title="The Calm Operator">
+      <Parable id="parable-calm-operator" title="The Calm Operator">
         <p>
           Two owners face the same problem: a delayed project and an angry client.
         </p>

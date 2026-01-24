@@ -138,7 +138,7 @@ const Chapter13 = () => {
         </p>
       </Section>
 
-      <Parable title="The Polite Contractor">
+      <Parable id="parable-polite-contractor" title="The Polite Contractor">
         <p className="body-text">A contractor accommodated repeated owner delays.</p>
         
         <p className="body-text">

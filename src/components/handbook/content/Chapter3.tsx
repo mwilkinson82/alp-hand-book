@@ -325,7 +325,7 @@ const Chapter3: React.FC = () => {
         </p>
       </Section>
 
-      <Parable title="The Uneven Table">
+      <Parable id="parable-uneven-table" title="The Uneven Table">
         <p>
           A table with one short leg rocks constantly.
         </p>

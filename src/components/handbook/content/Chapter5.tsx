@@ -96,7 +96,7 @@ const Chapter5: React.FC = () => {
         <p><strong>This is why consistency matters more than urgency.</strong></p>
       </Section>
 
-      <Parable title="The Quiet Recommendation">
+      <Parable id="parable-quiet-recommendation" title="The Quiet Recommendation">
         <p>A designer was asked casually, over coffee:</p>
         <p className="italic">"Do you know a contractor who won't screw this up?"</p>
         <p>No RFP.<br />
