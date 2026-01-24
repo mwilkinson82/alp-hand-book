@@ -13,9 +13,10 @@ const passwordSchema = z.string().min(6, 'Password must be at least 6 characters
 const Auth: React.FC = () => {
   const [searchParams] = useSearchParams();
   const fromPurchase = searchParams.get('from') === 'purchase';
+  const purchaseEmail = searchParams.get('email') || '';
   
   const [isLogin, setIsLogin] = useState(true);
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useState(purchaseEmail);
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});

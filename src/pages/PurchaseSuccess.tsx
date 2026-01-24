@@ -294,15 +294,21 @@ const PurchaseSuccess: React.FC = () => {
           </Button>
         </Link>
       ) : (
-        <div className="space-y-4">
-          <Link to="/auth">
-            <Button size="lg" className="font-sans uppercase tracking-widest">
+        <div className="space-y-6 max-w-md">
+          <div className="flex items-center gap-2 bg-muted px-4 py-2 rounded-md justify-center">
+            <Mail className="w-4 h-4 opacity-70" />
+            <span className="font-mono text-sm">{result?.email}</span>
+          </div>
+          
+          <p className="body-text opacity-70">
+            Sign in with this email to access your handbook.
+          </p>
+          
+          <Link to={`/auth?from=purchase&email=${encodeURIComponent(result?.email || '')}`}>
+            <Button size="lg" className="font-sans uppercase tracking-widest w-full">
               Sign In to Read
             </Button>
           </Link>
-          <p className="body-text opacity-50 text-sm">
-            Use the email from your purchase
-          </p>
         </div>
       )}
     </div>
