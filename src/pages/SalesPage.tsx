@@ -16,8 +16,27 @@ import {
   FileText,
   Zap,
   Moon,
-  Sun
+  Sun,
+  Quote
 } from 'lucide-react';
+
+const testimonials = [
+  {
+    quote: "I'm ALP for life. Marshall has changed my life. From $600k to $12.5M in 11 months. There is nobody like him on earth. You just have to get around him to understand.",
+    name: "Bryan Bettencourt",
+    company: "Bettencourt Construction, St Petersburg FL"
+  },
+  {
+    quote: "I followed Marshall for about a year, and have been involved in other groups. There is NOTHING like Marshall. This is real world stuff here. My 2nd month as a Contractor and I'm at a quarter million in revenue and have a real scalable business. It's unreal. ALP all day, everyday.",
+    name: "Ronnie Silva",
+    company: "Sage Construction"
+  },
+  {
+    quote: "I have been enrolled in ALP premium for three months and in closer school for six months and it has fundamentally changed how I conduct business. This program is transformative in nature. Life changing.",
+    name: "Eric Jacobs",
+    company: "HVAC Executive"
+  }
+];
 
 const SalesPage: React.FC = () => {
   const { user, hasPurchased, loading } = useAuth();
@@ -413,8 +432,38 @@ const SalesPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Not Best Practices Section */}
+      {/* Testimonials Section */}
       <section className="py-24 px-6 border-t border-border">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="section-heading text-2xl md:text-3xl mb-4 text-center">
+            What Operators Are Saying
+          </h2>
+          <p className="body-text opacity-60 text-center mb-12">
+            Real results from contractors who operate with ALP
+          </p>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, i) => (
+              <div 
+                key={i} 
+                className="relative p-8 bg-muted/30 border border-border rounded-sm"
+              >
+                <Quote className="w-8 h-8 text-primary/20 absolute top-6 left-6" />
+                <blockquote className="body-text opacity-80 mb-6 pt-6 relative z-10">
+                  "{testimonial.quote}"
+                </blockquote>
+                <div className="border-t border-border pt-4">
+                  <p className="body-text-emphasis text-sm">{testimonial.name}</p>
+                  <p className="text-sm opacity-50">{testimonial.company}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Not Best Practices Section */}
+      <section className="py-24 px-6 bg-muted/30">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="section-heading text-2xl md:text-3xl mb-6">
             This Handbook Doesn't Teach "Best Practices"
