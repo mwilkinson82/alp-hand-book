@@ -41,6 +41,7 @@
     --parable-border: 30 10% 25%;
     --chapter-divider: 35 10% 85%;
     --media-placeholder: 35 8% 92%;
+    --brand-accent: 24 95% 53%;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -85,6 +86,7 @@
     --parable-border: 40 10% 60%;
     --chapter-divider: 30 8% 20%;
     --media-placeholder: 30 8% 12%;
+    --brand-accent: 24 95% 53%;
 
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
