@@ -3,7 +3,7 @@ import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
 import Parable from '../Parable';
-import MediaPlaceholder from '../MediaPlaceholder';
+import alpScalingStool from '@/assets/alp-scaling-stool.png';
 
 const Chapter3: React.FC = () => {
   return (
@@ -89,7 +89,13 @@ const Chapter3: React.FC = () => {
         </p>
       </Section>
 
-      <MediaPlaceholder type="diagram" label="The ALP Scaling Stool Diagram" />
+      <figure className="my-16">
+        <img 
+          src={alpScalingStool} 
+          alt="The ALP Scaling Stool - A Contracting Company Does Not Grow by Climbing, It Grows by Balancing. Shows a five-legged stool with Marketing, Sales, Operations, People, and Financial Command as the legs supporting The Business." 
+          className="w-full max-w-4xl mx-auto rounded-lg shadow-lg"
+        />
+      </figure>
 
       <Section title="The Five Legs of the ALP Scaling Stool">
         <p>
