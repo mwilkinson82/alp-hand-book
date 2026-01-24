@@ -115,7 +115,7 @@ const SalesPage: React.FC = () => {
             <h1 className="handbook-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight">
               THE ALP HANDBOOK
             </h1>
-            <p className="text-lg sm:text-xl mb-6 sm:mb-8 leading-relaxed font-medium md:text-3xl text-accent">
+            <p className="text-lg sm:text-xl mb-6 sm:mb-8 leading-relaxed font-medium md:text-3xl text-[hsl(var(--brand-accent))]">
               To Operating a Top-Tier Contracting Company     
             </p>
             
