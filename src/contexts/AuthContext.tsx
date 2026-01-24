@@ -11,7 +11,7 @@ interface AuthContextType {
   signUp: (email: string, password: string) => Promise<{ error: Error | null }>;
   signIn: (email: string, password: string) => Promise<{ error: Error | null }>;
   signOut: () => Promise<void>;
-  checkPurchaseStatus: () => Promise<void>;
+  checkPurchaseStatus: (sessionOverride?: Session | null) => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -31,15 +31,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [hasPurchased, setHasPurchased] = useState(false);
   const [purchaseLoading, setPurchaseLoading] = useState(false);
 
-  const checkPurchaseStatus = async () => {
-    if (!session) {
+  const checkPurchaseStatus = async (sessionOverride?: Session | null) => {
+    const activeSession = sessionOverride ?? session;
+    if (!activeSession) {
       setHasPurchased(false);
       return;
     }
 
     setPurchaseLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke('check-purchase');
+      const { data, error } = await supabase.functions.invoke('check-purchase', {
+        headers: {
+          Authorization: `Bearer ${activeSession.access_token}`,
+        },
+      });
       if (error) {
         console.error('Error checking purchase status:', error);
         setHasPurchased(false);
@@ -64,11 +69,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         
         // Defer purchase check to avoid deadlock
         if (session?.user) {
+          // Prevent route guards from redirecting before purchase check starts
+          setPurchaseLoading(true);
           setTimeout(() => {
-            checkPurchaseStatus();
+            checkPurchaseStatus(session);
           }, 0);
         } else {
           setHasPurchased(false);
+          setPurchaseLoading(false);
         }
       }
     );
@@ -80,9 +88,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setLoading(false);
       
       if (session?.user) {
+        // Prevent route guards from redirecting before purchase check starts
+        setPurchaseLoading(true);
         setTimeout(() => {
-          checkPurchaseStatus();
+          checkPurchaseStatus(session);
         }, 0);
+      } else {
+        setPurchaseLoading(false);
       }
     });
 
