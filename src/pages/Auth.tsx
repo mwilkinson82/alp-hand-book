@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, Link, useSearchParams } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
+import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -14,16 +15,30 @@ const Auth: React.FC = () => {
   const [searchParams] = useSearchParams();
   const fromPurchase = searchParams.get('from') === 'purchase';
   const purchaseEmail = searchParams.get('email') || '';
+  const mode = searchParams.get('mode');
+  const sent = searchParams.get('sent') === '1';
   
   const [isLogin, setIsLogin] = useState(true);
   const [email, setEmail] = useState(purchaseEmail);
   const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<{ email?: string; password?: string }>({});
+
+  // Password setup / reset flow
+  const [resetEmailSent, setResetEmailSent] = useState(sent);
+  const [resetEmailLoading, setResetEmailLoading] = useState(false);
+  const [resetError, setResetError] = useState<string | null>(null);
+  const [newPassword, setNewPassword] = useState('');
+  const [newPasswordConfirm, setNewPasswordConfirm] = useState('');
+  const [newPasswordError, setNewPasswordError] = useState<string | null>(null);
   
-  const { signIn, signUp } = useAuth();
+  const { signIn, signUp, session, user, checkPurchaseStatus } = useAuth();
   const navigate = useNavigate();
   const { toast } = useToast();
+
+  useEffect(() => {
+    setResetEmailSent(sent);
+  }, [sent]);
 
   const validateForm = () => {
     const newErrors: { email?: string; password?: string } = {};
@@ -67,7 +82,7 @@ const Auth: React.FC = () => {
             });
           }
         } else {
-          navigate('/');
+          navigate(fromPurchase ? '/read' : '/');
         }
       } else {
         const { error } = await signUp(email, password);
@@ -91,13 +106,198 @@ const Auth: React.FC = () => {
             title: 'Account created',
             description: 'Your account has been created successfully.',
           });
-          navigate('/');
+          navigate(fromPurchase ? '/read' : '/');
         }
       }
     } finally {
       setLoading(false);
     }
   };
+
+  const handleSendResetEmail = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setResetError(null);
+
+    const emailResult = emailSchema.safeParse(email);
+    if (!emailResult.success) {
+      setResetError(emailResult.error.errors[0].message);
+      return;
+    }
+
+    setResetEmailLoading(true);
+    try {
+      const { error } = await supabase.auth.resetPasswordForEmail(email, {
+        redirectTo: `${window.location.origin}/auth?mode=reset&from=purchase&email=${encodeURIComponent(email)}&sent=1`,
+      });
+
+      if (error) {
+        setResetError(error.message);
+        return;
+      }
+
+      setResetEmailSent(true);
+    } finally {
+      setResetEmailLoading(false);
+    }
+  };
+
+  const handleUpdatePassword = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setNewPasswordError(null);
+
+    const passResult = passwordSchema.safeParse(newPassword);
+    if (!passResult.success) {
+      setNewPasswordError(passResult.error.errors[0].message);
+      return;
+    }
+    if (newPassword !== newPasswordConfirm) {
+      setNewPasswordError('Passwords do not match');
+      return;
+    }
+
+    setResetEmailLoading(true);
+    try {
+      const { error } = await supabase.auth.updateUser({ password: newPassword });
+      if (error) {
+        setNewPasswordError(error.message);
+        return;
+      }
+
+      // Refresh access state + take them straight to the book
+      await checkPurchaseStatus();
+      toast({
+        title: 'Password set',
+        description: 'Your account is ready. Redirecting you to the handbook…',
+      });
+      navigate('/read');
+    } finally {
+      setResetEmailLoading(false);
+    }
+  };
+
+  // Password setup / reset UI
+  if (mode === 'reset') {
+    return (
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center px-6">
+        <div className="w-full max-w-sm">
+          <div className="text-center mb-12">
+            <h1 className="chapter-heading text-3xl md:text-4xl mb-4">
+              {fromPurchase ? 'Create Your Account' : 'Reset Your Password'}
+            </h1>
+            <p className="body-text text-base opacity-70">
+              {session
+                ? 'Choose a password to finish setup.'
+                : 'We’ll email you a secure link to set your password.'}
+            </p>
+          </div>
+
+          {session ? (
+            <form onSubmit={handleUpdatePassword} className="space-y-6">
+              <div className="space-y-2">
+                <Label htmlFor="new-password" className="font-sans text-sm uppercase tracking-wide opacity-70">
+                  New password
+                </Label>
+                <Input
+                  id="new-password"
+                  type="password"
+                  value={newPassword}
+                  onChange={(e) => setNewPassword(e.target.value)}
+                  placeholder="••••••••"
+                  className="bg-background border-border font-sans"
+                  disabled={resetEmailLoading}
+                />
+              </div>
+
+              <div className="space-y-2">
+                <Label htmlFor="new-password-confirm" className="font-sans text-sm uppercase tracking-wide opacity-70">
+                  Confirm password
+                </Label>
+                <Input
+                  id="new-password-confirm"
+                  type="password"
+                  value={newPasswordConfirm}
+                  onChange={(e) => setNewPasswordConfirm(e.target.value)}
+                  placeholder="••••••••"
+                  className="bg-background border-border font-sans"
+                  disabled={resetEmailLoading}
+                />
+              </div>
+
+              {newPasswordError && (
+                <p className="text-sm text-destructive font-sans">{newPasswordError}</p>
+              )}
+
+              <Button
+                type="submit"
+                className="w-full font-sans uppercase tracking-widest"
+                disabled={resetEmailLoading}
+              >
+                {resetEmailLoading ? 'Please wait…' : 'Set Password & Continue'}
+              </Button>
+            </form>
+          ) : (
+            <>
+              <form onSubmit={handleSendResetEmail} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="email" className="font-sans text-sm uppercase tracking-wide opacity-70">
+                    Email
+                  </Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="you@example.com"
+                    className="bg-background border-border font-sans"
+                    disabled={resetEmailLoading}
+                  />
+                </div>
+
+                {resetError && (
+                  <p className="text-sm text-destructive font-sans">{resetError}</p>
+                )}
+
+                <Button
+                  type="submit"
+                  className="w-full font-sans uppercase tracking-widest"
+                  disabled={resetEmailLoading}
+                >
+                  {resetEmailLoading ? 'Sending…' : 'Email Me the Setup Link'}
+                </Button>
+              </form>
+
+              {resetEmailSent && (
+                <div className="mt-8 space-y-2">
+                  <p className="body-text text-sm opacity-70">
+                    Check your inbox for the link, then come back here to set your password.
+                  </p>
+                  <p className="body-text text-sm opacity-50">If you don’t see it, check spam/promotions.</p>
+                </div>
+              )}
+            </>
+          )}
+
+          <div className="mt-8 text-center space-y-3">
+            <Link
+              to={fromPurchase ? `/auth?from=purchase&email=${encodeURIComponent(email)}` : '/auth'}
+              className="font-sans text-sm opacity-70 hover:opacity-100 transition-opacity underline"
+            >
+              Back to sign in
+            </Link>
+
+            <div>
+              <Link
+                to="/"
+                className="font-sans text-sm opacity-50 hover:opacity-70 transition-opacity"
+              >
+                ← Back to home
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center px-6">
