@@ -3,53 +3,33 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
-
 import { AnimatedSection } from '@/components/AnimatedSection';
 import bookCover from '@/assets/book-cover.png';
 import marshallPhoto from '@/assets/marshall-wilkinson.png';
-import { 
-  Eye, 
-  CheckCircle2, 
-  XCircle, 
-  ArrowRight, 
-  Target, 
-  Shield, 
-  Clock, 
-  TrendingUp,
-  FileText,
-  Zap,
-  Moon,
-  Sun,
-  Quote,
-  Lock,
-  CreditCard
-} from 'lucide-react';
-
-const testimonials = [
-  {
-    quote: "I'm ALP for life. Marshall has changed my life. From $600k to $12.5M in 11 months. There is nobody like him on earth. You just have to get around him to understand.",
-    name: "Bryan Bettencourt",
-    company: "Bettencourt Construction, St Petersburg FL"
-  },
-  {
-    quote: "I followed Marshall for about a year, and have been involved in other groups. There is NOTHING like Marshall. This is real world stuff here. My 2nd month as a Contractor and I'm at a quarter million in revenue and have a real scalable business. It's unreal. ALP all day, everyday.",
-    name: "Ronnie Silva",
-    company: "Sage Construction"
-  },
-  {
-    quote: "I have been enrolled in ALP premium for three months and in closer school for six months and it has fundamentally changed how I conduct business. This program is transformative in nature. Life changing.",
-    name: "Eric Jacobs",
-    company: "HVAC Executive"
-  },
-  {
-    quote: "ALP is Super Impactful! I have tried many other coaching programs and Coaches, and none compare to what I've learned in the past 2 months. So if you are really serious about winning in Business and life. Join ALP! It will change your life.",
-    name: "Julius Davis",
-    company: "Davis Contracting"
-  }
-];
-
+import { Eye, CheckCircle2, XCircle, ArrowRight, Target, Shield, Clock, TrendingUp, FileText, Zap, Moon, Sun, Quote, Lock, CreditCard } from 'lucide-react';
+const testimonials = [{
+  quote: "I'm ALP for life. Marshall has changed my life. From $600k to $12.5M in 11 months. There is nobody like him on earth. You just have to get around him to understand.",
+  name: "Bryan Bettencourt",
+  company: "Bettencourt Construction, St Petersburg FL"
+}, {
+  quote: "I followed Marshall for about a year, and have been involved in other groups. There is NOTHING like Marshall. This is real world stuff here. My 2nd month as a Contractor and I'm at a quarter million in revenue and have a real scalable business. It's unreal. ALP all day, everyday.",
+  name: "Ronnie Silva",
+  company: "Sage Construction"
+}, {
+  quote: "I have been enrolled in ALP premium for three months and in closer school for six months and it has fundamentally changed how I conduct business. This program is transformative in nature. Life changing.",
+  name: "Eric Jacobs",
+  company: "HVAC Executive"
+}, {
+  quote: "ALP is Super Impactful! I have tried many other coaching programs and Coaches, and none compare to what I've learned in the past 2 months. So if you are really serious about winning in Business and life. Join ALP! It will change your life.",
+  name: "Julius Davis",
+  company: "Davis Contracting"
+}];
 const SalesPage: React.FC = () => {
-  const { user, hasPurchased, loading } = useAuth();
+  const {
+    user,
+    hasPurchased,
+    loading
+  } = useAuth();
   const navigate = useNavigate();
   const [checkoutLoading, setCheckoutLoading] = useState(false);
   const [isDark, setIsDark] = useState(() => {
@@ -58,7 +38,6 @@ const SalesPage: React.FC = () => {
     }
     return false;
   });
-
   useEffect(() => {
     if (isDark) {
       document.documentElement.classList.add('dark');
@@ -66,20 +45,19 @@ const SalesPage: React.FC = () => {
       document.documentElement.classList.remove('dark');
     }
   }, [isDark]);
-
   const toggleTheme = () => {
     const newTheme = !isDark;
     setIsDark(newTheme);
     localStorage.setItem('handbook-theme', newTheme ? 'dark' : 'light');
   };
-
   const handlePurchase = async () => {
     setCheckoutLoading(true);
     try {
-      const { data, error } = await supabase.functions.invoke('create-checkout');
-      
+      const {
+        data,
+        error
+      } = await supabase.functions.invoke('create-checkout');
       if (error) throw error;
-      
       if (data?.url) {
         window.open(data.url, '_blank');
       }
@@ -92,8 +70,7 @@ const SalesPage: React.FC = () => {
 
   // If user has purchased, show access message
   if (!loading && user && hasPurchased) {
-    return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8 text-center">
+    return <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8 text-center">
         <h1 className="chapter-heading text-3xl md:text-4xl mb-6">You Own This Handbook</h1>
         <p className="body-text mb-8 opacity-70">Thank you for your purchase. Access the complete operating system.</p>
         <Link to="/read">
@@ -101,12 +78,9 @@ const SalesPage: React.FC = () => {
             Read the Handbook
           </Button>
         </Link>
-      </div>
-    );
+      </div>;
   }
-
-  return (
-    <div className="min-h-screen bg-background text-foreground">
+  return <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="max-w-6xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
@@ -114,27 +88,19 @@ const SalesPage: React.FC = () => {
             The ALP Handbook
           </span>
           <div className="flex items-center gap-2 sm:gap-4">
-            <button
-              onClick={toggleTheme}
-              className="p-1.5 sm:p-2 rounded-full hover:bg-muted transition-colors"
-              aria-label="Toggle theme"
-            >
+            <button onClick={toggleTheme} className="p-1.5 sm:p-2 rounded-full hover:bg-muted transition-colors" aria-label="Toggle theme">
               {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
-            {user ? (
-              <Link to="/read">
+            {user ? <Link to="/read">
                 <Button variant="outline" size="sm" className="font-sans uppercase tracking-wider text-[10px] sm:text-xs px-2 sm:px-3">
                   <span className="hidden sm:inline">My Handbook</span>
                   <span className="sm:hidden">Read</span>
                 </Button>
-              </Link>
-            ) : (
-              <Link to="/auth">
+              </Link> : <Link to="/auth">
                 <Button variant="ghost" size="sm" className="font-sans uppercase tracking-wider text-[10px] sm:text-xs px-2 sm:px-3">
                   Sign In
                 </Button>
-              </Link>
-            )}
+              </Link>}
           </div>
         </div>
       </header>
@@ -149,8 +115,8 @@ const SalesPage: React.FC = () => {
             <h1 className="handbook-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight">
               THE ALP HANDBOOK
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl font-light mb-6 sm:mb-8 opacity-80 leading-relaxed">
-              The Operating System for Contractors Who Want to Scale — Without Losing Control
+            <p className="text-lg sm:text-xl mb-6 sm:mb-8 opacity-80 leading-relaxed font-medium md:text-3xl">
+              To Operating a Top-Tier Contracting Company     
             </p>
             
             <div className="body-text space-y-3 sm:space-y-4 mb-8 sm:mb-10 opacity-70">
@@ -171,12 +137,7 @@ const SalesPage: React.FC = () => {
             <p className="text-xs sm:text-sm uppercase tracking-widest opacity-50 mb-6 sm:mb-8">By Marshall Wilkinson</p>
 
             <div className="flex flex-col gap-3 sm:gap-4">
-              <Button 
-                onClick={handlePurchase}
-                disabled={checkoutLoading || loading}
-                size="lg"
-                className="font-sans uppercase tracking-widest text-sm sm:text-base w-full sm:w-auto"
-              >
+              <Button onClick={handlePurchase} disabled={checkoutLoading || loading} size="lg" className="font-sans uppercase tracking-widest text-sm sm:text-base w-full sm:w-auto">
                 {checkoutLoading ? 'Loading...' : 'Get the Handbook — $47'}
               </Button>
               
@@ -207,11 +168,7 @@ const SalesPage: React.FC = () => {
           </div>
 
           <div className="order-1 lg:order-2 flex justify-center">
-            <img 
-              src={bookCover} 
-              alt="The ALP Handbook by Marshall Wilkinson" 
-              className="max-w-[200px] sm:max-w-xs md:max-w-sm lg:max-w-md w-full h-auto shadow-2xl rounded-sm"
-            />
+            <img src={bookCover} alt="The ALP Handbook by Marshall Wilkinson" className="max-w-[200px] sm:max-w-xs md:max-w-sm lg:max-w-md w-full h-auto shadow-2xl rounded-sm" />
           </div>
         </div>
       </section>
@@ -232,19 +189,10 @@ const SalesPage: React.FC = () => {
           <p className="body-text mb-6 opacity-80">You deal with:</p>
           
           <ul className="grid md:grid-cols-2 gap-4 mb-12">
-            {[
-              'Constant schedule pressure',
-              'Start–stop work killing productivity',
-              'Margin erosion you can\'t fully explain',
-              'Owners dictating terms',
-              'Documentation that never quite "adds up"',
-              'Decisions made reactively, under stress'
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-3 body-text opacity-70">
+            {['Constant schedule pressure', 'Start–stop work killing productivity', 'Margin erosion you can\'t fully explain', 'Owners dictating terms', 'Documentation that never quite "adds up"', 'Decisions made reactively, under stress'].map((item, i) => <li key={i} className="flex items-start gap-3 body-text opacity-70">
                 <XCircle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
                 {item}
-              </li>
-            ))}
+              </li>)}
           </ul>
 
           <div className="body-text space-y-2">
@@ -274,18 +222,28 @@ const SalesPage: React.FC = () => {
           </p>
 
           <ul className="grid md:grid-cols-2 gap-4 mb-10">
-            {[
-              { icon: Clock, text: 'Control time' },
-              { icon: Shield, text: 'Protect margin' },
-              { icon: Target, text: 'Enforce standards' },
-              { icon: TrendingUp, text: 'Monetize disruption' },
-              { icon: Zap, text: 'Scale without chaos' }
-            ].map(({ icon: Icon, text }, i) => (
-              <li key={i} className="flex items-center gap-3 body-text">
+            {[{
+            icon: Clock,
+            text: 'Control time'
+          }, {
+            icon: Shield,
+            text: 'Protect margin'
+          }, {
+            icon: Target,
+            text: 'Enforce standards'
+          }, {
+            icon: TrendingUp,
+            text: 'Monetize disruption'
+          }, {
+            icon: Zap,
+            text: 'Scale without chaos'
+          }].map(({
+            icon: Icon,
+            text
+          }, i) => <li key={i} className="flex items-center gap-3 body-text">
                 <Icon className="w-5 h-5 text-primary shrink-0" />
                 {text}
-              </li>
-            ))}
+              </li>)}
           </ul>
 
           <p className="body-text-emphasis">This handbook is the codified version of that system.</p>
@@ -302,18 +260,10 @@ const SalesPage: React.FC = () => {
           <p className="body-text opacity-80 mb-8">The ALP Handbook gives you:</p>
 
           <ul className="space-y-4 mb-10">
-            {[
-              'A decision framework for operating under pressure',
-              'A time-control system using schedules and sequencing',
-              'A margin-protection model built around General Conditions',
-              'A documentation and entitlement framework that converts disruption into money',
-              'A leadership lens that enforces standards without micromanagement'
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-3 body-text">
+            {['A decision framework for operating under pressure', 'A time-control system using schedules and sequencing', 'A margin-protection model built around General Conditions', 'A documentation and entitlement framework that converts disruption into money', 'A leadership lens that enforces standards without micromanagement'].map((item, i) => <li key={i} className="flex items-start gap-3 body-text">
                 <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                 {item}
-              </li>
-            ))}
+              </li>)}
           </ul>
 
           <div className="body-text space-y-2">
@@ -332,22 +282,10 @@ const SalesPage: React.FC = () => {
           </h2>
           
           <ul className="grid md:grid-cols-2 gap-4 mb-10">
-            {[
-              'Turn marketing into infrastructure, not desperation',
-              'Position yourself upstream so you\'re invited, not bid',
-              'Apply pressure correctly in sales and operations',
-              'Stop losing profit to General Conditions you don\'t control',
-              'Use schedules as financial weapons, not paperwork',
-              'Eliminate productivity loss from start–stop work',
-              'Document in real time so entitlement becomes provable',
-              'Make clean decisions under pressure using the ALP Decision Matrix',
-              'Scale revenue without losing standards, margin, or identity'
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-3 body-text">
+            {['Turn marketing into infrastructure, not desperation', 'Position yourself upstream so you\'re invited, not bid', 'Apply pressure correctly in sales and operations', 'Stop losing profit to General Conditions you don\'t control', 'Use schedules as financial weapons, not paperwork', 'Eliminate productivity loss from start–stop work', 'Document in real time so entitlement becomes provable', 'Make clean decisions under pressure using the ALP Decision Matrix', 'Scale revenue without losing standards, margin, or identity'].map((item, i) => <li key={i} className="flex items-start gap-3 body-text">
                 <ArrowRight className="w-4 h-4 text-primary shrink-0 mt-1" />
                 {item}
-              </li>
-            ))}
+              </li>)}
           </ul>
 
           <div className="body-text space-y-2">
@@ -368,34 +306,20 @@ const SalesPage: React.FC = () => {
             <div>
               <p className="body-text opacity-80 mb-4">This handbook is for:</p>
               <ul className="space-y-3">
-                {[
-                  'Owners and principals of contracting companies',
-                  'Operators responsible for margin, time, and decisions',
-                  'Contractors scaling past small-company chaos',
-                  'Leaders who want command — not just growth'
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 body-text">
+                {['Owners and principals of contracting companies', 'Operators responsible for margin, time, and decisions', 'Contractors scaling past small-company chaos', 'Leaders who want command — not just growth'].map((item, i) => <li key={i} className="flex items-start gap-3 body-text">
                     <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
                     {item}
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
 
             <div>
               <p className="body-text opacity-80 mb-4">This is not for:</p>
               <ul className="space-y-3">
-                {[
-                  'Hobbyists',
-                  '"Try it and see" entrepreneurs',
-                  'People looking for shortcuts',
-                  'Anyone uncomfortable with responsibility'
-                ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 body-text opacity-60">
+                {['Hobbyists', '"Try it and see" entrepreneurs', 'People looking for shortcuts', 'Anyone uncomfortable with responsibility'].map((item, i) => <li key={i} className="flex items-start gap-3 body-text opacity-60">
                     <XCircle className="w-5 h-5 text-muted-foreground shrink-0 mt-0.5" />
                     {item}
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
           </div>
@@ -417,36 +341,20 @@ const SalesPage: React.FC = () => {
             <div className="p-8 bg-background border border-border rounded-sm">
               <p className="text-sm uppercase tracking-widest opacity-50 mb-6">Before ALP</p>
               <ul className="space-y-3">
-                {[
-                  'Decisions are reactive',
-                  'Time drifts',
-                  'Margin leaks',
-                  'Documentation is weak',
-                  'Pressure controls you'
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 body-text opacity-60">
+                {['Decisions are reactive', 'Time drifts', 'Margin leaks', 'Documentation is weak', 'Pressure controls you'].map((item, i) => <li key={i} className="flex items-center gap-3 body-text opacity-60">
                     <XCircle className="w-4 h-4 text-destructive shrink-0" />
                     {item}
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
 
             <div className="p-8 bg-background border-2 border-primary rounded-sm">
               <p className="text-sm uppercase tracking-widest opacity-50 mb-6">After ALP</p>
               <ul className="space-y-3">
-                {[
-                  'Decisions are structured',
-                  'Time is enforced',
-                  'Margin is protected',
-                  'Proof is built in real time',
-                  'You control pressure'
-                ].map((item, i) => (
-                  <li key={i} className="flex items-center gap-3 body-text">
+                {['Decisions are structured', 'Time is enforced', 'Margin is protected', 'Proof is built in real time', 'You control pressure'].map((item, i) => <li key={i} className="flex items-center gap-3 body-text">
                     <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
                     {item}
-                  </li>
-                ))}
+                  </li>)}
               </ul>
             </div>
           </div>
@@ -468,11 +376,7 @@ const SalesPage: React.FC = () => {
           </p>
           
           <div className="grid md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, i) => (
-              <div 
-                key={i} 
-                className="relative p-8 bg-muted/30 border border-border rounded-sm"
-              >
+            {testimonials.map((testimonial, i) => <div key={i} className="relative p-8 bg-muted/30 border border-border rounded-sm">
                 <Quote className="w-8 h-8 text-primary/20 absolute top-6 left-6" />
                 <blockquote className="body-text opacity-80 mb-6 pt-6 relative z-10">
                   "{testimonial.quote}"
@@ -481,8 +385,7 @@ const SalesPage: React.FC = () => {
                   <p className="body-text-emphasis text-sm">{testimonial.name}</p>
                   <p className="text-sm opacity-50">{testimonial.company}</p>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </AnimatedSection>
@@ -492,11 +395,7 @@ const SalesPage: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-12 items-start">
             <div className="lg:col-span-1 flex justify-center lg:justify-start">
-              <img 
-                src={marshallPhoto} 
-                alt="Marshall Wilkinson" 
-                className="w-64 lg:w-full max-w-xs rounded-sm shadow-xl"
-              />
+              <img src={marshallPhoto} alt="Marshall Wilkinson" className="w-64 lg:w-full max-w-xs rounded-sm shadow-xl" />
             </div>
             
             <div className="lg:col-span-2">
@@ -550,16 +449,10 @@ const SalesPage: React.FC = () => {
           <p className="body-text opacity-80 mb-6">The kind that:</p>
           
           <ul className="inline-block text-left space-y-3 mb-10">
-            {[
-              'Hold up under dispute',
-              'Work when things go wrong',
-              'Protect you when pressure rises'
-            ].map((item, i) => (
-              <li key={i} className="flex items-center gap-3 body-text">
+            {['Hold up under dispute', 'Work when things go wrong', 'Protect you when pressure rises'].map((item, i) => <li key={i} className="flex items-center gap-3 body-text">
                 <Shield className="w-5 h-5 text-primary shrink-0" />
                 {item}
-              </li>
-            ))}
+              </li>)}
           </ul>
 
           <div className="body-text space-y-4 mt-12 p-8 bg-muted/50 rounded-sm">
@@ -607,13 +500,7 @@ const SalesPage: React.FC = () => {
           <p className="text-lg sm:text-xl font-medium mb-8 sm:mb-10">Then it's time to operate with ALP.</p>
 
           <div className="flex flex-col gap-4 justify-center px-4 sm:px-0">
-            <Button 
-              onClick={handlePurchase}
-              disabled={checkoutLoading || loading}
-              size="lg"
-              variant="secondary"
-              className="font-sans uppercase tracking-widest text-sm sm:text-base lg:text-lg px-6 sm:px-10 py-5 sm:py-6 w-full sm:w-auto"
-            >
+            <Button onClick={handlePurchase} disabled={checkoutLoading || loading} size="lg" variant="secondary" className="font-sans uppercase tracking-widest text-sm sm:text-base lg:text-lg px-6 sm:px-10 py-5 sm:py-6 w-full sm:w-auto">
               {checkoutLoading ? 'Loading...' : 'Get Immediate Access — $47'}
             </Button>
           </div>
@@ -634,14 +521,12 @@ const SalesPage: React.FC = () => {
             </div>
           </div>
 
-          {!user && (
-            <p className="mt-6 text-sm opacity-70">
+          {!user && <p className="mt-6 text-sm opacity-70">
               Already purchased?{' '}
               <Link to="/auth" className="underline hover:opacity-80">
                 Sign in to access
               </Link>
-            </p>
-          )}
+            </p>}
         </div>
       </section>
 
@@ -654,8 +539,6 @@ const SalesPage: React.FC = () => {
           © Marshall Wilkinson
         </p>
       </footer>
-    </div>
-  );
+    </div>;
 };
-
 export default SalesPage;
