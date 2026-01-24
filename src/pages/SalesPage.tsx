@@ -78,11 +78,7 @@ const SalesPage: React.FC = () => {
   };
 
   const handlePurchase = async () => {
-    if (!user) {
-      navigate('/auth');
-      return;
-    }
-
+    // No longer require authentication - allow guest checkout
     setCheckoutLoading(true);
     setCouponError('');
     try {

@@ -37,16 +37,6 @@ serve(async (req) => {
     if (!stripeKey) throw new Error("STRIPE_SECRET_KEY is not set");
     logStep("Stripe key verified");
 
-    const authHeader = req.headers.get("Authorization");
-    if (!authHeader) throw new Error("No authorization header provided");
-    logStep("Authorization header found");
-
-    const token = authHeader.replace("Bearer ", "");
-    const { data } = await supabaseClient.auth.getUser(token);
-    const user = data.user;
-    if (!user?.email) throw new Error("User not authenticated or email not available");
-    logStep("User authenticated", { userId: user.id, email: user.email });
-
     // Parse request body for coupon code
     let couponCode: string | undefined;
     try {
@@ -56,14 +46,35 @@ serve(async (req) => {
       // No body or invalid JSON, that's fine
     }
 
+    // Check if user is authenticated (optional for guest checkout)
+    let user: { id: string; email: string } | null = null;
+    const authHeader = req.headers.get("Authorization");
+    
+    if (authHeader && authHeader !== "Bearer null" && authHeader !== "Bearer undefined") {
+      const token = authHeader.replace("Bearer ", "");
+      try {
+        const { data } = await supabaseClient.auth.getUser(token);
+        if (data.user?.email) {
+          user = { id: data.user.id, email: data.user.email };
+          logStep("User authenticated", { userId: user.id, email: user.email });
+        }
+      } catch (authError) {
+        logStep("Auth check failed, proceeding as guest", { error: String(authError) });
+      }
+    } else {
+      logStep("No auth header, proceeding as guest checkout");
+    }
+
     const stripe = new Stripe(stripeKey, { apiVersion: "2025-08-27.basil" });
 
-    // Check if customer exists
-    const customers = await stripe.customers.list({ email: user.email, limit: 1 });
+    // Check if customer exists (only if we have a user email)
     let customerId: string | undefined;
-    if (customers.data.length > 0) {
-      customerId = customers.data[0].id;
-      logStep("Found existing Stripe customer", { customerId });
+    if (user?.email) {
+      const customers = await stripe.customers.list({ email: user.email, limit: 1 });
+      if (customers.data.length > 0) {
+        customerId = customers.data[0].id;
+        logStep("Found existing Stripe customer", { customerId });
+      }
     }
 
     const origin = req.headers.get("origin") || "http://localhost:5173";
@@ -81,10 +92,10 @@ serve(async (req) => {
       });
     }
 
-    // Create checkout session with optional discount
+    // Create checkout session - works for both authenticated and guest users
     const sessionParams: Stripe.Checkout.SessionCreateParams = {
       customer: customerId,
-      customer_email: customerId ? undefined : user.email,
+      customer_email: customerId ? undefined : user?.email, // Only set if we have user email and no customer
       line_items: [
         {
           price: PRICE_ID,
@@ -97,13 +108,19 @@ serve(async (req) => {
       payment_intent_data: {
         metadata: {
           product_type: 'alp_handbook',
-          user_id: user.id,
+          ...(user?.id && { user_id: user.id }),
         },
       },
       metadata: {
-        user_id: user.id,
+        ...(user?.id && { user_id: user.id }),
       },
     };
+
+    // For guest checkout, allow Stripe to collect email
+    if (!customerId && !user?.email) {
+      sessionParams.customer_creation = 'always';
+      logStep("Guest checkout - Stripe will collect email");
+    }
 
     // Add discount if coupon is valid
     if (stripeCouponId) {
@@ -112,7 +129,12 @@ serve(async (req) => {
 
     const session = await stripe.checkout.sessions.create(sessionParams);
 
-    logStep("Checkout session created", { sessionId: session.id, url: session.url, hasCoupon: !!stripeCouponId });
+    logStep("Checkout session created", { 
+      sessionId: session.id, 
+      url: session.url, 
+      hasCoupon: !!stripeCouponId,
+      isGuest: !user 
+    });
 
     return new Response(JSON.stringify({ url: session.url }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
