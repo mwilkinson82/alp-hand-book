@@ -95,7 +95,10 @@ serve(async (req) => {
       return new Response(JSON.stringify({ 
         success: true, 
         already_recorded: true,
-        user_id: existingPurchase.user_id 
+        user_id: existingPurchase.user_id,
+        email: customerEmail,
+        is_new_user: false,
+        password_reset_required: false
       }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 200,
@@ -133,20 +136,20 @@ serve(async (req) => {
       passwordResetRequired = true;
       logStep("Created new user", { userId, email: customerEmail });
 
-      // Send password reset email so they can set their own password
-      const origin = req.headers.get("origin") || "https://alp-handbook.lovable.app";
-      const { error: resetError } = await supabaseAdmin.auth.admin.generateLink({
-        type: 'recovery',
+      // Generate a magic link for direct sign-in (much simpler UX)
+      const origin = req.headers.get("origin") || "https://alpine-doctrine.lovable.app";
+      const { data: linkData, error: linkError } = await supabaseAdmin.auth.admin.generateLink({
+        type: 'magiclink',
         email: customerEmail,
         options: {
-          redirectTo: `${origin}/auth?mode=reset`,
+          redirectTo: `${origin}/read`,
         },
       });
 
-      if (resetError) {
-        logStep("Warning: Could not generate password reset link", { error: resetError.message });
+      if (linkError) {
+        logStep("Warning: Could not generate magic link", { error: linkError.message });
       } else {
-        logStep("Password reset link generated");
+        logStep("Magic link generated", { hasLink: !!linkData?.properties?.action_link });
       }
     }
 

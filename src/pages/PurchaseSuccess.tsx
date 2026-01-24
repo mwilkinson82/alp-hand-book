@@ -12,6 +12,7 @@ interface PaymentResult {
   email?: string;
   user_id?: string;
   error?: string;
+  already_recorded?: boolean;
 }
 
 const PurchaseSuccess: React.FC = () => {
@@ -21,25 +22,31 @@ const PurchaseSuccess: React.FC = () => {
   const [result, setResult] = useState<PaymentResult | null>(null);
   const { user, checkPurchaseStatus } = useAuth();
 
-  // Account setup (new purchaser)
-  const [setupEmailSending, setSetupEmailSending] = useState(false);
-  const [setupEmailSent, setSetupEmailSent] = useState(false);
-  const [setupEmailError, setSetupEmailError] = useState<string | null>(null);
-  const setupAttemptedRef = useRef(false);
+  // Magic link state
+  const [magicLinkSending, setMagicLinkSending] = useState(false);
+  const [magicLinkSent, setMagicLinkSent] = useState(false);
+  const [magicLinkError, setMagicLinkError] = useState<string | null>(null);
+  const magicLinkAttemptedRef = useRef(false);
 
-  const sendSetupEmail = async (email: string) => {
-    setSetupEmailError(null);
-    setSetupEmailSending(true);
+  const sendMagicLink = async (email: string) => {
+    setMagicLinkError(null);
+    setMagicLinkSending(true);
     try {
-      const redirectTo = `${window.location.origin}/auth?mode=reset&from=purchase&email=${encodeURIComponent(email)}&sent=1`;
-      const { error: resetError } = await supabase.auth.resetPasswordForEmail(email, { redirectTo });
-      if (resetError) {
-        setSetupEmailError(resetError.message);
+      const redirectTo = `${window.location.origin}/read`;
+      const { error: linkError } = await supabase.auth.signInWithOtp({
+        email,
+        options: { 
+          emailRedirectTo: redirectTo,
+          shouldCreateUser: false // User already exists from edge function
+        }
+      });
+      if (linkError) {
+        setMagicLinkError(linkError.message);
         return;
       }
-      setSetupEmailSent(true);
+      setMagicLinkSent(true);
     } finally {
-      setSetupEmailSending(false);
+      setMagicLinkSending(false);
     }
   };
 
@@ -81,12 +88,12 @@ const PurchaseSuccess: React.FC = () => {
     processPayment();
   }, [searchParams, checkPurchaseStatus, user]);
 
-  // Auto-send setup email once for brand new purchasers
+  // Auto-send magic link for new users
   useEffect(() => {
     if (!result?.is_new_user || !result?.email) return;
-    if (setupAttemptedRef.current) return;
-    setupAttemptedRef.current = true;
-    sendSetupEmail(result.email);
+    if (magicLinkAttemptedRef.current) return;
+    magicLinkAttemptedRef.current = true;
+    sendMagicLink(result.email);
   }, [result]);
 
   if (confirming) {
@@ -113,77 +120,48 @@ const PurchaseSuccess: React.FC = () => {
     );
   }
 
-  // Setup email sent - show step-by-step instructions
-  if (setupEmailSent) {
+  // Magic link sent - show check email instructions
+  if (magicLinkSent && result?.email) {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8 text-center">
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent mb-8">
           <Mail className="w-10 h-10 text-foreground opacity-70" />
         </div>
 
-        <h1 className="chapter-heading text-3xl md:text-4xl mb-6">Almost There!</h1>
+        <h1 className="chapter-heading text-3xl md:text-4xl mb-6">Check Your Email!</h1>
 
-        <div className="max-w-md space-y-6">
-          <div className="flex items-start gap-4 text-left">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
-              1
-            </div>
-            <div>
-              <p className="body-text-emphasis mb-1">Check your email</p>
-              <p className="body-text opacity-70 text-sm">
-                We sent a link to <span className="font-mono">{result?.email}</span>
-              </p>
-            </div>
+        <div className="max-w-md space-y-4 mb-8">
+          <p className="body-text opacity-70">
+            We've sent a magic sign-in link to:
+          </p>
+          <div className="flex items-center gap-2 bg-muted px-4 py-3 rounded-md justify-center">
+            <Mail className="w-4 h-4 opacity-70" />
+            <span className="font-mono text-sm">{result.email}</span>
           </div>
-
-          <div className="flex items-start gap-4 text-left">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-muted text-muted-foreground flex items-center justify-center font-bold">
-              2
-            </div>
-            <div>
-              <p className="body-text-emphasis mb-1">Click the link to create your password</p>
-              <p className="body-text opacity-70 text-sm">This finishes your account setup</p>
-            </div>
-          </div>
-
-          <div className="flex items-start gap-4 text-left">
-            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-muted text-muted-foreground flex items-center justify-center font-bold">
-              3
-            </div>
-            <div>
-              <p className="body-text-emphasis mb-1">Start reading The ALP Handbook</p>
-              <p className="body-text opacity-70 text-sm">You'll have lifetime access</p>
-            </div>
-          </div>
+          <p className="body-text opacity-70">
+            Click the link in your email to sign in and start reading immediately. No password needed!
+          </p>
         </div>
 
-        <p className="body-text opacity-50 text-sm mt-8">
-          Didn't receive the email? Check your spam folder.
+        <p className="body-text opacity-50 text-sm mb-8">
+          Didn't receive it? Check your spam folder, or click below to resend.
         </p>
 
-        <div className="mt-8 space-y-3">
-          <Link to={`/auth?mode=reset&from=purchase&email=${encodeURIComponent(result?.email || '')}&sent=1`}>
-            <Button variant="outline" className="font-sans uppercase tracking-widest">
-              I have the link — continue
-            </Button>
-          </Link>
-
-          {result?.email && (
-            <Button
-              variant="ghost"
-              className="font-sans uppercase tracking-widest"
-              disabled={setupEmailSending}
-              onClick={() => sendSetupEmail(result.email!)}
-            >
-              {setupEmailSending ? 'Sending…' : 'Resend email'}
-            </Button>
-          )}
+        <div className="space-y-3">
+          <Button
+            variant="outline"
+            className="font-sans uppercase tracking-widest"
+            disabled={magicLinkSending}
+            onClick={() => sendMagicLink(result.email!)}
+          >
+            {magicLinkSending ? 'Sending…' : 'Resend Magic Link'}
+          </Button>
         </div>
       </div>
     );
   }
 
-  // New user flow - email them the setup link
+  // New user flow - send magic link
   if (result?.is_new_user && result?.email) {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8 text-center">
@@ -194,16 +172,16 @@ const PurchaseSuccess: React.FC = () => {
         <h1 className="chapter-heading text-3xl md:text-4xl mb-4">Payment Successful!</h1>
 
         <p className="body-text opacity-70 mb-6 max-w-md">
-          One last step — create your password to access the handbook.
+          We're setting up your access. You'll receive a sign-in link at:
         </p>
 
-        <div className="flex items-center gap-2 bg-muted px-4 py-2 rounded-md mb-8">
+        <div className="flex items-center gap-2 bg-muted px-4 py-3 rounded-md mb-8">
           <Mail className="w-4 h-4 opacity-70" />
           <span className="font-mono text-sm">{result.email}</span>
         </div>
 
-        {setupEmailError && (
-          <p className="text-sm text-destructive mb-4">{setupEmailError}</p>
+        {magicLinkError && (
+          <p className="text-sm text-destructive mb-4">{magicLinkError}</p>
         )}
 
         <div className="w-full max-w-sm space-y-4">
@@ -211,22 +189,67 @@ const PurchaseSuccess: React.FC = () => {
             type="button"
             size="lg"
             className="w-full font-sans uppercase tracking-widest"
-            onClick={() => sendSetupEmail(result.email!)}
-            disabled={setupEmailSending}
+            onClick={() => sendMagicLink(result.email!)}
+            disabled={magicLinkSending}
           >
-            {setupEmailSending ? (
+            {magicLinkSending ? (
               <>
                 <Loader2 className="w-4 h-4 mr-2 animate-spin" />
                 Sending…
               </>
             ) : (
-              'Email Me the Setup Link'
+              'Send Me the Sign-In Link'
+            )}
+          </Button>
+        </div>
+      </div>
+    );
+  }
+
+  // Existing user (not logged in) - show magic link option
+  if (!user && result?.email) {
+    return (
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8 text-center">
+        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent mb-8">
+          <CheckCircle className="w-10 h-10 text-foreground opacity-70" />
+        </div>
+
+        <h1 className="chapter-heading text-3xl md:text-4xl mb-4">You're All Set!</h1>
+
+        <p className="body-text opacity-70 mb-6 max-w-md">
+          You now have lifetime access to The ALP Handbook.
+        </p>
+
+        <div className="flex items-center gap-2 bg-muted px-4 py-3 rounded-md mb-8">
+          <Mail className="w-4 h-4 opacity-70" />
+          <span className="font-mono text-sm">{result.email}</span>
+        </div>
+
+        {magicLinkError && (
+          <p className="text-sm text-destructive mb-4">{magicLinkError}</p>
+        )}
+
+        <div className="w-full max-w-sm space-y-4">
+          <Button
+            type="button"
+            size="lg"
+            className="w-full font-sans uppercase tracking-widest"
+            onClick={() => sendMagicLink(result.email!)}
+            disabled={magicLinkSending}
+          >
+            {magicLinkSending ? (
+              <>
+                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                Sending…
+              </>
+            ) : (
+              'Email Me a Sign-In Link'
             )}
           </Button>
 
-          <Link to={`/auth?mode=reset&from=purchase&email=${encodeURIComponent(result.email)}&sent=1`}>
+          <Link to={`/auth?from=purchase&email=${encodeURIComponent(result.email)}`}>
             <Button variant="outline" size="lg" className="w-full font-sans uppercase tracking-widest">
-              Continue
+              Sign In with Password
             </Button>
           </Link>
         </div>
@@ -234,7 +257,7 @@ const PurchaseSuccess: React.FC = () => {
     );
   }
 
-  // Existing user or already logged in
+  // User is logged in - direct access
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8 text-center">
       <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent mb-8">
@@ -247,36 +270,11 @@ const PurchaseSuccess: React.FC = () => {
         You now have lifetime access to The ALP Handbook.
       </p>
 
-      {user ? (
-        <Link to="/read">
-          <Button size="lg" className="font-sans uppercase tracking-widest">
-            Start Reading Now
-          </Button>
-        </Link>
-      ) : (
-        <div className="space-y-6 max-w-md">
-          <div className="flex items-center gap-2 bg-muted px-4 py-2 rounded-md justify-center">
-            <Mail className="w-4 h-4 opacity-70" />
-            <span className="font-mono text-sm">{result?.email}</span>
-          </div>
-
-          <p className="body-text opacity-70">
-            Sign in with this email to access your handbook.
-          </p>
-
-          <Link to={`/auth?from=purchase&email=${encodeURIComponent(result?.email || '')}`}>
-            <Button size="lg" className="font-sans uppercase tracking-widest w-full">
-              Sign In to Read
-            </Button>
-          </Link>
-
-          <Link to={`/auth?mode=reset&from=purchase&email=${encodeURIComponent(result?.email || '')}`}>
-            <Button variant="outline" size="lg" className="font-sans uppercase tracking-widest w-full">
-              Forgot password?
-            </Button>
-          </Link>
-        </div>
-      )}
+      <Link to="/read">
+        <Button size="lg" className="font-sans uppercase tracking-widest">
+          Start Reading Now
+        </Button>
+      </Link>
     </div>
   );
 };
