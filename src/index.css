@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
@@ -121,7 +121,7 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -137,7 +137,7 @@
 
   .handbook-subtitle {
     @apply text-lg md:text-xl font-light tracking-wide uppercase;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     letter-spacing: 0.2em;
   }
 
@@ -157,24 +157,19 @@
   }
 
   .body-text {
-    @apply text-lg md:text-xl leading-loose tracking-wide;
-    font-family: 'Cormorant Garamond', serif;
+    @apply text-lg md:text-xl leading-relaxed text-left;
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 400;
     color: hsl(var(--foreground));
   }
 
   .body-text p {
-    @apply mb-5;
-    text-indent: 1.5em;
-  }
-
-  .body-text p:first-child {
-    text-indent: 0;
+    @apply mb-6;
   }
 
   .body-text-emphasis {
-    @apply text-lg md:text-xl leading-loose tracking-wide font-semibold;
-    font-family: 'Cormorant Garamond', serif;
+    @apply text-lg md:text-xl leading-relaxed font-semibold text-left;
+    font-family: 'Space Grotesk', sans-serif;
     color: hsl(var(--foreground));
   }
 
@@ -186,7 +181,7 @@
 
   .parable-label {
     @apply text-sm uppercase tracking-widest mb-4 opacity-60;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     letter-spacing: 0.25em;
   }
 
@@ -202,7 +197,7 @@
 
   .identity-parable-badge {
     @apply inline-flex items-center gap-2 text-xs uppercase tracking-widest px-3 py-1.5 rounded-full mb-4;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     letter-spacing: 0.2em;
     background: hsl(var(--identity-parable-border) / 0.15);
     color: hsl(var(--identity-parable-accent));
@@ -217,7 +212,7 @@
 
   .media-placeholder-text {
     @apply text-sm uppercase tracking-widest opacity-50;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     letter-spacing: 0.15em;
   }
 
@@ -232,12 +227,12 @@
   }
 
   .list-doctrine {
-    @apply space-y-3 my-8 pl-8;
+    @apply space-y-3 my-8 pl-8 text-left;
   }
 
   .list-doctrine li {
-    @apply text-lg md:text-xl leading-loose relative;
-    font-family: 'Cormorant Garamond', serif;
+    @apply text-lg md:text-xl leading-relaxed relative;
+    font-family: 'Space Grotesk', sans-serif;
     font-weight: 400;
   }
 
@@ -262,7 +257,7 @@
 
   .toc-part {
     @apply text-sm uppercase tracking-widest opacity-60 pt-8 pb-4;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Space Grotesk', sans-serif;
     letter-spacing: 0.2em;
   }
 }
