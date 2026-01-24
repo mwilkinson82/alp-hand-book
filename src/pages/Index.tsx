@@ -14,6 +14,8 @@ import Chapter17 from '../components/handbook/content/Chapter17';
 import Chapter18 from '../components/handbook/content/Chapter18';
 import Chapter19 from '../components/handbook/content/Chapter19';
 import Chapter20 from '../components/handbook/content/Chapter20';
+import Chapter21 from '../components/handbook/content/Chapter21';
+import Chapter22 from '../components/handbook/content/Chapter22';
 import PlaceholderChapter from '../components/handbook/content/PlaceholderChapter';
 
 const Index = () => {
@@ -59,11 +61,11 @@ const Index = () => {
         <Chapter18 />
         <Chapter19 />
         <Chapter20 />
-        <PlaceholderChapter id="chapter-21" number={21} title="Using the ALP Handbook in Real Time" />
+        <Chapter21 />
         
         {/* Part V */}
         <PartHeader number="V" title="Commitment" />
-        <PlaceholderChapter id="chapter-22" number={22} title="The ALP Way (Doctrine & Commitment)" />
+        <Chapter22 />
         
         {/* Footer */}
         <footer className="py-32 text-center border-t border-chapter-divider">
