@@ -403,23 +403,13 @@ const Auth: React.FC = () => {
             </form>
           )}
 
-          <div className="mt-8 text-center space-y-3">
-            <button
-              type="button"
-              onClick={() => setUseMagicLink(false)}
-              className="font-sans text-sm opacity-70 hover:opacity-100 transition-opacity underline"
+          <div className="mt-8 text-center">
+            <Link 
+              to="/" 
+              className="font-sans text-sm opacity-50 hover:opacity-70 transition-opacity"
             >
-              Sign in with password instead
-            </button>
-            
-            <div>
-              <Link 
-                to="/" 
-                className="font-sans text-sm opacity-50 hover:opacity-70 transition-opacity"
-              >
-                ← Back to home
-              </Link>
-            </div>
+              ← Back to home
+            </Link>
           </div>
         </div>
       </div>
