@@ -12,6 +12,8 @@ import Chapter5 from '../components/handbook/content/Chapter5';
 import Chapter6 from '../components/handbook/content/Chapter6';
 import Chapter7 from '../components/handbook/content/Chapter7';
 import Chapter8 from '../components/handbook/content/Chapter8';
+import Chapter9 from '../components/handbook/content/Chapter9';
+import Chapter10 from '../components/handbook/content/Chapter10';
 import Chapter11 from '../components/handbook/content/Chapter11';
 import Chapter16 from '../components/handbook/content/Chapter16';
 import Chapter17 from '../components/handbook/content/Chapter17';
@@ -51,8 +53,8 @@ const Index = () => {
         <Chapter6 />
         <Chapter7 />
         <Chapter8 />
-        <PlaceholderChapter id="chapter-9" number={9} title="The ALP Decision Matrix" />
-        <PlaceholderChapter id="chapter-10" number={10} title="From Chaos to Control" />
+        <Chapter9 />
+        <Chapter10 />
         
         {/* Part III */}
         <PartHeader number="III" title="Time, Money, & Leverage" />
