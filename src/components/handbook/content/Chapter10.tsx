@@ -3,6 +3,7 @@ import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
 import Parable from '../Parable';
+import chaosToControl from '@/assets/chaos-to-control.png';
 
 const Chapter10: React.FC = () => {
   return (
@@ -31,6 +32,14 @@ const Chapter10: React.FC = () => {
           This chapter exists to make that visible — and reversible.
         </p>
       </div>
+
+      <figure className="my-16">
+        <img 
+          src={chaosToControl} 
+          alt="From Chaos to Control - See Clearly (Financial Command) → Decide Correctly (Decision Matrix) → Apply Pressure (Operational Discipline) → Profit Freely (Margin Protection)" 
+          className="w-full max-w-4xl mx-auto rounded-lg shadow-lg"
+        />
+      </figure>
 
       <div className="chapter-divider" />
 
