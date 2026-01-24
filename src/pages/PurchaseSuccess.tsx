@@ -159,26 +159,45 @@ const PurchaseSuccess: React.FC = () => {
           <Mail className="w-10 h-10 text-foreground opacity-70" />
         </div>
         
-        <h1 className="chapter-heading text-3xl md:text-4xl mb-4">Check Your Email</h1>
+        <h1 className="chapter-heading text-3xl md:text-4xl mb-6">Almost There!</h1>
         
-        <p className="body-text opacity-70 mb-4 max-w-md">
-          We've sent a password setup link to:
-        </p>
-        
-        <div className="flex items-center gap-2 bg-muted px-4 py-2 rounded-md mb-6">
-          <Mail className="w-4 h-4 opacity-70" />
-          <span className="font-mono text-sm">{result?.email}</span>
+        <div className="max-w-md space-y-6">
+          <div className="flex items-start gap-4 text-left">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center font-bold">
+              1
+            </div>
+            <div>
+              <p className="body-text-emphasis mb-1">Check your email</p>
+              <p className="body-text opacity-70 text-sm">
+                We sent a link to <span className="font-mono">{result?.email}</span>
+              </p>
+            </div>
+          </div>
+          
+          <div className="flex items-start gap-4 text-left">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-muted text-muted-foreground flex items-center justify-center font-bold">
+              2
+            </div>
+            <div>
+              <p className="body-text-emphasis mb-1">Click the link to set your password</p>
+              <p className="body-text opacity-70 text-sm">This creates your account access</p>
+            </div>
+          </div>
+          
+          <div className="flex items-start gap-4 text-left">
+            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-muted text-muted-foreground flex items-center justify-center font-bold">
+              3
+            </div>
+            <div>
+              <p className="body-text-emphasis mb-1">Start reading The ALP Handbook</p>
+              <p className="body-text opacity-70 text-sm">You'll have lifetime access</p>
+            </div>
+          </div>
         </div>
-        
-        <p className="body-text opacity-70 mb-8 max-w-md">
-          Click the link in the email to set your password and access The ALP Handbook.
-        </p>
 
-        <Link to="/auth">
-          <Button size="lg" className="font-sans uppercase tracking-widest">
-            Go to Sign In
-          </Button>
-        </Link>
+        <p className="body-text opacity-50 text-sm mt-8">
+          Didn't receive the email? Check your spam folder.
+        </p>
       </div>
     );
   }
@@ -191,26 +210,22 @@ const PurchaseSuccess: React.FC = () => {
           <CheckCircle className="w-10 h-10 text-foreground opacity-70" />
         </div>
         
-        <h1 className="chapter-heading text-3xl md:text-4xl mb-4">Purchase Complete!</h1>
+        <h1 className="chapter-heading text-3xl md:text-4xl mb-4">Payment Successful!</h1>
         
-        <p className="body-text opacity-70 mb-4 max-w-md">
-          Your account has been created with the email:
+        <p className="body-text opacity-70 mb-6 max-w-md">
+          One last step — set your password to access the handbook.
         </p>
         
-        <div className="flex items-center gap-2 bg-muted px-4 py-2 rounded-md mb-6">
+        <div className="flex items-center gap-2 bg-muted px-4 py-2 rounded-md mb-8">
           <Mail className="w-4 h-4 opacity-70" />
           <span className="font-mono text-sm">{result.email}</span>
         </div>
-        
-        <p className="body-text opacity-70 mb-6 max-w-md">
-          Set a password to access your handbook:
-        </p>
 
         <form onSubmit={handleSetPassword} className="w-full max-w-sm space-y-4">
           <div className="relative">
             <Input
               type={showPassword ? 'text' : 'password'}
-              placeholder="Choose a password"
+              placeholder="Choose a password (6+ characters)"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="pr-10"
@@ -251,7 +266,7 @@ const PurchaseSuccess: React.FC = () => {
                 Setting up...
               </>
             ) : (
-              'Set Password & Continue'
+              'Create Account & Continue'
             )}
           </Button>
         </form>
@@ -266,25 +281,28 @@ const PurchaseSuccess: React.FC = () => {
         <CheckCircle className="w-10 h-10 text-foreground opacity-70" />
       </div>
       
-      <h1 className="chapter-heading text-3xl md:text-4xl mb-4">Purchase Complete</h1>
+      <h1 className="chapter-heading text-3xl md:text-4xl mb-4">You're All Set!</h1>
       
       <p className="body-text opacity-70 mb-8 max-w-md">
-        Thank you for your purchase. You now have lifetime access to The ALP Handbook.
+        You now have lifetime access to The ALP Handbook.
       </p>
 
       {user ? (
         <Link to="/read">
           <Button size="lg" className="font-sans uppercase tracking-widest">
-            Start Reading
+            Start Reading Now
           </Button>
         </Link>
       ) : (
-        <div className="flex flex-col sm:flex-row gap-4">
+        <div className="space-y-4">
           <Link to="/auth">
             <Button size="lg" className="font-sans uppercase tracking-widest">
               Sign In to Read
             </Button>
           </Link>
+          <p className="body-text opacity-50 text-sm">
+            Use the email from your purchase
+          </p>
         </div>
       )}
     </div>
