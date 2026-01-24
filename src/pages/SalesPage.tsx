@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import bookCover from '@/assets/book-cover.png';
 import marshallPhoto from '@/assets/marshall-wilkinson.png';
@@ -21,7 +22,8 @@ import {
   Sun,
   Quote,
   Lock,
-  CreditCard
+  CreditCard,
+  Tag
 } from 'lucide-react';
 
 const testimonials = [
@@ -51,6 +53,9 @@ const SalesPage: React.FC = () => {
   const { user, hasPurchased, loading } = useAuth();
   const navigate = useNavigate();
   const [checkoutLoading, setCheckoutLoading] = useState(false);
+  const [couponCode, setCouponCode] = useState('');
+  const [couponError, setCouponError] = useState('');
+  const [showCoupon, setShowCoupon] = useState(false);
   const [isDark, setIsDark] = useState(() => {
     if (typeof window !== 'undefined') {
       return localStorage.getItem('handbook-theme') === 'dark';
@@ -79,9 +84,18 @@ const SalesPage: React.FC = () => {
     }
 
     setCheckoutLoading(true);
+    setCouponError('');
     try {
-      const { data, error } = await supabase.functions.invoke('create-checkout');
+      const body = couponCode.trim() ? { coupon_code: couponCode.trim() } : undefined;
+      const { data, error } = await supabase.functions.invoke('create-checkout', { body });
+      
       if (error) throw error;
+      
+      if (data?.error) {
+        setCouponError(data.error);
+        return;
+      }
+      
       if (data?.url) {
         window.open(data.url, '_blank');
       }
@@ -181,6 +195,37 @@ const SalesPage: React.FC = () => {
               >
                 {checkoutLoading ? 'Loading...' : 'Get the Handbook — $47'}
               </Button>
+              
+              {/* Coupon Code Section */}
+              <div className="w-full sm:w-auto">
+                {!showCoupon ? (
+                  <button
+                    onClick={() => setShowCoupon(true)}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors flex items-center gap-1.5"
+                  >
+                    <Tag className="w-3.5 h-3.5" />
+                    Have a coupon code?
+                  </button>
+                ) : (
+                  <div className="flex flex-col gap-2">
+                    <div className="flex gap-2">
+                      <Input
+                        type="text"
+                        placeholder="Enter coupon code"
+                        value={couponCode}
+                        onChange={(e) => {
+                          setCouponCode(e.target.value.toUpperCase());
+                          setCouponError('');
+                        }}
+                        className="font-mono uppercase text-sm"
+                      />
+                    </div>
+                    {couponError && (
+                      <p className="text-xs text-destructive">{couponError}</p>
+                    )}
+                  </div>
+                )}
+              </div>
               
               <Link to="/preview" className="w-full sm:w-auto">
                 <Button variant="outline" size="lg" className="font-sans uppercase tracking-widest w-full animate-pulse border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white text-sm sm:text-base">
