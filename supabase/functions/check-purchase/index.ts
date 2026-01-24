@@ -41,17 +41,18 @@ serve(async (req) => {
     if (!user?.email) throw new Error("User not authenticated or email not available");
     logStep("User authenticated", { userId: user.id, email: user.email });
 
-    // First check database for existing purchase
+    // First check database for existing purchase (use .limit(1) since user may have multiple)
     const { data: purchaseData, error: purchaseError } = await supabaseClient
       .from('book_purchases')
       .select('*')
       .eq('user_id', user.id)
       .eq('status', 'completed')
-      .maybeSingle();
+      .order('created_at', { ascending: false })
+      .limit(1);
 
-    if (purchaseData) {
-      logStep("Purchase found in database", { purchaseId: purchaseData.id });
-      return new Response(JSON.stringify({ purchased: true, purchase: purchaseData }), {
+    if (purchaseData && purchaseData.length > 0) {
+      logStep("Purchase found in database", { purchaseId: purchaseData[0].id });
+      return new Response(JSON.stringify({ purchased: true, purchase: purchaseData[0] }), {
         headers: { ...corsHeaders, "Content-Type": "application/json" },
         status: 200,
       });
