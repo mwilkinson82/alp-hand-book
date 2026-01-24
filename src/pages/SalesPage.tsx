@@ -181,7 +181,7 @@ const SalesPage: React.FC = () => {
               </Button>
               
               <Link to="/preview">
-                <Button variant="outline" size="lg" className="font-sans uppercase tracking-widest w-full sm:w-auto">
+                <Button variant="outline" size="lg" className="font-sans uppercase tracking-widest w-full sm:w-auto animate-pulse border-primary text-primary hover:bg-primary hover:text-primary-foreground">
                   <Eye className="w-4 h-4 mr-2" />
                   Preview Experience
                 </Button>
