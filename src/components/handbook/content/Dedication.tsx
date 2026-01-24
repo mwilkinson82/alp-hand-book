@@ -1,6 +1,6 @@
 import React from 'react';
 import AudioPlayer from '../AudioPlayer';
-import dedicationAudio from '@/assets/audio/dedication.m4a';
+import dedicationAudio from '@/assets/audio/dedication.mp3';
 
 const Dedication: React.FC = () => {
   return (
