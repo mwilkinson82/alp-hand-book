@@ -57,7 +57,9 @@ serve(async (req) => {
     logStep("Session retrieved", { 
       status: session.payment_status, 
       customerEmail: session.customer_details?.email,
-      customerId: session.customer 
+      customerId: typeof session.customer === 'string' ? session.customer : (session.customer as Stripe.Customer)?.id,
+      hasPaymentIntent: !!session.payment_intent,
+      amountTotal: session.amount_total
     });
 
     if (session.payment_status !== 'paid') {
@@ -69,13 +71,23 @@ serve(async (req) => {
       throw new Error("No customer email found in session");
     }
 
-    const paymentIntent = session.payment_intent as Stripe.PaymentIntent;
+    // For $0 checkouts (100% discount), there's no payment_intent
+    // Use checkout session ID as the unique identifier in that case
+    const paymentIntent = session.payment_intent as Stripe.PaymentIntent | null;
+    const uniquePaymentId = paymentIntent?.id || `checkout_${session.id}`;
+    
+    logStep("Payment identifier", { uniquePaymentId, isZeroAmount: !paymentIntent });
 
-    // Check if purchase already exists by payment intent
+    // Get customer ID (handle both string and expanded object)
+    const stripeCustomerId = typeof session.customer === 'string' 
+      ? session.customer 
+      : (session.customer as Stripe.Customer)?.id;
+
+    // Check if purchase already exists by payment identifier
     const { data: existingPurchase } = await supabaseAdmin
       .from('book_purchases')
       .select('id, user_id')
-      .eq('stripe_payment_intent_id', paymentIntent.id)
+      .eq('stripe_payment_intent_id', uniquePaymentId)
       .maybeSingle();
 
     if (existingPurchase) {
@@ -143,8 +155,8 @@ serve(async (req) => {
       .from('book_purchases')
       .insert({
         user_id: userId,
-        stripe_payment_intent_id: paymentIntent.id,
-        stripe_customer_id: typeof session.customer === 'string' ? session.customer : (session.customer as Stripe.Customer)?.id,
+        stripe_payment_intent_id: uniquePaymentId,
+        stripe_customer_id: stripeCustomerId || null,
         amount_cents: session.amount_total || 0,
         currency: session.currency || 'usd',
         status: 'completed',
