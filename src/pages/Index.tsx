@@ -15,6 +15,10 @@ import Chapter8 from '../components/handbook/content/Chapter8';
 import Chapter9 from '../components/handbook/content/Chapter9';
 import Chapter10 from '../components/handbook/content/Chapter10';
 import Chapter11 from '../components/handbook/content/Chapter11';
+import Chapter12 from '../components/handbook/content/Chapter12';
+import Chapter13 from '../components/handbook/content/Chapter13';
+import Chapter14 from '../components/handbook/content/Chapter14';
+import Chapter15 from '../components/handbook/content/Chapter15';
 import Chapter16 from '../components/handbook/content/Chapter16';
 import Chapter17 from '../components/handbook/content/Chapter17';
 import Chapter18 from '../components/handbook/content/Chapter18';
@@ -59,10 +63,10 @@ const Index = () => {
         {/* Part III */}
         <PartHeader number="III" title="Time, Money, & Leverage" />
         <Chapter11 />
-        <PlaceholderChapter id="chapter-12" number={12} title="Notices & Playing Offense" />
-        <PlaceholderChapter id="chapter-13" number={13} title="Scheduling as Time Control" />
-        <PlaceholderChapter id="chapter-14" number={14} title="Start–Stop Work and Productivity Loss" />
-        <PlaceholderChapter id="chapter-15" number={15} title="Financial Command: Seeing the Business Clearly" />
+        <Chapter12 />
+        <Chapter13 />
+        <Chapter14 />
+        <Chapter15 />
         <Chapter16 />
         <Chapter17 />
         
