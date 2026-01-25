@@ -138,7 +138,7 @@ serve(async (req) => {
     `;
 
     const { data, error } = await resend.emails.send({
-      from: "The ALP Handbook <onboarding@resend.dev>",
+      from: "Marshall Wilkinson <marshall@alphandbook.com>",
       replyTo: "marshall@marshallwilkinson.com",
       to: [email],
       subject: "Welcome to The ALP Handbook - Your Access is Ready",
