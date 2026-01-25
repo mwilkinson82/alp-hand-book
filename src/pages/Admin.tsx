@@ -4,7 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Mail, Send, RefreshCw, CheckCircle, XCircle, ArrowLeft } from 'lucide-react';
+import { Loader2, Mail, Send, RefreshCw, CheckCircle, XCircle, ArrowLeft, Sparkles } from 'lucide-react';
 
 interface MagicLinkLog {
   id: string;
@@ -85,7 +85,7 @@ const Admin: React.FC = () => {
 
     setSending(true);
     try {
-      const redirectTo = `${window.location.origin}/read`;
+      const redirectTo = 'https://alphandbook.com/read';
       const { error } = await supabase.auth.signInWithOtp({
         email: targetEmail.trim(),
         options: { 
@@ -122,6 +122,31 @@ const Admin: React.FC = () => {
           metadata: { sent_by: ADMIN_EMAIL }
         }
       });
+    } finally {
+      setSending(false);
+    }
+  };
+
+  const sendWelcomeEmail = async (targetEmail: string) => {
+    if (!targetEmail.trim()) {
+      toast({ title: 'Please enter an email address', variant: 'destructive' });
+      return;
+    }
+
+    setSending(true);
+    try {
+      // First generate a magic link
+      const { data, error } = await supabase.functions.invoke('send-welcome-email-admin', {
+        body: { email: targetEmail.trim() }
+      });
+
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
+
+      toast({ title: 'Welcome email sent!', description: `Sent to ${targetEmail}` });
+      fetchData();
+    } catch (err: any) {
+      toast({ title: 'Failed to send welcome email', description: err.message, variant: 'destructive' });
     } finally {
       setSending(false);
     }
@@ -265,14 +290,24 @@ const Admin: React.FC = () => {
                       <td className="py-2 px-3 font-mono text-xs">{purchase.email}</td>
                       <td className="py-2 px-3">${(purchase.amount_cents / 100).toFixed(2)}</td>
                       <td className="py-2 px-3 text-muted-foreground">{formatDate(purchase.purchased_at)}</td>
-                      <td className="py-2 px-3">
+                      <td className="py-2 px-3 space-x-2">
                         <Button 
                           variant="ghost" 
                           size="sm"
                           onClick={() => sendMagicLink(purchase.email)}
                           disabled={sending}
                         >
-                          Send Link
+                          <Mail className="w-3 h-3 mr-1" />
+                          Link
+                        </Button>
+                        <Button 
+                          variant="ghost" 
+                          size="sm"
+                          onClick={() => sendWelcomeEmail(purchase.email)}
+                          disabled={sending}
+                        >
+                          <Sparkles className="w-3 h-3 mr-1" />
+                          Welcome
                         </Button>
                       </td>
                     </tr>

@@ -3,17 +3,20 @@ import { Link, useSearchParams } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
-import { CheckCircle, Loader2, Mail } from 'lucide-react';
+import { CheckCircle, Loader2, Mail, Clock } from 'lucide-react';
 
 interface PaymentResult {
   success: boolean;
   is_new_user?: boolean;
-  password_reset_required?: boolean;
   email?: string;
   user_id?: string;
   error?: string;
   already_recorded?: boolean;
+  welcome_email_sent?: boolean;
+  welcome_email_error?: string;
 }
+
+const RESEND_COOLDOWN_SECONDS = 60;
 
 const PurchaseSuccess: React.FC = () => {
   const [searchParams] = useSearchParams();
@@ -21,59 +24,78 @@ const PurchaseSuccess: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<PaymentResult | null>(null);
   const { user, checkPurchaseStatus } = useAuth();
+  const processedRef = useRef(false);
 
-  // Magic link state
-  const [magicLinkSending, setMagicLinkSending] = useState(false);
-  const [magicLinkSent, setMagicLinkSent] = useState(false);
-  const [magicLinkError, setMagicLinkError] = useState<string | null>(null);
-  const magicLinkAttemptedRef = useRef(false);
+  // Resend cooldown state
+  const [resendCooldown, setResendCooldown] = useState(0);
+  const [resending, setResending] = useState(false);
+  const [resendSuccess, setResendSuccess] = useState(false);
+  const [resendError, setResendError] = useState<string | null>(null);
 
-  const logMagicLinkSend = async (email: string, status: 'sent' | 'failed', errorMessage?: string) => {
+  // Cooldown timer effect
+  useEffect(() => {
+    if (resendCooldown <= 0) return;
+    
+    const timer = setInterval(() => {
+      setResendCooldown((prev) => Math.max(0, prev - 1));
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, [resendCooldown]);
+
+  const handleResendMagicLink = async () => {
+    if (!result?.email || resendCooldown > 0 || resending) return;
+
+    setResending(true);
+    setResendError(null);
+    setResendSuccess(false);
+
     try {
-      await supabase.functions.invoke('log-magic-link', {
-        body: {
-          email,
-          source: 'purchase_success',
-          status,
-          error_message: errorMessage,
-          metadata: {
-            user_id: result?.user_id,
-            is_new_user: result?.is_new_user,
-            timestamp: new Date().toISOString(),
-          }
-        }
-      });
-    } catch (logError) {
-      console.error('Failed to log magic link send:', logError);
-    }
-  };
-
-  const sendMagicLink = async (email: string) => {
-    setMagicLinkError(null);
-    setMagicLinkSending(true);
-    try {
-      const redirectTo = `${window.location.origin}/read`;
-      const { error: linkError } = await supabase.auth.signInWithOtp({
-        email,
+      const redirectTo = 'https://alphandbook.com/read';
+      const { error: otpError } = await supabase.auth.signInWithOtp({
+        email: result.email,
         options: { 
           emailRedirectTo: redirectTo,
-          shouldCreateUser: false // User already exists from edge function
+          shouldCreateUser: false
         }
       });
-      if (linkError) {
-        setMagicLinkError(linkError.message);
-        await logMagicLinkSend(email, 'failed', linkError.message);
-        return;
+
+      if (otpError) {
+        setResendError(otpError.message);
+        // Log the failure
+        await supabase.functions.invoke('log-magic-link', {
+          body: {
+            email: result.email,
+            source: 'purchase_success_manual_resend',
+            status: 'failed',
+            error_message: otpError.message,
+          }
+        });
+      } else {
+        setResendSuccess(true);
+        setResendCooldown(RESEND_COOLDOWN_SECONDS);
+        // Log the success
+        await supabase.functions.invoke('log-magic-link', {
+          body: {
+            email: result.email,
+            source: 'purchase_success_manual_resend',
+            status: 'sent',
+          }
+        });
       }
-      await logMagicLinkSend(email, 'sent');
-      setMagicLinkSent(true);
+    } catch (err) {
+      setResendError('Failed to send magic link. Please try again.');
     } finally {
-      setMagicLinkSending(false);
+      setResending(false);
     }
   };
 
   useEffect(() => {
     const processPayment = async () => {
+      // Prevent duplicate processing (React StrictMode)
+      if (processedRef.current) return;
+      processedRef.current = true;
+
       const sessionId = searchParams.get('session_id');
 
       if (!sessionId) {
@@ -83,11 +105,11 @@ const PurchaseSuccess: React.FC = () => {
       }
 
       try {
-        const { data, error } = await supabase.functions.invoke('process-payment-success', {
+        const { data, error: invokeError } = await supabase.functions.invoke('process-payment-success', {
           body: { session_id: sessionId },
         });
 
-        if (error) throw error;
+        if (invokeError) throw invokeError;
 
         if (data?.success) {
           setResult(data);
@@ -109,15 +131,6 @@ const PurchaseSuccess: React.FC = () => {
 
     processPayment();
   }, [searchParams, checkPurchaseStatus, user]);
-
-  // Auto-send magic link for all purchasers (new and existing) who aren't logged in
-  useEffect(() => {
-    if (!result?.email) return;
-    if (user) return; // Already logged in, no need for magic link
-    if (magicLinkAttemptedRef.current) return;
-    magicLinkAttemptedRef.current = true;
-    sendMagicLink(result.email);
-  }, [result, user]);
 
   if (confirming) {
     return (
@@ -143,155 +156,117 @@ const PurchaseSuccess: React.FC = () => {
     );
   }
 
-  // Magic link sent - show check email instructions
-  if (magicLinkSent && result?.email) {
-    return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8 text-center">
-        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent mb-8">
-          <Mail className="w-10 h-10 text-foreground opacity-70" />
-        </div>
-
-        <h1 className="chapter-heading text-3xl md:text-4xl mb-6">Check Your Email!</h1>
-
-        <div className="max-w-md space-y-4 mb-8">
-          <p className="body-text opacity-70">
-            We've sent a magic sign-in link to:
-          </p>
-          <div className="flex items-center gap-2 bg-muted px-4 py-3 rounded-md justify-center">
-            <Mail className="w-4 h-4 opacity-70" />
-            <span className="font-mono text-sm">{result.email}</span>
-          </div>
-          <p className="body-text opacity-70">
-            Click the link in your email to sign in and start reading immediately. No password needed!
-          </p>
-        </div>
-
-        <p className="body-text opacity-50 text-sm mb-8">
-          Didn't receive it? Check your spam folder, or click below to resend.
-        </p>
-
-        <div className="space-y-3">
-          <Button
-            variant="outline"
-            className="font-sans uppercase tracking-widest"
-            disabled={magicLinkSending}
-            onClick={() => sendMagicLink(result.email!)}
-          >
-            {magicLinkSending ? 'Sending…' : 'Resend Magic Link'}
-          </Button>
-        </div>
-      </div>
-    );
-  }
-
-  // New user flow - send magic link
-  if (result?.is_new_user && result?.email) {
+  // User is logged in - direct access
+  if (user) {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8 text-center">
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent mb-8">
           <CheckCircle className="w-10 h-10 text-foreground opacity-70" />
         </div>
 
-        <h1 className="chapter-heading text-3xl md:text-4xl mb-4">Payment Successful!</h1>
+        <h1 className="chapter-heading text-3xl md:text-4xl mb-4">You're All Set!</h1>
 
-        <p className="body-text opacity-70 mb-6 max-w-md">
-          We're setting up your access. You'll receive a sign-in link at:
+        <p className="body-text opacity-70 mb-8 max-w-md">
+          You now have lifetime access to The ALP Handbook.
         </p>
 
-        <div className="flex items-center gap-2 bg-muted px-4 py-3 rounded-md mb-8">
-          <Mail className="w-4 h-4 opacity-70" />
-          <span className="font-mono text-sm">{result.email}</span>
-        </div>
-
-        {magicLinkError && (
-          <p className="text-sm text-destructive mb-4">{magicLinkError}</p>
-        )}
-
-        <div className="w-full max-w-sm space-y-4">
-          <Button
-            type="button"
-            size="lg"
-            className="w-full font-sans uppercase tracking-widest"
-            onClick={() => sendMagicLink(result.email!)}
-            disabled={magicLinkSending}
-          >
-            {magicLinkSending ? (
-              <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                Sending…
-              </>
-            ) : (
-              'Send Me the Sign-In Link'
-            )}
+        <Link to="/read">
+          <Button size="lg" className="font-sans uppercase tracking-widest">
+            Start Reading Now
           </Button>
-        </div>
+        </Link>
       </div>
     );
   }
 
-  // Existing user (not logged in) - show magic link option
-  if (!user && result?.email) {
-    return (
-      <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8">
-        <div className="w-full max-w-md text-center">
-          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent mb-8">
-            <CheckCircle className="w-10 h-10 text-foreground opacity-70" />
-          </div>
-
-          <h1 className="chapter-heading text-3xl md:text-4xl mb-4">You're All Set!</h1>
-
-          <p className="body-text opacity-70 mb-6">
-            You now have lifetime access to The ALP Handbook.
-          </p>
-
-          <div className="flex items-center gap-2 bg-muted px-4 py-3 rounded-md mb-8 justify-center">
-            <Mail className="w-4 h-4 opacity-70" />
-            <span className="font-mono text-sm">{result.email}</span>
-          </div>
-
-          {magicLinkError && (
-            <p className="text-sm text-destructive mb-4">{magicLinkError}</p>
-          )}
-
-          <Button
-            type="button"
-            size="lg"
-            className="w-full font-sans uppercase tracking-widest"
-            onClick={() => sendMagicLink(result.email!)}
-            disabled={magicLinkSending}
-          >
-            {magicLinkSending ? (
-              <>
-                <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                Sending…
-              </>
-            ) : (
-              'Email Me a Sign-In Link'
-            )}
-          </Button>
-        </div>
-      </div>
-    );
-  }
-
-  // User is logged in - direct access
+  // Not logged in - show email sent confirmation
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8 text-center">
       <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-accent mb-8">
         <CheckCircle className="w-10 h-10 text-foreground opacity-70" />
       </div>
 
-      <h1 className="chapter-heading text-3xl md:text-4xl mb-4">You're All Set!</h1>
+      <h1 className="chapter-heading text-3xl md:text-4xl mb-4">Payment Successful!</h1>
 
-      <p className="body-text opacity-70 mb-8 max-w-md">
-        You now have lifetime access to The ALP Handbook.
-      </p>
+      <div className="max-w-md space-y-4 mb-8">
+        <p className="body-text opacity-70">
+          Check your email for your welcome message and access link.
+        </p>
+        
+        {result?.email && (
+          <div className="flex items-center gap-2 bg-muted px-4 py-3 rounded-md justify-center">
+            <Mail className="w-4 h-4 opacity-70" />
+            <span className="font-mono text-sm">{result.email}</span>
+          </div>
+        )}
 
-      <Link to="/read">
-        <Button size="lg" className="font-sans uppercase tracking-widest">
-          Start Reading Now
+        {result?.welcome_email_error && (
+          <p className="text-sm text-muted-foreground">
+            Note: There was an issue sending your welcome email automatically. 
+            Use the button below to request a new sign-in link.
+          </p>
+        )}
+      </div>
+
+      {/* Resend section */}
+      <div className="w-full max-w-sm space-y-4 mb-8">
+        {resendSuccess && (
+          <p className="text-sm text-primary">
+            ✓ A new sign-in link has been sent to your email!
+          </p>
+        )}
+        
+        {resendError && (
+          <p className="text-sm text-destructive">{resendError}</p>
+        )}
+
+        <Button
+          variant="outline"
+          className="w-full font-sans uppercase tracking-widest"
+          disabled={resending || resendCooldown > 0}
+          onClick={handleResendMagicLink}
+        >
+          {resending ? (
+            <>
+              <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+              Sending...
+            </>
+          ) : resendCooldown > 0 ? (
+            <>
+              <Clock className="w-4 h-4 mr-2" />
+              Resend in {resendCooldown}s
+            </>
+          ) : (
+            <>
+              <Mail className="w-4 h-4 mr-2" />
+              Resend Sign-In Link
+            </>
+          )}
         </Button>
-      </Link>
+      </div>
+
+      {/* Fallback info */}
+      <div className="text-sm text-muted-foreground space-y-2">
+        <p>
+          Didn't receive it? Check your spam folder, or visit{' '}
+          <a 
+            href="https://alphandbook.com/auth" 
+            className="underline hover:text-foreground transition-colors"
+          >
+            alphandbook.com/auth
+          </a>
+          {' '}to request a new link.
+        </p>
+        <p>
+          Questions? Email{' '}
+          <a 
+            href="mailto:marshall@marshallwilkinson.com" 
+            className="underline hover:text-foreground transition-colors"
+          >
+            marshall@marshallwilkinson.com
+          </a>
+        </p>
+      </div>
     </div>
   );
 };
