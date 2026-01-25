@@ -88,13 +88,14 @@ const PurchaseSuccess: React.FC = () => {
     processPayment();
   }, [searchParams, checkPurchaseStatus, user]);
 
-  // Auto-send magic link for new users
+  // Auto-send magic link for all purchasers (new and existing) who aren't logged in
   useEffect(() => {
-    if (!result?.is_new_user || !result?.email) return;
+    if (!result?.email) return;
+    if (user) return; // Already logged in, no need for magic link
     if (magicLinkAttemptedRef.current) return;
     magicLinkAttemptedRef.current = true;
     sendMagicLink(result.email);
-  }, [result]);
+  }, [result, user]);
 
   if (confirming) {
     return (
