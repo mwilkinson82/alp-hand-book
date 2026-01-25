@@ -9,6 +9,7 @@ import PreviewExperience from "./pages/PreviewExperience";
 import Handbook from "./pages/Handbook";
 import Auth from "./pages/Auth";
 import PurchaseSuccess from "./pages/PurchaseSuccess";
+import Admin from "./pages/Admin";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -26,6 +27,7 @@ const App = () => (
             <Route path="/read" element={<Handbook />} />
             <Route path="/auth" element={<Auth />} />
             <Route path="/purchase-success" element={<PurchaseSuccess />} />
+            <Route path="/admin" element={<Admin />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
