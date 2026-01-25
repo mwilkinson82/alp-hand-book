@@ -35,7 +35,7 @@ const SalesLanding: React.FC = () => {
       const { data, error } = await supabase.functions.invoke('create-checkout');
       if (error) throw error;
       if (data?.url) {
-        window.open(data.url, '_blank');
+        window.location.href = data.url;
       }
     } catch (err) {
       console.error('Checkout error:', err);
