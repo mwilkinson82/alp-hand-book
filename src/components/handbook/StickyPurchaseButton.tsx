@@ -40,7 +40,7 @@ const StickyPurchaseButton: React.FC = () => {
   }
 
   return (
-    <div className="fixed bottom-6 right-4 z-50 animate-in fade-in slide-in-from-bottom-4 duration-300">
+    <div className="fixed bottom-6 right-24 z-50 animate-in fade-in slide-in-from-bottom-4 duration-300">
       <Button
         onClick={handlePurchase}
         disabled={checkoutLoading}
