@@ -17,6 +17,7 @@ import PreviewHeader from '@/components/handbook/PreviewHeader';
 import ReadingProgress from '@/components/handbook/ReadingProgress';
 import PreviewTableOfContents from '@/components/handbook/PreviewTableOfContents';
 import PreviewFloatingTOC from '@/components/handbook/PreviewFloatingTOC';
+import StickyPurchaseButton from '@/components/handbook/StickyPurchaseButton';
 import { Lock } from 'lucide-react';
 
 const SalesLanding: React.FC = () => {
@@ -195,6 +196,7 @@ const SalesLanding: React.FC = () => {
       </div>
 
       <PreviewFloatingTOC />
+      <StickyPurchaseButton />
     </div>
   );
 };
