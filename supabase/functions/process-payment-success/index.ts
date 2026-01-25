@@ -24,17 +24,74 @@ function generateSecurePassword(): string {
   return password;
 }
 
+// Send welcome email via the send-welcome-email function
+async function sendWelcomeEmail(
+  supabaseUrl: string,
+  supabaseServiceKey: string,
+  email: string,
+  magicLinkUrl: string
+): Promise<{ success: boolean; error?: string }> {
+  try {
+    const response = await fetch(`${supabaseUrl}/functions/v1/send-welcome-email`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${supabaseServiceKey}`,
+      },
+      body: JSON.stringify({
+        email,
+        magic_link_url: magicLinkUrl,
+      }),
+    });
+
+    const result = await response.json();
+    
+    if (!response.ok) {
+      return { success: false, error: result.error || 'Failed to send welcome email' };
+    }
+    
+    return { success: true };
+  } catch (error) {
+    return { success: false, error: error instanceof Error ? error.message : String(error) };
+  }
+}
+
+// Log magic link status
+async function logMagicLink(
+  supabaseAdmin: any,
+  email: string,
+  status: 'sent' | 'failed',
+  errorMessage?: string,
+  userId?: string,
+  purchaseId?: string
+): Promise<void> {
+  try {
+    await supabaseAdmin.from('magic_link_logs').insert({
+      email,
+      user_id: userId || null,
+      purchase_id: purchaseId || null,
+      source: 'purchase_success_auto',
+      status,
+      error_message: errorMessage || null,
+      metadata: { automated: true, timestamp: new Date().toISOString() },
+    });
+  } catch (err) {
+    logStep("Warning: Failed to log magic link", { error: String(err) });
+  }
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
+  const supabaseUrl = Deno.env.get("SUPABASE_URL") ?? "";
+  const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
+
   // Use service role key for admin operations
-  const supabaseAdmin = createClient(
-    Deno.env.get("SUPABASE_URL") ?? "",
-    Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "",
-    { auth: { persistSession: false } }
-  );
+  const supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
+    auth: { persistSession: false }
+  });
 
   try {
     logStep("Function started");
@@ -111,7 +168,6 @@ serve(async (req) => {
 
     let userId: string;
     let isNewUser = false;
-    let passwordResetRequired = false;
 
     if (existingUser) {
       userId = existingUser.id;
@@ -133,24 +189,7 @@ serve(async (req) => {
 
       userId = newUser.user.id;
       isNewUser = true;
-      passwordResetRequired = true;
       logStep("Created new user", { userId, email: customerEmail });
-
-      // Generate a magic link for direct sign-in (much simpler UX)
-      const origin = req.headers.get("origin") || "https://alpine-doctrine.lovable.app";
-      const { data: linkData, error: linkError } = await supabaseAdmin.auth.admin.generateLink({
-        type: 'magiclink',
-        email: customerEmail,
-        options: {
-          redirectTo: `${origin}/read`,
-        },
-      });
-
-      if (linkError) {
-        logStep("Warning: Could not generate magic link", { error: linkError.message });
-      } else {
-        logStep("Magic link generated", { hasLink: !!linkData?.properties?.action_link });
-      }
     }
 
     // Create purchase record
@@ -172,7 +211,6 @@ serve(async (req) => {
       // React StrictMode / retry behavior can call the success endpoint more than once.
       // Treat unique-constraint duplicates as success.
       const isDuplicate =
-        // Postgres unique violation
         (insertError as any)?.code === '23505' ||
         insertError.message.includes('duplicate key value');
 
@@ -195,7 +233,6 @@ serve(async (req) => {
               purchase: existingAfterInsert,
               user_id: existingAfterInsert.user_id,
               is_new_user: false,
-              password_reset_required: false,
               email: customerEmail,
             }),
             {
@@ -213,17 +250,54 @@ serve(async (req) => {
     logStep("Purchase recorded successfully", { 
       purchaseId: purchase.id, 
       userId, 
-      isNewUser, 
-      passwordResetRequired 
+      isNewUser
     });
+
+    // Generate magic link for the welcome email
+    const { data: linkData, error: linkError } = await supabaseAdmin.auth.admin.generateLink({
+      type: 'magiclink',
+      email: customerEmail,
+      options: {
+        redirectTo: 'https://alphandbook.com/read',
+      },
+    });
+
+    let welcomeEmailSent = false;
+    let welcomeEmailError: string | undefined;
+
+    if (linkError) {
+      logStep("Warning: Could not generate magic link", { error: linkError.message });
+      welcomeEmailError = `Failed to generate magic link: ${linkError.message}`;
+    } else if (linkData?.properties?.action_link) {
+      logStep("Magic link generated", { hasLink: true });
+      
+      // Send welcome email with the magic link
+      const emailResult = await sendWelcomeEmail(
+        supabaseUrl,
+        supabaseServiceKey,
+        customerEmail,
+        linkData.properties.action_link
+      );
+
+      if (emailResult.success) {
+        welcomeEmailSent = true;
+        logStep("Welcome email sent successfully", { email: customerEmail });
+        await logMagicLink(supabaseAdmin, customerEmail, 'sent', undefined, userId, purchase.id);
+      } else {
+        welcomeEmailError = emailResult.error;
+        logStep("Failed to send welcome email", { error: welcomeEmailError });
+        await logMagicLink(supabaseAdmin, customerEmail, 'failed', welcomeEmailError, userId, purchase.id);
+      }
+    }
 
     return new Response(JSON.stringify({ 
       success: true, 
       purchase,
       user_id: userId,
       is_new_user: isNewUser,
-      password_reset_required: passwordResetRequired,
-      email: customerEmail
+      email: customerEmail,
+      welcome_email_sent: welcomeEmailSent,
+      welcome_email_error: welcomeEmailError,
     }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
