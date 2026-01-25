@@ -28,6 +28,26 @@ const PurchaseSuccess: React.FC = () => {
   const [magicLinkError, setMagicLinkError] = useState<string | null>(null);
   const magicLinkAttemptedRef = useRef(false);
 
+  const logMagicLinkSend = async (email: string, status: 'sent' | 'failed', errorMessage?: string) => {
+    try {
+      await supabase.functions.invoke('log-magic-link', {
+        body: {
+          email,
+          source: 'purchase_success',
+          status,
+          error_message: errorMessage,
+          metadata: {
+            user_id: result?.user_id,
+            is_new_user: result?.is_new_user,
+            timestamp: new Date().toISOString(),
+          }
+        }
+      });
+    } catch (logError) {
+      console.error('Failed to log magic link send:', logError);
+    }
+  };
+
   const sendMagicLink = async (email: string) => {
     setMagicLinkError(null);
     setMagicLinkSending(true);
@@ -42,8 +62,10 @@ const PurchaseSuccess: React.FC = () => {
       });
       if (linkError) {
         setMagicLinkError(linkError.message);
+        await logMagicLinkSend(email, 'failed', linkError.message);
         return;
       }
+      await logMagicLinkSend(email, 'sent');
       setMagicLinkSent(true);
     } finally {
       setMagicLinkSending(false);
