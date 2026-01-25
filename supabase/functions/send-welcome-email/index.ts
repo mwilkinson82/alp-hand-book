@@ -163,7 +163,7 @@ This link will expire in 1 hour for security purposes.
     `;
 
     const { data, error } = await resend.emails.send({
-      from: "The ALP Handbook <onboarding@resend.dev>",
+      from: "Marshall Wilkinson <marshall@alphandbook.com>",
       replyTo: "marshall@marshallwilkinson.com",
       to: [body.email],
       subject: "Welcome to The ALP Handbook - Your Access is Ready",
