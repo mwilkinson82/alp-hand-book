@@ -34,11 +34,6 @@ const PreviewHeader: React.FC = () => {
   };
 
   const handlePurchase = async () => {
-    if (!user) {
-      navigate('/auth');
-      return;
-    }
-
     setCheckoutLoading(true);
     try {
       const { data, error } = await supabase.functions.invoke('create-checkout');
