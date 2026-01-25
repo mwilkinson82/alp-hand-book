@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import HeroSection from '../components/handbook/HeroSection';
@@ -42,8 +42,29 @@ import { Loader2 } from 'lucide-react';
 const Handbook: React.FC = () => {
   const { user, hasPurchased, loading, purchaseLoading, signOut } = useAuth();
   const navigate = useNavigate();
+  
+  // Track if we're still waiting for magic link tokens to be processed
+  const [waitingForAuth, setWaitingForAuth] = useState(() => {
+    // Check if URL has auth tokens (magic link redirect)
+    const hash = window.location.hash;
+    return hash.includes('access_token') || hash.includes('type=magiclink');
+  });
+
+  // Clear the waiting state once auth finishes loading
+  useEffect(() => {
+    if (!loading) {
+      // Give a small delay to ensure tokens are processed
+      const timer = setTimeout(() => {
+        setWaitingForAuth(false);
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [loading]);
 
   useEffect(() => {
+    // Don't redirect while waiting for magic link auth to complete
+    if (waitingForAuth) return;
+    
     // If not loading and either not logged in or hasn't purchased, redirect
     if (!loading && !purchaseLoading) {
       if (!user) {
@@ -55,10 +76,10 @@ const Handbook: React.FC = () => {
         return;
       }
     }
-  }, [user, hasPurchased, loading, purchaseLoading, navigate]);
+  }, [user, hasPurchased, loading, purchaseLoading, navigate, waitingForAuth]);
 
-  // Show loading state
-  if (loading || purchaseLoading) {
+  // Show loading state (including when waiting for magic link)
+  if (loading || purchaseLoading || waitingForAuth) {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center">
         <Loader2 className="w-8 h-8 animate-spin opacity-50" />
