@@ -506,7 +506,7 @@ const SalesPage: React.FC = () => {
             </Button>
             
             <Link to="/preview">
-              <Button variant="ghost" size="sm" className="font-sans uppercase tracking-widest text-xs opacity-80 hover:opacity-100">
+              <Button variant="ghost" size="sm" className="font-sans uppercase tracking-widest text-xs text-[hsl(var(--brand-accent))] hover:text-[hsl(var(--brand-accent))] hover:opacity-80">
                 <Eye className="w-4 h-4 mr-2" />
                 Preview First
               </Button>
