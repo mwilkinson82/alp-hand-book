@@ -25,7 +25,7 @@ interface Purchase {
   created_at: string;
 }
 
-const ADMIN_EMAIL = 'ajhoover@mac.com'; // Hardcoded admin for now
+const ADMIN_EMAIL = 'wilkinson.marshall@gmail.com';
 
 const Admin: React.FC = () => {
   const navigate = useNavigate();
