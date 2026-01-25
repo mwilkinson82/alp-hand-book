@@ -81,7 +81,7 @@ const PreviewHeader: React.FC = () => {
                     Read
                   </Button>
                 </Link>
-              ) : user ? (
+              ) : (
                 <Button 
                   size="sm" 
                   onClick={handlePurchase}
@@ -92,12 +92,6 @@ const PreviewHeader: React.FC = () => {
                   <span className="hidden xs:inline">{checkoutLoading ? '...' : '$47'}</span>
                   <span className="xs:hidden">{checkoutLoading ? '...' : '$47'}</span>
                 </Button>
-              ) : (
-                <Link to="/auth">
-                  <Button size="sm" variant="outline" className="font-sans text-[10px] sm:text-xs uppercase tracking-wider sm:tracking-widest px-2 sm:px-3">
-                    Sign In
-                  </Button>
-                </Link>
               )}
             </>
           )}
