@@ -4,6 +4,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/AnimatedSection';
+import StickyPreviewButton from '@/components/handbook/StickyPreviewButton';
 import bookCover from '@/assets/book-cover.png';
 import marshallPhoto from '@/assets/marshall-wilkinson.png';
 import { Eye, CheckCircle2, XCircle, ArrowRight, Target, Shield, Clock, TrendingUp, FileText, Zap, Moon, Sun, Quote, Lock, CreditCard } from 'lucide-react';
@@ -499,10 +500,17 @@ const SalesPage: React.FC = () => {
 
           <p className="text-lg sm:text-xl font-medium mb-8 sm:mb-10">Then it's time to operate with ALP.</p>
 
-          <div className="flex flex-col gap-4 justify-center px-4 sm:px-0">
+          <div className="flex flex-col gap-4 justify-center items-center px-4 sm:px-0">
             <Button onClick={handlePurchase} disabled={checkoutLoading || loading} size="lg" variant="secondary" className="font-sans uppercase tracking-widest text-sm sm:text-base lg:text-lg px-6 sm:px-10 py-5 sm:py-6 w-full sm:w-auto">
               {checkoutLoading ? 'Loading...' : 'Get Immediate Access — $47'}
             </Button>
+            
+            <Link to="/preview">
+              <Button variant="ghost" size="sm" className="font-sans uppercase tracking-widest text-xs opacity-80 hover:opacity-100">
+                <Eye className="w-4 h-4 mr-2" />
+                Preview First
+              </Button>
+            </Link>
           </div>
 
           {/* Trust Indicators */}
@@ -539,6 +547,8 @@ const SalesPage: React.FC = () => {
           © Marshall Wilkinson
         </p>
       </footer>
+
+      <StickyPreviewButton />
     </div>;
 };
 export default SalesPage;
