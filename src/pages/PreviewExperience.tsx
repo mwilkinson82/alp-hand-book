@@ -25,11 +25,6 @@ const SalesLanding: React.FC = () => {
   const [checkoutLoading, setCheckoutLoading] = useState(false);
 
   const handlePurchase = async () => {
-    if (!user) {
-      navigate('/auth');
-      return;
-    }
-
     setCheckoutLoading(true);
     try {
       const { data, error } = await supabase.functions.invoke('create-checkout');
