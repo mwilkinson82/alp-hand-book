@@ -1,1 +1,5 @@
 project_id = "rwvtujofaketulrvgprr"
+
+[auth]
+# Session expires after 30 days (in seconds)
+jwt_expiry = 2592000
