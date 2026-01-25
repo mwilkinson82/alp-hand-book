@@ -53,6 +53,50 @@ export type Database = {
         }
         Relationships: []
       }
+      magic_link_logs: {
+        Row: {
+          email: string
+          error_message: string | null
+          id: string
+          metadata: Json | null
+          purchase_id: string | null
+          sent_at: string
+          source: string
+          status: string
+          user_id: string | null
+        }
+        Insert: {
+          email: string
+          error_message?: string | null
+          id?: string
+          metadata?: Json | null
+          purchase_id?: string | null
+          sent_at?: string
+          source?: string
+          status?: string
+          user_id?: string | null
+        }
+        Update: {
+          email?: string
+          error_message?: string | null
+          id?: string
+          metadata?: Json | null
+          purchase_id?: string | null
+          sent_at?: string
+          source?: string
+          status?: string
+          user_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "magic_link_logs_purchase_id_fkey"
+            columns: ["purchase_id"]
+            isOneToOne: false
+            referencedRelation: "book_purchases"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
