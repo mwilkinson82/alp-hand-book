@@ -552,12 +552,12 @@ const SalesPage: React.FC = () => {
           {/* Trust Indicators */}
           <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mt-6 sm:mt-8 text-xs sm:text-sm opacity-70">
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <Zap className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span>Instant Access</span>
+              <Monitor className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span>Interactive Web Experience</span>
             </div>
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <Lock className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span>Secure Checkout</span>
+              <Infinity className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span>Lifetime Access</span>
             </div>
             <div className="flex items-center gap-1.5 sm:gap-2">
               <CreditCard className="w-3 h-3 sm:w-4 sm:h-4" />
