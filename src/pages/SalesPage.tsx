@@ -135,7 +135,11 @@ const SalesPage: React.FC = () => {
               <p className="body-text-emphasis text-sm sm:text-base">This is how top-tier operators actually run their businesses.</p>
             </div>
 
-            <p className="text-xs sm:text-sm uppercase tracking-widest opacity-50 mb-6 sm:mb-8">By Marshall Wilkinson</p>
+            <p className="text-xs sm:text-sm uppercase tracking-widest opacity-50 mb-4 sm:mb-6">By Marshall Wilkinson</p>
+
+            <p className="body-text text-sm sm:text-base opacity-70 mb-6 sm:mb-8 italic">
+              A premium interactive web experience — read instantly in your browser with dark mode, audio commentary, and chapter navigation.
+            </p>
 
             <div className="flex flex-col gap-3 sm:gap-4">
               <Button onClick={handlePurchase} disabled={checkoutLoading || loading} size="lg" className="font-sans uppercase tracking-widest text-sm sm:text-base w-full sm:w-auto">
@@ -154,12 +158,12 @@ const SalesPage: React.FC = () => {
             {/* Trust Indicators */}
             <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-5 sm:mt-6 text-xs sm:text-sm opacity-60">
               <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4" />
-                <span>Instant Access</span>
+                <Monitor className="w-4 h-4" />
+                <span>Interactive Web Experience</span>
               </div>
               <div className="flex items-center gap-2">
-                <Lock className="w-4 h-4" />
-                <span>Secure Checkout</span>
+                <Infinity className="w-4 h-4" />
+                <span>Lifetime Access</span>
               </div>
               <div className="flex items-center gap-2">
                 <CreditCard className="w-4 h-4" />
