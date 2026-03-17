@@ -7,7 +7,7 @@ import { AnimatedSection } from '@/components/AnimatedSection';
 import StickyPreviewButton from '@/components/handbook/StickyPreviewButton';
 import bookCover from '@/assets/book-cover.png';
 import marshallPhoto from '@/assets/marshall-wilkinson.png';
-import { Eye, CheckCircle2, XCircle, ArrowRight, Target, Shield, Clock, TrendingUp, FileText, Zap, Moon, Sun, Quote, Lock, CreditCard } from 'lucide-react';
+import { Eye, CheckCircle2, XCircle, ArrowRight, Target, Shield, Clock, TrendingUp, FileText, Zap, Moon, Sun, Quote, Lock, CreditCard, Monitor, Headphones, BookOpen, Infinity, Palette, Navigation } from 'lucide-react';
 const testimonials = [{
   quote: "I'm ALP for life. Marshall has changed my life. From $600k to $12.5M in 11 months. There is nobody like him on earth. You just have to get around him to understand.",
   name: "Bryan Bettencourt",
