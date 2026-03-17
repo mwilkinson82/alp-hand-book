@@ -10,6 +10,8 @@ import Handbook from "./pages/Handbook";
 import Auth from "./pages/Auth";
 import PurchaseSuccess from "./pages/PurchaseSuccess";
 import Admin from "./pages/Admin";
+import RefundPolicy from "./pages/RefundPolicy";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
