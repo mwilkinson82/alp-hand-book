@@ -77,8 +77,12 @@ const SalesLanding: React.FC = () => {
             A control doctrine for entrepreneurs who refuse to lose grip on what they've built.
           </p>
           
-          <p className="font-sans text-sm uppercase tracking-widest opacity-50 mb-8">
+          <p className="font-sans text-sm uppercase tracking-widest opacity-50 mb-4">
             By Marshall Wilkinson
+          </p>
+          
+          <p className="body-text text-sm opacity-60 mb-8 italic max-w-xl mx-auto">
+            An interactive web reading experience — not a PDF, not a physical book. Read in your browser with dark mode, audio commentary, and chapter navigation.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 items-center">

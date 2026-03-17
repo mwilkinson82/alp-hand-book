@@ -3,7 +3,7 @@ import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
 import Parable from '../Parable';
-import MediaPlaceholder from '../MediaPlaceholder';
+
 import IdentityParable from '../IdentityParable';
 
 const Chapter17: React.FC = () => {
@@ -111,7 +111,7 @@ const Chapter17: React.FC = () => {
         </p>
       </Section>
 
-      <MediaPlaceholder type="diagram" label="General Conditions Breakdown Chart" />
+      
 
       <Section title="Separation of Men and the Cost of Disorder">
         <p>

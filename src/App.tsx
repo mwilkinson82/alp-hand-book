@@ -10,6 +10,8 @@ import Handbook from "./pages/Handbook";
 import Auth from "./pages/Auth";
 import PurchaseSuccess from "./pages/PurchaseSuccess";
 import Admin from "./pages/Admin";
+import RefundPolicy from "./pages/RefundPolicy";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +30,8 @@ const App = () => (
             <Route path="/auth" element={<Auth />} />
             <Route path="/purchase-success" element={<PurchaseSuccess />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/refund-policy" element={<RefundPolicy />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

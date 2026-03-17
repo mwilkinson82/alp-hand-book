@@ -7,7 +7,7 @@ import { AnimatedSection } from '@/components/AnimatedSection';
 import StickyPreviewButton from '@/components/handbook/StickyPreviewButton';
 import bookCover from '@/assets/book-cover.png';
 import marshallPhoto from '@/assets/marshall-wilkinson.png';
-import { Eye, CheckCircle2, XCircle, ArrowRight, Target, Shield, Clock, TrendingUp, FileText, Zap, Moon, Sun, Quote, Lock, CreditCard } from 'lucide-react';
+import { Eye, CheckCircle2, XCircle, ArrowRight, Target, Shield, Clock, TrendingUp, FileText, Zap, Moon, Sun, Quote, Lock, CreditCard, Monitor, Headphones, BookOpen, Infinity, Palette, Navigation } from 'lucide-react';
 const testimonials = [{
   quote: "I'm ALP for life. Marshall has changed my life. From $600k to $12.5M in 11 months. There is nobody like him on earth. You just have to get around him to understand.",
   name: "Bryan Bettencourt",
@@ -135,7 +135,11 @@ const SalesPage: React.FC = () => {
               <p className="body-text-emphasis text-sm sm:text-base">This is how top-tier operators actually run their businesses.</p>
             </div>
 
-            <p className="text-xs sm:text-sm uppercase tracking-widest opacity-50 mb-6 sm:mb-8">By Marshall Wilkinson</p>
+            <p className="text-xs sm:text-sm uppercase tracking-widest opacity-50 mb-4 sm:mb-6">By Marshall Wilkinson</p>
+
+            <p className="body-text text-sm sm:text-base opacity-70 mb-6 sm:mb-8 italic">
+              A premium interactive web experience — read instantly in your browser with dark mode, audio commentary, and chapter navigation.
+            </p>
 
             <div className="flex flex-col gap-3 sm:gap-4">
               <Button onClick={handlePurchase} disabled={checkoutLoading || loading} size="lg" className="font-sans uppercase tracking-widest text-sm sm:text-base w-full sm:w-auto">
@@ -154,12 +158,12 @@ const SalesPage: React.FC = () => {
             {/* Trust Indicators */}
             <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-5 sm:mt-6 text-xs sm:text-sm opacity-60">
               <div className="flex items-center gap-2">
-                <Zap className="w-4 h-4" />
-                <span>Instant Access</span>
+                <Monitor className="w-4 h-4" />
+                <span>Interactive Web Experience</span>
               </div>
               <div className="flex items-center gap-2">
-                <Lock className="w-4 h-4" />
-                <span>Secure Checkout</span>
+                <Infinity className="w-4 h-4" />
+                <span>Lifetime Access</span>
               </div>
               <div className="flex items-center gap-2">
                 <CreditCard className="w-4 h-4" />
@@ -275,6 +279,38 @@ const SalesPage: React.FC = () => {
         </div>
       </AnimatedSection>
 
+      {/* What You Get Section */}
+      <AnimatedSection className="py-24 px-6 border-t border-border">
+        <div className="max-w-4xl mx-auto">
+          <p className="text-sm uppercase tracking-[0.3em] opacity-50 mb-4 font-sans text-center">
+            What You're Getting
+          </p>
+          <h2 className="section-heading text-2xl md:text-3xl mb-4 text-center">
+            A Premium Interactive Reading Experience
+          </h2>
+          <p className="body-text opacity-70 text-center mb-12 max-w-2xl mx-auto">
+            This is not a PDF. Not a physical book. The ALP Handbook is a web-based digital experience you access instantly from any browser, on any device.
+          </p>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { icon: BookOpen, title: '27 Chapters', desc: '26 chapters plus a final commitment chapter — a complete operating doctrine' },
+              { icon: Monitor, title: 'Web-Based Experience', desc: 'Read in your browser on desktop, tablet, or phone — no downloads needed' },
+              { icon: Palette, title: 'Dark & Light Mode', desc: 'Toggle between dark and light reading modes for comfortable reading' },
+              { icon: Navigation, title: 'Chapter Navigation', desc: 'Floating table of contents and progress tracking for easy navigation' },
+              { icon: Headphones, title: 'Audio Commentary', desc: 'Listen to audio commentary from Marshall Wilkinson on key chapters' },
+              { icon: Infinity, title: 'Lifetime Access', desc: 'Purchase once, access forever — from any device with a browser' },
+            ].map(({ icon: Icon, title, desc }, i) => (
+              <div key={i} className="p-6 bg-muted/30 border border-border rounded-sm">
+                <Icon className="w-6 h-6 text-primary mb-3" />
+                <h3 className="body-text-emphasis text-sm mb-2">{title}</h3>
+                <p className="text-sm opacity-60">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </AnimatedSection>
+
       {/* What You'll Learn Section */}
       <AnimatedSection className="py-24 px-6 bg-muted/30">
         <div className="max-w-4xl mx-auto">
@@ -373,7 +409,7 @@ const SalesPage: React.FC = () => {
             What Operators Are Saying
           </h2>
           <p className="body-text opacity-60 text-center mb-12">
-            Real results from contractors who operate with ALP
+            The Handbook is the foundation of everything these operators learned through ALP.
           </p>
           
           <div className="grid md:grid-cols-2 gap-8">
@@ -516,12 +552,12 @@ const SalesPage: React.FC = () => {
           {/* Trust Indicators */}
           <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mt-6 sm:mt-8 text-xs sm:text-sm opacity-70">
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <Zap className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span>Instant Access</span>
+              <Monitor className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span>Interactive Web Experience</span>
             </div>
             <div className="flex items-center gap-1.5 sm:gap-2">
-              <Lock className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span>Secure Checkout</span>
+              <Infinity className="w-3 h-3 sm:w-4 sm:h-4" />
+              <span>Lifetime Access</span>
             </div>
             <div className="flex items-center gap-1.5 sm:gap-2">
               <CreditCard className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -543,9 +579,13 @@ const SalesPage: React.FC = () => {
         <p className="text-sm uppercase tracking-[0.2em] opacity-40 mb-4">
           The ALP Handbook
         </p>
-        <p className="text-sm opacity-30">
+        <p className="text-sm opacity-30 mb-6">
           © Marshall Wilkinson
         </p>
+        <div className="flex justify-center gap-6 text-xs opacity-40">
+          <Link to="/refund-policy" className="hover:opacity-70 underline">Refund Policy</Link>
+          <Link to="/privacy-policy" className="hover:opacity-70 underline">Privacy Policy</Link>
+        </div>
       </footer>
 
       <StickyPreviewButton />

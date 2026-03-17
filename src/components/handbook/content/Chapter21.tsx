@@ -3,7 +3,7 @@ import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
 import Parable from '../Parable';
-import MediaPlaceholder from '../MediaPlaceholder';
+
 import IdentityParable from '../IdentityParable';
 
 const Chapter21: React.FC = () => {
@@ -158,7 +158,7 @@ const Chapter21: React.FC = () => {
         </p>
       </Section>
 
-      <MediaPlaceholder type="diagram" label="Financial Command Dashboard Example" />
+      
 
       <Section title="Job-Level Visibility Is Non-Negotiable">
         <p>
