@@ -158,7 +158,7 @@ const Chapter21: React.FC = () => {
         </p>
       </Section>
 
-      <MediaPlaceholder type="diagram" label="Financial Command Dashboard Example" />
+      
 
       <Section title="Job-Level Visibility Is Non-Negotiable">
         <p>
