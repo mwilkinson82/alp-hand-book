@@ -3,7 +3,7 @@ import ChapterHeader from '../ChapterHeader';
 import Section from '../Section';
 import DoctrineList from '../DoctrineList';
 import Parable from '../Parable';
-import MediaPlaceholder from '../MediaPlaceholder';
+
 import IdentityParable from '../IdentityParable';
 
 const Chapter21: React.FC = () => {
