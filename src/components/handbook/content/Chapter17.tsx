@@ -111,7 +111,7 @@ const Chapter17: React.FC = () => {
         </p>
       </Section>
 
-      <MediaPlaceholder type="diagram" label="General Conditions Breakdown Chart" />
+      
 
       <Section title="Separation of Men and the Cost of Disorder">
         <p>

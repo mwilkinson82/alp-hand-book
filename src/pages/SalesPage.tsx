@@ -579,9 +579,13 @@ const SalesPage: React.FC = () => {
         <p className="text-sm uppercase tracking-[0.2em] opacity-40 mb-4">
           The ALP Handbook
         </p>
-        <p className="text-sm opacity-30">
+        <p className="text-sm opacity-30 mb-6">
           © Marshall Wilkinson
         </p>
+        <div className="flex justify-center gap-6 text-xs opacity-40">
+          <Link to="/refund-policy" className="hover:opacity-70 underline">Refund Policy</Link>
+          <Link to="/privacy-policy" className="hover:opacity-70 underline">Privacy Policy</Link>
+        </div>
       </footer>
 
       <StickyPreviewButton />
