@@ -409,7 +409,7 @@ const SalesPage: React.FC = () => {
             What Operators Are Saying
           </h2>
           <p className="body-text opacity-60 text-center mb-12">
-            Real results from contractors who operate with ALP
+            The Handbook is the foundation of everything these operators learned through ALP.
           </p>
           
           <div className="grid md:grid-cols-2 gap-8">
