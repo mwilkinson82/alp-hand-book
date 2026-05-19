@@ -179,7 +179,7 @@ const FloatingTOC: React.FC = () => {
           </TabsList>
           
           <TabsContent value="chapters" className="mt-0">
-            <ScrollArea className="h-[calc(100vh-180px)]">
+            <ScrollArea className="h-[calc(100dvh-180px)]">
               <div className="p-6 pt-4">
                 {tocData.map((section, sectionIndex) => (
                   <div key={sectionIndex} className="mb-6">
@@ -220,7 +220,7 @@ const FloatingTOC: React.FC = () => {
           </TabsContent>
           
           <TabsContent value="parables" className="mt-0">
-            <ScrollArea className="h-[calc(100vh-180px)]">
+            <ScrollArea className="h-[calc(100dvh-180px)]">
               <div className="p-6 pt-4">
                 {/* Regular Parables */}
                 <div className="mb-8">
