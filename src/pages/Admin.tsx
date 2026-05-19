@@ -85,43 +85,18 @@ const Admin: React.FC = () => {
 
     setSending(true);
     try {
-      const redirectTo = 'https://alphandbook.com/read';
-      const { error } = await supabase.auth.signInWithOtp({
-        email: targetEmail.trim(),
-        options: { 
-          emailRedirectTo: redirectTo,
-          shouldCreateUser: false
-        }
+      const { data, error } = await supabase.functions.invoke('send-welcome-email-admin', {
+        body: { email: targetEmail.trim() }
       });
 
       if (error) throw error;
-
-      // Log the send
-      await supabase.functions.invoke('log-magic-link', {
-        body: {
-          email: targetEmail.trim(),
-          source: 'admin_manual',
-          status: 'sent',
-          metadata: { sent_by: ADMIN_EMAIL }
-        }
-      });
+      if (data?.error) throw new Error(data.error);
 
       toast({ title: 'Magic link sent!', description: `Sent to ${targetEmail}` });
       setEmail('');
       fetchData();
     } catch (err: any) {
       toast({ title: 'Failed to send', description: err.message, variant: 'destructive' });
-      
-      // Log the failure
-      await supabase.functions.invoke('log-magic-link', {
-        body: {
-          email: targetEmail.trim(),
-          source: 'admin_manual',
-          status: 'failed',
-          error_message: err.message,
-          metadata: { sent_by: ADMIN_EMAIL }
-        }
-      });
     } finally {
       setSending(false);
     }
