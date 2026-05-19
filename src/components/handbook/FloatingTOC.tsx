@@ -94,6 +94,19 @@ const tocData: TocSection[] = [
       { id: 'final-chapter', title: 'The ALP Way — Doctrine & Commitment' },
     ],
   },
+  {
+    part: 'VII',
+    title: 'Volume 2 — The Operating System',
+    items: [
+      { id: 'volume-2-intro', title: 'Why the Operating System' },
+      { id: 'chapter-27', chapter: '27', title: 'A Contracting Company Cannot Run on the Owner' },
+      { id: 'chapter-28', chapter: '28', title: 'Hierarchy Is Not Accountability' },
+      { id: 'chapter-29', chapter: '29', title: 'The Six Components of a Contracting Operating System' },
+      { id: 'chapter-30', chapter: '30', title: 'Weekly Execution Is Where the Company Is Won' },
+      { id: 'chapter-31', chapter: '31', title: 'Systems Are How You Take the Personality Out of the Business' },
+      { id: 'chapter-32', chapter: '32', title: 'Why AOS Belongs in an Application' },
+    ],
+  },
 ];
 
 // Parable index data - complete list
