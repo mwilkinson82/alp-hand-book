@@ -1,104 +1,93 @@
-## Reorder the Handbook — Insert AOS as Part II
+# Handbook v2 — Structural Tightening
 
-Move the Operating System content from the end of the book into Part II, immediately after Chapter 3 (The ALP Scaling Stool). Renumber all downstream chapters and parts. Keep "Volume 2" wording in the TOC as an update signal — but inline, not as a separate part.
+## 1. Replace Author's Note + add "How to Use This Handbook"
 
-### Why "Volume 2" inside the TOC still works
+- **Foreword.tsx** — Replace the body of the existing Author's Note with the new draft you provided. Keep the audio player and the existing "Author's Note" header. Keep the signature line.
+- **New file: `HowToUse.tsx`** — Render the new "How to Use This Handbook" section as front matter. Position it directly **after the Foreword and before Part I**.
+- **Dedication** — Untouched, per your instruction.
+- **TOC entries** — Add "How to Use This Handbook" under Front Matter in all three TOCs.
 
-Nothing wrong with it — it just needs to live in the right place. Instead of being its own Part VII at the end, it becomes a small badge on the Part II header and intro: *"Part II — The Operating System (Volume 2)."* Readers immediately see what's new without the structural awkwardness of jumping back to "Volume 1" material for Identity & Scale.
-
-### New structure
+## 2. New 6-part structure
 
 ```
 Front Matter
   Dedication
-  Foreword
+  Author's Note
+  How to Use This Handbook        ← new
 
 Part I — The Frame
   1. The ALP Doctrine — Altitude, Logic, Pressure
   2. All Problems Are Entrepreneurial Problems
   3. The ALP Scaling Stool
 
-Part II — The Operating System  (Volume 2)
-  Why the Operating System  (intro)
+Part II — The Operating System (Volume 2)
+  Why the Operating System
   4. A Contracting Company Cannot Run on the Owner
   5. Hierarchy Is Not Accountability
   6. The Six Components of a Contracting Operating System
   7. Weekly Execution Is Where the Company Is Won
-  8. Systems Are How You Take the Personality Out of the Business
+  8. Systems Remove Personality from the Business
   9. Why AOS Belongs in an Application
 
-Part III — The Stool: Business Systems
+Part III — The Business Systems
   10. Marketing as Infrastructure
   11. Upstream Marketing & Being "In the Know"
   12. Sales, Pressure, and Clarity
   13. Operations as Margin Protection
-  14. General Conditions & Invisible Costs
-  15. The ALP Decision Matrix
-  16. From Chaos to Control
+  14. From Chaos to Control
 
-Part IV — Time, Money, & Leverage
-  17. Operations Is Logistics — Not Labor
-  18. Documentation, Entitlement, and Proof
-  19. Notices & Playing Offense
-  20. Scheduling as Time Control
-  21. Start–Stop Work and Productivity Loss
-  22. Financial Command: Seeing the Business Clearly
-  23. General Conditions Are Not Overhead — They Are a Profit Center
-  24. CPM Schedules, Start–Stop Work, and the Cost of Disorder
+Part IV — Time, Money, and Commercial Control
+  15. Documentation, Entitlement, and Proof
+  16. Notices & Playing Offense
+  17. Scheduling, Start–Stop Work, and the Cost of Disorder
+  18. General Conditions: From Invisible Cost to Profit Center
+  19. Change Order Velocity and Monetizing Disruption
+  20. Financial Command and Financial Authority
+  21. The ALP Decision Matrix
 
-Part V — Identity & Scale
-  25. Change Order Velocity and Monetizing Disruption
-  26. Notices, Documentation, and Playing Offense
-  27. Financial Authority at Scale
-  28. The Decision Matrix: How Operators Decide Under Pressure
-  29. Identity, Pressure, and the Entrepreneur's Responsibility
+Part V — Identity, Leadership, and Scale
+  22. Identity, Pressure, and the Entrepreneur's Responsibility
+  23. Leadership, Standards, and Cultural Enforcement
+  24. Scaling Without Losing Control
 
-Part VI — Real-Time Application
-  30. Using the ALP Handbook in Real Time
-  31. Scaling Without Losing Control
-  32. Leadership, Standards, and Cultural Enforcement
-
-Part VII — Commitment
-  The ALP Way — Doctrine & Commitment
+Part VI — Real-Time Application & Commitment
+  25. Using the ALP Handbook in Real Time
+  26. The ALP Way — Doctrine & Commitment
 ```
 
-### Chapter renumbering map
+## 3. How the duplicates get consolidated
 
-| Old | New | Title |
+Each merge **keeps both chapter files** (so anchor IDs and existing deep links stay valid) and renders them as a **single escalating chapter** in the reading flow. The second file becomes a clearly-labeled escalation section ("From Tactic to Standard", "At Scale", etc.) under the first chapter's display number — no separate number in the TOC.
+
+| Topic | Files involved (anchors preserved) | Result |
 |---|---|---|
-| 27 | 4  | A Contracting Company Cannot Run on the Owner |
-| 28 | 5  | Hierarchy Is Not Accountability |
-| 29 | 6  | The Six Components of a Contracting Operating System |
-| 30 | 7  | Weekly Execution Is Where the Company Is Won |
-| 31 | 8  | Systems Are How You Take the Personality Out of the Business |
-| 32 | 9  | Why AOS Belongs in an Application |
-| 4–10  | 10–16 | (old Part II — The Stool, shifted +6) |
-| 11–18 | 17–24 | (old Part III — Time, Money, & Leverage, shifted +6) |
-| 19–23 | 25–29 | (old Part IV — Identity & Scale, shifted +6) |
-| 24–26 | 30–32 | (old Part V — Real-Time Application, shifted +6) |
-| Final | Final | (unchanged, now Part VII) |
+| Decision Matrix | `chapter-9` + `chapter-22` | One chapter (#21), Ch 22 becomes an "At Scale" coda |
+| Notices / Docs / Offense | `chapter-12`, `chapter-13`, `chapter-20` | Two chapters: Documentation (#15) absorbs old Ch 12 + the docs half of Ch 20; Notices (#16) absorbs Ch 13 + the offense half of Ch 20 |
+| General Conditions | `chapter-8` + `chapter-17` | One chapter (#18) with two parts: "Invisible Cost" → "Profit Center" |
+| Scheduling / Start-Stop / CPM | `chapter-14`, `chapter-15`, `chapter-18` | One chapter (#17) — scheduling as time control → start-stop loss → CPM and disorder |
+| Financial Command / Authority | `chapter-16` + `chapter-21` | One chapter (#20) — seeing the business clearly → authority at scale |
 
-### Technical section
+Net chapter count drops from 32 displayed chapters to **26**. AOS (6) + Frame (3) + Business Systems (5) + Time/Money (7) + Identity (3) + Real-Time (2) = 26.
 
-**Component file IDs stay the same.** Renaming files (e.g. `Chapter4.tsx` → `Chapter10.tsx`) would touch every import and every section anchor ID. Instead:
+## 4. Technical approach
 
-- Keep file names and component names as-is (`Chapter4`, `Chapter27`, etc.).
-- Keep anchor IDs as-is (`#chapter-4`, `#chapter-27`, etc.) so existing magic-link references and any external links don't break.
-- Update only the **displayed chapter number** inside each chapter's `ChapterHeader` (the "Chapter 4" → "Chapter 10" label).
-- Update the **render order** in `src/pages/Handbook.tsx` to place Volume 2 components after `Chapter3` and before `Chapter4`.
-- Update the **TOC files** (`TableOfContents.tsx`, `PreviewTableOfContents.tsx`, `FloatingTOC.tsx`) to reflect new part structure, new chapter numbers, and new ordering. The clickable IDs keep pointing at the existing anchors.
-- Update `PartHeader` calls in `Handbook.tsx` to the new Roman numerals (I → VII).
-- Add a small "Volume 2" eyebrow/badge to the Part II header and to `Volume2Intro` so the update is visible without making it a separate part.
+- **No file renames, no anchor changes.** All existing `chapter-X` IDs stay so any saved links or magic-link bookmarks still resolve.
+- For each merged pair/trio:
+  - Keep the first file rendering normally with the new display number via `ChapterHeader number={X}`.
+  - Strip the `ChapterHeader` from the merged-in files and replace with an in-chapter `<Section title="...">` heading so they read as continuation, not new chapters.
+  - Render the merged files back-to-back inside the same `<div id="chapter-X">` wrapper in `Handbook.tsx` — visually one chapter, but both anchor IDs still exist for backlinks.
+- Update `TableOfContents.tsx`, `PreviewTableOfContents.tsx`, `FloatingTOC.tsx` to the new 6-part / 26-chapter structure.
+- Update `FloatingTOC.tsx` parable mappings to the new display numbers.
+- Update `mem://content/handbook-structure` to reflect the 6-part shape + the anchor-vs-display mapping.
 
-**Free preview chapters** in `PreviewTableOfContents.tsx`:
-- `FREE_CHAPTERS` currently unlocks Ch 2, 3, 11, 15, 19, 23 (by old numbers / IDs). The IDs don't change, so the array stays valid. We should review whether to also unlock one AOS chapter as a preview teaser — recommendation: add `chapter-27` (now Ch 4 — "A Contracting Company Cannot Run on the Owner") as a preview hook for the updated edition.
+## 5. AOS-as-natural-home framing (your last point)
 
-**Memory updates** after implementation:
-- Update `mem://content/handbook-structure` to reflect the new 7-part / 32-chapter layout with AOS as Part II.
-- Note in memory: "Anchor IDs preserve original chapter numbers; displayed numbers are the source of truth for readers."
+The Volume 2 intro already opens with "the operating system" as a concept. I'll do a light pass on `Volume2Intro.tsx` and Chapter 9 (`Why AOS Belongs in an Application`) to make sure the *application* is positioned as "the natural home for the system you've now been convinced you need" — not as a product pitch. No new content, just tone tightening on the bridge sentences.
 
-### Out of scope for this plan
+## 6. Explicitly out of scope (queued for next turns)
 
-- Cover photo swap (waiting on the new asset from you).
-- Styling changes (waiting on your direction).
-- Volume 2 announcement email to existing members (queued for after styling).
+- New cover photo
+- Styling changes
+- Volume 2 announcement email to existing members
+
+Once you approve, I'll execute in one pass: Foreword replacement → HowToUse → consolidation edits → TOC updates → Handbook.tsx render order → memory update.
