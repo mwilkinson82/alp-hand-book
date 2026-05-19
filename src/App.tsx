@@ -2,7 +2,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AuthProvider } from "@/contexts/AuthContext";
 import SalesPage from "./pages/SalesPage";
 import PreviewExperience from "./pages/PreviewExperience";
@@ -16,6 +16,26 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+const AppRoutes = () => {
+  const location = useLocation();
+  return (
+    <div key={location.pathname} className="page-enter">
+      <Routes location={location}>
+        <Route path="/" element={<SalesPage />} />
+        <Route path="/preview" element={<PreviewExperience />} />
+        <Route path="/read" element={<Handbook />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/purchase-success" element={<PurchaseSuccess />} />
+        <Route path="/admin" element={<Admin />} />
+        <Route path="/refund-policy" element={<RefundPolicy />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </div>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -23,18 +43,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <AuthProvider>
-          <Routes>
-            <Route path="/" element={<SalesPage />} />
-            <Route path="/preview" element={<PreviewExperience />} />
-            <Route path="/read" element={<Handbook />} />
-            <Route path="/auth" element={<Auth />} />
-            <Route path="/purchase-success" element={<PurchaseSuccess />} />
-            <Route path="/admin" element={<Admin />} />
-            <Route path="/refund-policy" element={<RefundPolicy />} />
-            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <AppRoutes />
         </AuthProvider>
       </BrowserRouter>
     </TooltipProvider>
