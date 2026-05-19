@@ -172,48 +172,21 @@ const SalesPage: React.FC = () => {
                   </div>
                 </aside>
 
-                {/* Right page */}
-                <div className="relative flex-1 px-5 sm:px-7 py-5 sm:py-6 flex flex-col">
-                  <p className="uppercase tracking-[0.22em] text-[7.5px] sm:text-[9px] text-foreground/60 font-sans mb-4">
-                    ALP Contractor Circle
-                  </p>
-
-                  <h2
-                    className="font-serif leading-[0.95] text-[28px] sm:text-[40px] md:text-[52px] text-foreground"
-                    style={{ fontWeight: 700, letterSpacing: '-0.02em', fontVariationSettings: '"opsz" 144' }}
-                  >
-                    THE ALP<br />HANDBOOK
-                  </h2>
-
-                  <div className="w-8 h-px bg-foreground/40 my-3" />
-
-                  <p className="font-serif text-[11px] sm:text-[13px] text-foreground/85 leading-snug max-w-[18ch]">
-                    A field manual for running a contracting company.
-                  </p>
-                  <p className="font-serif italic text-[11px] sm:text-[13px] text-foreground/85 leading-snug max-w-[18ch] mt-2">
-                    Build the company<br />behind the projects.
-                  </p>
-
-                  <div className="mt-4">
-                    <p className="uppercase tracking-[0.2em] text-[8px] sm:text-[10px] font-semibold text-[hsl(var(--brand-accent))]">
-                      AOS Edition
-                    </p>
-                    <p className="uppercase tracking-[0.18em] text-[7px] sm:text-[8.5px] text-foreground/55 mt-1 leading-relaxed max-w-[24ch]">
-                      Operating doctrine for vision,<br />people, data, issues,<br />process, and traction.
-                    </p>
+                {/* Right page — actual book cover as the hero focal point */}
+                <div className="relative flex-1 flex flex-col bg-[hsl(40_30%_96%)]">
+                  <div className="flex-1 min-h-0 flex items-center justify-center p-3 sm:p-4">
+                    <img
+                      src={bookCover}
+                      alt="The ALP Handbook — AOS Edition cover"
+                      className="h-full w-auto max-w-full object-contain"
+                      style={{ filter: 'drop-shadow(0 14px 24px hsl(30 10% 10% / 0.18))' }}
+                    />
                   </div>
 
-                  <div className="w-8 h-px bg-foreground/30 mt-4 mb-2" />
-                  <p className="uppercase tracking-[0.18em] text-[7.5px] sm:text-[9px] text-foreground/70">Second Edition</p>
-
-                  <p className="font-serif text-[11px] sm:text-[13px] mt-3">Marshall Wilkinson</p>
-
-                  {/* (interior bulldozer removed — single moment only) */}
-
                   {/* Audio player card */}
-                  <div className="mt-auto pt-4">
+                  <div className="px-4 sm:px-5 pb-4 sm:pb-5">
                     <p className="uppercase tracking-[0.2em] text-[7.5px] sm:text-[9px] text-foreground/60">Audio Chapter Available</p>
-                    <div className="mt-2 rounded-md bg-[hsl(35_15%_94%)] border border-border/60 px-3 py-2.5 flex items-center gap-3">
+                    <div className="mt-2 rounded-md bg-background border border-border/60 px-3 py-2.5 flex items-center gap-3">
                       <button className="w-7 h-7 rounded-full bg-background border border-border/70 flex items-center justify-center shrink-0">
                         <Play className="w-3 h-3 text-foreground/80 ml-0.5" fill="currentColor" />
                       </button>
@@ -244,15 +217,6 @@ const SalesPage: React.FC = () => {
                 </div>
               </div>
             </div>
-
-            {/* Single bulldozer moment — small premium product object, breathing room, bottom-right */}
-            <img
-              src={bulldozer}
-              alt=""
-              aria-hidden
-              className="pointer-events-none select-none absolute -bottom-8 -right-4 sm:-bottom-12 sm:-right-8 w-[26%] max-w-[180px]"
-              style={{ filter: 'drop-shadow(0 18px 24px hsl(30 10% 10% / 0.22))' }}
-            />
           </div>
 
           {/* RIGHT — Editorial lockup */}
