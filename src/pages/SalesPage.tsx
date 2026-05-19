@@ -131,8 +131,8 @@ const SalesPage: React.FC = () => {
           </h1>
 
           <p className="font-sans text-[15px] text-foreground/75 leading-snug max-w-[34ch] mt-4 mb-5">
-            The ALP Handbook is an interactive field manual for contractors who
-            want to run the company, not just the projects.
+            A field manual for contractors who want to stop running the business
+            from memory, pressure, and reaction.
           </p>
 
           {/* Primary CTA + light secondary link */}
