@@ -6,7 +6,10 @@ const Foreword: React.FC = () => {
   return (
     <div id="foreword" className="py-24 border-t border-chapter-divider">
       <header className="mb-16">
-        <Eyebrow className="mb-6">Foreword</Eyebrow>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-6">
+          <Eyebrow accent bare>Updated for V2</Eyebrow>
+          <Eyebrow bare>Foreword</Eyebrow>
+        </div>
         <h2 className="chapter-heading">Author's Note</h2>
       </header>
 

@@ -6,7 +6,7 @@ const Volume2Intro: React.FC = () => {
     <div id="volume-2-intro" className="py-24 border-t border-chapter-divider">
       <header className="mb-16 pt-8">
         <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-6">
-          <Eyebrow accent>Volume 2 — New</Eyebrow>
+          <Eyebrow accent bare>New in V2</Eyebrow>
           <Eyebrow bare>Foreword</Eyebrow>
         </div>
         <h2 className="chapter-heading">Why the Operating System</h2>

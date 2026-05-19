@@ -5,6 +5,7 @@ interface TocItem {
   id: string;
   title: string;
   chapter?: string;
+  badge?: string;
 }
 
 interface TocSection {
@@ -19,8 +20,8 @@ const tocData: TocSection[] = [
     title: 'Front Matter',
     items: [
       { id: 'dedication', title: 'Dedication' },
-      { id: 'foreword', title: "Foreword / Author's Note" },
-      { id: 'how-to-use', title: 'How to Use This Handbook' },
+      { id: 'foreword', title: "Foreword / Author's Note", badge: 'Updated for V2' },
+      { id: 'how-to-use', title: 'How to Use This Handbook', badge: 'Updated for V2' },
     ],
   },
   {
@@ -35,7 +36,7 @@ const tocData: TocSection[] = [
   {
     part: 'II',
     title: 'The Operating System',
-    eyebrow: 'Volume 2 — New',
+    eyebrow: 'New in V2',
     items: [
       { id: 'volume-2-intro', title: 'Why the Operating System' },
       { id: 'chapter-27', chapter: '4', title: 'A Contracting Company Cannot Run on the Owner' },
@@ -49,6 +50,7 @@ const tocData: TocSection[] = [
   {
     part: 'III',
     title: 'The Business Systems',
+    eyebrow: 'Reorganized in V2',
     items: [
       { id: 'chapter-4', chapter: '10', title: 'Marketing as Infrastructure' },
       { id: 'chapter-5', chapter: '11', title: 'Upstream Marketing & Being "In the Know"' },
@@ -60,6 +62,7 @@ const tocData: TocSection[] = [
   {
     part: 'IV',
     title: 'Time, Money, and Commercial Control',
+    eyebrow: 'Reorganized in V2',
     items: [
       { id: 'chapter-12', chapter: '15', title: 'Documentation, Entitlement, and Proof' },
       { id: 'chapter-13', chapter: '16', title: 'Notices & Playing Offense' },
@@ -73,6 +76,7 @@ const tocData: TocSection[] = [
   {
     part: 'V',
     title: 'Identity, Leadership, and Scale',
+    eyebrow: 'Reorganized in V2',
     items: [
       { id: 'chapter-23', chapter: '22', title: "Identity, Pressure, and the Entrepreneur's Responsibility" },
       { id: 'chapter-26', chapter: '23', title: 'Leadership, Standards, and Cultural Enforcement' },
@@ -82,6 +86,7 @@ const tocData: TocSection[] = [
   {
     part: 'VI',
     title: 'Real-Time Application & Commitment',
+    eyebrow: 'Reorganized in V2',
     items: [
       { id: 'chapter-24', chapter: '25', title: 'Using the ALP Handbook in Real Time' },
       { id: 'final-chapter', chapter: '26', title: 'The ALP Way — Doctrine & Commitment' },
@@ -130,8 +135,13 @@ const TableOfContents: React.FC<TableOfContentsProps> = ({ onNavigate }) => {
                 <span className="font-sans text-xs uppercase tracking-[0.25em] opacity-50 w-10 shrink-0">
                   {item.chapter ?? ''}
                 </span>
-                <span className="toc-item__title text-xl md:text-2xl flex-1">
-                  {item.title}
+                <span className="toc-item__title text-xl md:text-2xl flex-1 flex items-baseline gap-3 flex-wrap">
+                  <span>{item.title}</span>
+                  {item.badge && (
+                    <Eyebrow accent bare className="text-[10px]">
+                      {item.badge}
+                    </Eyebrow>
+                  )}
                 </span>
               </div>
             ))}
