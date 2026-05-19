@@ -154,7 +154,7 @@
 
   .handbook-subtitle {
     @apply text-xs md:text-sm uppercase;
-    font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
     font-weight: 500;
     letter-spacing: 0.28em;
   }
@@ -207,7 +207,7 @@
   /* Tiny tracked uppercase label — the DDB micro-voice */
   .eyebrow {
     @apply text-[11px] md:text-xs uppercase font-medium inline-flex items-center gap-3;
-    font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
     letter-spacing: 0.28em;
     color: hsl(var(--foreground) / 0.65);
   }
@@ -322,7 +322,7 @@
 
   .parable-label {
     @apply text-xs uppercase mb-4 opacity-60;
-    font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
     letter-spacing: 0.28em;
     font-weight: 500;
   }
@@ -418,7 +418,7 @@
 
   .toc-part {
     @apply text-xs uppercase pt-12 pb-5 opacity-70;
-    font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
     letter-spacing: 0.3em;
     font-weight: 500;
   }
