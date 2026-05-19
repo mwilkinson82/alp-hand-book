@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fraunces (display serif, DDB/Ogilvy editorial) + Space Grotesk (sans, body + tracked labels) */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+/* Instrument Serif (display, editorial headlines) + IBM Plex Mono (labels, metadata) */
+/* Body / UI / buttons use Helvetica via the system stack. */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 @layer base {
   :root {
