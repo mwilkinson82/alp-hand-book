@@ -15,7 +15,6 @@ interface AuthContextType {
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
-const ADMIN_EMAIL = 'wilkinson.marshall@gmail.com';
 
 export const useAuth = () => {
   const context = useContext(AuthContext);
@@ -36,12 +35,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     const activeSession = sessionOverride ?? session;
     if (!activeSession) {
       setHasPurchased(false);
-      return;
-    }
-
-    if (activeSession.user.email?.toLowerCase() === ADMIN_EMAIL) {
-      setHasPurchased(true);
-      setPurchaseLoading(false);
       return;
     }
 
