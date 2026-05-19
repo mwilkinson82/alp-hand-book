@@ -110,7 +110,7 @@ const SalesPage: React.FC = () => {
       {/* ============================================================
           MOBILE / TABLET HERO — campaign-first, editorial opening
           ============================================================ */}
-      <section className="lg:hidden relative pt-6 sm:pt-8 pb-12 px-5 sm:px-6 overflow-hidden">
+      <section className="lg:hidden relative pt-20 sm:pt-24 pb-12 px-5 sm:px-6 overflow-hidden">
         <div className="max-w-[640px] mx-auto">
           {/* Brand line */}
           <div className="flex items-center gap-3 mb-2">
