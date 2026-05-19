@@ -196,8 +196,13 @@ const FloatingTOC: React.FC = () => {
                 {tocData.map((section, sectionIndex) => (
                   <div key={sectionIndex} className="mb-6">
                     {section.part ? (
-                      <div className="text-xs uppercase tracking-widest opacity-50 pt-4 pb-2" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '0.15em' }}>
-                        Part {section.part} — {section.title}
+                      <div className="text-xs uppercase tracking-widest opacity-50 pt-4 pb-2 flex items-center gap-2 flex-wrap" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '0.15em' }}>
+                        <span>Part {section.part} — {section.title}</span>
+                        {section.eyebrow && (
+                          <span className="text-[9px] px-1.5 py-0.5 rounded-sm bg-brand-accent/15 text-brand-accent" style={{ letterSpacing: '0.18em' }}>
+                            {section.eyebrow}
+                          </span>
+                        )}
                       </div>
                     ) : (
                       <div className="text-xs uppercase tracking-widest opacity-50 pb-2" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '0.15em' }}>
