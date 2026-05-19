@@ -130,17 +130,16 @@ const Auth: React.FC = () => {
     
     setMagicLinkLoading(true);
     try {
-      const { error } = await supabase.auth.signInWithOtp({
-        email,
-        options: {
-          emailRedirectTo: `${window.location.origin}/read`,
-        },
+      // Use server-side admin magic link (bypasses Supabase's client OTP rate limits)
+      const { data, error } = await supabase.functions.invoke('send-welcome-email-admin', {
+        body: { email },
       });
-      
-      if (error) {
+
+      if (error || (data && data.error)) {
+        const msg = (data && data.error) || error?.message || 'Unable to send link';
         toast({
           title: 'Failed to send link',
-          description: error.message,
+          description: msg,
           variant: 'destructive',
         });
       } else {
