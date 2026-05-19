@@ -418,10 +418,9 @@ const SalesPage: React.FC = () => {
             <div className="w-14 h-px bg-foreground/30 mt-7 mb-6" />
 
             <p className="font-sans text-[15px] md:text-base text-foreground/75 leading-relaxed max-w-[46ch] mb-8">
-              The ALP Handbook is an interactive web experience for
-              contractors who want to run the company, not just the
-              projects. Read the doctrine, follow the chapters, and
-              listen to selected audio sections as you work.
+              A field manual for contractors who want to stop running the
+              business from memory, pressure, and reaction. It shows you how to
+              think, decide, document, lead, and operate with control.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12">
