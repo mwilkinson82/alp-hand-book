@@ -129,6 +129,7 @@
     @apply bg-background text-foreground antialiased;
     font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
     font-feature-settings: "ss01", "ss02";
+    font-synthesis: none;
   }
 
   /* All headings: high-contrast editorial serif */

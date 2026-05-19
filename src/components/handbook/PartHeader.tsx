@@ -15,9 +15,8 @@ const PartHeader: React.FC<PartHeaderProps> = ({ number, title, eyebrow }) => {
       <h1
         className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.92]"
         style={{
-          fontWeight: 700,
+          fontWeight: 400,
           letterSpacing: '-0.03em',
-          fontVariationSettings: '"opsz" 144, "SOFT" 50',
         }}
       >
         {title}

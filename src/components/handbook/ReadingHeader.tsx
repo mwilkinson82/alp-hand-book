@@ -40,7 +40,7 @@ const ReadingHeader: React.FC<ReadingHeaderProps> = ({ currentChapter }) => {
           {currentChapter && (
             <>
               <span className="opacity-30">|</span>
-              <span className="font-serif text-sm text-foreground/65" style={{ fontVariationSettings: '"opsz" 72' }}>
+              <span className="font-serif text-sm text-foreground/65">
                 {currentChapter}
               </span>
             </>
