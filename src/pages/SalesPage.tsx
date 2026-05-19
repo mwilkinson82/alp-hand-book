@@ -5,7 +5,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import StickyPreviewButton from '@/components/handbook/StickyPreviewButton';
-import bookCover from '@/assets/book-cover.png';
+import bookCover from '@/assets/book-cover-v2.png';
 import marshallPhoto from '@/assets/marshall-wilkinson.png';
 import { Eye, CheckCircle2, XCircle, ArrowRight, Target, Shield, Clock, TrendingUp, FileText, Zap, Moon, Sun, Quote, Lock, CreditCard, Monitor, Headphones, BookOpen, Infinity, Palette, Navigation } from 'lucide-react';
 const testimonials = [{
