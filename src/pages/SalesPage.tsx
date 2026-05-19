@@ -265,7 +265,7 @@ const SalesPage: React.FC = () => {
             </div>
 
             <h1
-              className="font-serif text-[40px] sm:text-5xl lg:text-[58px] xl:text-[64px] leading-[0.98] text-foreground"
+              className="font-serif text-[38px] sm:text-[46px] lg:text-[54px] xl:text-[60px] leading-[0.98] text-foreground"
               style={{
                 fontWeight: 700,
                 letterSpacing: '-0.025em',
