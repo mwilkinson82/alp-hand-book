@@ -93,11 +93,10 @@ const tocData: TocSection[] = [
 const FREE_CHAPTERS = [
   'dedication',
   'foreword',
+  'how-to-use',
   'chapter-2',
   'chapter-3',
   'chapter-27', // Volume 2 teaser: "A Contracting Company Cannot Run on the Owner"
-  'chapter-11',
-  'chapter-15',
   'chapter-19',
   'chapter-23',
 ];
