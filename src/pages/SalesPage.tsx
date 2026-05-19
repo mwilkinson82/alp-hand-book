@@ -255,17 +255,17 @@ const SalesPage: React.FC = () => {
 
           {/* Secondary copy — moved below mockup */}
           <p className="font-sans text-[14px] text-foreground/65 leading-snug max-w-[38ch] mt-6">
-            Read the doctrine, follow the chapters, and listen to selected audio
-            sections as you work.
+            Read the doctrine. Follow the chapters. Listen to selected audio
+            sections while you work.
           </p>
 
           {/* Feature chips — hidden on first viewport, appear below the mockup */}
           <div className="hidden sm:flex flex-wrap gap-2 mt-5">
             {[
-              'Magic link access',
-              'Interactive TOC',
-              'Audio chapters',
-              'Lifetime access',
+              'Field Manual Format',
+              'AOS Edition',
+              'Audio Chapters',
+              'Lifetime Access',
             ].map((label, i) => (
               <span
                 key={i}
