@@ -110,17 +110,17 @@ const SalesPage: React.FC = () => {
       {/* ============================================================
           MOBILE / TABLET HERO — campaign-first, editorial opening
           ============================================================ */}
-      <section className="lg:hidden relative pt-12 sm:pt-16 pb-16 px-5 sm:px-6 overflow-hidden">
+      <section className="lg:hidden relative pt-10 sm:pt-12 pb-12 px-5 sm:px-6 overflow-hidden">
         <div className="max-w-[640px] mx-auto">
           {/* Brand line */}
-          <div className="flex items-center gap-3 mb-5">
+          <div className="flex items-center gap-3 mb-3">
             <span className="w-8 h-px bg-foreground/40" />
             <span className="uppercase tracking-[0.28em] text-[10px] font-mono text-foreground/70">
               The ALP Handbook
             </span>
           </div>
 
-          <p className="uppercase tracking-[0.28em] text-[10px] font-mono text-foreground/55 mb-7">
+          <p className="uppercase tracking-[0.28em] text-[10px] font-mono text-foreground/55 mb-4">
             ALP Contractor Circle
           </p>
 
@@ -129,42 +129,42 @@ const SalesPage: React.FC = () => {
             className="font-serif text-foreground"
             style={{
               fontWeight: 400,
-              fontSize: 'clamp(44px, 13vw, 68px)',
-              lineHeight: 0.96,
-              letterSpacing: '-0.025em',
+              fontSize: 'clamp(44px, 11vw, 58px)',
+              lineHeight: 0.94,
+              letterSpacing: '-0.02em',
             }}
           >
             A field manual for building the company behind the projects.
           </h1>
 
-          <div className="w-12 h-px bg-foreground/30 mt-7 mb-5" />
-
-          <p className="font-sans text-[15px] text-foreground/75 leading-relaxed max-w-[34ch] mb-8">
+          <p className="font-sans text-[15px] text-foreground/75 leading-snug max-w-[34ch] mt-4 mb-5">
             An interactive web handbook for contractors who want to run the
             company, not just the projects.
           </p>
 
-          {/* Stacked CTAs — thumb-sized */}
-          <div className="flex flex-col gap-3 mb-10">
+          {/* Primary CTA + light secondary link */}
+          <div className="flex flex-col items-start gap-3 mb-6">
             <button
               onClick={handlePurchase}
               disabled={checkoutLoading || loading}
-              className="pill-cta w-full py-[18px] text-[12px]"
+              className="pill-cta w-full text-[12px]"
+              style={{ height: 52, paddingTop: 0, paddingBottom: 0 }}
             >
               {checkoutLoading ? 'Loading…' : 'Get the Handbook — $47'}
             </button>
 
-            <Link to="/preview" className="w-full">
-              <button className="pill-cta pill-cta--ghost w-full py-[18px] text-[12px]">
-                <Eye className="w-4 h-4" />
-                Preview the Experience
-              </button>
+            <Link
+              to="/preview"
+              className="self-center inline-flex items-center gap-1.5 text-[13px] font-sans text-foreground/70 hover:text-foreground transition-colors"
+            >
+              <Eye className="w-3.5 h-3.5" />
+              Preview the experience →
             </Link>
           </div>
 
-          {/* Proof object — compact handbook card */}
-          <div className="mt-10 mb-8">
-            <p className="uppercase tracking-[0.24em] text-[9px] font-mono text-foreground/50 mb-3">
+          {/* Proof object — compact handbook card (top peeks into first viewport) */}
+          <div className="mt-4 mb-8">
+            <p className="uppercase tracking-[0.24em] text-[9px] font-mono text-foreground/50 mb-2.5">
               The Digital Handbook
             </p>
 
@@ -181,7 +181,7 @@ const SalesPage: React.FC = () => {
                 {/* Top: tiny TOC strip + cover side by side */}
                 <div className="flex">
                   {/* TOC mini strip */}
-                  <aside className="w-[36%] border-r border-border/70 px-3 py-3 text-[8px] font-sans">
+                  <aside className="w-[34%] border-r border-border/70 px-3 py-3 text-[8px] font-sans">
                     <div className="flex items-center justify-between mb-3">
                       <span className="uppercase tracking-[0.2em] text-foreground/70">Contents</span>
                       <Menu className="w-2 h-2 text-foreground/40" />
@@ -215,11 +215,11 @@ const SalesPage: React.FC = () => {
                   </aside>
 
                   {/* Cover */}
-                  <div className="flex-1 bg-[hsl(40_30%_96%)] flex items-center justify-center p-3 min-h-[200px]">
+                  <div className="flex-1 bg-[hsl(40_30%_96%)] flex items-center justify-center p-3 min-h-[230px]">
                     <img
                       src={bookCover}
                       alt="The ALP Handbook — AOS Edition cover"
-                      className="max-h-[180px] w-auto object-contain"
+                      className="max-h-[210px] w-auto object-contain"
                       style={{ filter: 'drop-shadow(0 10px 18px hsl(30 10% 10% / 0.18))' }}
                     />
                   </div>
@@ -258,8 +258,8 @@ const SalesPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Feature chips — wrap, not columns */}
-          <div className="flex flex-wrap gap-2 mt-6">
+          {/* Feature chips — secondary, below the mockup */}
+          <div className="flex flex-wrap gap-2 mt-4">
             {[
               'Magic link access',
               'Interactive TOC',
@@ -276,6 +276,7 @@ const SalesPage: React.FC = () => {
           </div>
         </div>
       </section>
+
 
       {/* ============================================================
           DESKTOP HERO — DDB/Ogilvy editorial lockup (unchanged)
