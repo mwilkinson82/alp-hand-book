@@ -106,77 +106,90 @@ const SalesPage: React.FC = () => {
         </div>
       </header>
 
-      {/* Hero Section */}
+      {/* Hero Section — DDB/Ogilvy editorial lockup */}
       <section className="min-h-[calc(100vh-60px)] lg:min-h-screen flex items-center justify-center pt-16 lg:pt-20 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-16 items-center py-8">
-          <div className="order-2 lg:order-1">
-            <p className="text-sm uppercase tracking-[0.3em] opacity-50 mb-6 font-sans">
-              The Operating Doctrine
-            </p>
-            <h1 className="handbook-title text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight">
-              THE ALP HANDBOOK
+        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-12">
+          {/* Cover — left on desktop, top on mobile */}
+          <div className="order-1 flex justify-center lg:justify-end">
+            <img
+              src={bookCover}
+              alt="The ALP Handbook by Marshall Wilkinson"
+              className="max-w-[220px] sm:max-w-xs md:max-w-sm lg:max-w-md w-full h-auto shadow-2xl rounded-sm"
+            />
+          </div>
+
+          {/* Lockup — right */}
+          <div className="order-2">
+            <div className="eyebrow mb-8">ALP Contractor Circle</div>
+
+            <h1
+              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.92] mb-6"
+              style={{
+                fontWeight: 700,
+                letterSpacing: '-0.03em',
+                fontVariationSettings: '"opsz" 144, "SOFT" 50',
+              }}
+            >
+              The ALP<br />Handbook.
             </h1>
-            <p className="text-lg sm:text-xl mb-6 sm:mb-8 leading-relaxed font-medium md:text-3xl text-[hsl(var(--brand-accent))]">
-              To Operating a Top-Tier Contracting Company     
-            </p>
-            
-            <div className="body-text space-y-3 sm:space-y-4 mb-8 sm:mb-10 opacity-70">
-              <p>Most contractors don't fail because they lack skill.</p>
-              <p className="body-text-emphasis text-foreground opacity-100">They fail because they lack command.</p>
-            </div>
 
-            <p className="body-text mb-6 sm:mb-8 opacity-70 text-sm sm:text-base">
-              The ALP Handbook is a practical, field-tested operating system for contractors who want to scale revenue, protect margin, and regain control — without chaos, burnout, or constant firefighting.
+            <div className="w-12 h-px bg-foreground/30 mb-6" />
+
+            <p className="editorial-tagline text-xl md:text-2xl text-foreground/85 leading-snug mb-3">
+              A field manual for running a contracting company.
+            </p>
+            <p className="editorial-tagline text-xl md:text-2xl text-foreground/70 leading-snug mb-10">
+              Build the company behind the projects.
             </p>
 
-            <div className="space-y-1 sm:space-y-2 mb-8 sm:mb-10">
-              <p className="body-text opacity-60 text-sm sm:text-base">This is not motivation.</p>
-              <p className="body-text opacity-60 text-sm sm:text-base">This is not theory.</p>
-              <p className="body-text-emphasis text-sm sm:text-base">This is how top-tier operators actually run their businesses.</p>
-            </div>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10">
+              <button
+                onClick={handlePurchase}
+                disabled={checkoutLoading || loading}
+                className="pill-cta"
+              >
+                {checkoutLoading ? 'Loading…' : 'Get the Handbook — $47'}
+              </button>
 
-            <p className="text-xs sm:text-sm uppercase tracking-widest opacity-50 mb-4 sm:mb-6">By Marshall Wilkinson</p>
-
-            <p className="body-text text-sm sm:text-base opacity-70 mb-6 sm:mb-8 italic">
-              A premium interactive web experience — read instantly in your browser with dark mode, audio commentary, and chapter navigation.
-            </p>
-
-            <div className="flex flex-col gap-3 sm:gap-4">
-              <Button onClick={handlePurchase} disabled={checkoutLoading || loading} size="lg" className="font-sans uppercase tracking-widest text-sm sm:text-base w-full sm:w-auto">
-                {checkoutLoading ? 'Loading...' : 'Get the Handbook — $47'}
-              </Button>
-              
-              
-              <Link to="/preview" className="w-full sm:w-auto">
-                <Button variant="outline" size="lg" className="font-sans uppercase tracking-widest w-full animate-pulse border-orange-500 text-orange-500 hover:bg-orange-500 hover:text-white text-sm sm:text-base">
-                  <Eye className="w-4 h-4 mr-2" />
+              <Link to="/preview">
+                <button className="pill-cta pill-cta--ghost w-full">
+                  <Eye className="w-4 h-4" />
                   Preview Experience
-                </Button>
+                </button>
               </Link>
             </div>
 
+            <div className="flex flex-col gap-3 mb-8">
+              <div className="w-10 h-px bg-foreground/30" />
+              <div className="eyebrow eyebrow--accent eyebrow--bare">AOS Edition</div>
+              <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/55 font-sans leading-relaxed max-w-sm">
+                Operating doctrine for vision, people, data, issues, process, and traction.
+              </p>
+            </div>
+
+            <div className="w-10 h-px bg-foreground/20 mb-4" />
+            <div className="eyebrow eyebrow--bare mb-1">Second Edition</div>
+            <p className="font-serif text-lg mt-3">Marshall Wilkinson</p>
+
             {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-6 mt-5 sm:mt-6 text-xs sm:text-sm opacity-60">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-10 text-[11px] uppercase tracking-[0.22em] font-sans text-foreground/50">
               <div className="flex items-center gap-2">
-                <Monitor className="w-4 h-4" />
+                <Monitor className="w-3.5 h-3.5" />
                 <span>Interactive Web Experience</span>
               </div>
               <div className="flex items-center gap-2">
-                <Infinity className="w-4 h-4" />
+                <Infinity className="w-3.5 h-3.5" />
                 <span>Lifetime Access</span>
               </div>
               <div className="flex items-center gap-2">
-                <CreditCard className="w-4 h-4" />
+                <CreditCard className="w-3.5 h-3.5" />
                 <span>One-Time Payment</span>
               </div>
             </div>
           </div>
-
-          <div className="order-1 lg:order-2 flex justify-center">
-            <img src={bookCover} alt="The ALP Handbook by Marshall Wilkinson" className="max-w-[200px] sm:max-w-xs md:max-w-sm lg:max-w-md w-full h-auto shadow-2xl rounded-sm" />
-          </div>
         </div>
       </section>
+
 
       {/* Pain Points Section */}
       <AnimatedSection className="py-24 px-6 border-t border-border">

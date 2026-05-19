@@ -34,18 +34,19 @@ const ReadingHeader: React.FC<ReadingHeaderProps> = ({ currentChapter }) => {
     <header className="fixed top-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-4xl mx-auto px-6 md:px-12 h-14 flex items-center justify-between">
         <div className="flex items-center gap-4">
-          <span className="text-sm font-medium tracking-wide uppercase opacity-60" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '0.1em' }}>
+          <span className="text-[11px] font-medium uppercase font-sans text-foreground/65" style={{ letterSpacing: '0.28em' }}>
             The ALP Handbook
           </span>
           {currentChapter && (
             <>
               <span className="opacity-30">|</span>
-              <span className="text-sm opacity-50" style={{ fontFamily: 'Inter, sans-serif' }}>
+              <span className="font-serif text-sm text-foreground/65" style={{ fontVariationSettings: '"opsz" 72' }}>
                 {currentChapter}
               </span>
             </>
           )}
         </div>
+
         
         <button
           onClick={toggleTheme}
