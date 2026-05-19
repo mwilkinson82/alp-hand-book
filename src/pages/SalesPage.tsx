@@ -468,399 +468,537 @@ const SalesPage: React.FC = () => {
 
 
 
-      {/* Pain Points Section */}
-      <AnimatedSection className="py-24 px-6 border-t border-border">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="section-heading text-2xl md:text-3xl mb-4">
-            If This Feels Familiar, This Handbook Was Written for You
+      {/* ============================================================
+          2 — THE PROBLEM
+          ============================================================ */}
+      <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
+        <div className="max-w-3xl mx-auto">
+          <p className="eyebrow mb-8">The Problem</p>
+          <h2 className="section-heading text-3xl md:text-5xl mb-10 max-w-[18ch]">
+            The project is not the business.
           </h2>
-          
-          <div className="body-text space-y-2 mb-10 opacity-70">
-            <p>You're busy — but not in control.</p>
-            <p>Revenue is growing — but margin isn't.</p>
-            <p>Projects move — but always with friction.</p>
-          </div>
-
-          <p className="body-text mb-6 opacity-80">You deal with:</p>
-          
-          <ul className="grid md:grid-cols-2 gap-4 mb-12">
-            {['Constant schedule pressure', 'Start–stop work killing productivity', 'Margin erosion you can\'t fully explain', 'Owners dictating terms', 'Documentation that never quite "adds up"', 'Decisions made reactively, under stress'].map((item, i) => <li key={i} className="flex items-start gap-3 body-text opacity-70">
-                <XCircle className="w-5 h-5 text-destructive shrink-0 mt-0.5" />
-                {item}
-              </li>)}
-          </ul>
-
-          <div className="body-text space-y-2">
-            <p className="opacity-70">You don't need more hustle.</p>
-            <p className="opacity-70">You don't need another tactic.</p>
-            <p className="body-text-emphasis text-xl">You need a system.</p>
-          </div>
-        </div>
-      </AnimatedSection>
-
-      {/* Why ALP Section */}
-      <AnimatedSection className="py-24 px-6 bg-muted/30">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="section-heading text-2xl md:text-3xl mb-6">
-            Why ALP Is Different
-          </h2>
-          
-          <p className="body-text opacity-70 mb-4">Most business books are written by observers.</p>
-          <p className="body-text-emphasis text-xl mb-8">The ALP Handbook is written by an operator.</p>
-
-          <p className="body-text opacity-70 mb-8">
-            Marshall Wilkinson has executed and advised on billions of dollars in construction, navigated high-stakes disputes, protected margin under pressure, and built companies that scale without losing control.
-          </p>
-
-          <p className="body-text opacity-80 mb-6">
-            ALP — <span className="body-text-emphasis">Altitude, Logic, Pressure</span> — is the decision framework used to:
-          </p>
-
-          <ul className="grid md:grid-cols-2 gap-4 mb-10">
-            {[{
-            icon: Clock,
-            text: 'Control time'
-          }, {
-            icon: Shield,
-            text: 'Protect margin'
-          }, {
-            icon: Target,
-            text: 'Enforce standards'
-          }, {
-            icon: TrendingUp,
-            text: 'Monetize disruption'
-          }, {
-            icon: Zap,
-            text: 'Scale without chaos'
-          }].map(({
-            icon: Icon,
-            text
-          }, i) => <li key={i} className="flex items-center gap-3 body-text">
-                <Icon className="w-5 h-5 text-primary shrink-0" />
-                {text}
-              </li>)}
-          </ul>
-
-          <p className="body-text-emphasis">This handbook is the codified version of that system.</p>
-        </div>
-      </AnimatedSection>
-
-      {/* Operating System Section */}
-      <AnimatedSection className="py-24 px-6 border-t border-border">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="section-heading text-2xl md:text-3xl mb-6">
-            This Is an Operating System — Not a Collection of Tips
-          </h2>
-          
-          <p className="body-text opacity-80 mb-8">The ALP Handbook gives you:</p>
-
-          <ul className="space-y-4 mb-10">
-            {['A decision framework for operating under pressure', 'A time-control system using schedules and sequencing', 'A margin-protection model built around General Conditions', 'A documentation and entitlement framework that converts disruption into money', 'A leadership lens that enforces standards without micromanagement'].map((item, i) => <li key={i} className="flex items-start gap-3 body-text">
-                <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                {item}
-              </li>)}
-          </ul>
-
-          <div className="body-text space-y-2">
-            <p className="opacity-70">Every chapter connects.</p>
-            <p className="opacity-70">Nothing is isolated.</p>
-            <p className="body-text-emphasis text-xl">This is how order replaces chaos.</p>
+          <div className="body-text space-y-5 text-foreground/80">
+            <p>Most contractors are good at the work.</p>
+            <p>That is not the problem.</p>
+            <p>The problem is the company behind the work.</p>
+            <p>
+              The owner carries the standards. The owner remembers the details.
+              The owner catches the mistakes. The owner solves the people
+              problems. The owner protects the margin. The owner keeps the
+              pressure moving.
+            </p>
+            <p>That may feel like leadership.</p>
+            <p>Eventually, it becomes the ceiling.</p>
+            <p className="body-text-emphasis pt-2">
+              If everything still flows back to you, you do not have a scalable
+              company yet. You have owner dependency.
+            </p>
           </div>
         </div>
       </AnimatedSection>
 
-      {/* What You Get Section */}
-      <AnimatedSection className="py-24 px-6 border-t border-border">
-        <div className="max-w-4xl mx-auto">
-          <p className="text-sm uppercase tracking-[0.3em] opacity-50 mb-4 font-sans text-center">
-            What You're Getting
-          </p>
-          <h2 className="section-heading text-2xl md:text-3xl mb-4 text-center">
-            A Premium Interactive Reading Experience
+      {/* ============================================================
+          3 — THE PAIN
+          ============================================================ */}
+      <AnimatedSection className="py-24 sm:py-28 px-6 bg-muted/30 border-t border-border">
+        <div className="max-w-3xl mx-auto">
+          <p className="eyebrow mb-8">The Pain</p>
+          <h2 className="section-heading text-3xl md:text-5xl mb-10 max-w-[18ch]">
+            Growth does not fix disorder.
           </h2>
-          <p className="body-text opacity-70 text-center mb-12 max-w-2xl mx-auto">
-            This is not a PDF. Not a physical book. The ALP Handbook is a web-based digital experience you access instantly from any browser, on any device.
+          <p className="body-text text-foreground/80 mb-8">
+            More revenue will not save a weak operating model. It usually
+            exposes it.
           </p>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <ul className="space-y-3 mb-10">
             {[
-              { icon: BookOpen, title: '27 Chapters', desc: '26 chapters plus a final commitment chapter — a complete operating doctrine' },
-              { icon: Monitor, title: 'Web-Based Experience', desc: 'Read in your browser on desktop, tablet, or phone — no downloads needed' },
-              { icon: Palette, title: 'Dark & Light Mode', desc: 'Toggle between dark and light reading modes for comfortable reading' },
-              { icon: Navigation, title: 'Chapter Navigation', desc: 'Floating table of contents and progress tracking for easy navigation' },
-              { icon: Headphones, title: 'Audio Commentary', desc: 'Listen to audio commentary from Marshall Wilkinson on key chapters' },
-              { icon: Infinity, title: 'Lifetime Access', desc: 'Purchase once, access forever — from any device with a browser' },
-            ].map(({ icon: Icon, title, desc }, i) => (
-              <div key={i} className="p-6 bg-muted/30 border border-border rounded-sm">
-                <Icon className="w-6 h-6 text-primary mb-3" />
-                <h3 className="body-text-emphasis text-sm mb-2">{title}</h3>
-                <p className="text-sm opacity-60">{desc}</p>
+              'More jobs create more friction.',
+              'More people create more handoffs.',
+              'More revenue creates more cash pressure.',
+              'More clients create more disruption.',
+              'More complexity creates more owner dependency.',
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-4 body-text text-foreground/80">
+                <span className="text-foreground/40 font-mono text-sm pt-1.5 shrink-0">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="body-text space-y-3 text-foreground/80">
+            <p>
+              If the company has no operating system, growth only gives the
+              chaos more room to spread.
+            </p>
+            <p>You do not need more hustle.</p>
+            <p className="body-text-emphasis">You need control.</p>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* ============================================================
+          4 — THE SHIFT
+          ============================================================ */}
+      <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
+        <div className="max-w-3xl mx-auto">
+          <p className="eyebrow mb-8">The Shift</p>
+          <h2 className="section-heading text-3xl md:text-5xl mb-10 max-w-[18ch]">
+            From hierarchy to accountability.
+          </h2>
+          <div className="body-text space-y-5 text-foreground/80">
+            <p>Contracting needs chain of command.</p>
+            <p>But hierarchy alone does not create accountability.</p>
+            <p>
+              Hierarchy says who reports to who.
+              <br />
+              Accountability says who owns the result.
+            </p>
+            <p>
+              The ALP Handbook shows you how to move the company from
+              personality pressure into system pressure: roles, scorecards,
+              priorities, issue solving, documentation, standards, and weekly
+              execution.
+            </p>
+            <p className="body-text-emphasis pt-2">
+              That is how the business starts policing itself. Not through
+              speeches. Through structure.
+            </p>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* ============================================================
+          5 — WHAT THE HANDBOOK IS
+          ============================================================ */}
+      <AnimatedSection className="py-24 sm:py-28 px-6 bg-muted/30 border-t border-border">
+        <div className="max-w-3xl mx-auto">
+          <p className="eyebrow mb-8">What The Handbook Is</p>
+          <h2 className="section-heading text-3xl md:text-5xl mb-10 max-w-[18ch]">
+            Operating doctrine for contractors.
+          </h2>
+          <div className="body-text space-y-5 text-foreground/80 mb-12">
+            <p>This is not a book of tips.</p>
+            <p>
+              It is a field manual for running a contracting company under
+              pressure.
+            </p>
+            <p>Inside, you get the ALP framework:</p>
+          </div>
+
+          <div className="space-y-6 mb-12">
+            {[
+              { k: 'Altitude', v: 'Get above the chaos and see the real business problem.' },
+              { k: 'Logic', v: 'Decide from facts, math, contracts, sequence, and consequence.' },
+              { k: 'Pressure', v: 'Apply force in the right place at the right time.' },
+            ].map(({ k, v }, i) => (
+              <div key={i} className="border-l-2 border-foreground/30 pl-5">
+                <p className="font-serif text-2xl md:text-3xl text-foreground mb-1">{k}</p>
+                <p className="body-text text-foreground/75">{v}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="body-text text-foreground/80 mb-6">
+            And in the second edition, you get the operating-system doctrine:
+          </p>
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-3 mb-12">
+            {['Vision', 'People', 'Data', 'Issues', 'Process', 'Traction'].map((label, i) => (
+              <p key={i} className="font-serif text-xl text-foreground/85">
+                {label}
+              </p>
+            ))}
+          </div>
+
+          <p className="body-text-emphasis text-xl">
+            Build a company that can execute without everything depending on
+            the owner.
+          </p>
+        </div>
+      </AnimatedSection>
+
+      {/* ============================================================
+          6 — USE CASE
+          ============================================================ */}
+      <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
+        <div className="max-w-3xl mx-auto">
+          <p className="eyebrow mb-8">Use Case</p>
+          <h2 className="section-heading text-3xl md:text-5xl mb-10 max-w-[18ch]">
+            Use it when pressure shows up.
+          </h2>
+          <p className="body-text text-foreground/80 mb-8">Use the handbook when:</p>
+          <ul className="space-y-3 mb-10">
+            {[
+              'A project is slipping.',
+              'Margin is disappearing.',
+              'Change orders are stacking up.',
+              'Documentation is weak.',
+              'Cash is tight.',
+              'The team is waiting on the owner.',
+              'A client is dictating the terms.',
+              'The company is growing but getting harder to control.',
+            ].map((item, i) => (
+              <li key={i} className="flex items-start gap-4 body-text text-foreground/80">
+                <span className="text-foreground/30 pt-1.5 shrink-0">—</span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+          <div className="body-text space-y-3 text-foreground/80">
+            <p>This is not a book you read once.</p>
+            <p className="body-text-emphasis">
+              It is a reference you return to while decisions are being made.
+            </p>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* ============================================================
+          7 — WHAT CHANGES
+          ============================================================ */}
+      <AnimatedSection className="py-24 sm:py-28 px-6 bg-muted/30 border-t border-border">
+        <div className="max-w-5xl mx-auto">
+          <p className="eyebrow mb-8">What Changes</p>
+          <h2 className="section-heading text-3xl md:text-5xl mb-14 max-w-[20ch]">
+            What changes when you operate with ALP.
+          </h2>
+
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-14 mb-12">
+            {[
+              {
+                title: 'Run the Company',
+                items: [
+                  'Stop running the company from the owner\u2019s memory.',
+                  'Build scorecards, roles, Rocks, issues, process, and weekly execution.',
+                  'Turn recurring friction into systems.',
+                ],
+              },
+              {
+                title: 'Protect the Money',
+                items: [
+                  'Protect margin before the job starts leaking.',
+                  'Use documentation as proof, not paperwork.',
+                  'Monetize disruption instead of absorbing it.',
+                ],
+              },
+              {
+                title: 'Control the Work',
+                items: [
+                  'Control time through schedules, notices, and sequence.',
+                  'Position upstream so you are invited, not just bid.',
+                  'Sell with pressure, clarity, and qualification.',
+                ],
+              },
+              {
+                title: 'Lead Under Pressure',
+                items: [
+                  'Build systems that remove the owner from every decision.',
+                  'Scale without losing standards, margin, or identity.',
+                ],
+              },
+            ].map(({ title, items }, i) => (
+              <div key={i}>
+                <p className="font-serif text-2xl md:text-3xl mb-5 text-foreground">{title}</p>
+                <ul className="space-y-3">
+                  {items.map((it, j) => (
+                    <li key={j} className="flex items-start gap-3 body-text text-foreground/80">
+                      <span className="text-foreground/30 pt-1.5 shrink-0">—</span>
+                      <span>{it}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="body-text space-y-2 text-foreground/80 pt-4 border-t border-border">
+            <p className="pt-6">The point is not to work harder.</p>
+            <p className="body-text-emphasis">The point is to operate better.</p>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* ============================================================
+          8 — AOS EDITION
+          ============================================================ */}
+      <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
+        <div className="max-w-5xl mx-auto">
+          <p className="eyebrow eyebrow--accent mb-8">AOS Edition</p>
+          <h2 className="section-heading text-3xl md:text-5xl mb-10 max-w-[20ch]">
+            The missing piece: the operating system.
+          </h2>
+          <div className="body-text space-y-5 text-foreground/80 mb-14 max-w-3xl">
+            <p>The first edition gave contractors the doctrine.</p>
+            <p>The second edition adds the operating system.</p>
+            <p>
+              A contracting company cannot scale on the owner&rsquo;s memory,
+              urgency, and personal judgment forever. It needs a formal way to
+              define the mission, assign ownership, measure execution, solve
+              issues, document processes, and enforce weekly accountability.
+            </p>
+            <p className="body-text-emphasis">That is AOS.</p>
+            <p>
+              The ALP Handbook explains why the operating system matters. The
+              AOS application gives the company a place to run it.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
+            {[
+              { k: 'Vision', q: 'Where are we going?' },
+              { k: 'People', q: 'Who owns what?' },
+              { k: 'Data', q: 'What numbers tell the truth?' },
+              { k: 'Issues', q: 'What problems need to be solved permanently?' },
+              { k: 'Process', q: 'How do we do things here?' },
+              { k: 'Traction', q: 'What must be executed this week?' },
+            ].map(({ k, q }, i) => (
+              <div key={i} className="bg-background p-7">
+                <p className="uppercase tracking-[0.22em] text-[10px] font-mono text-foreground/50 mb-3">
+                  {String(i + 1).padStart(2, '0')}
+                </p>
+                <p className="font-serif text-2xl text-foreground mb-2">{k}</p>
+                <p className="body-text text-foreground/70 text-base">{q}</p>
               </div>
             ))}
           </div>
         </div>
       </AnimatedSection>
 
-      {/* What You'll Learn Section */}
-      <AnimatedSection className="py-24 px-6 bg-muted/30">
+      {/* ============================================================
+          9 — WHO IT IS FOR
+          ============================================================ */}
+      <AnimatedSection className="py-24 sm:py-28 px-6 bg-muted/30 border-t border-border">
         <div className="max-w-4xl mx-auto">
-          <h2 className="section-heading text-2xl md:text-3xl mb-8">
-            Inside the ALP Handbook, You'll Learn How To:
+          <p className="eyebrow mb-8">Who It Is For</p>
+          <h2 className="section-heading text-3xl md:text-5xl mb-12 max-w-[18ch]">
+            For operators, not spectators.
           </h2>
-          
-          <ul className="grid md:grid-cols-2 gap-4 mb-10">
-            {['Turn marketing into infrastructure, not desperation', 'Position yourself upstream so you\'re invited, not bid', 'Apply pressure correctly in sales and operations', 'Stop losing profit to General Conditions you don\'t control', 'Use schedules as financial weapons, not paperwork', 'Eliminate productivity loss from start–stop work', 'Document in real time so entitlement becomes provable', 'Make clean decisions under pressure using the ALP Decision Matrix', 'Scale revenue without losing standards, margin, or identity'].map((item, i) => <li key={i} className="flex items-start gap-3 body-text">
-                <ArrowRight className="w-4 h-4 text-primary shrink-0 mt-1" />
-                {item}
-              </li>)}
-          </ul>
 
-          <div className="body-text space-y-2">
-            <p className="opacity-70">This is not about working harder.</p>
-            <p className="body-text-emphasis text-xl">It's about operating at a higher level.</p>
-          </div>
-        </div>
-      </AnimatedSection>
-
-      {/* Who This Is For Section */}
-      <AnimatedSection className="py-24 px-6 border-t border-border">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="section-heading text-2xl md:text-3xl mb-8">
-            Who This Handbook Is For
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-14">
             <div>
-              <p className="body-text opacity-80 mb-4">This handbook is for:</p>
+              <p className="uppercase tracking-[0.22em] text-[11px] font-mono text-foreground/60 mb-5">
+                This handbook is for
+              </p>
               <ul className="space-y-3">
-                {['Owners and principals of contracting companies', 'Operators responsible for margin, time, and decisions', 'Contractors scaling past small-company chaos', 'Leaders who want command — not just growth'].map((item, i) => <li key={i} className="flex items-start gap-3 body-text">
-                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    {item}
-                  </li>)}
+                {[
+                  'Contractor owners',
+                  'Principals',
+                  'Operators',
+                  'Project executives',
+                  'Estimators moving into leadership',
+                  'Builders scaling past small-company chaos',
+                  'Anyone responsible for time, margin, people, standards, and decisions',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 body-text text-foreground/85">
+                    <CheckCircle2 className="w-4 h-4 text-foreground shrink-0 mt-2" strokeWidth={1.5} />
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
             <div>
-              <p className="body-text opacity-80 mb-4">This is not for:</p>
+              <p className="uppercase tracking-[0.22em] text-[11px] font-mono text-foreground/60 mb-5">
+                This is not for
+              </p>
               <ul className="space-y-3">
-                {['Hobbyists', '"Try it and see" entrepreneurs', 'People looking for shortcuts', 'Anyone uncomfortable with responsibility'].map((item, i) => <li key={i} className="flex items-start gap-3 body-text opacity-60">
-                    <XCircle className="w-5 h-5 text-muted-foreground shrink-0 mt-0.5" />
-                    {item}
-                  </li>)}
+                {[
+                  'People looking for shortcuts',
+                  'Owners who want sympathy more than truth',
+                  'Teams that refuse accountability',
+                  'Contractors who want growth without discipline',
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-3 body-text text-foreground/55">
+                    <XCircle className="w-4 h-4 text-foreground/40 shrink-0 mt-2" strokeWidth={1.5} />
+                    <span>{item}</span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
 
-          <p className="body-text-emphasis mt-10">
-            ALP rewards operators who are willing to think clearly — and act decisively.
+          <p className="body-text-emphasis mt-12 pt-8 border-t border-border">
+            ALP rewards clear thinking and decisive action.
           </p>
         </div>
       </AnimatedSection>
 
-      {/* Before/After Section */}
-      <AnimatedSection className="py-24 px-6 bg-muted/30">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="section-heading text-2xl md:text-3xl mb-10 text-center">
-            From Chaos to Control
-          </h2>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            <div className="p-8 bg-background border border-border rounded-sm">
-              <p className="text-sm uppercase tracking-widest opacity-50 mb-6">Before ALP</p>
-              <ul className="space-y-3">
-                {['Decisions are reactive', 'Time drifts', 'Margin leaks', 'Documentation is weak', 'Pressure controls you'].map((item, i) => <li key={i} className="flex items-center gap-3 body-text opacity-60">
-                    <XCircle className="w-4 h-4 text-destructive shrink-0" />
-                    {item}
-                  </li>)}
-              </ul>
-            </div>
-
-            <div className="p-8 bg-background border-2 border-primary rounded-sm">
-              <p className="text-sm uppercase tracking-widest opacity-50 mb-6">After ALP</p>
-              <ul className="space-y-3">
-                {['Decisions are structured', 'Time is enforced', 'Margin is protected', 'Proof is built in real time', 'You control pressure'].map((item, i) => <li key={i} className="flex items-center gap-3 body-text">
-                    <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
-                    {item}
-                  </li>)}
-              </ul>
-            </div>
-          </div>
-
-          <p className="body-text-emphasis text-xl text-center mt-10">
-            This handbook is the bridge.
-          </p>
-        </div>
-      </AnimatedSection>
-
-      {/* Testimonials Section */}
-      <AnimatedSection className="py-24 px-6 border-t border-border">
+      {/* ============================================================
+          10 — ABOUT / PROOF
+          ============================================================ */}
+      <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
         <div className="max-w-5xl mx-auto">
-          <h2 className="section-heading text-2xl md:text-3xl mb-4 text-center">
-            What Operators Are Saying
+          <p className="eyebrow mb-8">About / Proof</p>
+          <h2 className="section-heading text-3xl md:text-5xl mb-12 max-w-[22ch]">
+            Written by someone who has lived the pressure.
           </h2>
-          <p className="body-text opacity-60 text-center mb-12">
-            The Handbook is the foundation of everything these operators learned through ALP.
-          </p>
-          
-          <div className="grid md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, i) => <div key={i} className="relative p-8 bg-muted/30 border border-border rounded-sm">
-                <Quote className="w-8 h-8 text-primary/20 absolute top-6 left-6" />
-                <blockquote className="body-text opacity-80 mb-6 pt-6 relative z-10">
-                  "{testimonial.quote}"
-                </blockquote>
-                <div className="border-t border-border pt-4">
-                  <p className="body-text-emphasis text-sm">{testimonial.name}</p>
-                  <p className="text-sm opacity-50">{testimonial.company}</p>
-                </div>
-              </div>)}
-          </div>
-        </div>
-      </AnimatedSection>
 
-      {/* Author Bio Section */}
-      <AnimatedSection className="py-24 px-6 border-t border-border">
-        <div className="max-w-5xl mx-auto">
           <div className="grid lg:grid-cols-3 gap-12 items-start">
             <div className="lg:col-span-1 flex justify-center lg:justify-start">
-              <img src={marshallPhoto} alt="Marshall Wilkinson" className="w-64 lg:w-full max-w-xs rounded-sm shadow-xl" />
+              <img
+                src={marshallPhoto}
+                alt="Marshall Wilkinson"
+                className="w-64 lg:w-full max-w-xs rounded-sm shadow-xl"
+              />
             </div>
-            
-            <div className="lg:col-span-2">
-              <h2 className="section-heading text-2xl md:text-3xl mb-6">
-                About the Author
-              </h2>
-              
-              <div className="body-text space-y-5 opacity-80">
-                <p>
-                  Marshall Wilkinson is a second-generation contractor, construction executive, and entrepreneur with over two decades of experience operating at the highest levels of the construction industry.
-                </p>
-                
-                <p>
-                  Over the course of his career, Marshall has executed and advised on more than <span className="body-text-emphasis">$2.5 billion in New York City public works construction</span>, spanning complex infrastructure, municipal projects, and large-scale commercial work. His experience extends beyond execution into the legal, contractual, and strategic dimensions of construction — where real leverage is created or lost.
-                </p>
-                
-                <p>
-                  Marshall is also responsible for the <span className="body-text-emphasis">largest construction delay claim settlement in the City of New York</span>, a distinction earned not through litigation theatrics, but through disciplined documentation, schedule control, entitlement strategy, and relentless command of facts. That outcome was the product of systems — not luck.
-                </p>
-                
-                <p>
-                  Raised inside the construction business, Marshall was immersed in estimating, operations, scheduling, contracts, and negotiation from an early age. As his career progressed, he recognized a consistent pattern: contractors rarely fail because they lack effort or technical skill — they fail because they lack an operating system that holds under pressure.
-                </p>
-                
-                <p>
-                  That realization led to the creation of <span className="body-text-emphasis">ALP (Altitude, Logic, Pressure)</span> — an entrepreneurial operating framework designed to help contractors think clearly, decide decisively, and scale without losing control. ALP is not theory. It is a codified system built from real jobs, real disputes, real negotiations, and real consequences.
-                </p>
-                
-                <p>
-                  Today, Marshall mentors contractors, founders, and operators who want more than growth — they want control, leverage, and durability. His work focuses on turning chaos into structure, disruption into entitlement, and pressure into clarity.
-                </p>
-                
-                <p className="body-text-emphasis text-lg pt-2">
-                  The ALP Handbook is the culmination of that experience — a practical operating system for contractors who intend to play at the highest level and stay there.
-                </p>
+            <div className="lg:col-span-2 body-text space-y-5 text-foreground/80">
+              <p>
+                Marshall Wilkinson is a second-generation contractor,
+                construction executive, and entrepreneur with more than two
+                decades of experience inside high-stakes construction.
+              </p>
+              <p>
+                He has executed and advised on more than{' '}
+                <span className="body-text-emphasis">
+                  $2.5 billion in New York City public works construction
+                </span>
+                , spanning infrastructure, municipal, and large-scale
+                commercial work.
+              </p>
+              <p>
+                His work sits at the intersection of operations, contracts,
+                scheduling, entitlement, documentation, negotiation, and
+                company-building.
+              </p>
+              <p>
+                ALP was built from real jobs, real disputes, real pressure, and
+                real consequences.
+              </p>
+              <p className="body-text-emphasis pt-2">
+                Not theory. Not classroom advice. Field-tested operating
+                doctrine.
+              </p>
+            </div>
+          </div>
+        </div>
+      </AnimatedSection>
+
+      {/* ============================================================
+          11 — TESTIMONIALS (top 2 only)
+          ============================================================ */}
+      <AnimatedSection className="py-24 sm:py-28 px-6 bg-muted/30 border-t border-border">
+        <div className="max-w-5xl mx-auto">
+          <p className="eyebrow mb-8">Testimonials</p>
+          <h2 className="section-heading text-3xl md:text-5xl mb-4 max-w-[18ch]">
+            Operators recognize operators.
+          </h2>
+          <p className="font-serif italic text-xl md:text-2xl text-foreground/70 mb-14 max-w-[40ch]">
+            &ldquo;The language is direct because the results are real.&rdquo;
+          </p>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {testimonials.slice(0, 2).map((t, i) => (
+              <div key={i} className="relative p-8 bg-background border border-border rounded-sm">
+                <Quote className="w-8 h-8 text-primary/20 absolute top-6 left-6" />
+                <blockquote className="body-text text-foreground/85 mb-6 pt-6 relative z-10">
+                  &ldquo;{t.quote}&rdquo;
+                </blockquote>
+                <div className="border-t border-border pt-4">
+                  <p className="body-text-emphasis text-sm">{t.name}</p>
+                  <p className="text-sm opacity-50">{t.company}</p>
+                </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </AnimatedSection>
 
-      {/* Not Best Practices Section */}
-      <AnimatedSection className="py-24 px-6 bg-muted/30">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="section-heading text-2xl md:text-3xl mb-6">
-            This Handbook Doesn't Teach "Best Practices"
+      {/* ============================================================
+          12 — PRODUCT / ACCESS
+          ============================================================ */}
+      <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
+        <div className="max-w-3xl mx-auto">
+          <p className="eyebrow mb-8">Product / Access</p>
+          <h2 className="section-heading text-3xl md:text-5xl mb-12 max-w-[14ch]">
+            What you get.
           </h2>
-          
-          <p className="body-text-emphasis text-xl mb-8">It teaches operating principles.</p>
-          
-          <p className="body-text opacity-80 mb-6">The kind that:</p>
-          
-          <ul className="inline-block text-left space-y-3 mb-10">
-            {['Hold up under dispute', 'Work when things go wrong', 'Protect you when pressure rises'].map((item, i) => <li key={i} className="flex items-center gap-3 body-text">
-                <Shield className="w-5 h-5 text-primary shrink-0" />
-                {item}
-              </li>)}
+
+          <ul className="divide-y divide-border border-y border-border">
+            {[
+              '26 chapters plus final commitment section',
+              'AOS second-edition operating-system section',
+              'Interactive web reading experience',
+              'Mobile, tablet, and desktop access',
+              'Floating table of contents',
+              'Progress tracking',
+              'Light and dark reading modes',
+              'Selected audio chapters',
+              'Lifetime access',
+            ].map((item, i) => (
+              <li key={i} className="flex items-baseline gap-6 py-4">
+                <span className="font-mono text-xs text-foreground/40 w-8 shrink-0">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="body-text text-foreground/85">{item}</span>
+              </li>
+            ))}
           </ul>
 
-          <div className="body-text space-y-4 mt-12 p-8 bg-muted/50 rounded-sm">
-            <p className="opacity-70">If you've ever thought:</p>
-            <p className="body-text-emphasis text-xl italic">
-              "I know we're better than how this business feels…"
+          <div className="body-text space-y-2 text-foreground/80 mt-10">
+            <p>This is not a PDF download.</p>
+            <p className="body-text-emphasis">
+              It is a digital handbook built to be used in real time.
             </p>
-            <p className="opacity-70">You're right.</p>
-            <p className="body-text-emphasis">You just needed the right operating system.</p>
           </div>
         </div>
       </AnimatedSection>
 
-      {/* Final CTA Section */}
-      <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 bg-primary text-primary-foreground">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="handbook-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-6 sm:mb-8">
-            Get the ALP Handbook
+      {/* ============================================================
+          13 — FINAL CTA
+          ============================================================ */}
+      <section className="py-20 sm:py-28 lg:py-32 px-6 bg-primary text-primary-foreground">
+        <div className="max-w-3xl mx-auto text-center">
+          <p className="uppercase tracking-[0.28em] text-[11px] font-mono text-primary-foreground/60 mb-8">
+            Final
+          </p>
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.98] tracking-[-0.02em] mb-10">
+            Get the ALP Handbook.
           </h2>
-          
-          <div className="space-y-3 sm:space-y-4 mb-8 sm:mb-10 opacity-90">
-            <p className="text-base sm:text-lg">This is not a book you read once.</p>
-            <p className="text-base sm:text-lg font-medium">
-              It's a reference you return to — in real time, while decisions are being made.
+
+          <div className="space-y-4 mb-12 text-primary-foreground/85 max-w-[42ch] mx-auto">
+            <p className="text-lg sm:text-xl">Build the company behind the projects.</p>
+            <p className="text-base sm:text-lg">
+              Use the handbook when pressure rises, decisions matter, and the
+              business needs to operate with more control.
             </p>
           </div>
 
-          <p className="opacity-90 mb-4 sm:mb-6 text-sm sm:text-base">If you're ready to:</p>
-          
-          <ul className="inline-block text-left space-y-2 mb-8 sm:mb-10 text-sm sm:text-base">
-            <li className="flex items-center gap-2 sm:gap-3">
-              <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-              Stop reacting
-            </li>
-            <li className="flex items-center gap-2 sm:gap-3">
-              <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-              Stop leaking margin
-            </li>
-            <li className="flex items-center gap-2 sm:gap-3">
-              <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-              Stop operating from stress
-            </li>
-          </ul>
+          <div className="flex flex-col items-center gap-4">
+            <button
+              onClick={handlePurchase}
+              disabled={checkoutLoading || loading}
+              className="pill-cta"
+              style={{
+                background: 'hsl(var(--background))',
+                color: 'hsl(var(--foreground))',
+              }}
+            >
+              {checkoutLoading ? 'Loading…' : 'Get Immediate Access — $47'}
+            </button>
 
-          <p className="text-lg sm:text-xl font-medium mb-8 sm:mb-10">Then it's time to operate with ALP.</p>
-
-          <div className="flex flex-col gap-4 justify-center items-center px-4 sm:px-0">
-            <Button onClick={handlePurchase} disabled={checkoutLoading || loading} size="lg" variant="secondary" className="font-sans uppercase tracking-widest text-sm sm:text-base lg:text-lg px-6 sm:px-10 py-5 sm:py-6 w-full sm:w-auto">
-              {checkoutLoading ? 'Loading...' : 'Get Immediate Access — $47'}
-            </Button>
-            
-            <Link to="/preview">
-              <Button variant="ghost" size="sm" className="font-sans uppercase tracking-widest text-xs text-[hsl(var(--brand-accent))] hover:text-[hsl(var(--brand-accent))] hover:opacity-80">
-                <Eye className="w-4 h-4 mr-2" />
-                Preview First
-              </Button>
+            <Link
+              to="/preview"
+              className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] font-sans text-primary-foreground/70 hover:text-primary-foreground transition-colors"
+            >
+              <Eye className="w-3.5 h-3.5" />
+              Preview First
             </Link>
           </div>
 
-          {/* Trust Indicators */}
-          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 mt-6 sm:mt-8 text-xs sm:text-sm opacity-70">
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <Monitor className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span>Interactive Web Experience</span>
-            </div>
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <Infinity className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span>Lifetime Access</span>
-            </div>
-            <div className="flex items-center gap-1.5 sm:gap-2">
-              <CreditCard className="w-3 h-3 sm:w-4 sm:h-4" />
-              <span>One-Time Payment</span>
-            </div>
+          <div className="mt-12 pt-8 border-t border-primary-foreground/15">
+            <p className="text-[11px] sm:text-xs uppercase tracking-[0.24em] font-mono text-primary-foreground/55">
+              Interactive handbook · AOS edition · Audio chapters · Lifetime access
+            </p>
           </div>
 
-          {!user && <p className="mt-6 text-sm opacity-70">
+          {!user && (
+            <p className="mt-8 text-sm text-primary-foreground/60">
               Already purchased?{' '}
-              <Link to="/auth" className="underline hover:opacity-80">
+              <Link to="/auth" className="underline hover:text-primary-foreground">
                 Sign in to access
               </Link>
-            </p>}
+            </p>
+          )}
         </div>
       </section>
 
