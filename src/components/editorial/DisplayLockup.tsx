@@ -47,9 +47,8 @@ const DisplayLockup: React.FC<DisplayLockupProps> = ({
           'leading-[0.92] font-serif'
         )}
         style={{
-          fontWeight: 700,
+          fontWeight: 400,
           letterSpacing: '-0.03em',
-          fontVariationSettings: '"opsz" 144, "SOFT" 50',
         }}
       >
         {title}
