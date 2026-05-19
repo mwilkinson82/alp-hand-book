@@ -5,7 +5,7 @@ import Section from '../Section';
 const Chapter27: React.FC = () => {
   return (
     <div id="chapter-27" className="py-24 border-t border-chapter-divider">
-      <ChapterHeader number={27} title="A Contracting Company Cannot Run on the Owner" />
+      <ChapterHeader number={4} title="A Contracting Company Cannot Run on the Owner" />
 
       <div className="body-text space-y-6 max-w-3xl">
         <p>Most contracting companies do not have an operating system.</p>

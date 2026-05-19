@@ -6,7 +6,7 @@ import DoctrineList from '../DoctrineList';
 const Chapter31: React.FC = () => {
   return (
     <div id="chapter-31" className="py-24 border-t border-chapter-divider">
-      <ChapterHeader number={31} title="Systems Are How You Take the Personality Out of the Business" />
+      <ChapterHeader number={8} title="Systems Are How You Take the Personality Out of the Business" />
 
       <div className="body-text space-y-6 max-w-3xl">
         <p>Entrepreneurs usually build companies through force of personality.</p>

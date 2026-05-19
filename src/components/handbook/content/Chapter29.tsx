@@ -6,7 +6,7 @@ import DoctrineList from '../DoctrineList';
 const Chapter29: React.FC = () => {
   return (
     <div id="chapter-29" className="py-24 border-t border-chapter-divider">
-      <ChapterHeader number={29} title="The Six Components of a Contracting Operating System" />
+      <ChapterHeader number={6} title="The Six Components of a Contracting Operating System" />
 
       <div className="body-text space-y-6 max-w-3xl">
         <p>AOS is built around six core components.</p>

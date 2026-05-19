@@ -5,7 +5,7 @@ import Section from '../Section';
 const Chapter28: React.FC = () => {
   return (
     <div id="chapter-28" className="py-24 border-t border-chapter-divider">
-      <ChapterHeader number={28} title="Hierarchy Is Not Accountability" />
+      <ChapterHeader number={5} title="Hierarchy Is Not Accountability" />
 
       <div className="body-text space-y-6 max-w-3xl">
         <p>Contracting companies need hierarchy.</p>

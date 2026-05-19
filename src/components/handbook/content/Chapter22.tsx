@@ -9,7 +9,7 @@ const Chapter22: React.FC = () => {
   return (
     <div id="chapter-22" className="py-24 border-t border-chapter-divider">
       <ChapterHeader 
-        number={22} 
+        number={28} 
         title="The Decision Matrix: How Operators Decide Under Pressure" 
       />
 
