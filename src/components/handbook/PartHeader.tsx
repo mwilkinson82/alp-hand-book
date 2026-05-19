@@ -1,4 +1,5 @@
 import React from 'react';
+import Eyebrow from '@/components/editorial/Eyebrow';
 
 interface PartHeaderProps {
   number: string;
@@ -8,20 +9,27 @@ interface PartHeaderProps {
 
 const PartHeader: React.FC<PartHeaderProps> = ({ number, title, eyebrow }) => {
   return (
-    <div className="min-h-[50vh] flex flex-col items-center justify-center text-center py-32">
-      <div className="text-sm uppercase tracking-widest opacity-50 mb-6 font-sans" style={{ letterSpacing: '0.25em' }}>
-        Part {number}
-      </div>
-      <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tight font-serif">
+    <div className="min-h-[60vh] flex flex-col items-center justify-center text-center py-32">
+      <Eyebrow className="mb-10">Part {number}</Eyebrow>
+
+      <h1
+        className="font-serif text-5xl md:text-7xl lg:text-8xl leading-[0.92]"
+        style={{
+          fontWeight: 700,
+          letterSpacing: '-0.03em',
+          fontVariationSettings: '"opsz" 144, "SOFT" 50',
+        }}
+      >
         {title}
       </h1>
+
       {eyebrow && (
-        <div className="mt-6">
-          <span className="text-[11px] uppercase tracking-widest px-3 py-1 rounded-sm bg-brand-accent/15 text-brand-accent font-sans" style={{ letterSpacing: '0.25em' }}>
-            {eyebrow}
-          </span>
+        <div className="mt-10 flex flex-col items-center gap-5">
+          <div className="w-12 h-px bg-foreground/30" />
+          <Eyebrow accent>{eyebrow}</Eyebrow>
         </div>
       )}
+
       <div className="part-divider mt-16" />
     </div>
   );

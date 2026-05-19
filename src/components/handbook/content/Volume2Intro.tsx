@@ -1,16 +1,13 @@
 import React from 'react';
+import Eyebrow from '@/components/editorial/Eyebrow';
 
 const Volume2Intro: React.FC = () => {
   return (
     <div id="volume-2-intro" className="py-24 border-t border-chapter-divider">
       <header className="mb-16 pt-8">
-        <div className="inline-flex items-center gap-2 mb-4">
-          <span className="text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-sm bg-brand-accent/15 text-brand-accent font-sans" style={{ letterSpacing: '0.22em' }}>
-            Volume 2 — New
-          </span>
-          <span className="text-sm uppercase tracking-widest opacity-50 font-sans" style={{ letterSpacing: '0.2em' }}>
-            Foreword
-          </span>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-6">
+          <Eyebrow accent>Volume 2 — New</Eyebrow>
+          <Eyebrow bare>Foreword</Eyebrow>
         </div>
         <h2 className="chapter-heading">Why the Operating System</h2>
       </header>
@@ -37,3 +34,4 @@ const Volume2Intro: React.FC = () => {
 };
 
 export default Volume2Intro;
+
