@@ -219,16 +219,6 @@ const SalesPage: React.FC = () => {
             </div>
           </div>
 
-            {/* Single bulldozer moment — small premium product object, breathing room, bottom-right */}
-            <img
-              src={bulldozer}
-              alt=""
-              aria-hidden
-              className="pointer-events-none select-none absolute -bottom-8 -right-4 sm:-bottom-12 sm:-right-8 w-[26%] max-w-[180px]"
-              style={{ filter: 'drop-shadow(0 18px 24px hsl(30 10% 10% / 0.22))' }}
-            />
-          </div>
-
           {/* RIGHT — Editorial lockup */}
           <div className="order-1 lg:order-2 lg:pl-4">
             <div className="flex items-center gap-3 mb-7">
