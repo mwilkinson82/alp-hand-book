@@ -27,6 +27,9 @@ interface Purchase {
 
 const ADMIN_EMAIL = 'wilkinson.marshall@gmail.com';
 
+const getErrorMessage = (error: unknown) =>
+  error instanceof Error ? error.message : 'Something went wrong';
+
 const Admin: React.FC = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -85,43 +88,18 @@ const Admin: React.FC = () => {
 
     setSending(true);
     try {
-      const redirectTo = 'https://alphandbook.com/read';
-      const { error } = await supabase.auth.signInWithOtp({
-        email: targetEmail.trim(),
-        options: { 
-          emailRedirectTo: redirectTo,
-          shouldCreateUser: false
-        }
+      const { data, error } = await supabase.functions.invoke('send-welcome-email-admin', {
+        body: { email: targetEmail.trim() }
       });
 
       if (error) throw error;
-
-      // Log the send
-      await supabase.functions.invoke('log-magic-link', {
-        body: {
-          email: targetEmail.trim(),
-          source: 'admin_manual',
-          status: 'sent',
-          metadata: { sent_by: ADMIN_EMAIL }
-        }
-      });
+      if (data?.error) throw new Error(data.error);
 
       toast({ title: 'Magic link sent!', description: `Sent to ${targetEmail}` });
       setEmail('');
       fetchData();
-    } catch (err: any) {
-      toast({ title: 'Failed to send', description: err.message, variant: 'destructive' });
-      
-      // Log the failure
-      await supabase.functions.invoke('log-magic-link', {
-        body: {
-          email: targetEmail.trim(),
-          source: 'admin_manual',
-          status: 'failed',
-          error_message: err.message,
-          metadata: { sent_by: ADMIN_EMAIL }
-        }
-      });
+    } catch (err: unknown) {
+      toast({ title: 'Failed to send', description: getErrorMessage(err), variant: 'destructive' });
     } finally {
       setSending(false);
     }
@@ -145,8 +123,8 @@ const Admin: React.FC = () => {
 
       toast({ title: 'Welcome email sent!', description: `Sent to ${targetEmail}` });
       fetchData();
-    } catch (err: any) {
-      toast({ title: 'Failed to send welcome email', description: err.message, variant: 'destructive' });
+    } catch (err: unknown) {
+      toast({ title: 'Failed to send welcome email', description: getErrorMessage(err), variant: 'destructive' });
     } finally {
       setSending(false);
     }

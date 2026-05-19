@@ -12,6 +12,31 @@ const logStep = (step: string, details?: Record<string, unknown>) => {
   console.log(`[SEND-WELCOME-EMAIL-ADMIN] ${step}${detailsStr}`);
 };
 
+const normalizeEmail = (value: unknown) =>
+  typeof value === 'string' ? value.trim().toLowerCase() : '';
+
+const findUserByEmail = async (supabaseAdmin: ReturnType<typeof createClient>, email: string) => {
+  const perPage = 1000;
+  let page = 1;
+
+  while (true) {
+    const { data, error } = await supabaseAdmin.auth.admin.listUsers({ page, perPage });
+    if (error) throw new Error(`Failed to verify account: ${error.message}`);
+
+    const match = data?.users?.find((user) => user.email?.toLowerCase() === email);
+    if (match) return match;
+
+    if (!data?.users || data.users.length < perPage) return null;
+    page += 1;
+  }
+};
+
+const genericSuccessResponse = (email: string) =>
+  new Response(JSON.stringify({ success: true, email }), {
+    headers: { ...corsHeaders, "Content-Type": "application/json" },
+    status: 200,
+  });
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -35,17 +60,56 @@ serve(async (req) => {
     const resend = new Resend(resendApiKey);
 
     const { email } = await req.json();
+    const normalizedEmail = normalizeEmail(email);
     
-    if (!email) {
+    if (!normalizedEmail) {
       throw new Error("Email is required");
     }
 
-    logStep("Generating magic link for", { email });
+    const user = await findUserByEmail(supabaseAdmin, normalizedEmail);
+    if (!user) {
+      logStep("No account found for requested magic link", { email: normalizedEmail });
+      return genericSuccessResponse(normalizedEmail);
+    }
+
+    const { data: purchases, error: purchaseError } = await supabaseAdmin
+      .from('book_purchases')
+      .select('id')
+      .eq('user_id', user.id)
+      .eq('status', 'completed')
+      .order('created_at', { ascending: false })
+      .limit(1);
+
+    if (purchaseError) {
+      throw new Error(`Failed to verify purchase: ${purchaseError.message}`);
+    }
+
+    const purchase = purchases?.[0];
+    if (!purchase) {
+      logStep("No completed purchase found for requested magic link", { email: normalizedEmail, userId: user.id });
+      return genericSuccessResponse(normalizedEmail);
+    }
+
+    const oneMinuteAgo = new Date(Date.now() - 60_000).toISOString();
+    const { data: recentSends } = await supabaseAdmin
+      .from('magic_link_logs')
+      .select('id')
+      .eq('email', normalizedEmail)
+      .eq('status', 'sent')
+      .gte('sent_at', oneMinuteAgo)
+      .limit(1);
+
+    if (recentSends && recentSends.length > 0) {
+      logStep("Skipping duplicate magic link request inside cooldown", { email: normalizedEmail });
+      return genericSuccessResponse(normalizedEmail);
+    }
+
+    logStep("Generating magic link for", { email: normalizedEmail, userId: user.id, purchaseId: purchase.id });
 
     // Generate magic link
     const { data: linkData, error: linkError } = await supabaseAdmin.auth.admin.generateLink({
       type: 'magiclink',
-      email,
+      email: normalizedEmail,
       options: {
         redirectTo: 'https://alphandbook.com/read',
       },
@@ -150,7 +214,9 @@ serve(async (req) => {
       
       // Log failure
       await supabaseAdmin.from('magic_link_logs').insert({
-        email,
+        email: normalizedEmail,
+        user_id: user.id,
+        purchase_id: purchase.id,
         source: 'admin_welcome_email',
         status: 'failed',
         error_message: error.message,
@@ -162,18 +228,20 @@ serve(async (req) => {
 
     // Log success
     await supabaseAdmin.from('magic_link_logs').insert({
-      email,
+      email: normalizedEmail,
+      user_id: user.id,
+      purchase_id: purchase.id,
       source: 'admin_welcome_email',
       status: 'sent',
       metadata: { admin_triggered: true, message_id: data?.id },
     });
 
-    logStep("Welcome email sent successfully", { email, messageId: data?.id });
+    logStep("Welcome email sent successfully", { email: normalizedEmail, messageId: data?.id });
 
     return new Response(JSON.stringify({ 
       success: true, 
       message_id: data?.id,
-      email 
+      email: normalizedEmail 
     }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
       status: 200,
