@@ -112,9 +112,8 @@ const SalesPage: React.FC = () => {
           ============================================================ */}
       <section className="lg:hidden relative pt-16 sm:pt-20 pb-12 px-5 sm:px-6 overflow-hidden">
         <div className="max-w-[640px] mx-auto">
-          <p className="uppercase tracking-[0.28em] text-[10px] font-mono text-foreground/55 mb-3">
-            ALP Contractor Circle
-          </p>
+
+
 
 
           {/* Campaign headline — short and memorable, editorial breathing */}
