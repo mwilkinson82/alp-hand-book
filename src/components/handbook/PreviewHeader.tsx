@@ -52,7 +52,7 @@ const PreviewHeader: React.FC = () => {
     <header className="fixed top-0 left-0 right-0 z-40 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-5xl mx-auto px-3 sm:px-6 md:px-12 h-12 sm:h-14 flex items-center justify-between">
         <div className="flex items-center gap-2 sm:gap-4 min-w-0">
-          <span className="text-xs sm:text-sm font-medium tracking-wide uppercase opacity-60 truncate" style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.1em' }}>
+          <span className="text-xs sm:text-sm font-medium tracking-wide uppercase opacity-60 truncate" style={{ fontFamily: 'Helvetica, Arial, sans-serif', letterSpacing: '0.1em' }}>
             The ALP Handbook
           </span>
           <span className="text-[10px] sm:text-xs px-1.5 sm:px-2 py-0.5 rounded-full bg-accent opacity-60 font-sans shrink-0">
