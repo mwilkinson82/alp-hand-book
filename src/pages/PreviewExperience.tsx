@@ -60,7 +60,7 @@ const SalesLanding: React.FC = () => {
       <PreviewHeader />
       <ReadingProgress />
 
-      <div className="max-w-5xl mx-auto px-8 md:px-16 lg:px-24 pt-20">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-16 lg:px-24 pt-20">
         {/* Hero Section */}
         <div className="min-h-[80vh] flex flex-col items-center justify-center text-center py-16">
           <img 
@@ -69,23 +69,23 @@ const SalesLanding: React.FC = () => {
             className="max-w-xs md:max-w-sm lg:max-w-md w-full h-auto shadow-2xl rounded-sm mb-12"
           />
           
-          <h1 className="handbook-title text-4xl md:text-5xl lg:text-6xl mb-6">
+          <h1 className="handbook-title text-4xl md:text-5xl lg:text-6xl mb-6 text-center">
             The ALP Handbook
           </h1>
           
-          <p className="body-text text-lg md:text-xl max-w-2xl mb-4 opacity-80">
+          <p className="body-text text-lg md:text-xl max-w-2xl mb-4 opacity-80 text-center mx-auto">
             A control doctrine for entrepreneurs who refuse to lose grip on what they've built.
           </p>
           
-          <p className="font-sans text-sm uppercase tracking-widest opacity-50 mb-4">
+          <p className="font-sans text-sm uppercase tracking-widest opacity-50 mb-4 text-center">
             By Marshall Wilkinson
           </p>
           
-          <p className="body-text text-sm opacity-60 mb-8 italic max-w-xl mx-auto">
-            An interactive web reading experience — not a PDF, not a physical book. Read in your browser with dark mode, audio commentary, and chapter navigation.
+          <p className="body-text text-sm opacity-60 mb-8 italic max-w-xl mx-auto text-center">
+            An interactive web reading experience — not a PDF, not a physical book. Read in your browser, with audio commentary and chapter navigation.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 items-center">
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
             <Button 
               onClick={handlePurchase}
               disabled={checkoutLoading || loading}
@@ -133,7 +133,7 @@ const SalesLanding: React.FC = () => {
             </p>
             <h2 className="chapter-heading text-3xl md:text-4xl">Experience the Handbook</h2>
             <p className="body-text mt-4 opacity-70 max-w-2xl mx-auto">
-              Read selected chapters from across the handbook. Try the dark mode toggle and floating navigation to experience the virtual reading experience.
+              Read selected chapters from across the handbook. Try the floating navigation and audio chapters to experience the full virtual reading experience.
             </p>
           </div>
         </div>

@@ -12,13 +12,13 @@ const PreviewHeader: React.FC = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Check for saved preference or system preference
+    // Default to light mode; only honor explicit user choice for dark.
     const saved = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    if (saved === 'dark' || (!saved && prefersDark)) {
+    if (saved === 'dark') {
       setIsDark(true);
       document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
     }
   }, []);
 
