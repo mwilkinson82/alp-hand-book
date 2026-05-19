@@ -33,6 +33,13 @@ import Chapter24 from '../components/handbook/content/Chapter24';
 import Chapter25 from '../components/handbook/content/Chapter25';
 import Chapter26 from '../components/handbook/content/Chapter26';
 import FinalChapter from '../components/handbook/content/FinalChapter';
+import Volume2Intro from '../components/handbook/content/Volume2Intro';
+import Chapter27 from '../components/handbook/content/Chapter27';
+import Chapter28 from '../components/handbook/content/Chapter28';
+import Chapter29 from '../components/handbook/content/Chapter29';
+import Chapter30 from '../components/handbook/content/Chapter30';
+import Chapter31 from '../components/handbook/content/Chapter31';
+import Chapter32 from '../components/handbook/content/Chapter32';
 import ReadingHeader from '../components/handbook/ReadingHeader';
 import ReadingProgress from '../components/handbook/ReadingProgress';
 import FloatingTOC from '../components/handbook/FloatingTOC';
@@ -151,6 +158,16 @@ const Handbook: React.FC = () => {
         {/* Part VI */}
         <PartHeader number="VI" title="Commitment" />
         <FinalChapter />
+
+        {/* Part VII — Volume 2 */}
+        <PartHeader number="VII" title="Volume 2 — The Operating System" />
+        <Volume2Intro />
+        <Chapter27 />
+        <Chapter28 />
+        <Chapter29 />
+        <Chapter30 />
+        <Chapter31 />
+        <Chapter32 />
         
         {/* Footer */}
         <footer className="py-32 text-center border-t border-chapter-divider">
