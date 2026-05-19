@@ -208,14 +208,7 @@ const SalesPage: React.FC = () => {
 
                   <p className="font-serif text-[11px] sm:text-[13px] mt-3">Marshall Wilkinson</p>
 
-                  {/* Bulldozer floats over the page (inside screen) */}
-                  <img
-                    src={bulldozer}
-                    alt=""
-                    aria-hidden
-                    className="absolute pointer-events-none select-none right-[-4%] top-[22%] w-[58%] max-w-[280px] opacity-95"
-                    style={{ filter: 'drop-shadow(0 12px 18px hsl(30 10% 10% / 0.18))' }}
-                  />
+                  {/* (interior bulldozer removed — single moment only) */}
 
                   {/* Audio player card */}
                   <div className="mt-auto pt-4">
