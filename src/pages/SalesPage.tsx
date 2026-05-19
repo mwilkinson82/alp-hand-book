@@ -6,8 +6,9 @@ import { Button } from '@/components/ui/button';
 import { AnimatedSection } from '@/components/AnimatedSection';
 import StickyPreviewButton from '@/components/handbook/StickyPreviewButton';
 import bookCover from '@/assets/book-cover-v2.png';
+import bulldozer from '@/assets/bulldozer.png';
 import marshallPhoto from '@/assets/marshall-wilkinson.png';
-import { Eye, CheckCircle2, XCircle, ArrowRight, Target, Shield, Clock, TrendingUp, FileText, Zap, Moon, Sun, Quote, Lock, CreditCard, Monitor, Headphones, BookOpen, Infinity, Palette, Navigation } from 'lucide-react';
+import { Eye, CheckCircle2, XCircle, ArrowRight, Target, Shield, Clock, TrendingUp, FileText, Zap, Moon, Sun, Quote, Lock, CreditCard, Monitor, Headphones, BookOpen, Infinity, Palette, Navigation, Link2, ListOrdered, Play, ShoppingBag, Menu } from 'lucide-react';
 const testimonials = [{
   quote: "I'm ALP for life. Marshall has changed my life. From $600k to $12.5M in 11 months. There is nobody like him on earth. You just have to get around him to understand.",
   name: "Bryan Bettencourt",
@@ -106,43 +107,194 @@ const SalesPage: React.FC = () => {
         </div>
       </header>
 
-      {/* Hero Section — DDB/Ogilvy editorial lockup */}
-      <section className="min-h-[calc(100vh-60px)] lg:min-h-screen flex items-center justify-center pt-16 lg:pt-20 px-4 sm:px-6">
-        <div className="max-w-6xl mx-auto grid lg:grid-cols-2 gap-12 lg:gap-20 items-center py-12">
-          {/* Cover — left on desktop, top on mobile */}
-          <div className="order-1 flex justify-center lg:justify-end">
+      {/* Hero Section — DDB/Ogilvy editorial lockup, tablet device + bulldozer */}
+      <section className="relative pt-24 lg:pt-28 pb-16 lg:pb-24 px-4 sm:px-6 lg:px-10 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-16 items-center">
+
+          {/* LEFT — Tablet device mock */}
+          <div className="relative order-2 lg:order-1">
+            <div
+              className="relative mx-auto w-full max-w-[640px] aspect-[4/3] rounded-[28px] bg-[hsl(35_18%_93%)] p-3 sm:p-4"
+              style={{
+                boxShadow:
+                  '0 40px 80px -30px hsl(30 10% 10% / 0.25), 0 12px 30px -12px hsl(30 10% 10% / 0.18), inset 0 0 0 1px hsl(30 10% 10% / 0.06)',
+              }}
+            >
+              <div className="absolute top-[14px] left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-foreground/25" />
+
+              <div className="relative w-full h-full rounded-[18px] bg-background overflow-hidden flex">
+                {/* Left contents pane */}
+                <aside className="hidden sm:flex flex-col w-[34%] border-r border-border/70 px-4 py-4 text-[8px] sm:text-[9px] font-sans">
+                  <div className="flex items-center justify-between mb-5">
+                    <span className="uppercase tracking-[0.22em] text-foreground/70">Contents</span>
+                    <Menu className="w-2.5 h-2.5 text-foreground/40" />
+                  </div>
+
+                  <div className="mb-4">
+                    <p className="uppercase tracking-[0.22em] text-foreground/70">Welcome</p>
+                    <p className="text-foreground/40 mt-0.5">Start here</p>
+                  </div>
+
+                  <ul className="space-y-2.5">
+                    {[
+                      { n: '01', t: 'The Company\nBehind the Projects', active: true },
+                      { n: '02', t: 'The Operating System' },
+                      { n: '03', t: 'Vision' },
+                      { n: '00', t: 'People' },
+                      { n: '04', t: 'Data' },
+                      { n: '05', t: 'Issues' },
+                      { n: '07', t: 'Process' },
+                      { n: '08', t: 'Traction' },
+                    ].map(({ n, t, active }, i) => (
+                      <li key={i} className="relative">
+                        <p className="text-foreground/40">{n}</p>
+                        <p className={`whitespace-pre-line leading-tight ${active ? 'text-foreground' : 'text-foreground/70'}`}>{t}</p>
+                        {active && (
+                          <span className="absolute -right-2 top-1.5 w-1.5 h-1.5 rounded-full bg-[hsl(var(--brand-accent))]" />
+                        )}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-5">
+                    <p className="uppercase tracking-[0.22em] text-foreground/70">Resources</p>
+                    <p className="text-foreground/40 mt-0.5">Tools & Downloads</p>
+                  </div>
+
+                  <div className="mt-auto pt-4">
+                    <div className="rounded-md border border-border/70 px-2.5 py-2">
+                      <div className="flex items-center gap-1.5">
+                        <Link2 className="w-2.5 h-2.5 text-foreground/60" />
+                        <span className="uppercase tracking-[0.18em] text-foreground/80 text-[7.5px] sm:text-[8.5px]">Magic Link Access</span>
+                      </div>
+                      <p className="text-foreground/45 mt-1 text-[7.5px] sm:text-[8.5px]">Secure. Private. Yours.</p>
+                    </div>
+                  </div>
+                </aside>
+
+                {/* Right page */}
+                <div className="relative flex-1 px-5 sm:px-7 py-5 sm:py-6 flex flex-col">
+                  <p className="uppercase tracking-[0.22em] text-[7.5px] sm:text-[9px] text-foreground/60 font-sans mb-4">
+                    ALP Contractor Circle
+                  </p>
+
+                  <h2
+                    className="font-serif leading-[0.95] text-[28px] sm:text-[40px] md:text-[52px] text-foreground"
+                    style={{ fontWeight: 700, letterSpacing: '-0.02em', fontVariationSettings: '"opsz" 144' }}
+                  >
+                    THE ALP<br />HANDBOOK
+                  </h2>
+
+                  <div className="w-8 h-px bg-foreground/40 my-3" />
+
+                  <p className="font-serif text-[11px] sm:text-[13px] text-foreground/85 leading-snug max-w-[18ch]">
+                    A field manual for running a contracting company.
+                  </p>
+                  <p className="font-serif italic text-[11px] sm:text-[13px] text-foreground/85 leading-snug max-w-[18ch] mt-2">
+                    Build the company<br />behind the projects.
+                  </p>
+
+                  <div className="mt-4">
+                    <p className="uppercase tracking-[0.2em] text-[8px] sm:text-[10px] font-semibold text-[hsl(var(--brand-accent))]">
+                      AOS Edition
+                    </p>
+                    <p className="uppercase tracking-[0.18em] text-[7px] sm:text-[8.5px] text-foreground/55 mt-1 leading-relaxed max-w-[24ch]">
+                      Operating doctrine for vision,<br />people, data, issues,<br />process, and traction.
+                    </p>
+                  </div>
+
+                  <div className="w-8 h-px bg-foreground/30 mt-4 mb-2" />
+                  <p className="uppercase tracking-[0.18em] text-[7.5px] sm:text-[9px] text-foreground/70">Second Edition</p>
+
+                  <p className="font-serif text-[11px] sm:text-[13px] mt-3">Marshall Wilkinson</p>
+
+                  {/* Bulldozer floats over the page (inside screen) */}
+                  <img
+                    src={bulldozer}
+                    alt=""
+                    aria-hidden
+                    className="absolute pointer-events-none select-none right-[-4%] top-[22%] w-[58%] max-w-[280px] opacity-95"
+                    style={{ filter: 'drop-shadow(0 12px 18px hsl(30 10% 10% / 0.18))' }}
+                  />
+
+                  {/* Audio player card */}
+                  <div className="mt-auto pt-4">
+                    <p className="uppercase tracking-[0.2em] text-[7.5px] sm:text-[9px] text-foreground/60">Audio Chapter Available</p>
+                    <div className="mt-2 rounded-md bg-[hsl(35_15%_94%)] border border-border/60 px-3 py-2.5 flex items-center gap-3">
+                      <button className="w-7 h-7 rounded-full bg-background border border-border/70 flex items-center justify-center shrink-0">
+                        <Play className="w-3 h-3 text-foreground/80 ml-0.5" fill="currentColor" />
+                      </button>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-center gap-2 text-[8px] sm:text-[10px] font-sans">
+                          <span className="text-foreground/50">01</span>
+                          <span className="text-foreground truncate">The Company Behind the Projects</span>
+                        </div>
+                        <div className="mt-1 flex items-center gap-[1px] h-3">
+                          {Array.from({ length: 70 }).map((_, i) => (
+                            <span
+                              key={i}
+                              className="flex-1"
+                              style={{
+                                height: `${20 + Math.abs(Math.sin(i * 0.7)) * 80}%`,
+                                background: i < 9 ? 'hsl(var(--brand-accent))' : 'hsl(30 10% 10% / 0.35)',
+                              }}
+                            />
+                          ))}
+                        </div>
+                        <div className="flex justify-between text-[7px] sm:text-[8.5px] text-foreground/40 mt-1 font-sans">
+                          <span>00:00</span>
+                          <span>18:42</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Bulldozer overflowing the tablet bottom-left */}
             <img
-              src={bookCover}
-              alt="The ALP Handbook by Marshall Wilkinson"
-              className="max-w-[220px] sm:max-w-xs md:max-w-sm lg:max-w-md w-full h-auto shadow-2xl rounded-sm"
+              src={bulldozer}
+              alt=""
+              aria-hidden
+              className="pointer-events-none select-none absolute -bottom-6 -left-4 sm:-bottom-10 sm:-left-10 w-[55%] max-w-[360px]"
+              style={{ filter: 'drop-shadow(0 24px 30px hsl(30 10% 10% / 0.22))' }}
             />
           </div>
 
-          {/* Lockup — right */}
-          <div className="order-2">
-            <div className="eyebrow mb-8">ALP Contractor Circle</div>
+          {/* RIGHT — Editorial lockup */}
+          <div className="order-1 lg:order-2 lg:pl-4">
+            <div className="flex items-center gap-3 mb-7">
+              <span className="w-10 h-px bg-foreground/40" />
+              <span className="uppercase tracking-[0.28em] text-[11px] font-sans text-foreground/70">
+                ALP Contractor Circle
+              </span>
+            </div>
 
             <h1
-              className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.92] mb-6"
+              className="font-serif text-[44px] sm:text-6xl lg:text-7xl xl:text-[88px] leading-[0.95] text-foreground"
               style={{
                 fontWeight: 700,
-                letterSpacing: '-0.03em',
+                letterSpacing: '-0.025em',
                 fontVariationSettings: '"opsz" 144, "SOFT" 50',
               }}
             >
-              The ALP<br />Handbook.
+              A field manual<br />
+              for building<br />
+              the company<br />
+              behind the projects.
             </h1>
 
-            <div className="w-12 h-px bg-foreground/30 mb-6" />
+            <div className="w-14 h-px bg-foreground/30 mt-8 mb-7" />
 
-            <p className="editorial-tagline text-xl md:text-2xl text-foreground/85 leading-snug mb-3">
-              A field manual for running a contracting company.
-            </p>
-            <p className="editorial-tagline text-xl md:text-2xl text-foreground/70 leading-snug mb-10">
-              Build the company behind the projects.
+            <p className="font-sans text-base md:text-[17px] text-foreground/75 leading-relaxed max-w-[44ch] mb-9">
+              The ALP Handbook is an interactive web experience for
+              contractors who want to run the company, not just the
+              projects. Read the doctrine, follow the chapters, and
+              listen to selected audio sections as you work.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12">
               <button
                 onClick={handlePurchase}
                 disabled={checkoutLoading || loading}
@@ -154,37 +306,31 @@ const SalesPage: React.FC = () => {
               <Link to="/preview">
                 <button className="pill-cta pill-cta--ghost w-full">
                   <Eye className="w-4 h-4" />
-                  Preview Experience
+                  Preview the Experience
                 </button>
               </Link>
             </div>
 
-            <div className="flex flex-col gap-3 mb-8">
-              <div className="w-10 h-px bg-foreground/30" />
-              <div className="eyebrow eyebrow--accent eyebrow--bare">AOS Edition</div>
-              <p className="text-[11px] uppercase tracking-[0.28em] text-foreground/55 font-sans leading-relaxed max-w-sm">
-                Operating doctrine for vision, people, data, issues, process, and traction.
-              </p>
-            </div>
+            <div className="w-full h-px bg-foreground/15 mb-7" />
 
-            <div className="w-10 h-px bg-foreground/20 mb-4" />
-            <div className="eyebrow eyebrow--bare mb-1">Second Edition</div>
-            <p className="font-serif text-lg mt-3">Marshall Wilkinson</p>
-
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mt-10 text-[11px] uppercase tracking-[0.22em] font-sans text-foreground/50">
-              <div className="flex items-center gap-2">
-                <Monitor className="w-3.5 h-3.5" />
-                <span>Interactive Web Experience</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Infinity className="w-3.5 h-3.5" />
-                <span>Lifetime Access</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CreditCard className="w-3.5 h-3.5" />
-                <span>One-Time Payment</span>
-              </div>
+            {/* Feature row — 4 icons */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-6">
+              {[
+                { Icon: Link2, label: 'Magic Link\nAccess', sub: 'Delivered instantly.\nYours to keep.' },
+                { Icon: ListOrdered, label: 'Interactive\nTable of Contents', sub: 'Navigate the system.\nStay on track.' },
+                { Icon: Headphones, label: 'Audio Chapters\nIncluded', sub: 'Listen while you work.\nBuilt for real life.' },
+                { Icon: Infinity, label: 'Lifetime\nAccess', sub: 'One-time payment.\nLifetime updates.' },
+              ].map(({ Icon, label, sub }, i) => (
+                <div key={i}>
+                  <Icon className="w-5 h-5 text-foreground/80 mb-3" strokeWidth={1.5} />
+                  <p className="uppercase tracking-[0.18em] text-[10.5px] font-sans font-medium text-foreground whitespace-pre-line leading-snug">
+                    {label}
+                  </p>
+                  <p className="font-sans text-[12px] text-foreground/60 mt-2 whitespace-pre-line leading-snug">
+                    {sub}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>
