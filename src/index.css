@@ -2,8 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fraunces (display serif, DDB/Ogilvy editorial) + Space Grotesk (sans, body + tracked labels) */
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+/* Instrument Serif (display, editorial headlines) + IBM Plex Mono (labels, metadata) */
+/* Body / UI / buttons use Helvetica via the system stack. */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
 
 @layer base {
   :root {
@@ -126,13 +127,13 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
     font-feature-settings: "ss01", "ss02";
   }
 
   /* All headings: high-contrast editorial serif */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Instrument Serif', Georgia, serif;
     font-variation-settings: "opsz" 144, "SOFT" 50;
     letter-spacing: -0.015em;
   }
@@ -145,7 +146,7 @@
 
   .handbook-title {
     @apply text-5xl md:text-7xl lg:text-8xl leading-[0.92];
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Instrument Serif', Georgia, serif;
     font-weight: 700;
     font-variation-settings: "opsz" 144, "SOFT" 50;
     letter-spacing: -0.03em;
@@ -153,14 +154,14 @@
 
   .handbook-subtitle {
     @apply text-xs md:text-sm uppercase;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
     font-weight: 500;
     letter-spacing: 0.28em;
   }
 
   .chapter-heading {
     @apply text-4xl md:text-5xl lg:text-6xl mb-8 leading-[0.95];
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Instrument Serif', Georgia, serif;
     font-weight: 600;
     font-variation-settings: "opsz" 144;
     letter-spacing: -0.022em;
@@ -168,7 +169,7 @@
 
   .section-heading {
     @apply text-2xl md:text-3xl lg:text-4xl mb-6 leading-tight;
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Instrument Serif', Georgia, serif;
     font-weight: 600;
     font-variation-settings: "opsz" 96;
     letter-spacing: -0.018em;
@@ -176,7 +177,7 @@
 
   .subsection-heading {
     @apply text-xl md:text-2xl mb-4 leading-snug;
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Instrument Serif', Georgia, serif;
     font-weight: 600;
     font-variation-settings: "opsz" 72;
     letter-spacing: -0.012em;
@@ -184,7 +185,7 @@
 
   .body-text {
     @apply text-lg md:text-xl leading-[1.7] text-left;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
     font-weight: 400;
     color: hsl(var(--foreground));
   }
@@ -195,7 +196,7 @@
 
   .body-text-emphasis {
     @apply text-lg md:text-xl leading-[1.7] font-semibold text-left;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
     color: hsl(var(--foreground));
   }
 
@@ -206,7 +207,7 @@
   /* Tiny tracked uppercase label — the DDB micro-voice */
   .eyebrow {
     @apply text-[11px] md:text-xs uppercase font-medium inline-flex items-center gap-3;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
     letter-spacing: 0.28em;
     color: hsl(var(--foreground) / 0.65);
   }
@@ -231,7 +232,7 @@
 
   /* Italic tagline serif — "Build the company behind the projects." */
   .editorial-tagline {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Instrument Serif', Georgia, serif;
     font-style: italic;
     font-weight: 400;
     font-variation-settings: "opsz" 144;
@@ -242,7 +243,7 @@
   .editorial-columns {
     column-gap: 2.5rem;
     column-rule: 1px solid hsl(var(--border));
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
     font-size: 0.95rem;
     line-height: 1.65;
     text-align: justify;
@@ -262,7 +263,7 @@
   /* Black pill CTA (portal "ENTER THE PORTAL" spec) */
   .pill-cta {
     @apply inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full transition-all;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
     font-size: 0.78rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -300,7 +301,7 @@
 
   .editorial-card__footer {
     @apply text-center py-5 border-t;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
     font-size: 0.7rem;
     font-weight: 500;
     text-transform: uppercase;
@@ -321,7 +322,7 @@
 
   .parable-label {
     @apply text-xs uppercase mb-4 opacity-60;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
     letter-spacing: 0.28em;
     font-weight: 500;
   }
@@ -337,7 +338,7 @@
 
   .identity-parable-badge {
     @apply inline-flex items-center gap-2 text-xs uppercase px-3 py-1.5 rounded-full mb-4;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
     letter-spacing: 0.22em;
     font-weight: 500;
     background: hsl(var(--identity-parable-border) / 0.12);
@@ -353,7 +354,7 @@
 
   .media-placeholder-text {
     @apply text-sm uppercase opacity-50;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
     letter-spacing: 0.22em;
   }
 
@@ -373,7 +374,7 @@
 
   .list-doctrine li {
     @apply text-lg md:text-xl leading-relaxed relative;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
     font-weight: 400;
   }
 
@@ -386,7 +387,7 @@
   .blockquote-doctrine {
     @apply pl-8 py-4 my-10 border-l-2 italic;
     border-color: hsl(var(--foreground) / 0.25);
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Instrument Serif', Georgia, serif;
     font-variation-settings: "opsz" 144;
     font-weight: 400;
     font-size: 1.45rem;
@@ -409,7 +410,7 @@
   }
 
   .toc-item__title {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Instrument Serif', Georgia, serif;
     font-weight: 500;
     font-variation-settings: "opsz" 72;
     transition: color 0.2s;
@@ -417,7 +418,7 @@
 
   .toc-part {
     @apply text-xs uppercase pt-12 pb-5 opacity-70;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'IBM Plex Mono', ui-monospace, monospace;
     letter-spacing: 0.3em;
     font-weight: 500;
   }

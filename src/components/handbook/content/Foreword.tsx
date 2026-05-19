@@ -1,8 +1,6 @@
 import React from 'react';
 import Section from '../Section';
-import AudioPlayer from '../AudioPlayer';
 import Eyebrow from '@/components/editorial/Eyebrow';
-import authorsNoteAudio from '@/assets/audio/authors-note.mp3';
 
 const Foreword: React.FC = () => {
   return (
@@ -10,10 +8,9 @@ const Foreword: React.FC = () => {
       <header className="mb-16">
         <Eyebrow className="mb-6">Foreword</Eyebrow>
         <h2 className="chapter-heading">Author's Note</h2>
-        <div className="flex justify-start mt-8">
-          <AudioPlayer src={authorsNoteAudio} title="Listen to the Author's Note" />
-        </div>
       </header>
+
+
 
 
       <div className="body-text space-y-6 max-w-3xl">

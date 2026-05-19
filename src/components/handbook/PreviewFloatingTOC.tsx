@@ -197,11 +197,11 @@ const PreviewFloatingTOC: React.FC = () => {
                 {tocData.map((section, sectionIndex) => (
                   <div key={sectionIndex} className="mb-6">
                     {section.part ? (
-                      <div className="text-xs uppercase tracking-widest opacity-50 pt-4 pb-2" style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.15em' }}>
+                      <div className="text-xs uppercase tracking-widest opacity-50 pt-4 pb-2" style={{ fontFamily: 'Helvetica, Arial, sans-serif', letterSpacing: '0.15em' }}>
                         Part {section.part} — {section.title}
                       </div>
                     ) : (
-                      <div className="text-xs uppercase tracking-widest opacity-50 pb-2" style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.15em' }}>
+                      <div className="text-xs uppercase tracking-widest opacity-50 pb-2" style={{ fontFamily: 'Helvetica, Arial, sans-serif', letterSpacing: '0.15em' }}>
                         {section.title}
                       </div>
                     )}
@@ -219,11 +219,11 @@ const PreviewFloatingTOC: React.FC = () => {
                           disabled={!unlocked}
                         >
                           {item.chapter && (
-                            <span className="text-xs opacity-40 font-medium w-5" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                            <span className="text-xs opacity-40 font-medium w-5" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                               {item.chapter}
                             </span>
                           )}
-                          <span className={`text-sm leading-tight flex-1 ${unlocked ? 'group-hover:text-foreground' : ''}`} style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                          <span className={`text-sm leading-tight flex-1 ${unlocked ? 'group-hover:text-foreground' : ''}`} style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                             {item.title}
                           </span>
                           {!unlocked && (
@@ -243,7 +243,7 @@ const PreviewFloatingTOC: React.FC = () => {
               <div className="p-6 pt-4">
                 {/* Regular Parables */}
                 <div className="mb-8">
-                  <div className="text-xs uppercase tracking-widest opacity-50 pb-3" style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.15em' }}>
+                  <div className="text-xs uppercase tracking-widest opacity-50 pb-3" style={{ fontFamily: 'Helvetica, Arial, sans-serif', letterSpacing: '0.15em' }}>
                     Parables
                   </div>
                   {regularParables.map((parable) => {
@@ -263,7 +263,7 @@ const PreviewFloatingTOC: React.FC = () => {
                           {parable.title}
                         </span>
                         <div className="flex items-center gap-2">
-                          <span className="text-xs opacity-40" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                          <span className="text-xs opacity-40" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                             Ch. {parable.chapter}
                           </span>
                           {!unlocked && <Lock className="w-3 h-3 opacity-50" />}
@@ -275,7 +275,7 @@ const PreviewFloatingTOC: React.FC = () => {
                 
                 {/* Identity Parables */}
                 <div>
-                  <div className="text-xs uppercase tracking-widest pb-3 text-brand-accent" style={{ fontFamily: 'Space Grotesk, sans-serif', letterSpacing: '0.15em' }}>
+                  <div className="text-xs uppercase tracking-widest pb-3 text-brand-accent" style={{ fontFamily: 'Helvetica, Arial, sans-serif', letterSpacing: '0.15em' }}>
                     Identity Parables
                   </div>
                   {identityParables.map((parable) => {
@@ -295,7 +295,7 @@ const PreviewFloatingTOC: React.FC = () => {
                           {parable.title}
                         </span>
                         <div className="flex items-center gap-2">
-                          <span className="text-xs opacity-40" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                          <span className="text-xs opacity-40" style={{ fontFamily: 'Helvetica, Arial, sans-serif' }}>
                             Ch. {parable.chapter}
                           </span>
                           {!unlocked && <Lock className="w-3 h-3 opacity-50" />}

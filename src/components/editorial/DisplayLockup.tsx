@@ -14,7 +14,7 @@ interface DisplayLockupProps {
 }
 
 /**
- * Cover-grade title lockup: eyebrow → Fraunces display title → hairline rule → italic tagline.
+ * Cover-grade title lockup: eyebrow → Instrument Serif display title → hairline rule → italic tagline.
  * Matches the structure of the V2 cover and the AOS portal "Welcome aboard." block.
  */
 const DisplayLockup: React.FC<DisplayLockupProps> = ({
