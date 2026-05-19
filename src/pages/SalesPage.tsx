@@ -229,11 +229,10 @@ const SalesPage: React.FC = () => {
             </div>
 
             <h1
-              className="font-serif text-[38px] sm:text-[46px] lg:text-[54px] xl:text-[60px] leading-[0.98] text-foreground"
+              className="font-serif text-[42px] sm:text-[52px] lg:text-[62px] xl:text-[70px] leading-[1.02] text-foreground"
               style={{
-                fontWeight: 700,
-                letterSpacing: '-0.025em',
-                fontVariationSettings: '"opsz" 144, "SOFT" 50',
+                fontWeight: 400,
+                letterSpacing: '-0.02em',
               }}
             >
               A field manual<br />
