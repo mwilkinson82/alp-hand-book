@@ -445,10 +445,10 @@ const SalesPage: React.FC = () => {
             {/* Feature row — 4 icons */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-6">
               {[
-                { Icon: Link2, label: 'Magic Link\nAccess', sub: 'Delivered instantly.\nYours to keep.' },
-                { Icon: ListOrdered, label: 'Interactive\nTable of Contents', sub: 'Navigate the system.\nStay on track.' },
-                { Icon: Headphones, label: 'Audio Chapters\nIncluded', sub: 'Listen while you work.\nBuilt for real life.' },
-                { Icon: Infinity, label: 'Lifetime\nAccess', sub: 'One-time payment.\nLifetime updates.' },
+              { Icon: BookOpen, label: 'Field Manual\nFormat', sub: 'Built to use during\nreal decisions.' },
+              { Icon: ListOrdered, label: 'AOS\nEdition', sub: 'Includes the operating-\nsystem section.' },
+              { Icon: Headphones, label: 'Audio\nChapters', sub: 'Listen while\nyou work.' },
+              { Icon: Infinity, label: 'Lifetime\nAccess', sub: 'One payment.\nKeep the system.' },
               ].map(({ Icon, label, sub }, i) => (
                 <div key={i}>
                   <Icon className="w-5 h-5 text-foreground/80 mb-3" strokeWidth={1.5} />
