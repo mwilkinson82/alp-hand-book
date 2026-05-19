@@ -8,7 +8,7 @@ const Chapter20: React.FC = () => {
   return (
     <div id="chapter-20" className="py-24 border-t border-chapter-divider">
       <ChapterHeader 
-        number={20} 
+        number={26} 
         title="Notices, Documentation, and Playing Offense" 
       />
 

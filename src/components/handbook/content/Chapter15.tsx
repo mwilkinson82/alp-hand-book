@@ -7,7 +7,7 @@ import DoctrineList from '../DoctrineList';
 const Chapter15 = () => {
   return (
     <section id="chapter-15" className="chapter-section">
-      <ChapterHeader number={15} title="Start–Stop Work and Productivity Loss" />
+      <ChapterHeader number={21} title="Start–Stop Work and Productivity Loss" />
       
       <p className="body-text">
         Few things destroy profit faster — or more quietly — than start–stop work.

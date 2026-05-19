@@ -6,7 +6,7 @@ import DoctrineList from '../DoctrineList';
 const Chapter32: React.FC = () => {
   return (
     <div id="chapter-32" className="py-24 border-t border-chapter-divider">
-      <ChapterHeader number={32} title="Why AOS Belongs in an Application" />
+      <ChapterHeader number={9} title="Why AOS Belongs in an Application" />
 
       <div className="body-text space-y-6 max-w-3xl">
         <p>An operating system cannot live in scattered places forever.</p>
