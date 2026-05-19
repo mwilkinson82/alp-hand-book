@@ -2,38 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+/* Fraunces (display serif, DDB/Ogilvy editorial) + Space Grotesk (sans, body + tracked labels) */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;0,9..144,900;1,9..144,400;1,9..144,500;1,9..144,600&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @layer base {
   :root {
-    /* Off-white book page background */
+    /* Off-white book page background (cover-grade cream) */
     --background: 40 30% 96%;
-    --foreground: 30 10% 12%;
+    --foreground: 30 10% 10%;
 
-    --card: 40 25% 94%;
-    --card-foreground: 30 10% 12%;
+    --card: 40 25% 97%;
+    --card-foreground: 30 10% 10%;
 
     --popover: 40 30% 96%;
-    --popover-foreground: 30 10% 12%;
+    --popover-foreground: 30 10% 10%;
 
-    --primary: 30 10% 12%;
+    --primary: 30 10% 10%;
     --primary-foreground: 40 30% 96%;
 
     --secondary: 35 15% 90%;
-    --secondary-foreground: 30 10% 12%;
+    --secondary-foreground: 30 10% 10%;
 
     --muted: 35 12% 88%;
     --muted-foreground: 30 8% 40%;
 
     --accent: 35 15% 92%;
-    --accent-foreground: 30 10% 12%;
+    --accent-foreground: 30 10% 10%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 35 15% 85%;
     --input: 35 15% 85%;
-    --ring: 30 10% 12%;
+    --ring: 30 10% 10%;
 
     --radius: 0.25rem;
 
@@ -45,11 +46,14 @@
     --brand-accent: 24 95% 53%;
     --hero-gradient-start: 217 33% 17%;
     --hero-gradient-mid: 217 33% 22%;
-    
+
     /* Identity Parable specific tokens */
     --identity-parable-bg: 30 40% 95%;
     --identity-parable-border: 24 95% 53%;
     --identity-parable-accent: 24 80% 50%;
+
+    /* Editorial card shadow (cover-grade soft) */
+    --editorial-shadow: 0 24px 60px -20px hsl(30 10% 10% / 0.10), 0 8px 20px -10px hsl(30 10% 10% / 0.06);
 
     --sidebar-background: 40 30% 96%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -63,25 +67,25 @@
 
   .dark {
     --background: 25 15% 8%;
-    --foreground: 40 20% 90%;
+    --foreground: 40 20% 92%;
 
     --card: 25 12% 10%;
-    --card-foreground: 40 20% 90%;
+    --card-foreground: 40 20% 92%;
 
     --popover: 25 15% 8%;
-    --popover-foreground: 40 20% 90%;
+    --popover-foreground: 40 20% 92%;
 
-    --primary: 40 20% 90%;
+    --primary: 40 20% 92%;
     --primary-foreground: 25 15% 8%;
 
     --secondary: 25 10% 14%;
-    --secondary-foreground: 40 20% 90%;
+    --secondary-foreground: 40 20% 92%;
 
     --muted: 25 10% 18%;
-    --muted-foreground: 35 12% 55%;
+    --muted-foreground: 35 12% 60%;
 
     --accent: 25 10% 14%;
-    --accent-foreground: 40 20% 90%;
+    --accent-foreground: 40 20% 92%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
@@ -97,11 +101,12 @@
     --brand-accent: 24 95% 53%;
     --hero-gradient-start: 217 33% 10%;
     --hero-gradient-mid: 217 33% 15%;
-    
-    /* Identity Parable specific tokens - dark mode */
+
     --identity-parable-bg: 25 15% 12%;
     --identity-parable-border: 24 95% 53%;
     --identity-parable-accent: 24 80% 55%;
+
+    --editorial-shadow: 0 24px 60px -20px hsl(0 0% 0% / 0.4), 0 8px 20px -10px hsl(0 0% 0% / 0.3);
 
     --sidebar-background: 25 15% 8%;
     --sidebar-foreground: 240 4.8% 95.9%;
@@ -121,43 +126,64 @@
 
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-feature-settings: "ss01", "ss02";
   }
 
+  /* All headings: high-contrast editorial serif */
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+    letter-spacing: -0.015em;
   }
 }
 
 @layer components {
+  /* ============================================================
+     DDB/OGILVY EDITORIAL TYPE SCALE
+     ============================================================ */
+
   .handbook-title {
-    @apply text-5xl md:text-7xl lg:text-8xl font-semibold tracking-tight leading-none;
-    font-family: 'Cormorant Garamond', serif;
+    @apply text-5xl md:text-7xl lg:text-8xl leading-[0.92];
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 700;
+    font-variation-settings: "opsz" 144, "SOFT" 50;
+    letter-spacing: -0.03em;
   }
 
   .handbook-subtitle {
-    @apply text-lg md:text-xl font-light tracking-wide uppercase;
+    @apply text-xs md:text-sm uppercase;
     font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: 0.2em;
+    font-weight: 500;
+    letter-spacing: 0.28em;
   }
 
   .chapter-heading {
-    @apply text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight mb-8;
-    font-family: 'Cormorant Garamond', serif;
+    @apply text-4xl md:text-5xl lg:text-6xl mb-8 leading-[0.95];
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-variation-settings: "opsz" 144;
+    letter-spacing: -0.022em;
   }
 
   .section-heading {
-    @apply text-2xl md:text-3xl font-medium tracking-tight mb-6;
-    font-family: 'Cormorant Garamond', serif;
+    @apply text-2xl md:text-3xl lg:text-4xl mb-6 leading-tight;
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-variation-settings: "opsz" 96;
+    letter-spacing: -0.018em;
   }
 
   .subsection-heading {
-    @apply text-xl md:text-2xl font-medium tracking-tight mb-4;
-    font-family: 'Cormorant Garamond', serif;
+    @apply text-xl md:text-2xl mb-4 leading-snug;
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 600;
+    font-variation-settings: "opsz" 72;
+    letter-spacing: -0.012em;
   }
 
   .body-text {
-    @apply text-lg md:text-xl leading-relaxed text-left;
+    @apply text-lg md:text-xl leading-[1.7] text-left;
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 400;
     color: hsl(var(--foreground));
@@ -168,10 +194,124 @@
   }
 
   .body-text-emphasis {
-    @apply text-lg md:text-xl leading-relaxed font-semibold text-left;
+    @apply text-lg md:text-xl leading-[1.7] font-semibold text-left;
     font-family: 'Space Grotesk', sans-serif;
     color: hsl(var(--foreground));
   }
+
+  /* ============================================================
+     EDITORIAL PRIMITIVES — eyebrows, rules, lockups, columns
+     ============================================================ */
+
+  /* Tiny tracked uppercase label — the DDB micro-voice */
+  .eyebrow {
+    @apply text-[11px] md:text-xs uppercase font-medium inline-flex items-center gap-3;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.28em;
+    color: hsl(var(--foreground) / 0.65);
+  }
+
+  /* Hairline rule that sits inside the eyebrow (the cover's `——  AOS EDITION`) */
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 28px;
+    height: 1px;
+    background-color: currentColor;
+    opacity: 0.6;
+  }
+
+  .eyebrow--accent {
+    color: hsl(var(--brand-accent));
+  }
+
+  .eyebrow--bare::before {
+    display: none;
+  }
+
+  /* Italic tagline serif — "Build the company behind the projects." */
+  .editorial-tagline {
+    font-family: 'Fraunces', Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    font-variation-settings: "opsz" 144;
+    letter-spacing: -0.01em;
+  }
+
+  /* Editorial column body for marketing/portal blocks */
+  .editorial-columns {
+    column-gap: 2.5rem;
+    column-rule: 1px solid hsl(var(--border));
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    text-align: justify;
+    hyphens: auto;
+    color: hsl(var(--foreground) / 0.85);
+  }
+
+  .editorial-columns p + p {
+    margin-top: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .editorial-columns--2 { column-count: 2; }
+    .editorial-columns--3 { column-count: 3; }
+  }
+
+  /* Black pill CTA (portal "ENTER THE PORTAL" spec) */
+  .pill-cta {
+    @apply inline-flex items-center justify-center gap-2 px-10 py-4 rounded-full transition-all;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.78rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
+  }
+
+  .pill-cta:hover {
+    background-color: hsl(var(--foreground) / 0.88);
+  }
+
+  .pill-cta:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  .pill-cta--ghost {
+    background-color: transparent;
+    color: hsl(var(--foreground));
+    border: 1px solid hsl(var(--foreground) / 0.35);
+  }
+
+  .pill-cta--ghost:hover {
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
+  }
+
+  /* Soft-shadow editorial card (portal sign-in card spec) */
+  .editorial-card {
+    @apply rounded-2xl bg-card overflow-hidden;
+    box-shadow: var(--editorial-shadow);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+
+  .editorial-card__footer {
+    @apply text-center py-5 border-t;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.32em;
+    color: hsl(var(--foreground) / 0.5);
+    border-color: hsl(var(--border));
+  }
+
+  /* ============================================================
+     EXISTING HANDBOOK PATTERNS (retuned)
+     ============================================================ */
 
   .parable-container {
     @apply relative pl-8 py-8 my-12 border-l-2;
@@ -180,26 +320,27 @@
   }
 
   .parable-label {
-    @apply text-sm uppercase tracking-widest mb-4 opacity-60;
+    @apply text-xs uppercase mb-4 opacity-60;
     font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: 0.25em;
+    letter-spacing: 0.28em;
+    font-weight: 500;
   }
 
-  /* Identity Parable - Full-width card style */
   .identity-parable-container {
     @apply relative w-full py-10 px-8 my-16 rounded-lg;
     background: linear-gradient(135deg, hsl(var(--identity-parable-bg)) 0%, hsl(var(--background)) 100%);
     border: 1px solid hsl(var(--identity-parable-border) / 0.3);
-    box-shadow: 
+    box-shadow:
       0 4px 20px hsl(var(--identity-parable-border) / 0.1),
       inset 0 1px 0 hsl(var(--background) / 0.5);
   }
 
   .identity-parable-badge {
-    @apply inline-flex items-center gap-2 text-xs uppercase tracking-widest px-3 py-1.5 rounded-full mb-4;
+    @apply inline-flex items-center gap-2 text-xs uppercase px-3 py-1.5 rounded-full mb-4;
     font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: 0.2em;
-    background: hsl(var(--identity-parable-border) / 0.15);
+    letter-spacing: 0.22em;
+    font-weight: 500;
+    background: hsl(var(--identity-parable-border) / 0.12);
     color: hsl(var(--identity-parable-accent));
     border: 1px solid hsl(var(--identity-parable-border) / 0.3);
   }
@@ -211,9 +352,9 @@
   }
 
   .media-placeholder-text {
-    @apply text-sm uppercase tracking-widest opacity-50;
+    @apply text-sm uppercase opacity-50;
     font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: 0.15em;
+    letter-spacing: 0.22em;
   }
 
   .chapter-divider {
@@ -222,7 +363,7 @@
   }
 
   .part-divider {
-    @apply w-24 h-px my-32 mx-auto;
+    @apply w-24 h-px my-16 mx-auto;
     background-color: hsl(var(--foreground) / 0.3);
   }
 
@@ -245,29 +386,48 @@
   .blockquote-doctrine {
     @apply pl-8 py-4 my-10 border-l-2 italic;
     border-color: hsl(var(--foreground) / 0.25);
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.35rem;
-    line-height: 1.8;
+    font-family: 'Fraunces', Georgia, serif;
+    font-variation-settings: "opsz" 144;
+    font-weight: 400;
+    font-size: 1.45rem;
+    line-height: 1.55;
+    letter-spacing: -0.01em;
   }
 
+  /* TOC: editorial index, not button list */
   .toc-item {
-    @apply py-3 border-b transition-colors cursor-pointer hover:bg-accent/50;
-    border-color: hsl(var(--chapter-divider));
+    @apply py-5 border-b transition-colors cursor-pointer;
+    border-color: hsl(var(--chapter-divider) / 0.7);
+  }
+
+  .toc-item:hover {
+    background-color: transparent;
+  }
+
+  .toc-item:hover .toc-item__title {
+    color: hsl(var(--brand-accent));
+  }
+
+  .toc-item__title {
+    font-family: 'Fraunces', Georgia, serif;
+    font-weight: 500;
+    font-variation-settings: "opsz" 72;
+    transition: color 0.2s;
   }
 
   .toc-part {
-    @apply text-sm uppercase tracking-widest opacity-60 pt-8 pb-4;
+    @apply text-xs uppercase pt-12 pb-5 opacity-70;
     font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.3em;
+    font-weight: 500;
   }
 }
 
-/* Smooth scrolling */
 html {
   scroll-behavior: smooth;
 }
 
-/* Selection styling */
 ::selection {
-  background-color: hsl(var(--foreground) / 0.1);
+  background-color: hsl(var(--brand-accent) / 0.2);
+  color: hsl(var(--foreground));
 }
