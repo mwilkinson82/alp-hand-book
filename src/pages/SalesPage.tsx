@@ -107,8 +107,180 @@ const SalesPage: React.FC = () => {
         </div>
       </header>
 
-      {/* Hero Section — DDB/Ogilvy editorial lockup, tablet device + bulldozer */}
-      <section className="relative pt-20 lg:pt-24 pb-20 lg:pb-28 px-4 sm:px-6 lg:px-10 overflow-hidden">
+      {/* ============================================================
+          MOBILE / TABLET HERO — campaign-first, editorial opening
+          ============================================================ */}
+      <section className="lg:hidden relative pt-12 sm:pt-16 pb-16 px-5 sm:px-6 overflow-hidden">
+        <div className="max-w-[640px] mx-auto">
+          {/* Brand line */}
+          <div className="flex items-center gap-3 mb-5">
+            <span className="w-8 h-px bg-foreground/40" />
+            <span className="uppercase tracking-[0.28em] text-[10px] font-mono text-foreground/70">
+              The ALP Handbook
+            </span>
+          </div>
+
+          <p className="uppercase tracking-[0.28em] text-[10px] font-mono text-foreground/55 mb-7">
+            ALP Contractor Circle
+          </p>
+
+          {/* Big headline — owns the screen */}
+          <h1
+            className="font-serif text-foreground"
+            style={{
+              fontWeight: 400,
+              fontSize: 'clamp(44px, 13vw, 68px)',
+              lineHeight: 0.96,
+              letterSpacing: '-0.025em',
+            }}
+          >
+            A field manual for building the company behind the projects.
+          </h1>
+
+          <div className="w-12 h-px bg-foreground/30 mt-7 mb-5" />
+
+          <p className="font-sans text-[15px] text-foreground/75 leading-relaxed max-w-[34ch] mb-8">
+            An interactive web handbook for contractors who want to run the
+            company, not just the projects.
+          </p>
+
+          {/* Stacked CTAs — thumb-sized */}
+          <div className="flex flex-col gap-3 mb-10">
+            <button
+              onClick={handlePurchase}
+              disabled={checkoutLoading || loading}
+              className="pill-cta w-full py-[18px] text-[12px]"
+            >
+              {checkoutLoading ? 'Loading…' : 'Get the Handbook — $47'}
+            </button>
+
+            <Link to="/preview" className="w-full">
+              <button className="pill-cta pill-cta--ghost w-full py-[18px] text-[12px]">
+                <Eye className="w-4 h-4" />
+                Preview the Experience
+              </button>
+            </Link>
+          </div>
+
+          {/* Proof object — compact handbook card */}
+          <div className="mt-10 mb-8">
+            <p className="uppercase tracking-[0.24em] text-[9px] font-mono text-foreground/50 mb-3">
+              The Digital Handbook
+            </p>
+
+            <div
+              className="relative rounded-[20px] bg-[hsl(35_18%_93%)] p-2.5"
+              style={{
+                boxShadow:
+                  '0 30px 60px -25px hsl(30 10% 10% / 0.25), 0 8px 20px -10px hsl(30 10% 10% / 0.15), inset 0 0 0 1px hsl(30 10% 10% / 0.06)',
+              }}
+            >
+              <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-foreground/25" />
+
+              <div className="rounded-[14px] bg-background overflow-hidden">
+                {/* Top: tiny TOC strip + cover side by side */}
+                <div className="flex">
+                  {/* TOC mini strip */}
+                  <aside className="w-[36%] border-r border-border/70 px-3 py-3 text-[8px] font-sans">
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="uppercase tracking-[0.2em] text-foreground/70">Contents</span>
+                      <Menu className="w-2 h-2 text-foreground/40" />
+                    </div>
+                    <ul className="space-y-2">
+                      {[
+                        { n: '01', t: 'The Company\nBehind the Projects', active: true },
+                        { n: '02', t: 'The Operating System' },
+                        { n: '03', t: 'Vision' },
+                        { n: '04', t: 'Data' },
+                        { n: '05', t: 'Issues' },
+                      ].map(({ n, t, active }, i) => (
+                        <li key={i} className="relative">
+                          <p className="text-foreground/40">{n}</p>
+                          <p className={`whitespace-pre-line leading-tight ${active ? 'text-foreground' : 'text-foreground/70'}`}>
+                            {t}
+                          </p>
+                          {active && (
+                            <span className="absolute -right-1.5 top-1.5 w-1 h-1 rounded-full bg-[hsl(var(--brand-accent))]" />
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="mt-4 rounded border border-border/70 px-2 py-1.5">
+                      <div className="flex items-center gap-1">
+                        <Link2 className="w-2 h-2 text-foreground/60" />
+                        <span className="uppercase tracking-[0.16em] text-foreground/80 text-[7px]">Magic Link</span>
+                      </div>
+                    </div>
+                  </aside>
+
+                  {/* Cover */}
+                  <div className="flex-1 bg-[hsl(40_30%_96%)] flex items-center justify-center p-3 min-h-[200px]">
+                    <img
+                      src={bookCover}
+                      alt="The ALP Handbook — AOS Edition cover"
+                      className="max-h-[180px] w-auto object-contain"
+                      style={{ filter: 'drop-shadow(0 10px 18px hsl(30 10% 10% / 0.18))' }}
+                    />
+                  </div>
+                </div>
+
+                {/* Audio bar across full width */}
+                <div className="border-t border-border/60 px-3 py-2.5 bg-[hsl(40_30%_96%)]">
+                  <p className="uppercase tracking-[0.2em] text-[7.5px] font-mono text-foreground/55 mb-1.5">
+                    Audio Chapter Available
+                  </p>
+                  <div className="rounded bg-background border border-border/60 px-2.5 py-2 flex items-center gap-2.5">
+                    <button className="w-6 h-6 rounded-full bg-background border border-border/70 flex items-center justify-center shrink-0">
+                      <Play className="w-2.5 h-2.5 text-foreground/80 ml-0.5" fill="currentColor" />
+                    </button>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 text-[9px] font-sans">
+                        <span className="text-foreground/50">01</span>
+                        <span className="text-foreground truncate">The Company Behind the Projects</span>
+                      </div>
+                      <div className="mt-1 flex items-center gap-[1px] h-2">
+                        {Array.from({ length: 50 }).map((_, i) => (
+                          <span
+                            key={i}
+                            className="flex-1"
+                            style={{
+                              height: `${20 + Math.abs(Math.sin(i * 0.7)) * 80}%`,
+                              background: i < 6 ? 'hsl(var(--brand-accent))' : 'hsl(30 10% 10% / 0.35)',
+                            }}
+                          />
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Feature chips — wrap, not columns */}
+          <div className="flex flex-wrap gap-2 mt-6">
+            {[
+              'Magic link access',
+              'Interactive TOC',
+              'Audio chapters',
+              'Lifetime access',
+            ].map((label, i) => (
+              <span
+                key={i}
+                className="inline-flex items-center px-3 py-1.5 rounded-full border border-foreground/20 bg-background uppercase tracking-[0.16em] text-[10px] font-mono text-foreground/75"
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ============================================================
+          DESKTOP HERO — DDB/Ogilvy editorial lockup (unchanged)
+          ============================================================ */}
+      <section className="hidden lg:block relative pt-20 lg:pt-24 pb-20 lg:pb-28 px-4 sm:px-6 lg:px-10 overflow-hidden">
         <div className="max-w-[1400px] mx-auto grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
 
           {/* LEFT — Tablet device mock */}
@@ -291,6 +463,8 @@ const SalesPage: React.FC = () => {
           </div>
         </div>
       </section>
+
+
 
 
       {/* Pain Points Section */}
