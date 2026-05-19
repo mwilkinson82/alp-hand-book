@@ -12,6 +12,8 @@ const logStep = (step: string, details?: Record<string, unknown>) => {
   console.log(`[CHECK-PURCHASE] ${step}${detailsStr}`);
 };
 
+const ADMIN_EMAIL = "wilkinson.marshall@gmail.com";
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
@@ -40,6 +42,14 @@ serve(async (req) => {
     const user = userData.user;
     if (!user?.email) throw new Error("User not authenticated or email not available");
     logStep("User authenticated", { userId: user.id, email: user.email });
+
+    if (user.email.toLowerCase() === ADMIN_EMAIL) {
+      logStep("Owner access granted", { userId: user.id });
+      return new Response(JSON.stringify({ purchased: true, owner_access: true }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        status: 200,
+      });
+    }
 
     // First check database for existing purchase (use .limit(1) since user may have multiple)
     const { data: purchaseData, error: purchaseError } = await supabaseClient
