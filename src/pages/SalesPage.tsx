@@ -108,13 +108,13 @@ const SalesPage: React.FC = () => {
       </header>
 
       {/* Hero Section — DDB/Ogilvy editorial lockup, tablet device + bulldozer */}
-      <section className="relative pt-24 lg:pt-28 pb-16 lg:pb-24 px-4 sm:px-6 lg:px-10 overflow-hidden">
-        <div className="max-w-[1400px] mx-auto grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-16 items-center">
+      <section className="relative pt-20 lg:pt-24 pb-20 lg:pb-28 px-4 sm:px-6 lg:px-10 overflow-hidden">
+        <div className="max-w-[1400px] mx-auto grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
 
           {/* LEFT — Tablet device mock */}
-          <div className="relative order-2 lg:order-1">
+          <div className="relative order-2 lg:order-1 lg:pb-16">
             <div
-              className="relative mx-auto w-full max-w-[640px] aspect-[4/3] rounded-[28px] bg-[hsl(35_18%_93%)] p-3 sm:p-4"
+              className="relative mx-auto w-full max-w-[600px] aspect-[4/3] rounded-[28px] bg-[hsl(35_18%_93%)] p-3 sm:p-4"
               style={{
                 boxShadow:
                   '0 40px 80px -30px hsl(30 10% 10% / 0.25), 0 12px 30px -12px hsl(30 10% 10% / 0.18), inset 0 0 0 1px hsl(30 10% 10% / 0.06)',
