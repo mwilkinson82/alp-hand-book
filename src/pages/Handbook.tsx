@@ -119,9 +119,19 @@ const Handbook: React.FC = () => {
         <Chapter1 />
         <Chapter2 />
         <Chapter3 />
-        
-        {/* Part II */}
-        <PartHeader number="II" title="The Stool (Systems)" />
+
+        {/* Part II — The Operating System (Volume 2) */}
+        <PartHeader number="II" title="The Operating System" eyebrow="Volume 2 — New" />
+        <Volume2Intro />
+        <Chapter27 />
+        <Chapter28 />
+        <Chapter29 />
+        <Chapter30 />
+        <Chapter31 />
+        <Chapter32 />
+
+        {/* Part III — The Stool: Business Systems */}
+        <PartHeader number="III" title="The Stool: Business Systems" />
         <Chapter4 />
         <Chapter5 />
         <Chapter6 />
@@ -129,9 +139,9 @@ const Handbook: React.FC = () => {
         <Chapter8 />
         <Chapter9 />
         <Chapter10 />
-        
-        {/* Part III */}
-        <PartHeader number="III" title="Time, Money, & Leverage" />
+
+        {/* Part IV — Time, Money, & Leverage */}
+        <PartHeader number="IV" title="Time, Money, & Leverage" />
         <Chapter11 />
         <Chapter12 />
         <Chapter13 />
@@ -140,34 +150,24 @@ const Handbook: React.FC = () => {
         <Chapter16 />
         <Chapter17 />
         <Chapter18 />
-        
-        {/* Part IV */}
-        <PartHeader number="IV" title="Identity & Scale" />
+
+        {/* Part V — Identity & Scale */}
+        <PartHeader number="V" title="Identity & Scale" />
         <Chapter19 />
         <Chapter20 />
         <Chapter21 />
         <Chapter22 />
         <Chapter23 />
-        
-        {/* Part V */}
-        <PartHeader number="V" title="Real-Time Application" />
+
+        {/* Part VI — Real-Time Application */}
+        <PartHeader number="VI" title="Real-Time Application" />
         <Chapter24 />
         <Chapter25 />
         <Chapter26 />
-        
-        {/* Part VI */}
-        <PartHeader number="VI" title="Commitment" />
-        <FinalChapter />
 
-        {/* Part VII — Volume 2 */}
-        <PartHeader number="VII" title="Volume 2 — The Operating System" />
-        <Volume2Intro />
-        <Chapter27 />
-        <Chapter28 />
-        <Chapter29 />
-        <Chapter30 />
-        <Chapter31 />
-        <Chapter32 />
+        {/* Part VII — Commitment */}
+        <PartHeader number="VII" title="Commitment" />
+        <FinalChapter />
         
         {/* Footer */}
         <footer className="py-32 text-center border-t border-chapter-divider">
