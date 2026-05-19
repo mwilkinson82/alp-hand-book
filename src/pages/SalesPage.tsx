@@ -208,14 +208,7 @@ const SalesPage: React.FC = () => {
 
                   <p className="font-serif text-[11px] sm:text-[13px] mt-3">Marshall Wilkinson</p>
 
-                  {/* Bulldozer floats over the page (inside screen) */}
-                  <img
-                    src={bulldozer}
-                    alt=""
-                    aria-hidden
-                    className="absolute pointer-events-none select-none right-[-4%] top-[22%] w-[58%] max-w-[280px] opacity-95"
-                    style={{ filter: 'drop-shadow(0 12px 18px hsl(30 10% 10% / 0.18))' }}
-                  />
+                  {/* (interior bulldozer removed — single moment only) */}
 
                   {/* Audio player card */}
                   <div className="mt-auto pt-4">
@@ -252,13 +245,13 @@ const SalesPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Bulldozer overflowing the tablet bottom-left */}
+            {/* Single bulldozer moment — small premium product object, breathing room, bottom-right */}
             <img
               src={bulldozer}
               alt=""
               aria-hidden
-              className="pointer-events-none select-none absolute -bottom-6 -left-4 sm:-bottom-10 sm:-left-10 w-[55%] max-w-[360px]"
-              style={{ filter: 'drop-shadow(0 24px 30px hsl(30 10% 10% / 0.22))' }}
+              className="pointer-events-none select-none absolute -bottom-8 -right-4 sm:-bottom-12 sm:-right-8 w-[26%] max-w-[180px]"
+              style={{ filter: 'drop-shadow(0 18px 24px hsl(30 10% 10% / 0.22))' }}
             />
           </div>
 
@@ -272,7 +265,7 @@ const SalesPage: React.FC = () => {
             </div>
 
             <h1
-              className="font-serif text-[40px] sm:text-5xl lg:text-[58px] xl:text-[64px] leading-[0.98] text-foreground"
+              className="font-serif text-[38px] sm:text-[46px] lg:text-[54px] xl:text-[60px] leading-[0.98] text-foreground"
               style={{
                 fontWeight: 700,
                 letterSpacing: '-0.025em',
