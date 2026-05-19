@@ -110,40 +110,42 @@ const SalesPage: React.FC = () => {
       {/* ============================================================
           MOBILE / TABLET HERO — campaign-first, editorial opening
           ============================================================ */}
-      <section className="lg:hidden relative pt-10 sm:pt-12 pb-12 px-5 sm:px-6 overflow-hidden">
+      <section className="lg:hidden relative pt-6 sm:pt-8 pb-12 px-5 sm:px-6 overflow-hidden">
         <div className="max-w-[640px] mx-auto">
           {/* Brand line */}
-          <div className="flex items-center gap-3 mb-3">
+          <div className="flex items-center gap-3 mb-2">
             <span className="w-8 h-px bg-foreground/40" />
             <span className="uppercase tracking-[0.28em] text-[10px] font-mono text-foreground/70">
               The ALP Handbook
             </span>
           </div>
 
-          <p className="uppercase tracking-[0.28em] text-[10px] font-mono text-foreground/55 mb-4">
+          <p className="uppercase tracking-[0.28em] text-[10px] font-mono text-foreground/55 mb-3">
             ALP Contractor Circle
           </p>
 
-          {/* Big headline — owns the screen */}
+          {/* Campaign headline — short and memorable */}
           <h1
             className="font-serif text-foreground"
             style={{
               fontWeight: 400,
-              fontSize: 'clamp(44px, 11vw, 58px)',
+              fontSize: 'clamp(44px, 11.5vw, 60px)',
               lineHeight: 0.94,
               letterSpacing: '-0.02em',
             }}
           >
-            A field manual for building the company behind the projects.
+            Build the company behind the projects.
           </h1>
 
-          <p className="font-sans text-[15px] text-foreground/75 leading-snug max-w-[34ch] mt-4 mb-5">
-            An interactive web handbook for contractors who want to run the
-            company, not just the projects.
+          <p className="font-sans text-[15px] text-foreground/75 leading-snug max-w-[36ch] mt-3 mb-4">
+            The ALP Handbook is an interactive field manual for contractors who
+            want to run the company, not just the projects. Read the doctrine,
+            follow the chapters, and listen to selected audio sections as you
+            work.
           </p>
 
           {/* Primary CTA + light secondary link */}
-          <div className="flex flex-col items-start gap-3 mb-6">
+          <div className="flex flex-col items-start gap-2 mb-5">
             <button
               onClick={handlePurchase}
               disabled={checkoutLoading || loading}
@@ -161,6 +163,7 @@ const SalesPage: React.FC = () => {
               Preview the experience →
             </Link>
           </div>
+
 
           {/* Proof object — compact handbook card (top peeks into first viewport) */}
           <div className="mt-4 mb-8">
