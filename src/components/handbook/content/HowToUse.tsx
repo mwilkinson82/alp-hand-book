@@ -1,15 +1,15 @@
 import React from 'react';
 import Section from '../Section';
+import Eyebrow from '@/components/editorial/Eyebrow';
 
 const HowToUse: React.FC = () => {
   return (
     <div id="how-to-use" className="py-24 border-t border-chapter-divider">
       <header className="mb-16">
-        <div className="text-sm uppercase tracking-widest opacity-50 mb-4 font-sans" style={{ letterSpacing: '0.2em' }}>
-          Front Matter
-        </div>
+        <Eyebrow className="mb-6">Front Matter</Eyebrow>
         <h2 className="chapter-heading">How to Use This Handbook</h2>
       </header>
+
 
       <div className="body-text space-y-6 max-w-3xl">
         <p>Do not read this handbook like a normal business book.</p>

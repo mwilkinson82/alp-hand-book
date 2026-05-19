@@ -1,20 +1,20 @@
 import React from 'react';
 import Section from '../Section';
 import AudioPlayer from '../AudioPlayer';
+import Eyebrow from '@/components/editorial/Eyebrow';
 import authorsNoteAudio from '@/assets/audio/authors-note.mp3';
 
 const Foreword: React.FC = () => {
   return (
     <div id="foreword" className="py-24 border-t border-chapter-divider">
       <header className="mb-16">
-        <div className="text-sm uppercase tracking-widest opacity-50 mb-4 font-sans" style={{ letterSpacing: '0.2em' }}>
-          Foreword
-        </div>
+        <Eyebrow className="mb-6">Foreword</Eyebrow>
         <h2 className="chapter-heading">Author's Note</h2>
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-start mt-8">
           <AudioPlayer src={authorsNoteAudio} title="Listen to the Author's Note" />
         </div>
       </header>
+
 
       <div className="body-text space-y-6 max-w-3xl">
         <p>This book is not theory.</p>

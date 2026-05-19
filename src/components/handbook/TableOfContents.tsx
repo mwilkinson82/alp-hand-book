@@ -1,4 +1,5 @@
 import React from 'react';
+import Eyebrow from '@/components/editorial/Eyebrow';
 
 interface TocItem {
   id: string;
@@ -18,7 +19,7 @@ const tocData: TocSection[] = [
     title: 'Front Matter',
     items: [
       { id: 'dedication', title: 'Dedication' },
-      { id: 'foreword', title: 'Foreword / Author\'s Note' },
+      { id: 'foreword', title: "Foreword / Author's Note" },
       { id: 'how-to-use', title: 'How to Use This Handbook' },
     ],
   },
@@ -73,7 +74,7 @@ const tocData: TocSection[] = [
     part: 'V',
     title: 'Identity, Leadership, and Scale',
     items: [
-      { id: 'chapter-23', chapter: '22', title: 'Identity, Pressure, and the Entrepreneur\'s Responsibility' },
+      { id: 'chapter-23', chapter: '22', title: "Identity, Pressure, and the Entrepreneur's Responsibility" },
       { id: 'chapter-26', chapter: '23', title: 'Leadership, Standards, and Cultural Enforcement' },
       { id: 'chapter-25', chapter: '24', title: 'Scaling Without Losing Control' },
     ],
@@ -94,46 +95,49 @@ interface TableOfContentsProps {
 
 const TableOfContents: React.FC<TableOfContentsProps> = ({ onNavigate }) => {
   const handleClick = (id: string) => {
-    if (onNavigate) {
-      onNavigate(id);
-    }
+    if (onNavigate) onNavigate(id);
     const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    if (element) element.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <nav className="py-16">
-      <h2 className="chapter-heading mb-12">Table of Contents</h2>
-      {tocData.map((section, sectionIndex) => (
-        <div key={sectionIndex} className="mb-8">
-          {section.part ? (
-            <div className="toc-part flex items-baseline gap-3 flex-wrap">
-              <span>Part {section.part} — {section.title}</span>
-              {section.eyebrow && (
-                <span className="text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-sm bg-brand-accent/15 text-brand-accent font-sans" style={{ letterSpacing: '0.2em' }}>
-                  {section.eyebrow}
+    <nav className="py-20">
+      <Eyebrow className="mb-6">The Index</Eyebrow>
+      <h2 className="chapter-heading">Table of Contents</h2>
+
+      <div className="mt-16">
+        {tocData.map((section, sectionIndex) => (
+          <div key={sectionIndex} className="mb-2">
+            {section.part ? (
+              <div className="toc-part flex items-baseline gap-3 flex-wrap">
+                <span>Part {section.part} — {section.title}</span>
+                {section.eyebrow && (
+                  <Eyebrow accent bare className="text-[10px]">
+                    {section.eyebrow}
+                  </Eyebrow>
+                )}
+              </div>
+            ) : (
+              <div className="toc-part">{section.title}</div>
+            )}
+
+            {section.items.map((item) => (
+              <div
+                key={item.id}
+                className="toc-item flex items-baseline gap-6"
+                onClick={() => handleClick(item.id)}
+              >
+                <span className="font-sans text-xs uppercase tracking-[0.25em] opacity-50 w-10 shrink-0">
+                  {item.chapter ?? ''}
                 </span>
-              )}
-            </div>
-          ) : (
-            <div className="toc-part">{section.title}</div>
-          )}
-          {section.items.map((item) => (
-            <div
-              key={item.id}
-              className="toc-item flex items-baseline gap-4 px-4"
-              onClick={() => handleClick(item.id)}
-            >
-              {item.chapter && (
-                <span className="text-sm opacity-50 font-sans w-8">{item.chapter}</span>
-              )}
-              <span className="body-text flex-1">{item.title}</span>
-            </div>
-          ))}
-        </div>
-      ))}
+                <span className="toc-item__title text-xl md:text-2xl flex-1">
+                  {item.title}
+                </span>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
     </nav>
   );
 };
