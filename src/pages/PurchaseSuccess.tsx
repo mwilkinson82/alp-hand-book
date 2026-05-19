@@ -51,38 +51,17 @@ const PurchaseSuccess: React.FC = () => {
     setResendSuccess(false);
 
     try {
-      const redirectTo = 'https://alphandbook.com/read';
-      const { error: otpError } = await supabase.auth.signInWithOtp({
-        email: result.email,
-        options: { 
-          emailRedirectTo: redirectTo,
-          shouldCreateUser: false
-        }
+      const { data, error } = await supabase.functions.invoke('send-welcome-email-admin', {
+        body: { email: result.email },
       });
 
-      if (otpError) {
-        setResendError(otpError.message);
-        // Log the failure
-        await supabase.functions.invoke('log-magic-link', {
-          body: {
-            email: result.email,
-            source: 'purchase_success_manual_resend',
-            status: 'failed',
-            error_message: otpError.message,
-          }
-        });
-      } else {
-        setResendSuccess(true);
-        setResendCooldown(RESEND_COOLDOWN_SECONDS);
-        // Log the success
-        await supabase.functions.invoke('log-magic-link', {
-          body: {
-            email: result.email,
-            source: 'purchase_success_manual_resend',
-            status: 'sent',
-          }
-        });
+      if (error || data?.error) {
+        setResendError(data?.error || error?.message || 'Failed to send magic link. Please try again.');
+        return;
       }
+
+      setResendSuccess(true);
+      setResendCooldown(RESEND_COOLDOWN_SECONDS);
     } catch (err) {
       setResendError('Failed to send magic link. Please try again.');
     } finally {
