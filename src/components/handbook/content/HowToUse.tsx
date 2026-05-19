@@ -6,7 +6,10 @@ const HowToUse: React.FC = () => {
   return (
     <div id="how-to-use" className="py-24 border-t border-chapter-divider">
       <header className="mb-16">
-        <Eyebrow className="mb-6">Front Matter</Eyebrow>
+        <div className="flex flex-wrap items-center gap-x-6 gap-y-3 mb-6">
+          <Eyebrow accent bare>Updated for V2</Eyebrow>
+          <Eyebrow bare>Front Matter</Eyebrow>
+        </div>
         <h2 className="chapter-heading">How to Use This Handbook</h2>
       </header>
 
