@@ -245,13 +245,13 @@ const SalesPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Bulldozer overflowing the tablet bottom-left */}
+            {/* Single bulldozer moment — small premium product object, breathing room, bottom-right */}
             <img
               src={bulldozer}
               alt=""
               aria-hidden
-              className="pointer-events-none select-none absolute -bottom-6 -left-4 sm:-bottom-10 sm:-left-10 w-[55%] max-w-[360px]"
-              style={{ filter: 'drop-shadow(0 24px 30px hsl(30 10% 10% / 0.22))' }}
+              className="pointer-events-none select-none absolute -bottom-8 -right-4 sm:-bottom-12 sm:-right-8 w-[26%] max-w-[180px]"
+              style={{ filter: 'drop-shadow(0 18px 24px hsl(30 10% 10% / 0.22))' }}
             />
           </div>
 
