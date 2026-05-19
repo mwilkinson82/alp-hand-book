@@ -17,13 +17,20 @@ const Volume2Intro: React.FC = () => {
 
       <div className="body-text space-y-6 max-w-3xl">
         <p>
-          This volume belongs in the ALP Handbook as the field reference for why a contracting company needs a formal operating system.
+          You have the frame. You understand that contracting problems are entrepreneurial problems. You have seen the scaling stool and where it bears weight.
         </p>
-        <p>The goal is not to explain business theory.</p>
         <p>
-          The goal is to show the owner, in plain language, why the company cannot keep running on memory, personality, hierarchy, and emergency response. The company needs a system. It needs rules. It needs roles. It needs numbers. It needs a weekly execution rhythm. It needs a place where all of that lives.
+          Now the question is structural: how does the company actually run?
         </p>
-        <p className="body-text-emphasis">That place is AOS.</p>
+        <p>
+          The owner cannot keep running it on memory, personality, hierarchy, and emergency response. The company needs a system. It needs rules. It needs roles. It needs numbers. It needs a weekly execution rhythm. It needs one place where all of that lives.
+        </p>
+        <p>
+          The chapters in this volume describe that operating system. Not as theory. As the structure a contracting company needs before the business systems in the rest of the handbook can hold weight.
+        </p>
+        <p className="body-text-emphasis">
+          Read this volume first. The rest of the book sits on top of it.
+        </p>
       </div>
     </div>
   );
