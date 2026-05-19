@@ -85,7 +85,7 @@ const SalesPage: React.FC = () => {
   return <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-        <div className="max-w-6xl mx-auto px-3 sm:px-6 py-3 sm:py-4 flex items-center justify-between">
+        <div className="max-w-6xl mx-auto px-3 sm:px-6 py-2 sm:py-4 flex items-center justify-between">
           <span className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] font-medium opacity-70">
             The ALP Handbook
           </span>
@@ -124,28 +124,27 @@ const SalesPage: React.FC = () => {
             ALP Contractor Circle
           </p>
 
-          {/* Campaign headline — short and memorable */}
+          {/* Campaign headline — short and memorable, editorial breathing */}
           <h1
             className="font-serif text-foreground"
             style={{
               fontWeight: 400,
-              fontSize: 'clamp(44px, 11.5vw, 60px)',
+              fontSize: 'clamp(50px, 12vw, 64px)',
               lineHeight: 0.94,
               letterSpacing: '-0.02em',
+              maxWidth: '10.5ch',
             }}
           >
-            Build the company behind the projects.
+            Build the company<br />behind the projects.
           </h1>
 
-          <p className="font-sans text-[15px] text-foreground/75 leading-snug max-w-[36ch] mt-3 mb-4">
+          <p className="font-sans text-[15px] text-foreground/75 leading-snug max-w-[34ch] mt-4 mb-5">
             The ALP Handbook is an interactive field manual for contractors who
-            want to run the company, not just the projects. Read the doctrine,
-            follow the chapters, and listen to selected audio sections as you
-            work.
+            want to run the company, not just the projects.
           </p>
 
           {/* Primary CTA + light secondary link */}
-          <div className="flex flex-col items-start gap-2 mb-5">
+          <div className="flex flex-col items-start gap-1.5 mb-4">
             <button
               onClick={handlePurchase}
               disabled={checkoutLoading || loading}
@@ -157,9 +156,9 @@ const SalesPage: React.FC = () => {
 
             <Link
               to="/preview"
-              className="self-center inline-flex items-center gap-1.5 text-[13px] font-sans text-foreground/70 hover:text-foreground transition-colors"
+              className="self-center inline-flex items-center gap-1.5 text-[12px] font-sans text-foreground/60 hover:text-foreground transition-colors mt-1"
             >
-              <Eye className="w-3.5 h-3.5" />
+              <Eye className="w-3 h-3" />
               Preview the experience →
             </Link>
           </div>
@@ -262,8 +261,14 @@ const SalesPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Feature chips — secondary, below the mockup */}
-          <div className="flex flex-wrap gap-2 mt-4">
+          {/* Secondary copy — moved below mockup */}
+          <p className="font-sans text-[14px] text-foreground/65 leading-snug max-w-[38ch] mt-6">
+            Read the doctrine, follow the chapters, and listen to selected audio
+            sections as you work.
+          </p>
+
+          {/* Feature chips — hidden on first viewport, appear below the mockup */}
+          <div className="hidden sm:flex flex-wrap gap-2 mt-5">
             {[
               'Magic link access',
               'Interactive TOC',
