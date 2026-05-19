@@ -272,7 +272,7 @@ const SalesPage: React.FC = () => {
             </div>
 
             <h1
-              className="font-serif text-[44px] sm:text-6xl lg:text-7xl xl:text-[88px] leading-[0.95] text-foreground"
+              className="font-serif text-[40px] sm:text-5xl lg:text-[58px] xl:text-[64px] leading-[0.98] text-foreground"
               style={{
                 fontWeight: 700,
                 letterSpacing: '-0.025em',
@@ -285,9 +285,9 @@ const SalesPage: React.FC = () => {
               behind the projects.
             </h1>
 
-            <div className="w-14 h-px bg-foreground/30 mt-8 mb-7" />
+            <div className="w-14 h-px bg-foreground/30 mt-7 mb-6" />
 
-            <p className="font-sans text-base md:text-[17px] text-foreground/75 leading-relaxed max-w-[44ch] mb-9">
+            <p className="font-sans text-[15px] md:text-base text-foreground/75 leading-relaxed max-w-[46ch] mb-8">
               The ALP Handbook is an interactive web experience for
               contractors who want to run the company, not just the
               projects. Read the doctrine, follow the chapters, and
