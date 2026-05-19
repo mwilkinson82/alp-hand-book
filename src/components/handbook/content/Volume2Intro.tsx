@@ -1,12 +1,16 @@
 import React from 'react';
-import Section from '../Section';
 
 const Volume2Intro: React.FC = () => {
   return (
     <div id="volume-2-intro" className="py-24 border-t border-chapter-divider">
       <header className="mb-16 pt-8">
-        <div className="text-sm uppercase tracking-widest opacity-50 mb-4 font-sans" style={{ letterSpacing: '0.2em' }}>
-          Volume 2 — Foreword
+        <div className="inline-flex items-center gap-2 mb-4">
+          <span className="text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-sm bg-brand-accent/15 text-brand-accent font-sans" style={{ letterSpacing: '0.22em' }}>
+            Volume 2 — New
+          </span>
+          <span className="text-sm uppercase tracking-widest opacity-50 font-sans" style={{ letterSpacing: '0.2em' }}>
+            Foreword
+          </span>
         </div>
         <h2 className="chapter-heading">Why the Operating System</h2>
       </header>
