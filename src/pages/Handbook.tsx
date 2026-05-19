@@ -6,6 +6,7 @@ import TableOfContents from '../components/handbook/TableOfContents';
 import PartHeader from '../components/handbook/PartHeader';
 import Dedication from '../components/handbook/content/Dedication';
 import Foreword from '../components/handbook/content/Foreword';
+import HowToUse from '../components/handbook/content/HowToUse';
 import Chapter1 from '../components/handbook/content/Chapter1';
 import Chapter2 from '../components/handbook/content/Chapter2';
 import Chapter3 from '../components/handbook/content/Chapter3';
@@ -113,8 +114,9 @@ const Handbook: React.FC = () => {
         {/* Front Matter */}
         <Dedication />
         <Foreword />
+        <HowToUse />
         
-        {/* Part I */}
+        {/* Part I — The Frame */}
         <PartHeader number="I" title="The Frame" />
         <Chapter1 />
         <Chapter2 />
@@ -130,43 +132,48 @@ const Handbook: React.FC = () => {
         <Chapter31 />
         <Chapter32 />
 
-        {/* Part III — The Stool: Business Systems */}
-        <PartHeader number="III" title="The Stool: Business Systems" />
+        {/* Part III — The Business Systems */}
+        <PartHeader number="III" title="The Business Systems" />
         <Chapter4 />
         <Chapter5 />
         <Chapter6 />
+        {/* #13 Operations as Margin Protection + absorbed Operations Is Logistics */}
         <Chapter7 />
-        <Chapter8 />
-        <Chapter9 />
+        <Chapter11 />
         <Chapter10 />
 
-        {/* Part IV — Time, Money, & Leverage */}
-        <PartHeader number="IV" title="Time, Money, & Leverage" />
-        <Chapter11 />
+        {/* Part IV — Time, Money, and Commercial Control */}
+        <PartHeader number="IV" title="Time, Money, and Commercial Control" />
+        {/* #15 Documentation */}
         <Chapter12 />
+        {/* #16 Notices + absorbed Ch 20 (Notices/Docs/Offense at Scale) */}
         <Chapter13 />
+        <Chapter20 />
+        {/* #17 Scheduling + absorbed Start-Stop (Ch15) + CPM (Ch18) */}
         <Chapter14 />
         <Chapter15 />
-        <Chapter16 />
-        <Chapter17 />
         <Chapter18 />
-
-        {/* Part V — Identity & Scale */}
-        <PartHeader number="V" title="Identity & Scale" />
+        {/* #18 General Conditions + absorbed Profit Center (Ch17) */}
+        <Chapter8 />
+        <Chapter17 />
+        {/* #19 Change Order Velocity */}
         <Chapter19 />
-        <Chapter20 />
+        {/* #20 Financial Command + absorbed Financial Authority (Ch21) */}
+        <Chapter16 />
         <Chapter21 />
+        {/* #21 Decision Matrix + absorbed Ch 22 */}
+        <Chapter9 />
         <Chapter22 />
+
+        {/* Part V — Identity, Leadership, and Scale */}
+        <PartHeader number="V" title="Identity, Leadership, and Scale" />
         <Chapter23 />
-
-        {/* Part VI — Real-Time Application */}
-        <PartHeader number="VI" title="Real-Time Application" />
-        <Chapter24 />
-        <Chapter25 />
         <Chapter26 />
+        <Chapter25 />
 
-        {/* Part VII — Commitment */}
-        <PartHeader number="VII" title="Commitment" />
+        {/* Part VI — Real-Time Application & Commitment */}
+        <PartHeader number="VI" title="Real-Time Application & Commitment" />
+        <Chapter24 />
         <FinalChapter />
         
         {/* Footer */}
