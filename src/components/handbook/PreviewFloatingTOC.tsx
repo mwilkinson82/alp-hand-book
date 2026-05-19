@@ -141,11 +141,11 @@ const FREE_CHAPTER_IDS = ['chapter-2', 'chapter-3', 'chapter-19', 'chapter-23'];
 const PreviewFloatingTOC: React.FC = () => {
   const [open, setOpen] = useState(false);
 
-  const isChapterUnlocked = (chapter: string) => FREE_CHAPTERS.includes(chapter);
+  const FREE_CHAPTER_DISPLAY = ['2', '3', '19', '22'];
+  const isChapterUnlocked = (chapter: string) => FREE_CHAPTER_DISPLAY.includes(chapter);
   const isItemUnlocked = (id: string) => {
-    if (id === 'dedication' || id === 'foreword') return true;
-    const match = id.match(/chapter-(\d+)/);
-    return match ? FREE_CHAPTERS.includes(match[1]) : false;
+    if (id === 'dedication' || id === 'foreword' || id === 'how-to-use') return true;
+    return FREE_CHAPTER_IDS.includes(id);
   };
 
   const handleNavigate = (id: string, isUnlocked: boolean) => {
