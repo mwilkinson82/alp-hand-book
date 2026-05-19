@@ -110,19 +110,12 @@ const SalesPage: React.FC = () => {
       {/* ============================================================
           MOBILE / TABLET HERO — campaign-first, editorial opening
           ============================================================ */}
-      <section className="lg:hidden relative pt-20 sm:pt-24 pb-12 px-5 sm:px-6 overflow-hidden">
+      <section className="lg:hidden relative pt-16 sm:pt-20 pb-12 px-5 sm:px-6 overflow-hidden">
         <div className="max-w-[640px] mx-auto">
-          {/* Brand line */}
-          <div className="flex items-center gap-3 mb-2">
-            <span className="w-8 h-px bg-foreground/40" />
-            <span className="uppercase tracking-[0.28em] text-[10px] font-mono text-foreground/70">
-              The ALP Handbook
-            </span>
-          </div>
-
           <p className="uppercase tracking-[0.28em] text-[10px] font-mono text-foreground/55 mb-3">
             ALP Contractor Circle
           </p>
+
 
           {/* Campaign headline — short and memorable, editorial breathing */}
           <h1
