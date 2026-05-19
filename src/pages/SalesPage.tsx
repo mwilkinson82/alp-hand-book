@@ -166,10 +166,11 @@ const SalesPage: React.FC = () => {
 
 
           {/* Proof object — compact handbook card (top peeks into first viewport) */}
-          <div className="mt-4 mb-8">
-            <p className="uppercase tracking-[0.24em] text-[9px] font-mono text-foreground/50 mb-2.5">
+          <div className="mt-1 mb-8">
+            <p className="uppercase tracking-[0.24em] text-[9px] font-mono text-foreground/50 mb-2">
               The Digital Handbook
             </p>
+
 
             <div
               className="relative rounded-[20px] bg-[hsl(35_18%_93%)] p-2.5"
