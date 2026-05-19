@@ -27,6 +27,9 @@ interface Purchase {
 
 const ADMIN_EMAIL = 'wilkinson.marshall@gmail.com';
 
+const getErrorMessage = (error: unknown) =>
+  error instanceof Error ? error.message : 'Something went wrong';
+
 const Admin: React.FC = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
@@ -95,8 +98,8 @@ const Admin: React.FC = () => {
       toast({ title: 'Magic link sent!', description: `Sent to ${targetEmail}` });
       setEmail('');
       fetchData();
-    } catch (err: any) {
-      toast({ title: 'Failed to send', description: err.message, variant: 'destructive' });
+    } catch (err: unknown) {
+      toast({ title: 'Failed to send', description: getErrorMessage(err), variant: 'destructive' });
     } finally {
       setSending(false);
     }
@@ -120,8 +123,8 @@ const Admin: React.FC = () => {
 
       toast({ title: 'Welcome email sent!', description: `Sent to ${targetEmail}` });
       fetchData();
-    } catch (err: any) {
-      toast({ title: 'Failed to send welcome email', description: err.message, variant: 'destructive' });
+    } catch (err: unknown) {
+      toast({ title: 'Failed to send welcome email', description: getErrorMessage(err), variant: 'destructive' });
     } finally {
       setSending(false);
     }
