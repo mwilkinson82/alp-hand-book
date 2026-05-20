@@ -469,192 +469,265 @@ const SalesPage: React.FC = () => {
 
 
       {/* ============================================================
-          2 — THE PROBLEM
+          2 — THE PROBLEM (editorial spread + diagnostic card)
           ============================================================ */}
       <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <p className="eyebrow mb-8">The Problem</p>
-          <h2 className="section-heading text-3xl md:text-5xl mb-10 max-w-[18ch]">
+          <h2 className="section-heading text-3xl md:text-5xl mb-14 max-w-[18ch]">
             The project is not the business.
           </h2>
-          <div className="body-text space-y-5 text-foreground/80">
-            <p>Most contractors are good at the work.</p>
-            <p>That is not the problem.</p>
-            <p>The problem is the company behind the work.</p>
-            <p>
-              The owner carries the standards. The owner remembers the details.
-              The owner catches the mistakes. The owner solves the people
-              problems. The owner protects the margin. The owner keeps the
-              pressure moving.
-            </p>
-            <p>That may feel like leadership.</p>
-            <p>Eventually, it becomes the ceiling.</p>
-            <p className="body-text-emphasis pt-2">
-              If everything still flows back to you, you do not have a scalable
-              company yet. You have owner dependency.
-            </p>
+
+          <div className="grid md:grid-cols-12 gap-10 lg:gap-16 items-start">
+            {/* Left: shortened copy */}
+            <div className="md:col-span-7 body-text space-y-5 text-foreground/80">
+              <p>Most contractors are good at the work.</p>
+              <p>The problem is the company behind the work.</p>
+              <p>
+                The owner carries the standards. Remembers the details.
+                Catches the mistakes. Solves the people problems.
+                Protects the margin. Keeps the pressure moving.
+              </p>
+              <p>That may feel like leadership.</p>
+              <p className="body-text-emphasis pt-1">
+                Eventually it becomes the ceiling.
+              </p>
+            </div>
+
+            {/* Right: diagnostic card */}
+            <aside className="md:col-span-5 md:sticky md:top-24">
+              <div className="border border-foreground/15 bg-background p-7 sm:p-8">
+                <div className="flex items-center justify-between border-b border-foreground/15 pb-4 mb-5">
+                  <p className="uppercase tracking-[0.26em] text-[10px] font-mono text-foreground/55">
+                    Diagnostic
+                  </p>
+                  <p className="uppercase tracking-[0.26em] text-[10px] font-mono text-[hsl(var(--brand-accent))]">
+                    01 · Owner
+                  </p>
+                </div>
+                <p className="font-serif text-2xl md:text-[1.7rem] leading-[1.15] text-foreground mb-6">
+                  Owner Dependency
+                </p>
+                <ul className="divide-y divide-foreground/10">
+                  {[
+                    'Standards live in the owner.',
+                    'Decisions flow back to the owner.',
+                    'Issues repeat.',
+                    'Margin gets protected late.',
+                    'The company waits.',
+                  ].map((line, i) => (
+                    <li
+                      key={i}
+                      className="flex items-baseline gap-4 py-3 text-[15px] leading-snug text-foreground/85"
+                    >
+                      <span className="font-mono text-[10px] text-foreground/40 w-5 shrink-0">
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      <span>{line}</span>
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-6 pt-5 border-t border-foreground/15 text-[12.5px] uppercase tracking-[0.2em] font-mono text-foreground/55">
+                  If everything flows back to you, you do not have a scalable
+                  company yet.
+                </p>
+              </div>
+            </aside>
           </div>
         </div>
       </AnimatedSection>
 
       {/* ============================================================
-          3 — THE PAIN
+          3 — THE PAIN (field-manual warning panel)
           ============================================================ */}
       <AnimatedSection className="py-24 sm:py-28 px-6 bg-muted/30 border-t border-border">
-        <div className="max-w-3xl mx-auto">
-          <p className="eyebrow mb-8">The Pain</p>
+        <div className="max-w-4xl mx-auto">
+          <p className="eyebrow mb-8">Warning</p>
           <h2 className="section-heading text-3xl md:text-5xl mb-10 max-w-[18ch]">
             Growth does not fix disorder.
           </h2>
-          <p className="body-text text-foreground/80 mb-8">
-            More revenue will not save a weak operating model. It usually
-            exposes it.
+
+          <p className="font-serif italic text-2xl md:text-4xl leading-[1.15] tracking-[-0.01em] text-foreground mb-12 max-w-[24ch]">
+            Growth gives chaos more room to spread.
           </p>
-          <ul className="space-y-3 mb-10">
+
+          <div className="border-y border-foreground/15">
             {[
-              'More jobs create more friction.',
-              'More people create more handoffs.',
-              'More revenue creates more cash pressure.',
-              'More clients create more disruption.',
-              'More complexity creates more owner dependency.',
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-4 body-text text-foreground/80">
-                <span className="text-foreground/40 font-mono text-sm pt-1.5 shrink-0">
+              ['More jobs', 'more friction'],
+              ['More people', 'more handoffs'],
+              ['More revenue', 'more cash pressure'],
+              ['More clients', 'more disruption'],
+              ['More complexity', 'more owner dependency'],
+            ].map(([a, b], i) => (
+              <div
+                key={i}
+                className="grid grid-cols-[2.5rem_1fr_auto_1fr] sm:grid-cols-[3.5rem_1fr_3rem_1fr] items-baseline gap-3 sm:gap-5 py-5 border-t border-foreground/10 first:border-t-0"
+              >
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/40">
                   {String(i + 1).padStart(2, '0')}
                 </span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="body-text space-y-3 text-foreground/80">
-            <p>
-              If the company has no operating system, growth only gives the
-              chaos more room to spread.
-            </p>
-            <p>You do not need more hustle.</p>
-            <p className="body-text-emphasis">You need control.</p>
-          </div>
-        </div>
-      </AnimatedSection>
-
-      {/* ============================================================
-          4 — THE SHIFT
-          ============================================================ */}
-      <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
-        <div className="max-w-3xl mx-auto">
-          <p className="eyebrow mb-8">The Shift</p>
-          <h2 className="section-heading text-3xl md:text-5xl mb-10 max-w-[18ch]">
-            From hierarchy to accountability.
-          </h2>
-          <div className="body-text space-y-5 text-foreground/80">
-            <p>Contracting needs chain of command.</p>
-            <p>But hierarchy alone does not create accountability.</p>
-            <p>
-              Hierarchy says who reports to who.
-              <br />
-              Accountability says who owns the result.
-            </p>
-            <p>
-              The ALP Handbook shows you how to move the company from
-              personality pressure into system pressure: roles, scorecards,
-              priorities, issue solving, documentation, standards, and weekly
-              execution.
-            </p>
-            <p className="body-text-emphasis pt-2">
-              That is how the business starts policing itself. Not through
-              speeches. Through structure.
-            </p>
-          </div>
-        </div>
-      </AnimatedSection>
-
-      {/* ============================================================
-          5 — WHAT THE HANDBOOK IS
-          ============================================================ */}
-      <AnimatedSection className="py-24 sm:py-28 px-6 bg-muted/30 border-t border-border">
-        <div className="max-w-3xl mx-auto">
-          <p className="eyebrow mb-8">What The Handbook Is</p>
-          <h2 className="section-heading text-3xl md:text-5xl mb-10 max-w-[18ch]">
-            Operating doctrine for contractors.
-          </h2>
-          <div className="body-text space-y-5 text-foreground/80 mb-12">
-            <p>This is not a book of tips.</p>
-            <p>
-              It is a field manual for running a contracting company under
-              pressure.
-            </p>
-            <p>Inside, you get the ALP framework:</p>
-          </div>
-
-          <div className="space-y-6 mb-12">
-            {[
-              { k: 'Altitude', v: 'Get above the chaos and see the real business problem.' },
-              { k: 'Logic', v: 'Decide from facts, math, contracts, sequence, and consequence.' },
-              { k: 'Pressure', v: 'Apply force in the right place at the right time.' },
-            ].map(({ k, v }, i) => (
-              <div key={i} className="border-l-2 border-foreground/30 pl-5">
-                <p className="font-serif text-2xl md:text-3xl text-foreground mb-1">{k}</p>
-                <p className="body-text text-foreground/75">{v}</p>
+                <span className="font-serif text-lg sm:text-2xl text-foreground">
+                  {a}
+                </span>
+                <span className="text-[hsl(var(--brand-accent))] font-mono text-sm sm:text-base text-center">
+                  →
+                </span>
+                <span className="font-serif text-lg sm:text-2xl text-foreground/80">
+                  {b}
+                </span>
               </div>
             ))}
           </div>
 
-          <p className="body-text text-foreground/80 mb-6">
-            And in the second edition, you get the operating-system doctrine:
-          </p>
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-6 gap-y-3 mb-12">
-            {['Vision', 'People', 'Data', 'Issues', 'Process', 'Traction'].map((label, i) => (
-              <p key={i} className="font-serif text-xl text-foreground/85">
-                {label}
-              </p>
-            ))}
-          </div>
-
-          <p className="body-text-emphasis text-xl">
-            Build a company that can execute without everything depending on
-            the owner.
+          <p className="mt-12 font-serif text-2xl md:text-3xl leading-snug text-foreground max-w-[28ch]">
+            You do not need more hustle.{' '}
+            <span className="text-foreground/55">You need control.</span>
           </p>
         </div>
       </AnimatedSection>
 
       {/* ============================================================
-          6 — USE CASE
+          4 — THE SHIFT (comparison cards)
           ============================================================ */}
       <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
-        <div className="max-w-3xl mx-auto">
-          <p className="eyebrow mb-8">Use Case</p>
-          <h2 className="section-heading text-3xl md:text-5xl mb-10 max-w-[18ch]">
-            Use it when pressure shows up.
+        <div className="max-w-5xl mx-auto">
+          <p className="eyebrow mb-8">The Shift</p>
+          <h2 className="section-heading text-3xl md:text-5xl mb-14 max-w-[18ch]">
+            From hierarchy to accountability.
           </h2>
-          <p className="body-text text-foreground/80 mb-8">Use the handbook when:</p>
-          <ul className="space-y-3 mb-10">
-            {[
-              'A project is slipping.',
-              'Margin is disappearing.',
-              'Change orders are stacking up.',
-              'Documentation is weak.',
-              'Cash is tight.',
-              'The team is waiting on the owner.',
-              'A client is dictating the terms.',
-              'The company is growing but getting harder to control.',
-            ].map((item, i) => (
-              <li key={i} className="flex items-start gap-4 body-text text-foreground/80">
-                <span className="text-foreground/30 pt-1.5 shrink-0">—</span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-          <div className="body-text space-y-3 text-foreground/80">
-            <p>This is not a book you read once.</p>
-            <p className="body-text-emphasis">
-              It is a reference you return to while decisions are being made.
-            </p>
+
+          <div className="grid md:grid-cols-2 gap-px bg-foreground/15 border border-foreground/15">
+            <div className="bg-background p-8 sm:p-10">
+              <p className="uppercase tracking-[0.28em] text-[10px] font-mono text-foreground/45 mb-5">
+                Before
+              </p>
+              <p className="font-serif text-3xl md:text-4xl text-foreground mb-3">
+                Hierarchy
+              </p>
+              <p className="body-text text-foreground/65 text-lg">
+                Who reports to who.
+              </p>
+            </div>
+            <div className="bg-background p-8 sm:p-10 relative">
+              <span
+                aria-hidden
+                className="absolute top-8 right-8 sm:top-10 sm:right-10 w-2 h-2 rounded-full bg-[hsl(var(--brand-accent))]"
+              />
+              <p className="uppercase tracking-[0.28em] text-[10px] font-mono text-[hsl(var(--brand-accent))] mb-5">
+                After
+              </p>
+              <p className="font-serif text-3xl md:text-4xl text-foreground mb-3">
+                Accountability
+              </p>
+              <p className="body-text text-foreground/65 text-lg">
+                Who owns the result.
+              </p>
+            </div>
           </div>
+
+          <p className="mt-10 body-text text-foreground/80 max-w-[60ch]">
+            The shift is from personality pressure to system pressure:{' '}
+            <span className="text-foreground">
+              roles, scorecards, priorities, issue solving, documentation,
+              standards, and weekly execution.
+            </span>
+          </p>
         </div>
       </AnimatedSection>
 
       {/* ============================================================
-          7 — WHAT CHANGES
+          5 — DOCTRINE (ALP three cards → AOS preview)
+          ============================================================ */}
+      <AnimatedSection className="py-24 sm:py-28 px-6 bg-muted/30 border-t border-border">
+        <div className="max-w-5xl mx-auto">
+          <p className="eyebrow mb-8">The Doctrine</p>
+          <h2 className="section-heading text-3xl md:text-5xl mb-14 max-w-[20ch]">
+            Operating doctrine for contractors.
+          </h2>
+
+          {/* ALP three cards */}
+          <div className="grid md:grid-cols-3 gap-px bg-foreground/15 border border-foreground/15">
+            {[
+              {
+                k: 'Altitude',
+                v: 'Get above the chaos and see the real business problem.',
+              },
+              {
+                k: 'Logic',
+                v: 'Decide from facts, math, contracts, sequence, consequence.',
+              },
+              {
+                k: 'Pressure',
+                v: 'Apply force in the right place at the right time.',
+              },
+            ].map(({ k, v }, i) => (
+              <div key={i} className="bg-background p-7 sm:p-8">
+                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground/45 mb-5">
+                  {String(i + 1).padStart(2, '0')} · ALP
+                </p>
+                <p className="font-serif text-3xl md:text-4xl text-foreground mb-3">
+                  {k}
+                </p>
+                <p className="body-text text-foreground/70 text-base">{v}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-14 font-serif text-2xl md:text-3xl text-foreground max-w-[32ch]">
+            The second edition adds the operating system.
+          </p>
+        </div>
+      </AnimatedSection>
+
+      {/* ============================================================
+          6 — PRESSURE INDEX (field-manual checklist)
+          ============================================================ */}
+      <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-baseline justify-between mb-8 flex-wrap gap-4">
+            <p className="eyebrow">Pressure Index</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground/45">
+              Field Manual · 08 Conditions
+            </p>
+          </div>
+          <h2 className="section-heading text-3xl md:text-5xl mb-12 max-w-[18ch]">
+            Use it when pressure shows up.
+          </h2>
+
+          <div className="grid sm:grid-cols-2 gap-x-12 border-t border-foreground/15">
+            {[
+              'Project slipping',
+              'Margin disappearing',
+              'Change orders stacking',
+              'Documentation weak',
+              'Cash tight',
+              'Team waiting on owner',
+              'Client dictating terms',
+              'Growth getting harder to control',
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="flex items-baseline gap-5 py-5 border-b border-foreground/10"
+              >
+                <span className="font-mono text-[11px] tracking-[0.22em] text-foreground/40 w-6 shrink-0">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                <span className="font-serif text-xl md:text-2xl text-foreground leading-snug">
+                  {item}
+                </span>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-10 body-text-emphasis text-foreground/85 max-w-[44ch]">
+            Not a book you read once. A reference you return to while decisions
+            are being made.
+          </p>
+        </div>
+      </AnimatedSection>
+
+      {/* ============================================================
+          7 — WHAT CHANGES (refined 2x2 grid)
           ============================================================ */}
       <AnimatedSection className="py-24 sm:py-28 px-6 bg-muted/30 border-t border-border">
         <div className="max-w-5xl mx-auto">
@@ -663,46 +736,67 @@ const SalesPage: React.FC = () => {
             What changes when you operate with ALP.
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-10 lg:gap-14 mb-12">
+          <div className="grid md:grid-cols-2 gap-6">
             {[
               {
+                tag: 'Operate',
                 title: 'Run the Company',
                 items: [
-                  'Stop running the company from the owner\u2019s memory.',
-                  'Build scorecards, roles, Rocks, issues, process, and weekly execution.',
+                  'Stop running from owner memory.',
+                  'Build scorecards, roles, Rocks, issues, process, weekly execution.',
                   'Turn recurring friction into systems.',
                 ],
               },
               {
+                tag: 'Protect',
                 title: 'Protect the Money',
                 items: [
-                  'Protect margin before the job starts leaking.',
+                  'Protect margin before the job leaks.',
                   'Use documentation as proof, not paperwork.',
                   'Monetize disruption instead of absorbing it.',
                 ],
               },
               {
+                tag: 'Control',
                 title: 'Control the Work',
                 items: [
-                  'Control time through schedules, notices, and sequence.',
+                  'Control time through schedules, notices, sequence.',
                   'Position upstream so you are invited, not just bid.',
-                  'Sell with pressure, clarity, and qualification.',
+                  'Sell with pressure, clarity, qualification.',
                 ],
               },
               {
+                tag: 'Lead',
                 title: 'Lead Under Pressure',
                 items: [
-                  'Build systems that remove the owner from every decision.',
+                  'Remove the owner from every decision.',
                   'Scale without losing standards, margin, or identity.',
                 ],
               },
-            ].map(({ title, items }, i) => (
-              <div key={i}>
-                <p className="font-serif text-2xl md:text-3xl mb-5 text-foreground">{title}</p>
-                <ul className="space-y-3">
+            ].map(({ tag, title, items }, i) => (
+              <div
+                key={i}
+                className="bg-background border border-foreground/15 p-7 sm:p-8 shadow-[0_1px_0_hsl(var(--foreground)/0.04),0_12px_30px_-20px_hsl(var(--foreground)/0.18)]"
+              >
+                <div className="flex items-center justify-between mb-5">
+                  <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground/45">
+                    {String(i + 1).padStart(2, '0')} · {tag}
+                  </p>
+                  <span
+                    aria-hidden
+                    className="block w-6 h-px bg-foreground/30"
+                  />
+                </div>
+                <p className="font-serif text-2xl md:text-3xl text-foreground mb-5">
+                  {title}
+                </p>
+                <ul className="space-y-2.5">
                   {items.map((it, j) => (
-                    <li key={j} className="flex items-start gap-3 body-text text-foreground/80">
-                      <span className="text-foreground/30 pt-1.5 shrink-0">—</span>
+                    <li
+                      key={j}
+                      className="flex items-baseline gap-3 text-[15px] leading-snug text-foreground/80"
+                    >
+                      <span className="text-foreground/30 shrink-0">—</span>
                       <span>{it}</span>
                     </li>
                   ))}
@@ -710,59 +804,60 @@ const SalesPage: React.FC = () => {
               </div>
             ))}
           </div>
-
-          <div className="body-text space-y-2 text-foreground/80 pt-4 border-t border-border">
-            <p className="pt-6">The point is not to work harder.</p>
-            <p className="body-text-emphasis">The point is to operate better.</p>
-          </div>
         </div>
       </AnimatedSection>
 
       {/* ============================================================
-          8 — AOS EDITION
+          8 — THE MISSING PIECE (dark contrast operating map)
           ============================================================ */}
-      <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
+      <section className="py-24 sm:py-28 px-6 bg-primary text-primary-foreground border-t border-border">
         <div className="max-w-5xl mx-auto">
-          <p className="eyebrow eyebrow--accent mb-8">AOS Edition</p>
-          <h2 className="section-heading text-3xl md:text-5xl mb-10 max-w-[20ch]">
+          <p className="uppercase tracking-[0.28em] text-[11px] font-mono text-primary-foreground/55 mb-8 inline-flex items-center gap-3">
+            <span className="block w-7 h-px bg-primary-foreground/40" />
+            AOS Edition
+          </p>
+          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.02] tracking-[-0.02em] mb-10 max-w-[20ch]">
             The missing piece: the operating system.
           </h2>
-          <div className="body-text space-y-5 text-foreground/80 mb-14 max-w-3xl">
-            <p>The first edition gave contractors the doctrine.</p>
-            <p>The second edition adds the operating system.</p>
-            <p>
-              A contracting company cannot scale on the owner&rsquo;s memory,
-              urgency, and personal judgment forever. It needs a formal way to
-              define the mission, assign ownership, measure execution, solve
-              issues, document processes, and enforce weekly accountability.
-            </p>
-            <p className="body-text-emphasis">That is AOS.</p>
-            <p>
-              The ALP Handbook explains why the operating system matters. The
-              AOS application gives the company a place to run it.
+
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-start mb-16">
+            <div className="space-y-4 text-primary-foreground/80 text-lg leading-relaxed max-w-[42ch]">
+              <p>The Handbook explains the doctrine.</p>
+              <p>AOS gives the doctrine a place to run.</p>
+            </div>
+            <p className="text-primary-foreground/55 text-sm leading-relaxed border-l border-primary-foreground/20 pl-5 max-w-[48ch]">
+              The AOS Edition of the Handbook includes the operating-system
+              doctrine — Vision, People, Data, Issues, Process, and Traction —
+              so you can install the same operating logic inside your own
+              company.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
+          {/* Operating map */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-primary-foreground/15 border border-primary-foreground/15">
             {[
               { k: 'Vision', q: 'Where are we going?' },
               { k: 'People', q: 'Who owns what?' },
               { k: 'Data', q: 'What numbers tell the truth?' },
-              { k: 'Issues', q: 'What problems need to be solved permanently?' },
+              { k: 'Issues', q: 'What gets solved permanently?' },
               { k: 'Process', q: 'How do we do things here?' },
               { k: 'Traction', q: 'What must be executed this week?' },
             ].map(({ k, q }, i) => (
-              <div key={i} className="bg-background p-7">
-                <p className="uppercase tracking-[0.22em] text-[10px] font-mono text-foreground/50 mb-3">
+              <div key={i} className="bg-primary p-6 sm:p-7">
+                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-primary-foreground/45 mb-4">
                   {String(i + 1).padStart(2, '0')}
                 </p>
-                <p className="font-serif text-2xl text-foreground mb-2">{k}</p>
-                <p className="body-text text-foreground/70 text-base">{q}</p>
+                <p className="font-serif text-2xl md:text-[1.7rem] text-primary-foreground mb-2">
+                  {k}
+                </p>
+                <p className="text-[13.5px] leading-snug text-primary-foreground/65">
+                  {q}
+                </p>
               </div>
             ))}
           </div>
         </div>
-      </AnimatedSection>
+      </section>
 
       {/* ============================================================
           9 — WHO IT IS FOR
@@ -904,44 +999,80 @@ const SalesPage: React.FC = () => {
       </AnimatedSection>
 
       {/* ============================================================
-          12 — PRODUCT / ACCESS
+          12 — PRODUCT / ACCESS (6 product cards)
           ============================================================ */}
       <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <p className="eyebrow mb-8">Product / Access</p>
           <h2 className="section-heading text-3xl md:text-5xl mb-12 max-w-[14ch]">
             What you get.
           </h2>
 
-          <ul className="divide-y divide-border border-y border-border">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-foreground/15 border border-foreground/15">
             {[
-              '26 chapters plus final commitment section',
-              'AOS second-edition operating-system section',
-              'Interactive web reading experience',
-              'Mobile, tablet, and desktop access',
-              'Floating table of contents',
-              'Progress tracking',
-              'Light and dark reading modes',
-              'Selected audio chapters',
-              'Lifetime access',
-            ].map((item, i) => (
-              <li key={i} className="flex items-baseline gap-6 py-4">
-                <span className="font-mono text-xs text-foreground/40 w-8 shrink-0">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="body-text text-foreground/85">{item}</span>
-              </li>
+              {
+                Icon: Link2,
+                label: 'Magic Link Access',
+                copy: 'Delivered instantly. Open from any browser.',
+              },
+              {
+                Icon: ListOrdered,
+                label: 'Interactive Table of Contents',
+                copy: 'Move through the doctrine by part, chapter, and operating theme.',
+              },
+              {
+                Icon: Headphones,
+                label: 'Audio Chapters',
+                copy: 'Listen to selected sections while you work.',
+              },
+              {
+                Icon: Target,
+                label: 'AOS Edition',
+                copy: 'Includes the operating-system doctrine.',
+              },
+              {
+                Icon: Infinity,
+                label: 'Lifetime Access',
+                copy: 'One payment. Keep the handbook.',
+              },
+              {
+                Icon: Monitor,
+                label: 'Mobile + Desktop',
+                copy: 'Read anywhere.',
+              },
+            ].map(({ Icon, label, copy }, i) => (
+              <div key={i} className="bg-background p-7 sm:p-8">
+                <div className="flex items-center justify-between mb-6">
+                  <Icon
+                    className="w-5 h-5 text-foreground/75"
+                    strokeWidth={1.5}
+                  />
+                  <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground/40">
+                    {String(i + 1).padStart(2, '0')}
+                  </p>
+                </div>
+                <p className="uppercase tracking-[0.2em] text-[11px] font-mono font-medium text-foreground mb-3">
+                  {label}
+                </p>
+                <p className="text-[14.5px] leading-snug text-foreground/70">
+                  {copy}
+                </p>
+              </div>
             ))}
-          </ul>
+          </div>
 
-          <div className="body-text space-y-2 text-foreground/80 mt-10">
-            <p>This is not a PDF download.</p>
-            <p className="body-text-emphasis">
+          <div className="mt-12 max-w-[44ch]">
+            <p className="text-foreground/70 text-lg leading-relaxed">
+              This is not a PDF download.
+            </p>
+            <p className="font-serif text-2xl md:text-3xl text-foreground mt-2 leading-snug">
               It is a digital handbook built to be used in real time.
             </p>
           </div>
         </div>
       </AnimatedSection>
+
+
 
       {/* ============================================================
           13 — FINAL CTA
@@ -955,11 +1086,11 @@ const SalesPage: React.FC = () => {
             Get the ALP Handbook.
           </h2>
 
-          <div className="space-y-4 mb-12 text-primary-foreground/85 max-w-[42ch] mx-auto">
+          <div className="space-y-4 mb-12 text-primary-foreground/85 max-w-[44ch] mx-auto">
             <p className="text-lg sm:text-xl">Build the company behind the projects.</p>
             <p className="text-base sm:text-lg">
-              Use the handbook when pressure rises, decisions matter, and the
-              business needs to operate with more control.
+              Get immediate access to the interactive AOS Edition — including
+              selected audio chapters and lifetime access.
             </p>
           </div>
 
