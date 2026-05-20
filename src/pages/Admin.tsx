@@ -123,9 +123,18 @@ const Admin: React.FC = () => {
   };
 
   const previewBroadcastInNewTab = async () => {
-    // Render the email by hitting the function for the HTML — simplest: open admin-only data URL with html.
-    // Instead, fetch preview metadata; the email HTML lives server-side. Construct minimal preview shell client-side from a known mirror.
-    window.open('https://broadcast-static.vercel.app/alp-handbook-dozer.png', '_blank');
+    try {
+      const { data, error } = await supabase.functions.invoke('send-v2-broadcast', {
+        body: { mode: 'html' },
+      });
+      if (error) throw error;
+      if (!data?.html) throw new Error('No HTML returned');
+      const blob = new Blob([data.html], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
+    } catch (err: unknown) {
+      toast({ title: 'Preview failed', description: getErrorMessage(err), variant: 'destructive' });
+    }
   };
 
   const sendMagicLink = async (targetEmail: string) => {
