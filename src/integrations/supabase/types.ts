@@ -53,6 +53,33 @@ export type Database = {
         }
         Relationships: []
       }
+      broadcast_logs: {
+        Row: {
+          broadcast_id: string
+          email: string
+          error_message: string | null
+          id: string
+          sent_at: string
+          status: string
+        }
+        Insert: {
+          broadcast_id: string
+          email: string
+          error_message?: string | null
+          id?: string
+          sent_at?: string
+          status?: string
+        }
+        Update: {
+          broadcast_id?: string
+          email?: string
+          error_message?: string | null
+          id?: string
+          sent_at?: string
+          status?: string
+        }
+        Relationships: []
+      }
       magic_link_logs: {
         Row: {
           email: string
