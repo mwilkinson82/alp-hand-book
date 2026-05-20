@@ -14,9 +14,12 @@ const HeroSection: React.FC = () => {
         className="max-w-sm md:max-w-md lg:max-w-lg w-full h-auto shadow-2xl rounded-sm"
       />
 
-      <div className="mt-12 flex flex-col items-center gap-6">
-        <div className="w-12 h-px bg-foreground/30" />
+      <div className="mt-12 flex flex-col items-center gap-3">
+        <div className="w-12 h-px bg-foreground/30 mb-3" />
         <Eyebrow accent>AOS Edition — Second Edition</Eyebrow>
+        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/60">
+          Includes access to the AOS software application
+        </p>
       </div>
 
       {/* Scroll indicator */}
