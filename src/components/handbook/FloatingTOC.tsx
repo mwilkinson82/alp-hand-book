@@ -153,7 +153,7 @@ const FloatingTOC: React.FC = () => {
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild>
         <button
-          className="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-lg hover:shadow-xl transition-all flex items-center justify-center hover:scale-105"
+          className="fixed bottom-6 right-6 z-[100] w-14 h-14 rounded-full bg-primary text-primary-foreground shadow-2xl ring-1 ring-foreground/10 hover:shadow-2xl transition-all flex items-center justify-center hover:scale-105"
           aria-label="Open table of contents"
         >
           <List className="w-6 h-6" />
