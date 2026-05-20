@@ -110,6 +110,15 @@ serve(async (req) => {
       );
     }
 
+    if (mode === "html") {
+      return new Response(JSON.stringify({ html, subject: V2_BROADCAST_SUBJECT }), {
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+        status: 200,
+      });
+    }
+
+
+
     if (mode === "test") {
       const target = (testEmail || ADMIN_EMAIL).trim();
       const result = await sendEmail(target, html);
