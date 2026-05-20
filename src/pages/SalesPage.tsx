@@ -859,6 +859,8 @@ const SalesPage: React.FC = () => {
         </div>
       </section>
 
+      {/* ============================================================
+          9 — WHO IT IS FOR
           ============================================================ */}
       <AnimatedSection className="py-24 sm:py-28 px-6 bg-muted/30 border-t border-border">
         <div className="max-w-4xl mx-auto">
