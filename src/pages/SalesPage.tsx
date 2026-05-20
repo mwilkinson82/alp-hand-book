@@ -597,7 +597,7 @@ const SalesPage: React.FC = () => {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-px bg-foreground/15 border border-foreground/15">
-            <div className="bg-background p-8 sm:p-10">
+            <div className="bg-background p-8 sm:p-10 transition-colors duration-300 hover:bg-muted/30">
               <p className="uppercase tracking-[0.28em] text-[10px] font-mono text-foreground/45 mb-5">
                 Before
               </p>
@@ -608,7 +608,7 @@ const SalesPage: React.FC = () => {
                 Who reports to who.
               </p>
             </div>
-            <div className="bg-background p-8 sm:p-10 relative">
+            <div className="bg-background p-8 sm:p-10 relative transition-colors duration-300 hover:bg-muted/30">
               <span
                 aria-hidden
                 className="absolute top-8 right-8 sm:top-10 sm:right-10 w-2 h-2 rounded-full bg-[hsl(var(--brand-accent))]"
@@ -661,7 +661,7 @@ const SalesPage: React.FC = () => {
                 v: 'Apply force in the right place at the right time.',
               },
             ].map(({ k, v }, i) => (
-              <div key={i} className="bg-background p-7 sm:p-8">
+              <div key={i} className="bg-background p-7 sm:p-8 transition-colors duration-300 hover:bg-muted/30">
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground/45 mb-5">
                   {String(i + 1).padStart(2, '0')} · ALP
                 </p>
@@ -1041,7 +1041,7 @@ const SalesPage: React.FC = () => {
                 copy: 'Read anywhere.',
               },
             ].map(({ Icon, label, copy }, i) => (
-              <div key={i} className="bg-background p-7 sm:p-8">
+              <div key={i} className="bg-background p-7 sm:p-8 transition-colors duration-300 hover:bg-muted/30">
                 <div className="flex items-center justify-between mb-6">
                   <Icon
                     className="w-5 h-5 text-foreground/75"
