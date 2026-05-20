@@ -597,7 +597,7 @@ const SalesPage: React.FC = () => {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-px bg-foreground/15 border border-foreground/15">
-            <div className="bg-background p-8 sm:p-10">
+            <div className="bg-background p-8 sm:p-10 transition-colors duration-300 hover:bg-muted/30">
               <p className="uppercase tracking-[0.28em] text-[10px] font-mono text-foreground/45 mb-5">
                 Before
               </p>
@@ -608,7 +608,7 @@ const SalesPage: React.FC = () => {
                 Who reports to who.
               </p>
             </div>
-            <div className="bg-background p-8 sm:p-10 relative">
+            <div className="bg-background p-8 sm:p-10 relative transition-colors duration-300 hover:bg-muted/30">
               <span
                 aria-hidden
                 className="absolute top-8 right-8 sm:top-10 sm:right-10 w-2 h-2 rounded-full bg-[hsl(var(--brand-accent))]"
@@ -661,7 +661,7 @@ const SalesPage: React.FC = () => {
                 v: 'Apply force in the right place at the right time.',
               },
             ].map(({ k, v }, i) => (
-              <div key={i} className="bg-background p-7 sm:p-8">
+              <div key={i} className="bg-background p-7 sm:p-8 transition-colors duration-300 hover:bg-muted/30">
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground/45 mb-5">
                   {String(i + 1).padStart(2, '0')} · ALP
                 </p>
@@ -810,7 +810,7 @@ const SalesPage: React.FC = () => {
       {/* ============================================================
           8 — THE MISSING PIECE (dark contrast operating map)
           ============================================================ */}
-      <section className="py-24 sm:py-28 px-6 bg-primary text-primary-foreground border-t border-border">
+      <AnimatedSection className="py-24 sm:py-28 px-6 bg-primary text-primary-foreground border-t border-border">
         <div className="max-w-5xl mx-auto">
           <p className="uppercase tracking-[0.28em] text-[11px] font-mono text-primary-foreground/55 mb-8 inline-flex items-center gap-3">
             <span className="block w-7 h-px bg-primary-foreground/40" />
@@ -843,7 +843,7 @@ const SalesPage: React.FC = () => {
               { k: 'Process', q: 'How do we do things here?' },
               { k: 'Traction', q: 'What must be executed this week?' },
             ].map(({ k, q }, i) => (
-              <div key={i} className="bg-primary p-6 sm:p-7">
+              <div key={i} className="bg-primary p-6 sm:p-7 transition-colors duration-300 hover:bg-primary-foreground/5">
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-primary-foreground/45 mb-4">
                   {String(i + 1).padStart(2, '0')}
                 </p>
@@ -857,7 +857,7 @@ const SalesPage: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* ============================================================
           9 — WHO IT IS FOR
@@ -983,7 +983,7 @@ const SalesPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             {testimonials.slice(0, 2).map((t, i) => (
-              <div key={i} className="relative p-8 bg-background border border-border rounded-sm">
+              <div key={i} className="relative p-8 bg-background border border-border rounded-sm hover-lift">
                 <Quote className="w-8 h-8 text-primary/20 absolute top-6 left-6" />
                 <blockquote className="body-text text-foreground/85 mb-6 pt-6 relative z-10">
                   &ldquo;{t.quote}&rdquo;
@@ -1041,7 +1041,7 @@ const SalesPage: React.FC = () => {
                 copy: 'Read anywhere.',
               },
             ].map(({ Icon, label, copy }, i) => (
-              <div key={i} className="bg-background p-7 sm:p-8">
+              <div key={i} className="bg-background p-7 sm:p-8 transition-colors duration-300 hover:bg-muted/30">
                 <div className="flex items-center justify-between mb-6">
                   <Icon
                     className="w-5 h-5 text-foreground/75"
