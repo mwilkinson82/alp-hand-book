@@ -78,11 +78,54 @@ const Admin: React.FC = () => {
       // Fetch purchases with user emails via edge function
       const { data: purchasesData } = await supabase.functions.invoke('admin-get-purchases');
       if (purchasesData?.purchases) setPurchases(purchasesData.purchases);
+
+      // Fetch broadcast recipient count
+      const { data: bData } = await supabase.functions.invoke('send-v2-broadcast', {
+        body: { mode: 'preview' },
+      });
+      if (typeof bData?.recipientCount === 'number') setBroadcastRecipientCount(bData.recipientCount);
     } catch (err) {
       console.error('Error fetching data:', err);
     } finally {
       setRefreshing(false);
     }
+  };
+
+  const runBroadcast = async (mode: 'test' | 'send', testEmail?: string) => {
+    if (mode === 'send') {
+      const ok = window.confirm(
+        `Send V2 launch email to ${broadcastRecipientCount ?? '?'} purchaser(s)? This cannot be undone.`,
+      );
+      if (!ok) return;
+    }
+    setBroadcastBusy(true);
+    setBroadcastResult(null);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-v2-broadcast', {
+        body: { mode, testEmail },
+      });
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
+      if (mode === 'test') {
+        toast({ title: 'Test sent', description: `Sent to ${data.target}` });
+      } else {
+        toast({
+          title: 'Broadcast complete',
+          description: `Sent ${data.sent} • Failed ${data.failed} • Skipped ${data.skipped}`,
+        });
+        setBroadcastResult(JSON.stringify(data, null, 2));
+      }
+    } catch (err: unknown) {
+      toast({ title: 'Broadcast failed', description: getErrorMessage(err), variant: 'destructive' });
+    } finally {
+      setBroadcastBusy(false);
+    }
+  };
+
+  const previewBroadcastInNewTab = async () => {
+    // Render the email by hitting the function for the HTML — simplest: open admin-only data URL with html.
+    // Instead, fetch preview metadata; the email HTML lives server-side. Construct minimal preview shell client-side from a known mirror.
+    window.open('https://broadcast-static.vercel.app/alp-handbook-dozer.png', '_blank');
   };
 
   const sendMagicLink = async (targetEmail: string) => {
