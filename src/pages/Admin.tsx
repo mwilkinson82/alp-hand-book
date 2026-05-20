@@ -4,7 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Mail, Send, RefreshCw, CheckCircle, XCircle, ArrowLeft, Sparkles } from 'lucide-react';
+import { Loader2, Mail, Send, RefreshCw, CheckCircle, XCircle, ArrowLeft, Sparkles, Megaphone, Eye } from 'lucide-react';
 
 interface MagicLinkLog {
   id: string;
@@ -38,10 +38,15 @@ const Admin: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState('');
   const [sending, setSending] = useState(false);
-  
+
   const [logs, setLogs] = useState<MagicLinkLog[]>([]);
   const [purchases, setPurchases] = useState<Purchase[]>([]);
   const [refreshing, setRefreshing] = useState(false);
+
+  // Broadcast state
+  const [broadcastRecipientCount, setBroadcastRecipientCount] = useState<number | null>(null);
+  const [broadcastBusy, setBroadcastBusy] = useState(false);
+  const [broadcastResult, setBroadcastResult] = useState<string | null>(null);
 
   // Check if user is admin
   useEffect(() => {
