@@ -1,41 +1,30 @@
-## Plan: V2 Broadcast Email to Purchasers
+## Fix: /admin redirects to home
 
-Use your exact HTML, verbatim. No design, copy, or CTA changes.
+### Root cause
+`Admin.tsx` calls `supabase.auth.getUser()` directly in a `useEffect` on mount. If the session hasn't finished hydrating from localStorage yet, `getUser()` resolves with `null` → the page immediately navigates to `/`. This is the classic "check role before auth loads" race condition.
 
-### 1. Store the email template
-Create `supabase/functions/_shared/v2-broadcast-email.ts` containing your HTML as a string constant. Subject and preview text stored alongside:
-- Subject: `ALP Handbook Version 2 is live.`
-- Preview: `The updated handbook includes AOS, reorganized chapters, new material, and expanded operating-system insights.`
-- CTA already points to `https://www.alphandbook.com`
+### Fix
+Replace the standalone `supabase.auth.getUser()` check with the existing `useAuth()` context, which already exposes `user` and `loading`. Wait for `loading` to be `false` before deciding.
 
-### 2. New edge function: `send-v2-broadcast`
-- Admin-only (verifies caller email is `wilkinson.marshall@gmail.com` via JWT)
-- Queries `book_purchases` for rows where `status = 'completed'`, deduped by email
-- Sends the HTML via Resend (already configured, `RESEND_API_KEY` present) from `marshall@alphandbook.com`
-- Logs each send to a new `broadcast_logs` table (email, status, error, sent_at, broadcast_id)
-- Skips emails already successfully sent for the same `broadcast_id` (idempotent — safe to re-run)
-- Supports `?dryRun=true` mode that returns recipient count + list without sending
-- Supports `?testEmail=you@x.com` mode that sends only to that address
+```text
+const { user, loading } = useAuth();
 
-### 3. New DB table: `broadcast_logs`
-Columns: `id`, `broadcast_id` (text, e.g. `v2-launch`), `email`, `status` (sent/failed), `error_message`, `sent_at`. RLS: service role only.
+useEffect(() => {
+  if (loading) return;              // wait for auth hydration
+  if (!user) { navigate('/auth'); return; }       // not logged in → /auth
+  if (user.email !== ADMIN_EMAIL) { navigate('/'); return; }
+  setIsAdmin(true);
+  setLoading(false);
+  fetchData();
+}, [user, loading, navigate]);
+```
 
-### 4. Admin UI additions (`/admin`)
-New "Broadcast" card above Magic Link Logs:
-- Shows recipient count (completed purchasers, deduped)
-- "Preview in new tab" button — opens HTML rendered preview
-- "Send test to me" button — sends one copy to `wilkinson.marshall@gmail.com`
-- "Send to all purchasers" button — confirmation dialog showing count, then triggers broadcast
-- Below: broadcast send log table (email, status, time)
+Also: redirect non-logged-in users to `/auth` (not `/`) so it's obvious they need to log in.
 
-### Technical notes
-- Resend `{{{RESEND_UNSUBSCRIBE_URL}}}` placeholder in your HTML is preserved; Resend auto-substitutes when `headers: { 'List-Unsubscribe': ... }` is set, OR we use Resend's broadcasts feature. Since we're sending individually via the `/emails` endpoint, we'll replace `{{{RESEND_UNSUBSCRIBE_URL}}}` with `https://www.alphandbook.com` as a safe fallback link (you can swap later if you want true unsubscribe handling).
-- Sends are sequential with a 100ms delay to stay under Resend's 2 req/sec default limit.
-- No design system changes, no frontend changes outside `/admin`.
+### Verification
+After fix, hit `/admin`:
+- Not logged in → lands on `/auth`
+- Logged in as `wilkinson.marshall@gmail.com` → dashboard loads
+- Logged in as anyone else → bounced to `/`
 
-### What I will NOT do
-- Modify your HTML, copy, fonts, colors, or CTA
-- Re-render via a templating engine
-- Touch the reader experience or sales page
-
-Confirm and I'll build it.
+No other files change. Confirm and I'll patch it.
