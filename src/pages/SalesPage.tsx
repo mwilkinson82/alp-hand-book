@@ -1099,8 +1099,10 @@ const SalesPage: React.FC = () => {
           <div className="space-y-4 mb-12 text-primary-foreground/85 max-w-[44ch] mx-auto">
             <p className="text-lg sm:text-xl">Build the company behind the projects.</p>
             <p className="text-base sm:text-lg">
-              Get immediate access to the interactive AOS Edition — including
-              selected audio chapters and lifetime access.
+              Get immediate access to the interactive Handbook and the AOS
+              application — the centralized system where the operating system
+              gets installed and run. Includes selected audio chapters and
+              lifetime access.
             </p>
           </div>
 
