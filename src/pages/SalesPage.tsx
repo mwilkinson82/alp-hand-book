@@ -983,7 +983,7 @@ const SalesPage: React.FC = () => {
 
           <div className="grid md:grid-cols-2 gap-8">
             {testimonials.slice(0, 2).map((t, i) => (
-              <div key={i} className="relative p-8 bg-background border border-border rounded-sm">
+              <div key={i} className="relative p-8 bg-background border border-border rounded-sm hover-lift">
                 <Quote className="w-8 h-8 text-primary/20 absolute top-6 left-6" />
                 <blockquote className="body-text text-foreground/85 mb-6 pt-6 relative z-10">
                   &ldquo;{t.quote}&rdquo;
