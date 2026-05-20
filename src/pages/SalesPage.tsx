@@ -857,7 +857,7 @@ const SalesPage: React.FC = () => {
             ))}
           </div>
         </div>
-      </section>
+      </AnimatedSection>
 
       {/* ============================================================
           9 — WHO IT IS FOR
