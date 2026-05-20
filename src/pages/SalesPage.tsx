@@ -1086,11 +1086,11 @@ const SalesPage: React.FC = () => {
             Get the ALP Handbook.
           </h2>
 
-          <div className="space-y-4 mb-12 text-primary-foreground/85 max-w-[42ch] mx-auto">
+          <div className="space-y-4 mb-12 text-primary-foreground/85 max-w-[44ch] mx-auto">
             <p className="text-lg sm:text-xl">Build the company behind the projects.</p>
             <p className="text-base sm:text-lg">
-              Use the handbook when pressure rises, decisions matter, and the
-              business needs to operate with more control.
+              Get immediate access to the interactive AOS Edition — including
+              selected audio chapters and lifetime access.
             </p>
           </div>
 
