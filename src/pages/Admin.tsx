@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
+import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
@@ -48,20 +49,23 @@ const Admin: React.FC = () => {
   const [broadcastBusy, setBroadcastBusy] = useState(false);
   const [broadcastResult, setBroadcastResult] = useState<string | null>(null);
 
-  // Check if user is admin
+  const { user, loading: authLoading } = useAuth();
+
+  // Check if user is admin (wait for auth to hydrate first)
   useEffect(() => {
-    const checkAdmin = async () => {
-      const { data: { user } } = await supabase.auth.getUser();
-      if (!user || user.email !== ADMIN_EMAIL) {
-        navigate('/');
-        return;
-      }
-      setIsAdmin(true);
-      setLoading(false);
-      fetchData();
-    };
-    checkAdmin();
-  }, [navigate]);
+    if (authLoading) return;
+    if (!user) {
+      navigate('/auth');
+      return;
+    }
+    if (user.email !== ADMIN_EMAIL) {
+      navigate('/');
+      return;
+    }
+    setIsAdmin(true);
+    setLoading(false);
+    fetchData();
+  }, [user, authLoading, navigate]);
 
   const fetchData = async () => {
     setRefreshing(true);
