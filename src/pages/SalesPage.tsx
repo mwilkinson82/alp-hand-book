@@ -1130,7 +1130,7 @@ const SalesPage: React.FC = () => {
 
           <div className="mt-12 pt-8 border-t border-primary-foreground/15">
             <p className="text-[11px] sm:text-xs uppercase tracking-[0.24em] font-mono text-primary-foreground/55">
-              Interactive handbook · AOS edition · Audio chapters · Lifetime access
+              Interactive handbook · AOS application access · Audio chapters · Lifetime access
             </p>
           </div>
 
