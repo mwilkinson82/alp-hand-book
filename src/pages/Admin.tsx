@@ -219,6 +219,41 @@ const Admin: React.FC = () => {
           </Button>
         </div>
 
+        {/* V2 Broadcast */}
+        <div className="bg-card border rounded-lg p-6 mb-8">
+          <h2 className="text-lg font-medium mb-2 flex items-center gap-2">
+            <Megaphone className="w-5 h-5" />
+            V2 Launch Broadcast
+          </h2>
+          <p className="text-sm text-muted-foreground mb-4">
+            Sends the "ALP Handbook Version 2 is live." email to all completed purchasers. Idempotent — already-sent
+            recipients are skipped.
+          </p>
+          <div className="text-sm mb-4">
+            Recipients:{' '}
+            <span className="font-medium">
+              {broadcastRecipientCount === null ? '—' : broadcastRecipientCount}
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Button variant="outline" onClick={previewBroadcastInNewTab} disabled={broadcastBusy}>
+              <Eye className="w-4 h-4 mr-2" />
+              Preview in new tab
+            </Button>
+            <Button variant="outline" onClick={() => runBroadcast('test')} disabled={broadcastBusy}>
+              <Mail className="w-4 h-4 mr-2" />
+              Send test to me
+            </Button>
+            <Button onClick={() => runBroadcast('send')} disabled={broadcastBusy}>
+              {broadcastBusy ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Send className="w-4 h-4 mr-2" />}
+              Send to all purchasers
+            </Button>
+          </div>
+          {broadcastResult && (
+            <pre className="mt-4 text-xs bg-muted p-3 rounded overflow-auto">{broadcastResult}</pre>
+          )}
+        </div>
+
         {/* Send Magic Link */}
         <div className="bg-card border rounded-lg p-6 mb-8">
           <h2 className="text-lg font-medium mb-4 flex items-center gap-2">
