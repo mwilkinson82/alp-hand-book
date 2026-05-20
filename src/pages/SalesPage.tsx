@@ -810,7 +810,7 @@ const SalesPage: React.FC = () => {
       {/* ============================================================
           8 — THE MISSING PIECE (dark contrast operating map)
           ============================================================ */}
-      <section className="py-24 sm:py-28 px-6 bg-primary text-primary-foreground border-t border-border">
+      <AnimatedSection className="py-24 sm:py-28 px-6 bg-primary text-primary-foreground border-t border-border">
         <div className="max-w-5xl mx-auto">
           <p className="uppercase tracking-[0.28em] text-[11px] font-mono text-primary-foreground/55 mb-8 inline-flex items-center gap-3">
             <span className="block w-7 h-px bg-primary-foreground/40" />
