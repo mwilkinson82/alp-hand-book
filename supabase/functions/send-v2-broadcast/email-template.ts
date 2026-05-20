@@ -112,7 +112,10 @@ export const V2_BROADCAST_HTML = `<!doctype html>
                 <p style="margin:22px 0 0;font-family:Georgia,'Times New Roman',serif;font-size:18px;line-height:1.4;color:#111111;">
                   ALP
                 </p>
-                <p style="margin:22px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.5;color:#8a8377;">
+                <p style="margin:22px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.6;color:#4f4a42;">
+                  If you ever have an issue with logging in (didn't receive this email or need a new sign-in link), no problem. Request one anytime at <a href="https://alphandbook.com/auth" style="color:#111111;text-decoration:underline;">https://alphandbook.com/auth</a>.
+                </p>
+                <p style="margin:18px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.5;color:#8a8377;">
                   You are receiving this because you purchased the ALP Handbook.
                   <a href="{{{RESEND_UNSUBSCRIBE_URL}}}" style="color:#8a8377;text-decoration:underline;">Unsubscribe</a>.
                 </p>
