@@ -843,7 +843,7 @@ const SalesPage: React.FC = () => {
               { k: 'Process', q: 'How do we do things here?' },
               { k: 'Traction', q: 'What must be executed this week?' },
             ].map(({ k, q }, i) => (
-              <div key={i} className="bg-primary p-6 sm:p-7">
+              <div key={i} className="bg-primary p-6 sm:p-7 transition-colors duration-300 hover:bg-primary-foreground/5">
                 <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-primary-foreground/45 mb-4">
                   {String(i + 1).padStart(2, '0')}
                 </p>
