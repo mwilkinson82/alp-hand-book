@@ -59,6 +59,7 @@ const tocData: (TocSection & { eyebrow?: string })[] = [
   {
     part: 'III',
     title: 'The Business Systems',
+    eyebrow: 'Reorganized in V2',
     items: [
       { id: 'chapter-4', chapter: '10', title: 'Marketing as Infrastructure' },
       { id: 'chapter-5', chapter: '11', title: 'Upstream Marketing & Being "In the Know"' },
@@ -70,6 +71,7 @@ const tocData: (TocSection & { eyebrow?: string })[] = [
   {
     part: 'IV',
     title: 'Time, Money, and Commercial Control',
+    eyebrow: 'Reorganized in V2',
     items: [
       { id: 'chapter-12', chapter: '15', title: 'Documentation, Entitlement, and Proof' },
       { id: 'chapter-13', chapter: '16', title: 'Notices & Playing Offense' },
@@ -83,6 +85,7 @@ const tocData: (TocSection & { eyebrow?: string })[] = [
   {
     part: 'V',
     title: 'Identity, Leadership, and Scale',
+    eyebrow: 'Reorganized in V2',
     items: [
       { id: 'chapter-23', chapter: '22', title: 'Identity, Pressure, and the Entrepreneur\'s Responsibility' },
       { id: 'chapter-26', chapter: '23', title: 'Leadership, Standards, and Cultural Enforcement' },
@@ -92,6 +95,7 @@ const tocData: (TocSection & { eyebrow?: string })[] = [
   {
     part: 'VI',
     title: 'Real-Time Application & Commitment',
+    eyebrow: 'Reorganized in V2',
     items: [
       { id: 'chapter-24', chapter: '25', title: 'Using the ALP Handbook in Real Time' },
       { id: 'final-chapter', chapter: '26', title: 'The ALP Way — Doctrine & Commitment' },
