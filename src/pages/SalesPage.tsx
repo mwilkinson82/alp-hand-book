@@ -1037,8 +1037,8 @@ const SalesPage: React.FC = () => {
               },
               {
                 Icon: Target,
-                label: 'AOS Edition',
-                copy: 'Includes the operating-system doctrine.',
+                label: 'AOS Application Access',
+                copy: 'Centralized app to install and run the operating system in your business.',
               },
               {
                 Icon: Infinity,
