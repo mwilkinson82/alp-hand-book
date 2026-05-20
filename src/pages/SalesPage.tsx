@@ -999,44 +999,80 @@ const SalesPage: React.FC = () => {
       </AnimatedSection>
 
       {/* ============================================================
-          12 — PRODUCT / ACCESS
+          12 — PRODUCT / ACCESS (6 product cards)
           ============================================================ */}
       <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
-        <div className="max-w-3xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <p className="eyebrow mb-8">Product / Access</p>
           <h2 className="section-heading text-3xl md:text-5xl mb-12 max-w-[14ch]">
             What you get.
           </h2>
 
-          <ul className="divide-y divide-border border-y border-border">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-foreground/15 border border-foreground/15">
             {[
-              '26 chapters plus final commitment section',
-              'AOS second-edition operating-system section',
-              'Interactive web reading experience',
-              'Mobile, tablet, and desktop access',
-              'Floating table of contents',
-              'Progress tracking',
-              'Light and dark reading modes',
-              'Selected audio chapters',
-              'Lifetime access',
-            ].map((item, i) => (
-              <li key={i} className="flex items-baseline gap-6 py-4">
-                <span className="font-mono text-xs text-foreground/40 w-8 shrink-0">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="body-text text-foreground/85">{item}</span>
-              </li>
+              {
+                Icon: Link2,
+                label: 'Magic Link Access',
+                copy: 'Delivered instantly. Open from any browser.',
+              },
+              {
+                Icon: ListOrdered,
+                label: 'Interactive Table of Contents',
+                copy: 'Move through the doctrine by part, chapter, and operating theme.',
+              },
+              {
+                Icon: Headphones,
+                label: 'Audio Chapters',
+                copy: 'Listen to selected sections while you work.',
+              },
+              {
+                Icon: Target,
+                label: 'AOS Edition',
+                copy: 'Includes the operating-system doctrine.',
+              },
+              {
+                Icon: Infinity,
+                label: 'Lifetime Access',
+                copy: 'One payment. Keep the handbook.',
+              },
+              {
+                Icon: Monitor,
+                label: 'Mobile + Desktop',
+                copy: 'Read anywhere.',
+              },
+            ].map(({ Icon, label, copy }, i) => (
+              <div key={i} className="bg-background p-7 sm:p-8">
+                <div className="flex items-center justify-between mb-6">
+                  <Icon
+                    className="w-5 h-5 text-foreground/75"
+                    strokeWidth={1.5}
+                  />
+                  <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground/40">
+                    {String(i + 1).padStart(2, '0')}
+                  </p>
+                </div>
+                <p className="uppercase tracking-[0.2em] text-[11px] font-mono font-medium text-foreground mb-3">
+                  {label}
+                </p>
+                <p className="text-[14.5px] leading-snug text-foreground/70">
+                  {copy}
+                </p>
+              </div>
             ))}
-          </ul>
+          </div>
 
-          <div className="body-text space-y-2 text-foreground/80 mt-10">
-            <p>This is not a PDF download.</p>
-            <p className="body-text-emphasis">
+          <div className="mt-12 max-w-[44ch]">
+            <p className="text-foreground/70 text-lg leading-relaxed">
+              This is not a PDF download.
+            </p>
+            <p className="font-serif text-2xl md:text-3xl text-foreground mt-2 leading-snug">
               It is a digital handbook built to be used in real time.
             </p>
           </div>
         </div>
       </AnimatedSection>
+
+
 
       {/* ============================================================
           13 — FINAL CTA
