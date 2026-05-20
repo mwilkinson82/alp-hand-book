@@ -817,19 +817,29 @@ const SalesPage: React.FC = () => {
             AOS Edition
           </p>
           <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.02] tracking-[-0.02em] mb-10 max-w-[20ch]">
-            The missing piece: the operating system.
+            The doctrine, plus the application to run it.
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-start mb-16">
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-start mb-12">
             <div className="space-y-4 text-primary-foreground/80 text-lg leading-relaxed max-w-[42ch]">
               <p>The Handbook explains the doctrine.</p>
-              <p>AOS gives the doctrine a place to run.</p>
+              <p>The AOS application gives the doctrine a place to live inside your company.</p>
             </div>
             <p className="text-primary-foreground/55 text-sm leading-relaxed border-l border-primary-foreground/20 pl-5 max-w-[48ch]">
-              The AOS Edition of the Handbook includes the operating-system
-              doctrine — Vision, People, Data, Issues, Process, and Traction —
-              so you can install the same operating logic inside your own
-              company.
+              Every Handbook purchase includes access to the AOS application —
+              the centralized operating system where Vision, People, Data,
+              Issues, Process, and Traction are installed, tracked, and run.
+              One place for the entire system. Not scattered across docs,
+              sheets, and notebooks.
+            </p>
+          </div>
+
+          <div className="mb-16 border-t border-primary-foreground/15 pt-8">
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-primary-foreground/55 mb-3">
+              Included with the Handbook
+            </p>
+            <p className="font-serif text-2xl md:text-3xl text-primary-foreground leading-snug max-w-[36ch]">
+              Access to AOS — the application that runs the operating system in your business.
             </p>
           </div>
 
