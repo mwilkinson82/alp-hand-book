@@ -4,7 +4,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { useToast } from '@/hooks/use-toast';
-import { Loader2, Mail, Send, RefreshCw, CheckCircle, XCircle, ArrowLeft, Sparkles } from 'lucide-react';
+import { Loader2, Mail, Send, RefreshCw, CheckCircle, XCircle, ArrowLeft, Sparkles, Megaphone, Eye } from 'lucide-react';
 
 interface MagicLinkLog {
   id: string;
@@ -38,10 +38,15 @@ const Admin: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [email, setEmail] = useState('');
   const [sending, setSending] = useState(false);
-  
+
   const [logs, setLogs] = useState<MagicLinkLog[]>([]);
   const [purchases, setPurchases] = useState<Purchase[]>([]);
   const [refreshing, setRefreshing] = useState(false);
+
+  // Broadcast state
+  const [broadcastRecipientCount, setBroadcastRecipientCount] = useState<number | null>(null);
+  const [broadcastBusy, setBroadcastBusy] = useState(false);
+  const [broadcastResult, setBroadcastResult] = useState<string | null>(null);
 
   // Check if user is admin
   useEffect(() => {
@@ -73,10 +78,62 @@ const Admin: React.FC = () => {
       // Fetch purchases with user emails via edge function
       const { data: purchasesData } = await supabase.functions.invoke('admin-get-purchases');
       if (purchasesData?.purchases) setPurchases(purchasesData.purchases);
+
+      // Fetch broadcast recipient count
+      const { data: bData } = await supabase.functions.invoke('send-v2-broadcast', {
+        body: { mode: 'preview' },
+      });
+      if (typeof bData?.recipientCount === 'number') setBroadcastRecipientCount(bData.recipientCount);
     } catch (err) {
       console.error('Error fetching data:', err);
     } finally {
       setRefreshing(false);
+    }
+  };
+
+  const runBroadcast = async (mode: 'test' | 'send', testEmail?: string) => {
+    if (mode === 'send') {
+      const ok = window.confirm(
+        `Send V2 launch email to ${broadcastRecipientCount ?? '?'} purchaser(s)? This cannot be undone.`,
+      );
+      if (!ok) return;
+    }
+    setBroadcastBusy(true);
+    setBroadcastResult(null);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-v2-broadcast', {
+        body: { mode, testEmail },
+      });
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
+      if (mode === 'test') {
+        toast({ title: 'Test sent', description: `Sent to ${data.target}` });
+      } else {
+        toast({
+          title: 'Broadcast complete',
+          description: `Sent ${data.sent} • Failed ${data.failed} • Skipped ${data.skipped}`,
+        });
+        setBroadcastResult(JSON.stringify(data, null, 2));
+      }
+    } catch (err: unknown) {
+      toast({ title: 'Broadcast failed', description: getErrorMessage(err), variant: 'destructive' });
+    } finally {
+      setBroadcastBusy(false);
+    }
+  };
+
+  const previewBroadcastInNewTab = async () => {
+    try {
+      const { data, error } = await supabase.functions.invoke('send-v2-broadcast', {
+        body: { mode: 'html' },
+      });
+      if (error) throw error;
+      if (!data?.html) throw new Error('No HTML returned');
+      const blob = new Blob([data.html], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
+    } catch (err: unknown) {
+      toast({ title: 'Preview failed', description: getErrorMessage(err), variant: 'destructive' });
     }
   };
 
@@ -160,6 +217,41 @@ const Admin: React.FC = () => {
             <RefreshCw className={`w-4 h-4 mr-2 ${refreshing ? 'animate-spin' : ''}`} />
             Refresh
           </Button>
+        </div>
+
+        {/* V2 Broadcast */}
+        <div className="bg-card border rounded-lg p-6 mb-8">
+          <h2 className="text-lg font-medium mb-2 flex items-center gap-2">
+            <Megaphone className="w-5 h-5" />
+            V2 Launch Broadcast
+          </h2>
+          <p className="text-sm text-muted-foreground mb-4">
+            Sends the "ALP Handbook Version 2 is live." email to all completed purchasers. Idempotent — already-sent
+            recipients are skipped.
+          </p>
+          <div className="text-sm mb-4">
+            Recipients:{' '}
+            <span className="font-medium">
+              {broadcastRecipientCount === null ? '—' : broadcastRecipientCount}
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Button variant="outline" onClick={previewBroadcastInNewTab} disabled={broadcastBusy}>
+              <Eye className="w-4 h-4 mr-2" />
+              Preview in new tab
+            </Button>
+            <Button variant="outline" onClick={() => runBroadcast('test')} disabled={broadcastBusy}>
+              <Mail className="w-4 h-4 mr-2" />
+              Send test to me
+            </Button>
+            <Button onClick={() => runBroadcast('send')} disabled={broadcastBusy}>
+              {broadcastBusy ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Send className="w-4 h-4 mr-2" />}
+              Send to all purchasers
+            </Button>
+          </div>
+          {broadcastResult && (
+            <pre className="mt-4 text-xs bg-muted p-3 rounded overflow-auto">{broadcastResult}</pre>
+          )}
         </div>
 
         {/* Send Magic Link */}
