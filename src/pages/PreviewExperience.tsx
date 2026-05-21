@@ -141,17 +141,19 @@ const SalesLanding: React.FC = () => {
         {/* Preview Chapters */}
         <Dedication />
         <Foreword />
+        <HowToUse />
         
         <PartHeader number="I" title="The Frame" />
         <Chapter2 />
         <Chapter3 />
 
-        <PartHeader number="III" title="Time, Money, & Leverage" />
-        <Chapter11 />
-        <Chapter15 />
+        <PartHeader number="II" title="The Operating System" eyebrow="Volume 2 — New" />
+        <Chapter27 />
 
-        <PartHeader number="IV" title="Identity & Scale" />
+        <PartHeader number="IV" title="Time, Money, and Commercial Control" />
         <Chapter19 />
+
+        <PartHeader number="V" title="Identity, Leadership, and Scale" />
         <Chapter23 />
 
         {/* Purchase CTA */}
