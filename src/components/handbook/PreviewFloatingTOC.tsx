@@ -137,7 +137,7 @@ const parableData: ParableItem[] = [
 ];
 
 // Free preview chapters — IDs that are actually rendered in /preview
-const FREE_CHAPTER_IDS = ['chapter-2', 'chapter-3', 'chapter-19', 'chapter-23'];
+const FREE_CHAPTER_IDS = ['chapter-2', 'chapter-3', 'chapter-27', 'chapter-19', 'chapter-23'];
 
 const PreviewFloatingTOC: React.FC = () => {
   const [open, setOpen] = useState(false);

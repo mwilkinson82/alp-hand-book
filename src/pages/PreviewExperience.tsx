@@ -7,10 +7,10 @@ import bookCover from '@/assets/book-cover-v2.png';
 import PartHeader from '@/components/handbook/PartHeader';
 import Dedication from '@/components/handbook/content/Dedication';
 import Foreword from '@/components/handbook/content/Foreword';
+import HowToUse from '@/components/handbook/content/HowToUse';
 import Chapter2 from '@/components/handbook/content/Chapter2';
 import Chapter3 from '@/components/handbook/content/Chapter3';
-import Chapter11 from '@/components/handbook/content/Chapter11';
-import Chapter15 from '@/components/handbook/content/Chapter15';
+import Chapter27 from '@/components/handbook/content/Chapter27';
 import Chapter19 from '@/components/handbook/content/Chapter19';
 import Chapter23 from '@/components/handbook/content/Chapter23';
 import PreviewHeader from '@/components/handbook/PreviewHeader';
@@ -141,17 +141,19 @@ const SalesLanding: React.FC = () => {
         {/* Preview Chapters */}
         <Dedication />
         <Foreword />
+        <HowToUse />
         
         <PartHeader number="I" title="The Frame" />
         <Chapter2 />
         <Chapter3 />
 
-        <PartHeader number="III" title="Time, Money, & Leverage" />
-        <Chapter11 />
-        <Chapter15 />
+        <PartHeader number="II" title="The Operating System" eyebrow="Volume 2 — New" />
+        <Chapter27 />
 
-        <PartHeader number="IV" title="Identity & Scale" />
+        <PartHeader number="IV" title="Time, Money, and Commercial Control" />
         <Chapter19 />
+
+        <PartHeader number="V" title="Identity, Leadership, and Scale" />
         <Chapter23 />
 
         {/* Purchase CTA */}
