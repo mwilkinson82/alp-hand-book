@@ -49,6 +49,11 @@ const Admin: React.FC = () => {
   const [broadcastBusy, setBroadcastBusy] = useState(false);
   const [broadcastResult, setBroadcastResult] = useState<string | null>(null);
 
+  // AOS broadcast state
+  const [aosBusy, setAosBusy] = useState(false);
+  const [aosResult, setAosResult] = useState<string | null>(null);
+
+
   const { user, loading: authLoading } = useAuth();
 
   // Check if user is admin (wait for auth to hydrate first)
@@ -141,7 +146,54 @@ const Admin: React.FC = () => {
     }
   };
 
+  const runAosBroadcast = async (mode: 'test' | 'send', testEmail?: string) => {
+    if (mode === 'send') {
+      const ok = window.confirm(
+        `Send AOS access email to ${broadcastRecipientCount ?? '?'} purchaser(s)? This cannot be undone.`,
+      );
+      if (!ok) return;
+    }
+    setAosBusy(true);
+    setAosResult(null);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-aos-access-broadcast', {
+        body: { mode, testEmail },
+      });
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
+      if (mode === 'test') {
+        toast({ title: 'AOS test sent', description: `Sent to ${data.target}` });
+      } else {
+        toast({
+          title: 'AOS broadcast complete',
+          description: `Sent ${data.sent} • Failed ${data.failed} • Skipped ${data.skipped}`,
+        });
+        setAosResult(JSON.stringify(data, null, 2));
+      }
+    } catch (err: unknown) {
+      toast({ title: 'AOS broadcast failed', description: getErrorMessage(err), variant: 'destructive' });
+    } finally {
+      setAosBusy(false);
+    }
+  };
+
+  const previewAosInNewTab = async () => {
+    try {
+      const { data, error } = await supabase.functions.invoke('send-aos-access-broadcast', {
+        body: { mode: 'html' },
+      });
+      if (error) throw error;
+      if (!data?.html) throw new Error('No HTML returned');
+      const blob = new Blob([data.html], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
+    } catch (err: unknown) {
+      toast({ title: 'Preview failed', description: getErrorMessage(err), variant: 'destructive' });
+    }
+  };
+
   const sendMagicLink = async (targetEmail: string) => {
+
     if (!targetEmail.trim()) {
       toast({ title: 'Please enter an email address', variant: 'destructive' });
       return;
@@ -257,6 +309,43 @@ const Admin: React.FC = () => {
             <pre className="mt-4 text-xs bg-muted p-3 rounded overflow-auto">{broadcastResult}</pre>
           )}
         </div>
+
+        {/* AOS Access Broadcast */}
+        <div className="bg-card border rounded-lg p-6 mb-8">
+          <h2 className="text-lg font-medium mb-2 flex items-center gap-2">
+            <Megaphone className="w-5 h-5" />
+            AOS Access Broadcast
+          </h2>
+          <p className="text-sm text-muted-foreground mb-4">
+            Announces free AOS access to all completed handbook purchasers. CTA points to{' '}
+            <span className="font-mono">alpos.alpcontractorcircle.com/signup</span>. Idempotent — already-sent recipients are skipped.
+          </p>
+          <div className="text-sm mb-4">
+            Recipients:{' '}
+            <span className="font-medium">
+              {broadcastRecipientCount === null ? '—' : broadcastRecipientCount}
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Button variant="outline" onClick={previewAosInNewTab} disabled={aosBusy}>
+              <Eye className="w-4 h-4 mr-2" />
+              Preview in new tab
+            </Button>
+            <Button variant="outline" onClick={() => runAosBroadcast('test')} disabled={aosBusy}>
+              <Mail className="w-4 h-4 mr-2" />
+              Send test to me
+            </Button>
+            <Button onClick={() => runAosBroadcast('send')} disabled={aosBusy}>
+              {aosBusy ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Send className="w-4 h-4 mr-2" />}
+              Send to all purchasers
+            </Button>
+          </div>
+          {aosResult && (
+            <pre className="mt-4 text-xs bg-muted p-3 rounded overflow-auto">{aosResult}</pre>
+          )}
+        </div>
+
+
 
         {/* Send Magic Link */}
         <div className="bg-card border rounded-lg p-6 mb-8">
