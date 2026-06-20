@@ -192,6 +192,7 @@ const Admin: React.FC = () => {
     }
   };
 
+  const sendMagicLink = async (targetEmail: string) => {
 
     if (!targetEmail.trim()) {
       toast({ title: 'Please enter an email address', variant: 'destructive' });
