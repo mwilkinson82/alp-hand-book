@@ -1,28 +1,47 @@
-## The Bug
+## Goal
 
-In the preview page, the Table of Contents marks 8 chapters as unlocked (clickable "Preview" pills), but the page below only actually renders 6 of them. Tapping the two that aren't on the page does nothing — that's what you're seeing on mobile.
+Send a one-time editorial-style announcement email to all 75 completed ALP handbook purchasers letting them know their purchase now also grants them access to AOS at `https://alpos.alpcontractorcircle.com/signup`.
 
-**TOC says unlocked:** Dedication, Foreword, How to Use, Ch 2, Ch 3, Ch 27 (Owner), Ch 19 (Change Orders), Ch 23 (Identity)
+## Approach
 
-**Actually rendered on page:** Dedication, Foreword, Ch 2, Ch 3, Ch 11, Ch 15, Ch 19, Ch 23
+Clone the existing v2-broadcast pattern (proven, idempotent, logs to `broadcast_logs`). Same admin gating, preview/test/send modes, Resend sender `marshall@alphandbook.com`, ~2 req/sec throttle.
 
-**Mismatches:**
-- "How to Use This Handbook" → unlocked in TOC, not on page (tap = nothing)
-- "A Contracting Company Cannot Run on the Owner" (ch-27) → unlocked in TOC, not on page (tap = nothing)
-- Ch 11 and Ch 15 are on the page but locked in the TOC (so you can't jump to them)
+## Files
 
-## The Fix
+1. **New: `supabase/functions/send-aos-access-broadcast/email-template.ts`**
+   - Editorial DDB/Ogilvy layout matching v2 template: eyebrow ("A NOTE FROM MARSHALL" or "BONUS ACCESS"), Fraunces-style serif headline, hairline rule, short body paragraphs, single black pill CTA → `https://alpos.alpcontractorcircle.com/signup`.
+   - Frame: handbook gave them the doctrine; AOS is the operating system that runs it day-to-day. Their handbook purchase now includes AOS access — sign up with the same email used at checkout.
+   - Subject: "Your ALP Handbook now includes AOS access" (final copy in implementation).
+   - Cream `#faf7f0` outer, white card, brand orange `hsl(24 95% 53%)` rationed to one element.
+   - `{{{RESEND_UNSUBSCRIBE_URL}}}` placeholder + List-Unsubscribe header.
 
-Align the two lists. Two clean options:
+2. **New: `supabase/functions/send-aos-access-broadcast/index.ts`**
+   - Copy of `send-v2-broadcast/index.ts` with:
+     - `BROADCAST_ID = "aos-access-launch"` (separate idempotency key from v2 so all 75 are eligible)
+     - Imports from local `email-template.ts`
+     - Same admin gate (`wilkinson.marshall@gmail.com`), same modes: `preview` | `html` | `test` | `send`
+     - Same recipient resolution: `book_purchases` where `status='completed'` → dedupe → emails via `auth.admin.listUsers`
+     - Same `broadcast_logs` writes and 550ms throttle
 
-**Option A (recommended):** Make the page match the TOC's intent. Add `HowToUse` and `Chapter27` to the rendered preview, and remove `Chapter11` and `Chapter15`. This keeps the Volume 2 teaser (Ch 27) in the free preview — which matches the broadcast email's pitch.
+3. **No DB migration** — reuses existing `broadcast_logs` table.
 
-**Option B:** Make the TOC match what's currently rendered. Swap `how-to-use` and `chapter-27` out of `FREE_CHAPTERS`, and add `chapter-11` and `chapter-15` in. Faster, but you lose the Volume 2 teaser in the free read.
+4. **No Admin UI changes required** — drive it the same way you ran v2: I'll invoke `preview` → `test` (to you) → wait for your go-ahead → `send`.
 
-## Files touched
+## Execution sequence (after build)
 
-- `src/pages/PreviewExperience.tsx` — adjust which chapter components render
-- `src/components/handbook/PreviewTableOfContents.tsx` — adjust `FREE_CHAPTERS` array (Option B only)
-- `src/components/handbook/PreviewFloatingTOC.tsx` — verify the floating TOC's unlocked list matches (will check during implementation)
+1. Deploy `send-aos-access-broadcast`.
+2. `preview` → confirm recipient count = 75 and recipient list looks right.
+3. `test` → sends to `wilkinson.marshall@gmail.com`; you review in inbox on desktop + mobile.
+4. On your approval, `send` → blasts to all 75 with idempotent logging.
 
-Which option do you want — A (add the missing chapters to the page) or B (lock them in the TOC instead)?
+## Technical notes
+
+- AOS signup URL is hardcoded into the template; no env var needed.
+- Idempotency key isolated per broadcast, so resending v2 in the future is unaffected.
+- No suppression-list logic beyond what `broadcast_logs` already provides; matches existing pattern.
+- No changes to magic-link / purchase / auth flows.
+
+## Out of scope
+
+- Auto-provisioning AOS accounts (user signs up on the AOS side with their handbook email).
+- Sending AOS access info to *future* purchasers — if you want that, follow-up task: add a line + CTA to the existing welcome email in `send-welcome-email`.
