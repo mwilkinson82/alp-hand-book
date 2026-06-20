@@ -98,7 +98,7 @@ export const AOS_BROADCAST_HTML = `<!doctype html>
                   Marshall
                 </p>
                 <p style="margin:22px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:13px;line-height:1.6;color:#4f4a42;">
-                  Questions? Reply to this email or reach me at <a href="mailto:marshall@alphandbook.com" style="color:#111111;text-decoration:underline;">marshall@alphandbook.com</a>.
+                  Questions? Reply to this email or reach me at <a href="mailto:marshall@marshallwilkinson.com" style="color:#111111;text-decoration:underline;">marshall@marshallwilkinson.com</a>.
                 </p>
                 <p style="margin:18px 0 0;font-family:Arial,Helvetica,sans-serif;font-size:11px;line-height:1.5;color:#8a8377;">
                   You are receiving this because you purchased the ALP Handbook.
