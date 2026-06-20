@@ -310,6 +310,43 @@ const Admin: React.FC = () => {
           )}
         </div>
 
+        {/* AOS Access Broadcast */}
+        <div className="bg-card border rounded-lg p-6 mb-8">
+          <h2 className="text-lg font-medium mb-2 flex items-center gap-2">
+            <Megaphone className="w-5 h-5" />
+            AOS Access Broadcast
+          </h2>
+          <p className="text-sm text-muted-foreground mb-4">
+            Announces free AOS access to all completed handbook purchasers. CTA points to{' '}
+            <span className="font-mono">alpos.alpcontractorcircle.com/signup</span>. Idempotent — already-sent recipients are skipped.
+          </p>
+          <div className="text-sm mb-4">
+            Recipients:{' '}
+            <span className="font-medium">
+              {broadcastRecipientCount === null ? '—' : broadcastRecipientCount}
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Button variant="outline" onClick={previewAosInNewTab} disabled={aosBusy}>
+              <Eye className="w-4 h-4 mr-2" />
+              Preview in new tab
+            </Button>
+            <Button variant="outline" onClick={() => runAosBroadcast('test')} disabled={aosBusy}>
+              <Mail className="w-4 h-4 mr-2" />
+              Send test to me
+            </Button>
+            <Button onClick={() => runAosBroadcast('send')} disabled={aosBusy}>
+              {aosBusy ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Send className="w-4 h-4 mr-2" />}
+              Send to all purchasers
+            </Button>
+          </div>
+          {aosResult && (
+            <pre className="mt-4 text-xs bg-muted p-3 rounded overflow-auto">{aosResult}</pre>
+          )}
+        </div>
+
+
+
         {/* Send Magic Link */}
         <div className="bg-card border rounded-lg p-6 mb-8">
           <h2 className="text-lg font-medium mb-4 flex items-center gap-2">
