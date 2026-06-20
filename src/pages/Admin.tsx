@@ -146,7 +146,53 @@ const Admin: React.FC = () => {
     }
   };
 
-  const sendMagicLink = async (targetEmail: string) => {
+  const runAosBroadcast = async (mode: 'test' | 'send', testEmail?: string) => {
+    if (mode === 'send') {
+      const ok = window.confirm(
+        `Send AOS access email to ${broadcastRecipientCount ?? '?'} purchaser(s)? This cannot be undone.`,
+      );
+      if (!ok) return;
+    }
+    setAosBusy(true);
+    setAosResult(null);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-aos-access-broadcast', {
+        body: { mode, testEmail },
+      });
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
+      if (mode === 'test') {
+        toast({ title: 'AOS test sent', description: `Sent to ${data.target}` });
+      } else {
+        toast({
+          title: 'AOS broadcast complete',
+          description: `Sent ${data.sent} • Failed ${data.failed} • Skipped ${data.skipped}`,
+        });
+        setAosResult(JSON.stringify(data, null, 2));
+      }
+    } catch (err: unknown) {
+      toast({ title: 'AOS broadcast failed', description: getErrorMessage(err), variant: 'destructive' });
+    } finally {
+      setAosBusy(false);
+    }
+  };
+
+  const previewAosInNewTab = async () => {
+    try {
+      const { data, error } = await supabase.functions.invoke('send-aos-access-broadcast', {
+        body: { mode: 'html' },
+      });
+      if (error) throw error;
+      if (!data?.html) throw new Error('No HTML returned');
+      const blob = new Blob([data.html], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
+    } catch (err: unknown) {
+      toast({ title: 'Preview failed', description: getErrorMessage(err), variant: 'destructive' });
+    }
+  };
+
+
     if (!targetEmail.trim()) {
       toast({ title: 'Please enter an email address', variant: 'destructive' });
       return;
