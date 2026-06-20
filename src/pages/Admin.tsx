@@ -49,6 +49,11 @@ const Admin: React.FC = () => {
   const [broadcastBusy, setBroadcastBusy] = useState(false);
   const [broadcastResult, setBroadcastResult] = useState<string | null>(null);
 
+  // AOS broadcast state
+  const [aosBusy, setAosBusy] = useState(false);
+  const [aosResult, setAosResult] = useState<string | null>(null);
+
+
   const { user, loading: authLoading } = useAuth();
 
   // Check if user is admin (wait for auth to hydrate first)
