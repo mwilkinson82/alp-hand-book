@@ -63,8 +63,9 @@ export const AOS_BROADCAST_HTML = `<!doctype html>
                         Included with your purchase.
                       </p>
                       <p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.55;color:#4f4a42;">
-                        Because you own the ALP Handbook, AOS is now yours at no additional cost. Sign up using the same email you used at checkout.
+                        Because you own the ALP Handbook, AOS is yours at no additional cost — <strong style="color:#111111;">one workspace and two seats</strong>, so you can bring a partner or integrator in with you. Sign up using the same email you used at checkout.
                       </p>
+
                     </td>
                   </tr>
                   <tr>
