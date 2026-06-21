@@ -88,7 +88,23 @@ serve(async (req) => {
                   </td>
                 </tr>
               </table>
-              
+
+              <!-- AOS Bonus Access -->
+              <div style="padding: 24px; background-color: #faf7f0; border: 1px solid #e8e0d0; border-radius: 6px; margin-bottom: 24px;">
+                <p style="margin: 0 0 6px 0; font-size: 11px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; color: #d95f22;">
+                  Bonus Access
+                </p>
+                <p style="margin: 0 0 12px 0; font-size: 18px; font-weight: 700; color: #1a1a1a; line-height: 1.3;">
+                  Your handbook also unlocks AOS.
+                </p>
+                <p style="margin: 0 0 16px 0; font-size: 15px; line-height: 1.55; color: #4f4a42;">
+                  AOS is the operating system that runs the doctrine — Vision, People, Data, Issues, Process, and Traction, structured for a contractor's week. Included with your purchase: <strong style="color:#1a1a1a;">one workspace and two seats</strong>, so you can bring a partner or integrator in with you. Sign up with this same email.
+                </p>
+                <a href="https://alpos.alpcontractorcircle.com/signup" style="display: inline-block; padding: 12px 20px; background-color: #1a1a1a; color: #ffffff; text-decoration: none; font-size: 12px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; border-radius: 4px;">
+                  Activate AOS Access
+                </a>
+              </div>
+
               <!-- Fallback info -->
               <div style="padding: 20px; background-color: #f9f9f9; border-radius: 6px; margin-bottom: 20px;">
                 <p style="margin: 0 0 10px 0; font-size: 14px; color: #666666;">
@@ -99,6 +115,7 @@ serve(async (req) => {
                   <a href="https://alphandbook.com/auth" style="color: #1a1a1a; text-decoration: underline;">https://alphandbook.com/auth</a>
                 </p>
               </div>
+
               
               <!-- Support info -->
               <p style="margin: 0; font-size: 14px; color: #666666; line-height: 1.6;">
@@ -147,6 +164,14 @@ Thank you for purchasing The ALP Handbook! Your lifetime access is now active.
 
 Click here to access the handbook:
 ${body.magic_link_url}
+
+---
+
+BONUS ACCESS — Your handbook also unlocks AOS.
+
+AOS is the operating system that runs the doctrine — Vision, People, Data, Issues, Process, and Traction, structured for a contractor's week. Included with your purchase: one workspace and two seats. Sign up with this same email:
+https://alpos.alpcontractorcircle.com/signup
+
 
 ---
 
