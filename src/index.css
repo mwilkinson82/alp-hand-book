@@ -128,7 +128,8 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: Helvetica, 'Helvetica Neue', Arial, sans-serif;
-    font-feature-settings: "ss01", "ss02";
+    font-variant-caps: normal;
+    font-feature-settings: "kern", "liga";
     font-synthesis: none;
   }
 
