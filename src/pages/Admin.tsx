@@ -196,6 +196,52 @@ const Admin: React.FC = () => {
     }
   };
 
+  const runFixesBroadcast = async (mode: 'test' | 'send', testEmail?: string) => {
+    if (mode === 'send') {
+      const ok = window.confirm(
+        `Send reader-fixes email to ${broadcastRecipientCount ?? '?'} purchaser(s)? This cannot be undone.`,
+      );
+      if (!ok) return;
+    }
+    setFixesBusy(true);
+    setFixesResult(null);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-fixes-broadcast', {
+        body: { mode, testEmail },
+      });
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
+      if (mode === 'test') {
+        toast({ title: 'Fixes test sent', description: `Sent to ${data.target}` });
+      } else {
+        toast({
+          title: 'Fixes broadcast complete',
+          description: `Sent ${data.sent} • Failed ${data.failed} • Skipped ${data.skipped}`,
+        });
+        setFixesResult(JSON.stringify(data, null, 2));
+      }
+    } catch (err: unknown) {
+      toast({ title: 'Fixes broadcast failed', description: getErrorMessage(err), variant: 'destructive' });
+    } finally {
+      setFixesBusy(false);
+    }
+  };
+
+  const previewFixesInNewTab = async () => {
+    try {
+      const { data, error } = await supabase.functions.invoke('send-fixes-broadcast', {
+        body: { mode: 'html' },
+      });
+      if (error) throw error;
+      if (!data?.html) throw new Error('No HTML returned');
+      const blob = new Blob([data.html], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
+    } catch (err: unknown) {
+      toast({ title: 'Preview failed', description: getErrorMessage(err), variant: 'destructive' });
+    }
+  };
+
   const sendMagicLink = async (targetEmail: string) => {
 
     if (!targetEmail.trim()) {
