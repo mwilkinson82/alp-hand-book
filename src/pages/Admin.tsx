@@ -53,6 +53,10 @@ const Admin: React.FC = () => {
   const [aosBusy, setAosBusy] = useState(false);
   const [aosResult, setAosResult] = useState<string | null>(null);
 
+  // Fixes broadcast state
+  const [fixesBusy, setFixesBusy] = useState(false);
+  const [fixesResult, setFixesResult] = useState<string | null>(null);
+
 
   const { user, loading: authLoading } = useAuth();
 
