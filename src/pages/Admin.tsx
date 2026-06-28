@@ -395,6 +395,40 @@ const Admin: React.FC = () => {
           )}
         </div>
 
+        {/* Reader Fixes Broadcast */}
+        <div className="bg-card border rounded-lg p-6 mb-8">
+          <h2 className="text-lg font-medium mb-2 flex items-center gap-2">
+            <Megaphone className="w-5 h-5" />
+            Reader Fixes Broadcast
+          </h2>
+          <p className="text-sm text-muted-foreground mb-4">
+            Announces the font and scroll-position fixes and asks readers to sign back in. Idempotent — already-sent recipients are skipped.
+          </p>
+          <div className="text-sm mb-4">
+            Recipients:{' '}
+            <span className="font-medium">
+              {broadcastRecipientCount === null ? '—' : broadcastRecipientCount}
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Button variant="outline" onClick={previewFixesInNewTab} disabled={fixesBusy}>
+              <Eye className="w-4 h-4 mr-2" />
+              Preview in new tab
+            </Button>
+            <Button variant="outline" onClick={() => runFixesBroadcast('test')} disabled={fixesBusy}>
+              <Mail className="w-4 h-4 mr-2" />
+              Send test to me
+            </Button>
+            <Button onClick={() => runFixesBroadcast('send')} disabled={fixesBusy}>
+              {fixesBusy ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Send className="w-4 h-4 mr-2" />}
+              Send to all purchasers
+            </Button>
+          </div>
+          {fixesResult && (
+            <pre className="mt-4 text-xs bg-muted p-3 rounded overflow-auto">{fixesResult}</pre>
+          )}
+        </div>
+
 
 
         {/* Send Magic Link */}
