@@ -66,7 +66,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setSession(session);
         setUser(session?.user ?? null);
         setLoading(false);
-        
+
+        // Skip TOKEN_REFRESHED / USER_UPDATED — the user hasn't changed and
+        // flipping purchaseLoading would unmount /read and lose scroll position
+        // when the reader tabs back from Excel / Google.
+        if (event === 'TOKEN_REFRESHED' || event === 'USER_UPDATED') {
+          return;
+        }
+
         // Defer purchase check to avoid deadlock
         if (session?.user) {
           // Prevent route guards from redirecting before purchase check starts
