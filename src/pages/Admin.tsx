@@ -53,6 +53,10 @@ const Admin: React.FC = () => {
   const [aosBusy, setAosBusy] = useState(false);
   const [aosResult, setAosResult] = useState<string | null>(null);
 
+  // Fixes broadcast state
+  const [fixesBusy, setFixesBusy] = useState(false);
+  const [fixesResult, setFixesResult] = useState<string | null>(null);
+
 
   const { user, loading: authLoading } = useAuth();
 
@@ -180,6 +184,52 @@ const Admin: React.FC = () => {
   const previewAosInNewTab = async () => {
     try {
       const { data, error } = await supabase.functions.invoke('send-aos-access-broadcast', {
+        body: { mode: 'html' },
+      });
+      if (error) throw error;
+      if (!data?.html) throw new Error('No HTML returned');
+      const blob = new Blob([data.html], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      window.open(url, '_blank');
+    } catch (err: unknown) {
+      toast({ title: 'Preview failed', description: getErrorMessage(err), variant: 'destructive' });
+    }
+  };
+
+  const runFixesBroadcast = async (mode: 'test' | 'send', testEmail?: string) => {
+    if (mode === 'send') {
+      const ok = window.confirm(
+        `Send reader-fixes email to ${broadcastRecipientCount ?? '?'} purchaser(s)? This cannot be undone.`,
+      );
+      if (!ok) return;
+    }
+    setFixesBusy(true);
+    setFixesResult(null);
+    try {
+      const { data, error } = await supabase.functions.invoke('send-fixes-broadcast', {
+        body: { mode, testEmail },
+      });
+      if (error) throw error;
+      if (data?.error) throw new Error(data.error);
+      if (mode === 'test') {
+        toast({ title: 'Fixes test sent', description: `Sent to ${data.target}` });
+      } else {
+        toast({
+          title: 'Fixes broadcast complete',
+          description: `Sent ${data.sent} • Failed ${data.failed} • Skipped ${data.skipped}`,
+        });
+        setFixesResult(JSON.stringify(data, null, 2));
+      }
+    } catch (err: unknown) {
+      toast({ title: 'Fixes broadcast failed', description: getErrorMessage(err), variant: 'destructive' });
+    } finally {
+      setFixesBusy(false);
+    }
+  };
+
+  const previewFixesInNewTab = async () => {
+    try {
+      const { data, error } = await supabase.functions.invoke('send-fixes-broadcast', {
         body: { mode: 'html' },
       });
       if (error) throw error;
@@ -342,6 +392,40 @@ const Admin: React.FC = () => {
           </div>
           {aosResult && (
             <pre className="mt-4 text-xs bg-muted p-3 rounded overflow-auto">{aosResult}</pre>
+          )}
+        </div>
+
+        {/* Reader Fixes Broadcast */}
+        <div className="bg-card border rounded-lg p-6 mb-8">
+          <h2 className="text-lg font-medium mb-2 flex items-center gap-2">
+            <Megaphone className="w-5 h-5" />
+            Reader Fixes Broadcast
+          </h2>
+          <p className="text-sm text-muted-foreground mb-4">
+            Announces the font and scroll-position fixes and asks readers to sign back in. Idempotent — already-sent recipients are skipped.
+          </p>
+          <div className="text-sm mb-4">
+            Recipients:{' '}
+            <span className="font-medium">
+              {broadcastRecipientCount === null ? '—' : broadcastRecipientCount}
+            </span>
+          </div>
+          <div className="flex flex-wrap gap-2">
+            <Button variant="outline" onClick={previewFixesInNewTab} disabled={fixesBusy}>
+              <Eye className="w-4 h-4 mr-2" />
+              Preview in new tab
+            </Button>
+            <Button variant="outline" onClick={() => runFixesBroadcast('test')} disabled={fixesBusy}>
+              <Mail className="w-4 h-4 mr-2" />
+              Send test to me
+            </Button>
+            <Button onClick={() => runFixesBroadcast('send')} disabled={fixesBusy}>
+              {fixesBusy ? <Loader2 className="w-4 h-4 animate-spin mr-2" /> : <Send className="w-4 h-4 mr-2" />}
+              Send to all purchasers
+            </Button>
+          </div>
+          {fixesResult && (
+            <pre className="mt-4 text-xs bg-muted p-3 rounded overflow-auto">{fixesResult}</pre>
           )}
         </div>
 
