@@ -13,26 +13,34 @@ import Admin from "./pages/Admin";
 import RefundPolicy from "./pages/RefundPolicy";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
 const AppRoutes = () => {
   const location = useLocation();
+  // Key only on the top-level route segment so navigating between chapters / hash
+  // anchors inside the same page (e.g. inside /read) doesn't remount the tree and
+  // throw the reader back to the top.
+  const routeKey = "/" + (location.pathname.split("/")[1] ?? "");
   return (
-    <div key={location.pathname} className="page-enter">
-      <Routes location={location}>
-        <Route path="/" element={<SalesPage />} />
-        <Route path="/preview" element={<PreviewExperience />} />
-        <Route path="/read" element={<Handbook />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/purchase-success" element={<PurchaseSuccess />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="/refund-policy" element={<RefundPolicy />} />
-        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-        {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </div>
+    <>
+      <ScrollToTop />
+      <div key={routeKey} className="page-enter">
+        <Routes location={location}>
+          <Route path="/" element={<SalesPage />} />
+          <Route path="/preview" element={<PreviewExperience />} />
+          <Route path="/read" element={<Handbook />} />
+          <Route path="/auth" element={<Auth />} />
+          <Route path="/purchase-success" element={<PurchaseSuccess />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/refund-policy" element={<RefundPolicy />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
+    </>
   );
 };
 

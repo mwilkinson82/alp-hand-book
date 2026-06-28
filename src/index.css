@@ -2,9 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Instrument Serif (display, editorial headlines) + IBM Plex Mono (labels, metadata) */
-/* Body / UI / buttons use Helvetica via the system stack. */
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+/* Instrument Serif (display, editorial headlines) + IBM Plex Mono (labels, metadata)
+   are loaded via <link rel="preconnect"> + <link rel="stylesheet"> in index.html so
+   the browser can fetch them in parallel with the app bundle and never silently fall
+   back to Georgia on slow networks. Body / UI / buttons use Helvetica via the system stack. */
 
 @layer base {
   :root {

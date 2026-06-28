@@ -10,6 +10,16 @@
     <link rel="icon" href="/favicon.png?v=2" type="image/png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2" />
 
+    <!-- Preconnect + preload fonts so headings render in Instrument Serif on every device.
+         Loading via <link> (not CSS @import) avoids render-blocking and silent fallback to Georgia
+         on slow / restricted networks, which is what made some readers see a "different" font. -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    />
+
     
     
     <meta property="og:type" content="website" />
