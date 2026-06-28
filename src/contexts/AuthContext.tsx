@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useEffect, useRef, useState } from 'react';
 import { User, Session } from '@supabase/supabase-js';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -30,6 +30,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [loading, setLoading] = useState(true);
   const [hasPurchased, setHasPurchased] = useState(false);
   const [purchaseLoading, setPurchaseLoading] = useState(false);
+
+  const sessionRef = useRef<Session | null>(null);
+  const hasPurchasedRef = useRef(false);
+
+  useEffect(() => {
+    sessionRef.current = session;
+    hasPurchasedRef.current = hasPurchased;
+  }, [session, hasPurchased]);
 
   const checkPurchaseStatus = async (sessionOverride?: Session | null) => {
     const activeSession = sessionOverride ?? session;
@@ -63,6 +71,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     // Set up auth state listener FIRST
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
+        const previousSession = sessionRef.current;
+        const sameUser = Boolean(
+          session?.user?.id && previousSession?.user?.id === session.user.id
+        );
+
         setSession(session);
         setUser(session?.user ?? null);
         setLoading(false);
@@ -71,6 +84,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         // flipping purchaseLoading would unmount /read and lose scroll position
         // when the reader tabs back from Excel / Google.
         if (event === 'TOKEN_REFRESHED' || event === 'USER_UPDATED') {
+          return;
+        }
+
+        // Some browsers re-emit SIGNED_IN when returning to the tab. If the
+        // same purchased reader is already mounted, do not flip purchaseLoading
+        // and replace the book with the loader.
+        if (event === 'SIGNED_IN' && sameUser && hasPurchasedRef.current) {
           return;
         }
 

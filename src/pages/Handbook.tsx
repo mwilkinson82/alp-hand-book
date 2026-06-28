@@ -86,8 +86,10 @@ const Handbook: React.FC = () => {
     }
   }, [user, hasPurchased, loading, purchaseLoading, navigate, waitingForAuth]);
 
+  const hasAccess = Boolean(user && hasPurchased);
+
   // Show loading state (including when waiting for magic link)
-  if (loading || purchaseLoading || waitingForAuth) {
+  if ((loading || purchaseLoading || waitingForAuth) && !hasAccess) {
     return (
       <div className="min-h-screen bg-background flex flex-col items-center justify-center">
         <Loader2 className="w-8 h-8 animate-spin opacity-50" />
@@ -97,12 +99,12 @@ const Handbook: React.FC = () => {
   }
 
   // If not authorized, show nothing (will redirect)
-  if (!user || !hasPurchased) {
+  if (!hasAccess) {
     return null;
   }
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background" data-reader-content="true">
       <ReadingHeader />
       <ReadingProgress />
       
