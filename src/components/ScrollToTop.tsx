@@ -10,6 +10,47 @@ import { useLocation } from "react-router-dom";
  */
 const STORAGE_KEY = "alp:read:scrollY";
 
+const isReaderMounted = () => Boolean(document.querySelector('[data-reader-content="true"]'));
+
+const getSavedReadPosition = () => {
+  try {
+    const saved = sessionStorage.getItem(STORAGE_KEY);
+    const y = saved ? parseInt(saved, 10) : 0;
+    return Number.isFinite(y) ? y : 0;
+  } catch {
+    return 0;
+  }
+};
+
+const saveReadPosition = () => {
+  if (!isReaderMounted()) return;
+  try {
+    sessionStorage.setItem(STORAGE_KEY, String(Math.max(0, Math.round(window.scrollY))));
+  } catch {
+    /* ignore */
+  }
+};
+
+const restoreReadPosition = () => {
+  const savedY = getSavedReadPosition();
+  let attempts = 0;
+
+  const restore = () => {
+    const maxY = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    const canRestore = savedY <= maxY || attempts >= 24;
+
+    if (canRestore) {
+      window.scrollTo({ top: Math.min(savedY, maxY), left: 0 });
+      return;
+    }
+
+    attempts += 1;
+    requestAnimationFrame(restore);
+  };
+
+  requestAnimationFrame(restore);
+};
+
 const ScrollToTop = () => {
   const { pathname, hash } = useLocation();
 
@@ -28,16 +69,32 @@ const ScrollToTop = () => {
       if (ticking) return;
       ticking = true;
       requestAnimationFrame(() => {
-        try {
-          sessionStorage.setItem(STORAGE_KEY, String(window.scrollY));
-        } catch {
-          /* ignore */
-        }
+        saveReadPosition();
         ticking = false;
       });
     };
+
+    const onVisibilityChange = () => {
+      if (document.visibilityState === "hidden") {
+        saveReadPosition();
+        return;
+      }
+
+      if (window.scrollY <= 8) {
+        restoreReadPosition();
+      }
+    };
+
     window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("pagehide", saveReadPosition);
+    document.addEventListener("visibilitychange", onVisibilityChange);
+
+    return () => {
+      saveReadPosition();
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("pagehide", saveReadPosition);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
+    };
   }, [pathname]);
 
   useEffect(() => {
@@ -56,21 +113,8 @@ const ScrollToTop = () => {
 
     // On /read, restore the saved scroll position if we have one.
     if (pathname === "/read") {
-      try {
-        const saved = sessionStorage.getItem(STORAGE_KEY);
-        const y = saved ? parseInt(saved, 10) : 0;
-        if (Number.isFinite(y) && y > 0) {
-          // Wait for content to mount/layout before restoring.
-          requestAnimationFrame(() => {
-            requestAnimationFrame(() => {
-              window.scrollTo({ top: y, left: 0 });
-            });
-          });
-          return;
-        }
-      } catch {
-        /* ignore */
-      }
+      restoreReadPosition();
+      return;
     }
 
     window.scrollTo({ top: 0, left: 0 });
