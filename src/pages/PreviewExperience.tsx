@@ -47,9 +47,7 @@ const SalesLanding: React.FC = () => {
         <h1 className="chapter-heading text-3xl md:text-4xl mb-6">You Own This Book</h1>
         <p className="body-text mb-8 opacity-70">Thank you for your purchase. Enjoy the full reading experience.</p>
         <Link to="/read">
-          <Button className="font-sans uppercase tracking-widest">
-            Read the Handbook
-          </Button>
+          <Button className="font-sans uppercase tracking-widest">Read the Handbook</Button>
         </Link>
       </div>
     );
@@ -63,38 +61,27 @@ const SalesLanding: React.FC = () => {
       <div className="max-w-5xl mx-auto px-6 sm:px-8 md:px-16 lg:px-24 pt-20">
         {/* Hero Section */}
         <div className="min-h-[80vh] flex flex-col items-center justify-center text-center py-16">
-          <img 
-            src={bookCover} 
-            alt="The ALP Handbook - To Operating a Top-Tier Contracting Company by Marshall Wilkinson" 
+          <img
+            src={bookCover}
+            alt="The ALP Handbook - To Operating a Top-Tier Contracting Company by Marshall Wilkinson"
             className="max-w-xs md:max-w-sm lg:max-w-md w-full h-auto shadow-2xl rounded-sm mb-12"
           />
-          
-          <h1 className="handbook-title text-4xl md:text-5xl lg:text-6xl mb-6 text-center">
-            The ALP Handbook
-          </h1>
-          
-          <p className="body-text text-lg md:text-xl max-w-2xl mb-4 opacity-80 text-center mx-auto">
-            A control doctrine for entrepreneurs who refuse to lose grip on what they've built.
-          </p>
-          
-          <p className="font-sans text-sm uppercase tracking-widest opacity-50 mb-4 text-center">
-            By Marshall Wilkinson
-          </p>
-          
+
+          <h1 className="handbook-title text-4xl md:text-5xl lg:text-6xl mb-6 text-center">The ALP Handbook</h1>
+
+          <p className="body-text text-lg md:text-xl max-w-2xl mb-4 opacity-80 text-center mx-auto">A control doctrine for entrepreneurs who refuse to lose grip on what they've built.</p>
+
+          <p className="font-sans text-sm uppercase tracking-widest opacity-50 mb-4 text-center">By Marshall Wilkinson</p>
+
           <p className="body-text text-sm opacity-60 mb-8 italic max-w-xl mx-auto text-center">
             An interactive web reading experience — not a PDF, not a physical book. Read in your browser, with audio commentary and chapter navigation.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-            <Button 
-              onClick={handlePurchase}
-              disabled={checkoutLoading || loading}
-              size="lg"
-              className="font-sans uppercase tracking-widest"
-            >
+            <Button onClick={handlePurchase} disabled={checkoutLoading || loading} size="lg" className="font-sans uppercase tracking-widest">
               {checkoutLoading ? 'Loading...' : 'Purchase Now — $47'}
             </Button>
-            
+
             <a href="#toc" className="font-sans text-sm opacity-70 hover:opacity-100 transition-opacity">
               ↓ Explore the Table of Contents
             </a>
@@ -112,10 +99,9 @@ const SalesLanding: React.FC = () => {
                 <li>Decide correctly when pressure rises</li>
                 <li>Enforce standards without apology</li>
                 <li>Scale without losing yourself or the business</li>
+                <li>Connect AOS, OverWatch / IOR, and Daily Project WIP into one control system</li>
               </ul>
-              <p className="body-text-emphasis pt-4">
-                This is not a handbook about business. It is a handbook about command.
-              </p>
+              <p className="body-text-emphasis pt-4">This is not a handbook about business. It is a handbook about command.</p>
             </div>
           </div>
         </div>
@@ -142,7 +128,7 @@ const SalesLanding: React.FC = () => {
         <Dedication />
         <Foreword />
         <HowToUse />
-        
+
         <PartHeader number="I" title="The Frame" />
         <Chapter2 />
         <Chapter3 />
@@ -150,10 +136,10 @@ const SalesLanding: React.FC = () => {
         <PartHeader number="II" title="The Operating System" eyebrow="Volume 2 — New" />
         <Chapter27 />
 
-        <PartHeader number="IV" title="Time, Money, and Commercial Control" />
+        <PartHeader number="V" title="Time, Money, and Commercial Control" />
         <Chapter19 />
 
-        <PartHeader number="V" title="Identity, Leadership, and Scale" />
+        <PartHeader number="VI" title="Identity, Leadership, and Scale" />
         <Chapter23 />
 
         {/* Purchase CTA */}
@@ -161,22 +147,15 @@ const SalesLanding: React.FC = () => {
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-muted mb-8">
             <Lock className="w-6 h-6 opacity-50" />
           </div>
-          
-          <h2 className="chapter-heading text-3xl md:text-4xl mb-6">
-            Unlock the Complete Handbook
-          </h2>
-          
+
+          <h2 className="chapter-heading text-3xl md:text-4xl mb-6">Unlock the Complete Handbook</h2>
+
           <p className="body-text max-w-2xl mx-auto mb-8 opacity-70">
-            You've experienced a sample of what's inside. The full handbook contains 26 chapters plus a final commitment chapter — 
-            a complete operating doctrine for building and maintaining command of your business.
+            You've experienced a sample of what's inside. The full handbook contains 26 chapters, the Professional Contractor Field Guide, and application access — a complete operating doctrine for
+            building and maintaining command of your business.
           </p>
 
-          <Button 
-            onClick={handlePurchase}
-            disabled={checkoutLoading || loading}
-            size="lg"
-            className="font-sans uppercase tracking-widest text-sm sm:text-base w-full sm:w-auto"
-          >
+          <Button onClick={handlePurchase} disabled={checkoutLoading || loading} size="lg" className="font-sans uppercase tracking-widest text-sm sm:text-base w-full sm:w-auto">
             {checkoutLoading ? 'Loading...' : 'Purchase Full Handbook — $47'}
           </Button>
 
@@ -195,9 +174,7 @@ const SalesLanding: React.FC = () => {
           <p className="text-sm uppercase tracking-widest opacity-40 font-sans" style={{ letterSpacing: '0.2em' }}>
             The ALP Handbook
           </p>
-          <p className="text-sm opacity-30 mt-4 font-sans">
-            © Marshall Wilkinson
-          </p>
+          <p className="text-sm opacity-30 mt-4 font-sans">© Marshall Wilkinson</p>
         </footer>
       </div>
 

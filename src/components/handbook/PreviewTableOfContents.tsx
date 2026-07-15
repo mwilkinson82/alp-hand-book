@@ -19,7 +19,7 @@ const tocData: TocSection[] = [
     title: 'Front Matter',
     items: [
       { id: 'dedication', title: 'Dedication' },
-      { id: 'foreword', title: 'Foreword / Author\'s Note' },
+      { id: 'foreword', title: "Foreword / Author's Note" },
       { id: 'how-to-use', title: 'How to Use This Handbook' },
     ],
   },
@@ -27,8 +27,16 @@ const tocData: TocSection[] = [
     part: 'I',
     title: 'The Frame',
     items: [
-      { id: 'chapter-1', chapter: '1', title: 'The ALP Doctrine — Altitude, Logic, Pressure' },
-      { id: 'chapter-2', chapter: '2', title: 'All Problems Are Entrepreneurial Problems' },
+      {
+        id: 'chapter-1',
+        chapter: '1',
+        title: 'The ALP Doctrine — Altitude, Logic, Pressure',
+      },
+      {
+        id: 'chapter-2',
+        chapter: '2',
+        title: 'All Problems Are Entrepreneurial Problems',
+      },
       { id: 'chapter-3', chapter: '3', title: 'The ALP Scaling Stool' },
     ],
   },
@@ -38,53 +46,136 @@ const tocData: TocSection[] = [
     eyebrow: 'Volume 2 — New',
     items: [
       { id: 'volume-2-intro', title: 'Why the Operating System' },
-      { id: 'chapter-27', chapter: '4', title: 'A Contracting Company Cannot Run on the Owner' },
-      { id: 'chapter-28', chapter: '5', title: 'Hierarchy Is Not Accountability' },
-      { id: 'chapter-29', chapter: '6', title: 'The Six Components of a Contracting Operating System' },
-      { id: 'chapter-30', chapter: '7', title: 'Weekly Execution Is Where the Company Is Won' },
-      { id: 'chapter-31', chapter: '8', title: 'Systems Remove Personality from the Business' },
-      { id: 'chapter-32', chapter: '9', title: 'Why AOS Belongs in an Application' },
+      {
+        id: 'chapter-27',
+        chapter: '4',
+        title: 'A Contracting Company Cannot Run on the Owner',
+      },
+      {
+        id: 'chapter-28',
+        chapter: '5',
+        title: 'Hierarchy Is Not Accountability',
+      },
+      {
+        id: 'chapter-29',
+        chapter: '6',
+        title: 'The Six Components of a Contracting Operating System',
+      },
+      {
+        id: 'chapter-30',
+        chapter: '7',
+        title: 'Weekly Execution Is Where the Company Is Won',
+      },
+      {
+        id: 'chapter-31',
+        chapter: '8',
+        title: 'Systems Remove Personality from the Business',
+      },
+      {
+        id: 'chapter-32',
+        chapter: '9',
+        title: 'Why AOS Belongs in an Application',
+      },
     ],
   },
   {
     part: 'III',
-    title: 'The Business Systems',
+    title: 'The Professional Contractor Field Guide',
+    eyebrow: 'New',
     items: [
-      { id: 'chapter-4', chapter: '10', title: 'Marketing as Infrastructure' },
-      { id: 'chapter-5', chapter: '11', title: 'Upstream Marketing & Being "In the Know"' },
-      { id: 'chapter-6', chapter: '12', title: 'Sales, Pressure, and Clarity' },
-      { id: 'chapter-7', chapter: '13', title: 'Operations as Margin Protection' },
-      { id: 'chapter-10', chapter: '14', title: 'From Chaos to Control' },
+      {
+        id: 'professional-contractor-field-guide',
+        title: 'The Professional Contractor Control Loop',
+      },
     ],
   },
   {
     part: 'IV',
-    title: 'Time, Money, and Commercial Control',
+    title: 'The Business Systems',
     items: [
-      { id: 'chapter-12', chapter: '15', title: 'Documentation, Entitlement, and Proof' },
-      { id: 'chapter-13', chapter: '16', title: 'Notices & Playing Offense' },
-      { id: 'chapter-14', chapter: '17', title: 'Scheduling, Start–Stop Work, and the Cost of Disorder' },
-      { id: 'chapter-8', chapter: '18', title: 'General Conditions: From Invisible Cost to Profit Center' },
-      { id: 'chapter-19', chapter: '19', title: 'Change Order Velocity and Monetizing Disruption' },
-      { id: 'chapter-16', chapter: '20', title: 'Financial Command and Financial Authority' },
-      { id: 'chapter-9', chapter: '21', title: 'The ALP Decision Matrix' },
+      { id: 'chapter-4', chapter: '10', title: 'Marketing as Infrastructure' },
+      {
+        id: 'chapter-5',
+        chapter: '11',
+        title: 'Upstream Marketing & Being "In the Know"',
+      },
+      { id: 'chapter-6', chapter: '12', title: 'Sales, Pressure, and Clarity' },
+      {
+        id: 'chapter-7',
+        chapter: '13',
+        title: 'Operations as Margin Protection',
+      },
+      { id: 'chapter-10', chapter: '14', title: 'From Chaos to Control' },
     ],
   },
   {
     part: 'V',
-    title: 'Identity, Leadership, and Scale',
+    title: 'Time, Money, and Commercial Control',
     items: [
-      { id: 'chapter-23', chapter: '22', title: 'Identity, Pressure, and the Entrepreneur\'s Responsibility' },
-      { id: 'chapter-26', chapter: '23', title: 'Leadership, Standards, and Cultural Enforcement' },
-      { id: 'chapter-25', chapter: '24', title: 'Scaling Without Losing Control' },
+      {
+        id: 'chapter-12',
+        chapter: '15',
+        title: 'Documentation, Entitlement, and Proof',
+      },
+      { id: 'chapter-13', chapter: '16', title: 'Notices & Playing Offense' },
+      {
+        id: 'chapter-14',
+        chapter: '17',
+        title: 'Scheduling, Start–Stop Work, and the Cost of Disorder',
+      },
+      {
+        id: 'chapter-8',
+        chapter: '18',
+        title: 'General Conditions: From Invisible Cost to Profit Center',
+      },
+      {
+        id: 'chapter-19',
+        chapter: '19',
+        title: 'Change Order Velocity and Monetizing Disruption',
+      },
+      {
+        id: 'chapter-16',
+        chapter: '20',
+        title: 'Financial Command and Financial Authority',
+      },
+      { id: 'chapter-9', chapter: '21', title: 'The ALP Decision Matrix' },
     ],
   },
   {
     part: 'VI',
+    title: 'Identity, Leadership, and Scale',
+    items: [
+      {
+        id: 'chapter-23',
+        chapter: '22',
+        title: "Identity, Pressure, and the Entrepreneur's Responsibility",
+      },
+      {
+        id: 'chapter-26',
+        chapter: '23',
+        title: 'Leadership, Standards, and Cultural Enforcement',
+      },
+      {
+        id: 'chapter-25',
+        chapter: '24',
+        title: 'Scaling Without Losing Control',
+      },
+    ],
+  },
+  {
+    part: 'VII',
     title: 'Real-Time Application & Commitment',
     items: [
-      { id: 'chapter-24', chapter: '25', title: 'Using the ALP Handbook in Real Time' },
-      { id: 'final-chapter', chapter: '26', title: 'The ALP Way — Doctrine & Commitment' },
+      {
+        id: 'chapter-24',
+        chapter: '25',
+        title: 'Using the ALP Handbook in Real Time',
+      },
+      {
+        id: 'final-chapter',
+        chapter: '26',
+        title: 'The ALP Way — Doctrine & Commitment',
+      },
     ],
   },
 ];
@@ -110,7 +201,7 @@ const PreviewTableOfContents: React.FC<PreviewTableOfContentsProps> = ({ onNavig
 
   const handleClick = (id: string) => {
     if (!isUnlocked(id)) return;
-    
+
     if (onNavigate) {
       onNavigate(id);
     }
@@ -123,15 +214,15 @@ const PreviewTableOfContents: React.FC<PreviewTableOfContentsProps> = ({ onNavig
   return (
     <nav className="py-16">
       <h2 className="chapter-heading mb-4">Table of Contents</h2>
-      <p className="body-text opacity-60 mb-12 text-base">
-        Preview chapters are unlocked. Purchase to access the complete handbook.
-      </p>
-      
+      <p className="body-text opacity-60 mb-12 text-base">Preview chapters are unlocked. Purchase to access the complete handbook.</p>
+
       {tocData.map((section, sectionIndex) => (
         <div key={sectionIndex} className="mb-8">
           {section.part ? (
             <div className="toc-part flex items-baseline gap-3 flex-wrap">
-              <span>Part {section.part} — {section.title}</span>
+              <span>
+                Part {section.part} — {section.title}
+              </span>
               {section.eyebrow && (
                 <span className="text-[10px] uppercase tracking-widest px-2 py-0.5 rounded-sm bg-brand-accent/15 text-brand-accent font-sans" style={{ letterSpacing: '0.2em' }}>
                   {section.eyebrow}
@@ -146,22 +237,12 @@ const PreviewTableOfContents: React.FC<PreviewTableOfContentsProps> = ({ onNavig
             return (
               <div
                 key={item.id}
-                className={`toc-item flex items-baseline gap-4 px-4 ${
-                  unlocked 
-                    ? 'cursor-pointer hover:bg-accent/50' 
-                    : 'cursor-not-allowed opacity-50'
-                }`}
+                className={`toc-item flex items-baseline gap-4 px-4 ${unlocked ? 'cursor-pointer hover:bg-accent/50' : 'cursor-not-allowed opacity-50'}`}
                 onClick={() => handleClick(item.id)}
               >
-                {item.chapter && (
-                  <span className="text-sm opacity-50 font-sans w-8">{item.chapter}</span>
-                )}
-                <span className={`body-text flex-1 ${!unlocked ? 'text-muted-foreground' : ''}`}>
-                  {item.title}
-                </span>
-                {!unlocked && (
-                  <Lock className="w-4 h-4 opacity-40 flex-shrink-0" />
-                )}
+                {item.chapter && <span className="text-sm opacity-50 font-sans w-8">{item.chapter}</span>}
+                <span className={`body-text flex-1 ${!unlocked ? 'text-muted-foreground' : ''}`}>{item.title}</span>
+                {!unlocked && <Lock className="w-4 h-4 opacity-40 flex-shrink-0" />}
                 {unlocked && (
                   <span className="text-xs uppercase tracking-widest opacity-40 font-sans" style={{ letterSpacing: '0.1em' }}>
                     Preview

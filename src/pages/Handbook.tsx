@@ -41,6 +41,7 @@ import Chapter29 from '../components/handbook/content/Chapter29';
 import Chapter30 from '../components/handbook/content/Chapter30';
 import Chapter31 from '../components/handbook/content/Chapter31';
 import Chapter32 from '../components/handbook/content/Chapter32';
+import ProfessionalContractorFieldGuide from '../components/handbook/content/ProfessionalContractorFieldGuide';
 import ReadingHeader from '../components/handbook/ReadingHeader';
 import ReadingProgress from '../components/handbook/ReadingProgress';
 import FloatingTOC from '../components/handbook/FloatingTOC';
@@ -50,7 +51,7 @@ import { Loader2 } from 'lucide-react';
 const Handbook: React.FC = () => {
   const { user, hasPurchased, loading, purchaseLoading, signOut } = useAuth();
   const navigate = useNavigate();
-  
+
   // Track if we're still waiting for magic link tokens to be processed
   const [waitingForAuth, setWaitingForAuth] = useState(() => {
     // Check if URL has auth tokens (magic link redirect)
@@ -72,7 +73,7 @@ const Handbook: React.FC = () => {
   useEffect(() => {
     // Don't redirect while waiting for magic link auth to complete
     if (waitingForAuth) return;
-    
+
     // If not loading and either not logged in or hasn't purchased, redirect
     if (!loading && !purchaseLoading) {
       if (!user) {
@@ -107,17 +108,17 @@ const Handbook: React.FC = () => {
     <div className="min-h-screen bg-background" data-reader-content="true">
       <ReadingHeader />
       <ReadingProgress />
-      
+
       <div className="max-w-5xl mx-auto px-8 md:px-16 lg:px-24 pt-14">
         <HeroSection />
-        
+
         <TableOfContents />
-        
+
         {/* Front Matter */}
         <Dedication />
         <Foreword />
         <HowToUse />
-        
+
         {/* Part I — The Frame */}
         <PartHeader number="I" title="The Frame" />
         <Chapter1 />
@@ -134,8 +135,12 @@ const Handbook: React.FC = () => {
         <Chapter31 />
         <Chapter32 />
 
-        {/* Part III — The Business Systems */}
-        <PartHeader number="III" title="The Business Systems" />
+        {/* Part III — The Professional Contractor Field Guide */}
+        <PartHeader number="III" title="The Professional Contractor Field Guide" eyebrow="New" />
+        <ProfessionalContractorFieldGuide />
+
+        {/* Part IV — The Business Systems */}
+        <PartHeader number="IV" title="The Business Systems" />
         <Chapter4 />
         <Chapter5 />
         <Chapter6 />
@@ -144,8 +149,8 @@ const Handbook: React.FC = () => {
         <Chapter11 />
         <Chapter10 />
 
-        {/* Part IV — Time, Money, and Commercial Control */}
-        <PartHeader number="IV" title="Time, Money, and Commercial Control" />
+        {/* Part V — Time, Money, and Commercial Control */}
+        <PartHeader number="V" title="Time, Money, and Commercial Control" />
         {/* #15 Documentation */}
         <Chapter12 />
         {/* #16 Notices + absorbed Ch 20 (Notices/Docs/Offense at Scale) */}
@@ -167,34 +172,29 @@ const Handbook: React.FC = () => {
         <Chapter9 />
         <Chapter22 />
 
-        {/* Part V — Identity, Leadership, and Scale */}
-        <PartHeader number="V" title="Identity, Leadership, and Scale" />
+        {/* Part VI — Identity, Leadership, and Scale */}
+        <PartHeader number="VI" title="Identity, Leadership, and Scale" />
         <Chapter23 />
         <Chapter26 />
         <Chapter25 />
 
-        {/* Part VI — Real-Time Application & Commitment */}
-        <PartHeader number="VI" title="Real-Time Application & Commitment" />
+        {/* Part VII — Real-Time Application & Commitment */}
+        <PartHeader number="VII" title="Real-Time Application & Commitment" />
         <Chapter24 />
         <FinalChapter />
-        
+
         {/* Footer */}
         <footer className="py-32 text-center border-t border-chapter-divider">
           <p className="text-sm uppercase tracking-widest opacity-40 font-sans" style={{ letterSpacing: '0.2em' }}>
             The ALP Handbook
           </p>
-          <p className="text-sm opacity-30 mt-4 font-sans">
-            © Marshall Wilkinson
-          </p>
-          <button 
-            onClick={() => signOut()} 
-            className="mt-6 text-sm font-sans opacity-50 hover:opacity-70 underline"
-          >
+          <p className="text-sm opacity-30 mt-4 font-sans">© Marshall Wilkinson</p>
+          <button onClick={() => signOut()} className="mt-6 text-sm font-sans opacity-50 hover:opacity-70 underline">
             Sign Out
           </button>
         </footer>
       </div>
-      
+
       <FloatingTOC />
     </div>
   );
