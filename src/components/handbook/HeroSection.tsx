@@ -17,24 +17,13 @@ const HeroSection: React.FC = () => {
       <div className="mt-12 flex flex-col items-center gap-3">
         <div className="w-12 h-px bg-foreground/30 mb-3" />
         <Eyebrow accent>AOS Edition — Second Edition</Eyebrow>
-        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/60">
-          Includes access to the AOS software application
-        </p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-foreground/60">Includes access to AOS + OverWatch applications</p>
+        <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-accent">New: Professional Contractor Field Guide</p>
       </div>
 
       {/* Scroll indicator */}
       <div className="mt-16 animate-bounce opacity-30">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 5v14M19 12l-7 7-7-7" />
         </svg>
       </div>

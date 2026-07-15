@@ -8,30 +8,61 @@ import StickyPreviewButton from '@/components/handbook/StickyPreviewButton';
 import bookCover from '@/assets/book-cover-v2.png';
 import bulldozer from '@/assets/bulldozer.png';
 import marshallPhoto from '@/assets/marshall-wilkinson.png';
-import { Eye, CheckCircle2, XCircle, ArrowRight, Target, Shield, Clock, TrendingUp, FileText, Zap, Moon, Sun, Quote, Lock, CreditCard, Monitor, Headphones, BookOpen, Infinity, Palette, Navigation, Link2, ListOrdered, Play, ShoppingBag, Menu } from 'lucide-react';
-const testimonials = [{
-  quote: "I'm ALP for life. Marshall has changed my life. From $600k to $12.5M in 11 months. There is nobody like him on earth. You just have to get around him to understand.",
-  name: "Bryan Bettencourt",
-  company: "Bettencourt Construction, St Petersburg FL"
-}, {
-  quote: "I followed Marshall for about a year, and have been involved in other groups. There is NOTHING like Marshall. This is real world stuff here. My 2nd month as a Contractor and I'm at a quarter million in revenue and have a real scalable business. It's unreal. ALP all day, everyday.",
-  name: "Ronnie Silva",
-  company: "Sage Construction"
-}, {
-  quote: "I have been enrolled in ALP premium for three months and in closer school for six months and it has fundamentally changed how I conduct business. This program is transformative in nature. Life changing.",
-  name: "Eric Jacobs",
-  company: "HVAC Executive"
-}, {
-  quote: "ALP is Super Impactful! I have tried many other coaching programs and Coaches, and none compare to what I've learned in the past 2 months. So if you are really serious about winning in Business and life. Join ALP! It will change your life.",
-  name: "Julius Davis",
-  company: "Davis Contracting"
-}];
+import {
+  Eye,
+  CheckCircle2,
+  XCircle,
+  ArrowRight,
+  Target,
+  Shield,
+  Clock,
+  TrendingUp,
+  FileText,
+  Zap,
+  Moon,
+  Sun,
+  Quote,
+  Lock,
+  CreditCard,
+  Monitor,
+  Headphones,
+  BookOpen,
+  Infinity,
+  Palette,
+  Navigation,
+  Link2,
+  ListOrdered,
+  Play,
+  ShoppingBag,
+  Menu,
+} from 'lucide-react';
+const testimonials = [
+  {
+    quote: "I'm ALP for life. Marshall has changed my life. From $600k to $12.5M in 11 months. There is nobody like him on earth. You just have to get around him to understand.",
+    name: 'Bryan Bettencourt',
+    company: 'Bettencourt Construction, St Petersburg FL',
+  },
+  {
+    quote:
+      "I followed Marshall for about a year, and have been involved in other groups. There is NOTHING like Marshall. This is real world stuff here. My 2nd month as a Contractor and I'm at a quarter million in revenue and have a real scalable business. It's unreal. ALP all day, everyday.",
+    name: 'Ronnie Silva',
+    company: 'Sage Construction',
+  },
+  {
+    quote:
+      'I have been enrolled in ALP premium for three months and in closer school for six months and it has fundamentally changed how I conduct business. This program is transformative in nature. Life changing.',
+    name: 'Eric Jacobs',
+    company: 'HVAC Executive',
+  },
+  {
+    quote:
+      "ALP is Super Impactful! I have tried many other coaching programs and Coaches, and none compare to what I've learned in the past 2 months. So if you are really serious about winning in Business and life. Join ALP! It will change your life.",
+    name: 'Julius Davis',
+    company: 'Davis Contracting',
+  },
+];
 const SalesPage: React.FC = () => {
-  const {
-    user,
-    hasPurchased,
-    loading
-  } = useAuth();
+  const { user, hasPurchased, loading } = useAuth();
   const navigate = useNavigate();
   const [checkoutLoading, setCheckoutLoading] = useState(false);
   const [isDark, setIsDark] = useState(() => {
@@ -55,10 +86,7 @@ const SalesPage: React.FC = () => {
   const handlePurchase = async () => {
     setCheckoutLoading(true);
     try {
-      const {
-        data,
-        error
-      } = await supabase.functions.invoke('create-checkout');
+      const { data, error } = await supabase.functions.invoke('create-checkout');
       if (error) throw error;
       if (data?.url) {
         window.location.href = data.url;
@@ -72,37 +100,40 @@ const SalesPage: React.FC = () => {
 
   // If user has purchased, show access message
   if (!loading && user && hasPurchased) {
-    return <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8 text-center">
+    return (
+      <div className="min-h-screen bg-background flex flex-col items-center justify-center px-8 text-center">
         <h1 className="chapter-heading text-3xl md:text-4xl mb-6">You Own This Handbook</h1>
         <p className="body-text mb-8 opacity-70">Thank you for your purchase. Access the complete operating system.</p>
         <Link to="/read">
-          <Button className="font-sans uppercase tracking-widest">
-            Read the Handbook
-          </Button>
+          <Button className="font-sans uppercase tracking-widest">Read the Handbook</Button>
         </Link>
-      </div>;
+      </div>
+    );
   }
-  return <div className="min-h-screen bg-background text-foreground">
+  return (
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="max-w-6xl mx-auto px-3 sm:px-6 py-2 sm:py-4 flex items-center justify-between">
-          <span className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] font-medium opacity-70">
-            The ALP Handbook
-          </span>
+          <span className="text-xs sm:text-sm uppercase tracking-[0.15em] sm:tracking-[0.2em] font-medium opacity-70">The ALP Handbook</span>
           <div className="flex items-center gap-2 sm:gap-4">
             <button onClick={toggleTheme} className="p-1.5 sm:p-2 rounded-full hover:bg-muted transition-colors" aria-label="Toggle theme">
               {isDark ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
             </button>
-            {user ? <Link to="/read">
+            {user ? (
+              <Link to="/read">
                 <Button variant="outline" size="sm" className="font-sans uppercase tracking-wider text-[10px] sm:text-xs px-2 sm:px-3">
                   <span className="hidden sm:inline">My Handbook</span>
                   <span className="sm:hidden">Read</span>
                 </Button>
-              </Link> : <Link to="/auth">
+              </Link>
+            ) : (
+              <Link to="/auth">
                 <Button variant="ghost" size="sm" className="font-sans uppercase tracking-wider text-[10px] sm:text-xs px-2 sm:px-3">
                   Sign In
                 </Button>
-              </Link>}
+              </Link>
+            )}
           </div>
         </div>
       </header>
@@ -112,10 +143,6 @@ const SalesPage: React.FC = () => {
           ============================================================ */}
       <section className="lg:hidden relative pt-16 sm:pt-20 pb-12 px-5 sm:px-6 overflow-hidden">
         <div className="max-w-[640px] mx-auto">
-
-
-
-
           {/* Campaign headline — short and memorable, editorial breathing */}
           <h1
             className="font-serif text-foreground"
@@ -127,47 +154,35 @@ const SalesPage: React.FC = () => {
               maxWidth: '10.5ch',
             }}
           >
-            Build the company<br />behind the projects.
+            Build the company
+            <br />
+            behind the projects.
           </h1>
 
           <p className="font-sans text-[15px] text-foreground/75 leading-snug max-w-[34ch] mt-4 mb-5">
-            A field manual for contractors who want to stop running the business
-            from memory, pressure, and reaction.
+            A field manual for contractors who want to stop running the business from memory, pressure, and reaction.
           </p>
 
           {/* Primary CTA + light secondary link */}
           <div className="flex flex-col items-start gap-1.5 mb-4">
-            <button
-              onClick={handlePurchase}
-              disabled={checkoutLoading || loading}
-              className="pill-cta w-full text-[12px]"
-              style={{ height: 52, paddingTop: 0, paddingBottom: 0 }}
-            >
+            <button onClick={handlePurchase} disabled={checkoutLoading || loading} className="pill-cta w-full text-[12px]" style={{ height: 52, paddingTop: 0, paddingBottom: 0 }}>
               {checkoutLoading ? 'Loading…' : 'Get the Handbook — $47'}
             </button>
 
-            <Link
-              to="/preview"
-              className="self-center inline-flex items-center gap-1.5 text-[12px] font-sans text-foreground/60 hover:text-foreground transition-colors mt-1"
-            >
+            <Link to="/preview" className="self-center inline-flex items-center gap-1.5 text-[12px] font-sans text-foreground/60 hover:text-foreground transition-colors mt-1">
               <Eye className="w-3 h-3" />
               Preview the experience →
             </Link>
           </div>
 
-
           {/* Proof object — compact handbook card (top peeks into first viewport) */}
           <div className="mt-1 mb-8">
-            <p className="uppercase tracking-[0.24em] text-[9px] font-mono text-foreground/50 mb-2">
-              The Digital Handbook
-            </p>
-
+            <p className="uppercase tracking-[0.24em] text-[9px] font-mono text-foreground/50 mb-2">The Digital Handbook</p>
 
             <div
               className="relative rounded-[20px] bg-[hsl(35_18%_93%)] p-2.5"
               style={{
-                boxShadow:
-                  '0 30px 60px -25px hsl(30 10% 10% / 0.25), 0 8px 20px -10px hsl(30 10% 10% / 0.15), inset 0 0 0 1px hsl(30 10% 10% / 0.06)',
+                boxShadow: '0 30px 60px -25px hsl(30 10% 10% / 0.25), 0 8px 20px -10px hsl(30 10% 10% / 0.15), inset 0 0 0 1px hsl(30 10% 10% / 0.06)',
               }}
             >
               <div className="absolute top-[10px] left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-foreground/25" />
@@ -183,7 +198,11 @@ const SalesPage: React.FC = () => {
                     </div>
                     <ul className="space-y-2">
                       {[
-                        { n: '01', t: 'The Company\nBehind the Projects', active: true },
+                        {
+                          n: '01',
+                          t: 'The Company\nBehind the Projects',
+                          active: true,
+                        },
                         { n: '02', t: 'The Operating System' },
                         { n: '03', t: 'Vision' },
                         { n: '04', t: 'Data' },
@@ -191,12 +210,8 @@ const SalesPage: React.FC = () => {
                       ].map(({ n, t, active }, i) => (
                         <li key={i} className="relative">
                           <p className="text-foreground/40">{n}</p>
-                          <p className={`whitespace-pre-line leading-tight ${active ? 'text-foreground' : 'text-foreground/70'}`}>
-                            {t}
-                          </p>
-                          {active && (
-                            <span className="absolute -right-1.5 top-1.5 w-1 h-1 rounded-full bg-[hsl(var(--brand-accent))]" />
-                          )}
+                          <p className={`whitespace-pre-line leading-tight ${active ? 'text-foreground' : 'text-foreground/70'}`}>{t}</p>
+                          {active && <span className="absolute -right-1.5 top-1.5 w-1 h-1 rounded-full bg-[hsl(var(--brand-accent))]" />}
                         </li>
                       ))}
                     </ul>
@@ -215,16 +230,16 @@ const SalesPage: React.FC = () => {
                       src={bookCover}
                       alt="The ALP Handbook — AOS Edition cover"
                       className="max-h-[210px] w-auto object-contain"
-                      style={{ filter: 'drop-shadow(0 10px 18px hsl(30 10% 10% / 0.18))' }}
+                      style={{
+                        filter: 'drop-shadow(0 10px 18px hsl(30 10% 10% / 0.18))',
+                      }}
                     />
                   </div>
                 </div>
 
                 {/* Audio bar across full width */}
                 <div className="border-t border-border/60 px-3 py-2.5 bg-[hsl(40_30%_96%)]">
-                  <p className="uppercase tracking-[0.2em] text-[7.5px] font-mono text-foreground/55 mb-1.5">
-                    Audio Chapter Available
-                  </p>
+                  <p className="uppercase tracking-[0.2em] text-[7.5px] font-mono text-foreground/55 mb-1.5">Audio Chapter Available</p>
                   <div className="rounded bg-background border border-border/60 px-2.5 py-2 flex items-center gap-2.5">
                     <button className="w-6 h-6 rounded-full bg-background border border-border/70 flex items-center justify-center shrink-0">
                       <Play className="w-2.5 h-2.5 text-foreground/80 ml-0.5" fill="currentColor" />
@@ -254,19 +269,11 @@ const SalesPage: React.FC = () => {
           </div>
 
           {/* Secondary copy — moved below mockup */}
-          <p className="font-sans text-[14px] text-foreground/65 leading-snug max-w-[38ch] mt-6">
-            Read the doctrine. Follow the chapters. Listen to selected audio
-            sections while you work.
-          </p>
+          <p className="font-sans text-[14px] text-foreground/65 leading-snug max-w-[38ch] mt-6">Read the doctrine. Follow the chapters. Listen to selected audio sections while you work.</p>
 
           {/* Feature chips — hidden on first viewport, appear below the mockup */}
           <div className="hidden sm:flex flex-wrap gap-2 mt-5">
-            {[
-              'Field Manual Format',
-              'AOS Edition',
-              'Audio Chapters',
-              'Lifetime Access',
-            ].map((label, i) => (
+            {['Field Manual Format', 'AOS Edition', 'Audio Chapters', 'Lifetime Access'].map((label, i) => (
               <span
                 key={i}
                 className="inline-flex items-center px-3 py-1.5 rounded-full border border-foreground/20 bg-background uppercase tracking-[0.16em] text-[10px] font-mono text-foreground/75"
@@ -278,20 +285,17 @@ const SalesPage: React.FC = () => {
         </div>
       </section>
 
-
       {/* ============================================================
           DESKTOP HERO — DDB/Ogilvy editorial lockup (unchanged)
           ============================================================ */}
       <section className="hidden lg:block relative pt-20 lg:pt-24 pb-20 lg:pb-28 px-4 sm:px-6 lg:px-10 overflow-hidden">
         <div className="max-w-[1400px] mx-auto grid lg:grid-cols-[1.05fr_1fr] gap-10 lg:gap-14 items-center">
-
           {/* LEFT — Tablet device mock */}
           <div className="relative order-2 lg:order-1 lg:pb-16">
             <div
               className="relative mx-auto w-full max-w-[600px] aspect-[4/3] rounded-[28px] bg-[hsl(35_18%_93%)] p-3 sm:p-4"
               style={{
-                boxShadow:
-                  '0 40px 80px -30px hsl(30 10% 10% / 0.25), 0 12px 30px -12px hsl(30 10% 10% / 0.18), inset 0 0 0 1px hsl(30 10% 10% / 0.06)',
+                boxShadow: '0 40px 80px -30px hsl(30 10% 10% / 0.25), 0 12px 30px -12px hsl(30 10% 10% / 0.18), inset 0 0 0 1px hsl(30 10% 10% / 0.06)',
               }}
             >
               <div className="absolute top-[14px] left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-foreground/25" />
@@ -311,7 +315,11 @@ const SalesPage: React.FC = () => {
 
                   <ul className="space-y-2.5">
                     {[
-                      { n: '01', t: 'The Company\nBehind the Projects', active: true },
+                      {
+                        n: '01',
+                        t: 'The Company\nBehind the Projects',
+                        active: true,
+                      },
                       { n: '02', t: 'The Operating System' },
                       { n: '03', t: 'Vision' },
                       { n: '00', t: 'People' },
@@ -323,9 +331,7 @@ const SalesPage: React.FC = () => {
                       <li key={i} className="relative">
                         <p className="text-foreground/40">{n}</p>
                         <p className={`whitespace-pre-line leading-tight ${active ? 'text-foreground' : 'text-foreground/70'}`}>{t}</p>
-                        {active && (
-                          <span className="absolute -right-2 top-1.5 w-1.5 h-1.5 rounded-full bg-[hsl(var(--brand-accent))]" />
-                        )}
+                        {active && <span className="absolute -right-2 top-1.5 w-1.5 h-1.5 rounded-full bg-[hsl(var(--brand-accent))]" />}
                       </li>
                     ))}
                   </ul>
@@ -353,7 +359,9 @@ const SalesPage: React.FC = () => {
                       src={bookCover}
                       alt="The ALP Handbook — AOS Edition cover"
                       className="h-full w-auto max-w-full object-contain"
-                      style={{ filter: 'drop-shadow(0 14px 24px hsl(30 10% 10% / 0.18))' }}
+                      style={{
+                        filter: 'drop-shadow(0 14px 24px hsl(30 10% 10% / 0.18))',
+                      }}
                     />
                   </div>
 
@@ -397,9 +405,7 @@ const SalesPage: React.FC = () => {
           <div className="order-1 lg:order-2 lg:pl-4">
             <div className="flex items-center gap-3 mb-7">
               <span className="w-10 h-px bg-foreground/40" />
-              <span className="uppercase tracking-[0.28em] text-[11px] font-sans text-foreground/70">
-                ALP Contractor Circle
-              </span>
+              <span className="uppercase tracking-[0.28em] text-[11px] font-sans text-foreground/70">ALP Contractor Circle</span>
             </div>
 
             <h1
@@ -409,26 +415,23 @@ const SalesPage: React.FC = () => {
                 letterSpacing: '-0.02em',
               }}
             >
-              A field manual<br />
-              for building<br />
-              the company<br />
+              A field manual
+              <br />
+              for building
+              <br />
+              the company
+              <br />
               behind the projects.
             </h1>
 
             <div className="w-14 h-px bg-foreground/30 mt-7 mb-6" />
 
             <p className="font-sans text-[15px] md:text-base text-foreground/75 leading-relaxed max-w-[46ch] mb-8">
-              A field manual for contractors who want to stop running the
-              business from memory, pressure, and reaction. It shows you how to
-              think, decide, document, lead, and operate with control.
+              A field manual for contractors who want to stop running the business from memory, pressure, and reaction. It shows you how to think, decide, document, lead, and operate with control.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-12">
-              <button
-                onClick={handlePurchase}
-                disabled={checkoutLoading || loading}
-                className="pill-cta"
-              >
+              <button onClick={handlePurchase} disabled={checkoutLoading || loading} className="pill-cta">
                 {checkoutLoading ? 'Loading…' : 'Get the Handbook — $47'}
               </button>
 
@@ -445,19 +448,31 @@ const SalesPage: React.FC = () => {
             {/* Feature row — 4 icons */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-6">
               {[
-              { Icon: BookOpen, label: 'Field Manual\nFormat', sub: 'Built to use during\nreal decisions.' },
-              { Icon: ListOrdered, label: 'AOS\nEdition', sub: 'Includes the operating-\nsystem section.' },
-              { Icon: Headphones, label: 'Audio\nChapters', sub: 'Listen while\nyou work.' },
-              { Icon: Infinity, label: 'Lifetime\nAccess', sub: 'One payment.\nKeep the system.' },
+                {
+                  Icon: BookOpen,
+                  label: 'Field Manual\nFormat',
+                  sub: 'Built to use during\nreal decisions.',
+                },
+                {
+                  Icon: ListOrdered,
+                  label: 'AOS\nEdition',
+                  sub: 'Includes the operating-\nsystem section.',
+                },
+                {
+                  Icon: Headphones,
+                  label: 'Audio\nChapters',
+                  sub: 'Listen while\nyou work.',
+                },
+                {
+                  Icon: Infinity,
+                  label: 'Lifetime\nAccess',
+                  sub: 'One payment.\nKeep the system.',
+                },
               ].map(({ Icon, label, sub }, i) => (
                 <div key={i}>
                   <Icon className="w-5 h-5 text-foreground/80 mb-3" strokeWidth={1.5} />
-                  <p className="uppercase tracking-[0.18em] text-[10.5px] font-sans font-medium text-foreground whitespace-pre-line leading-snug">
-                    {label}
-                  </p>
-                  <p className="font-sans text-[12px] text-foreground/60 mt-2 whitespace-pre-line leading-snug">
-                    {sub}
-                  </p>
+                  <p className="uppercase tracking-[0.18em] text-[10.5px] font-sans font-medium text-foreground whitespace-pre-line leading-snug">{label}</p>
+                  <p className="font-sans text-[12px] text-foreground/60 mt-2 whitespace-pre-line leading-snug">{sub}</p>
                 </div>
               ))}
             </div>
@@ -465,71 +480,42 @@ const SalesPage: React.FC = () => {
         </div>
       </section>
 
-
-
-
       {/* ============================================================
           2 — THE PROBLEM (editorial spread + diagnostic card)
           ============================================================ */}
       <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
         <div className="max-w-6xl mx-auto">
           <p className="eyebrow mb-8">The Problem</p>
-          <h2 className="section-heading text-3xl md:text-5xl mb-14 max-w-[18ch]">
-            The project is not the business.
-          </h2>
+          <h2 className="section-heading text-3xl md:text-5xl mb-14 max-w-[18ch]">The project is not the business.</h2>
 
           <div className="grid md:grid-cols-12 gap-10 lg:gap-16 items-start">
             {/* Left: shortened copy */}
             <div className="md:col-span-7 body-text space-y-5 text-foreground/80">
               <p>Most contractors are good at the work.</p>
               <p>The problem is the company behind the work.</p>
-              <p>
-                The owner carries the standards. Remembers the details.
-                Catches the mistakes. Solves the people problems.
-                Protects the margin. Keeps the pressure moving.
-              </p>
+              <p>The owner carries the standards. Remembers the details. Catches the mistakes. Solves the people problems. Protects the margin. Keeps the pressure moving.</p>
               <p>That may feel like leadership.</p>
-              <p className="body-text-emphasis pt-1">
-                Eventually it becomes the ceiling.
-              </p>
+              <p className="body-text-emphasis pt-1">Eventually it becomes the ceiling.</p>
             </div>
 
             {/* Right: diagnostic card */}
             <aside className="md:col-span-5 md:sticky md:top-24">
               <div className="border border-foreground/15 bg-background p-7 sm:p-8">
                 <div className="flex items-center justify-between border-b border-foreground/15 pb-4 mb-5">
-                  <p className="uppercase tracking-[0.26em] text-[10px] font-mono text-foreground/55">
-                    Diagnostic
-                  </p>
-                  <p className="uppercase tracking-[0.26em] text-[10px] font-mono text-[hsl(var(--brand-accent))]">
-                    01 · Owner
-                  </p>
+                  <p className="uppercase tracking-[0.26em] text-[10px] font-mono text-foreground/55">Diagnostic</p>
+                  <p className="uppercase tracking-[0.26em] text-[10px] font-mono text-[hsl(var(--brand-accent))]">01 · Owner</p>
                 </div>
-                <p className="font-serif text-2xl md:text-[1.7rem] leading-[1.15] text-foreground mb-6">
-                  Owner Dependency
-                </p>
+                <p className="font-serif text-2xl md:text-[1.7rem] leading-[1.15] text-foreground mb-6">Owner Dependency</p>
                 <ul className="divide-y divide-foreground/10">
-                  {[
-                    'Standards live in the owner.',
-                    'Decisions flow back to the owner.',
-                    'Issues repeat.',
-                    'Margin gets protected late.',
-                    'The company waits.',
-                  ].map((line, i) => (
-                    <li
-                      key={i}
-                      className="flex items-baseline gap-4 py-3 text-[15px] leading-snug text-foreground/85"
-                    >
-                      <span className="font-mono text-[10px] text-foreground/40 w-5 shrink-0">
-                        {String(i + 1).padStart(2, '0')}
-                      </span>
+                  {['Standards live in the owner.', 'Decisions flow back to the owner.', 'Issues repeat.', 'Margin gets protected late.', 'The company waits.'].map((line, i) => (
+                    <li key={i} className="flex items-baseline gap-4 py-3 text-[15px] leading-snug text-foreground/85">
+                      <span className="font-mono text-[10px] text-foreground/40 w-5 shrink-0">{String(i + 1).padStart(2, '0')}</span>
                       <span>{line}</span>
                     </li>
                   ))}
                 </ul>
                 <p className="mt-6 pt-5 border-t border-foreground/15 text-[12.5px] uppercase tracking-[0.2em] font-mono text-foreground/55">
-                  If everything flows back to you, you do not have a scalable
-                  company yet.
+                  If everything flows back to you, you do not have a scalable company yet.
                 </p>
               </div>
             </aside>
@@ -543,13 +529,9 @@ const SalesPage: React.FC = () => {
       <AnimatedSection className="py-24 sm:py-28 px-6 bg-muted/30 border-t border-border">
         <div className="max-w-4xl mx-auto">
           <p className="eyebrow mb-8">Warning</p>
-          <h2 className="section-heading text-3xl md:text-5xl mb-10 max-w-[18ch]">
-            Growth does not fix disorder.
-          </h2>
+          <h2 className="section-heading text-3xl md:text-5xl mb-10 max-w-[18ch]">Growth does not fix disorder.</h2>
 
-          <p className="font-serif italic text-2xl md:text-4xl leading-[1.15] tracking-[-0.01em] text-foreground mb-12 max-w-[24ch]">
-            Growth gives chaos more room to spread.
-          </p>
+          <p className="font-serif italic text-2xl md:text-4xl leading-[1.15] tracking-[-0.01em] text-foreground mb-12 max-w-[24ch]">Growth gives chaos more room to spread.</p>
 
           <div className="border-y border-foreground/15">
             {[
@@ -559,29 +541,17 @@ const SalesPage: React.FC = () => {
               ['More clients', 'more disruption'],
               ['More complexity', 'more owner dependency'],
             ].map(([a, b], i) => (
-              <div
-                key={i}
-                className="grid grid-cols-[2.5rem_1fr_auto_1fr] sm:grid-cols-[3.5rem_1fr_3rem_1fr] items-baseline gap-3 sm:gap-5 py-5 border-t border-foreground/10 first:border-t-0"
-              >
-                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/40">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="font-serif text-lg sm:text-2xl text-foreground">
-                  {a}
-                </span>
-                <span className="text-[hsl(var(--brand-accent))] font-mono text-sm sm:text-base text-center">
-                  →
-                </span>
-                <span className="font-serif text-lg sm:text-2xl text-foreground/80">
-                  {b}
-                </span>
+              <div key={i} className="grid grid-cols-[2.5rem_1fr_auto_1fr] sm:grid-cols-[3.5rem_1fr_3rem_1fr] items-baseline gap-3 sm:gap-5 py-5 border-t border-foreground/10 first:border-t-0">
+                <span className="font-mono text-[10px] tracking-[0.22em] uppercase text-foreground/40">{String(i + 1).padStart(2, '0')}</span>
+                <span className="font-serif text-lg sm:text-2xl text-foreground">{a}</span>
+                <span className="text-[hsl(var(--brand-accent))] font-mono text-sm sm:text-base text-center">→</span>
+                <span className="font-serif text-lg sm:text-2xl text-foreground/80">{b}</span>
               </div>
             ))}
           </div>
 
           <p className="mt-12 font-serif text-2xl md:text-3xl leading-snug text-foreground max-w-[28ch]">
-            You do not need more hustle.{' '}
-            <span className="text-foreground/55">You need control.</span>
+            You do not need more hustle. <span className="text-foreground/55">You need control.</span>
           </p>
         </div>
       </AnimatedSection>
@@ -592,45 +562,25 @@ const SalesPage: React.FC = () => {
       <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
         <div className="max-w-5xl mx-auto">
           <p className="eyebrow mb-8">The Shift</p>
-          <h2 className="section-heading text-3xl md:text-5xl mb-14 max-w-[18ch]">
-            From hierarchy to accountability.
-          </h2>
+          <h2 className="section-heading text-3xl md:text-5xl mb-14 max-w-[18ch]">From hierarchy to accountability.</h2>
 
           <div className="grid md:grid-cols-2 gap-px bg-foreground/15 border border-foreground/15">
             <div className="bg-background p-8 sm:p-10 transition-colors duration-300 hover:bg-muted/30">
-              <p className="uppercase tracking-[0.28em] text-[10px] font-mono text-foreground/45 mb-5">
-                Before
-              </p>
-              <p className="font-serif text-3xl md:text-4xl text-foreground mb-3">
-                Hierarchy
-              </p>
-              <p className="body-text text-foreground/65 text-lg">
-                Who reports to who.
-              </p>
+              <p className="uppercase tracking-[0.28em] text-[10px] font-mono text-foreground/45 mb-5">Before</p>
+              <p className="font-serif text-3xl md:text-4xl text-foreground mb-3">Hierarchy</p>
+              <p className="body-text text-foreground/65 text-lg">Who reports to who.</p>
             </div>
             <div className="bg-background p-8 sm:p-10 relative transition-colors duration-300 hover:bg-muted/30">
-              <span
-                aria-hidden
-                className="absolute top-8 right-8 sm:top-10 sm:right-10 w-2 h-2 rounded-full bg-[hsl(var(--brand-accent))]"
-              />
-              <p className="uppercase tracking-[0.28em] text-[10px] font-mono text-[hsl(var(--brand-accent))] mb-5">
-                After
-              </p>
-              <p className="font-serif text-3xl md:text-4xl text-foreground mb-3">
-                Accountability
-              </p>
-              <p className="body-text text-foreground/65 text-lg">
-                Who owns the result.
-              </p>
+              <span aria-hidden className="absolute top-8 right-8 sm:top-10 sm:right-10 w-2 h-2 rounded-full bg-[hsl(var(--brand-accent))]" />
+              <p className="uppercase tracking-[0.28em] text-[10px] font-mono text-[hsl(var(--brand-accent))] mb-5">After</p>
+              <p className="font-serif text-3xl md:text-4xl text-foreground mb-3">Accountability</p>
+              <p className="body-text text-foreground/65 text-lg">Who owns the result.</p>
             </div>
           </div>
 
           <p className="mt-10 body-text text-foreground/80 max-w-[60ch]">
             The shift is from personality pressure to system pressure:{' '}
-            <span className="text-foreground">
-              roles, scorecards, priorities, issue solving, documentation,
-              standards, and weekly execution.
-            </span>
+            <span className="text-foreground">roles, scorecards, priorities, issue solving, documentation, standards, and weekly execution.</span>
           </p>
         </div>
       </AnimatedSection>
@@ -641,9 +591,7 @@ const SalesPage: React.FC = () => {
       <AnimatedSection className="py-24 sm:py-28 px-6 bg-muted/30 border-t border-border">
         <div className="max-w-5xl mx-auto">
           <p className="eyebrow mb-8">The Doctrine</p>
-          <h2 className="section-heading text-3xl md:text-5xl mb-14 max-w-[20ch]">
-            Operating doctrine for contractors.
-          </h2>
+          <h2 className="section-heading text-3xl md:text-5xl mb-14 max-w-[20ch]">Operating doctrine for contractors.</h2>
 
           {/* ALP three cards */}
           <div className="grid md:grid-cols-3 gap-px bg-foreground/15 border border-foreground/15">
@@ -662,19 +610,16 @@ const SalesPage: React.FC = () => {
               },
             ].map(({ k, v }, i) => (
               <div key={i} className="bg-background p-7 sm:p-8 transition-colors duration-300 hover:bg-muted/30">
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground/45 mb-5">
-                  {String(i + 1).padStart(2, '0')} · ALP
-                </p>
-                <p className="font-serif text-3xl md:text-4xl text-foreground mb-3">
-                  {k}
-                </p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground/45 mb-5">{String(i + 1).padStart(2, '0')} · ALP</p>
+                <p className="font-serif text-3xl md:text-4xl text-foreground mb-3">{k}</p>
                 <p className="body-text text-foreground/70 text-base">{v}</p>
               </div>
             ))}
           </div>
 
-          <p className="mt-14 font-serif text-2xl md:text-3xl text-foreground max-w-[32ch]">
-            The second edition adds the operating system.
+          <p className="mt-14 font-serif text-2xl md:text-3xl text-foreground max-w-[32ch]">The second edition adds the operating system.</p>
+          <p className="mt-4 body-text text-foreground/65 max-w-[52ch]">
+            The new Professional Contractor Field Guide connects AOS, OverWatch / IOR, Daily Logs, and Daily Project WIP into one control loop.
           </p>
         </div>
       </AnimatedSection>
@@ -686,13 +631,9 @@ const SalesPage: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <div className="flex items-baseline justify-between mb-8 flex-wrap gap-4">
             <p className="eyebrow">Pressure Index</p>
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground/45">
-              Field Manual · 08 Conditions
-            </p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground/45">Field Manual · 08 Conditions</p>
           </div>
-          <h2 className="section-heading text-3xl md:text-5xl mb-12 max-w-[18ch]">
-            Use it when pressure shows up.
-          </h2>
+          <h2 className="section-heading text-3xl md:text-5xl mb-12 max-w-[18ch]">Use it when pressure shows up.</h2>
 
           <div className="grid sm:grid-cols-2 gap-x-12 border-t border-foreground/15">
             {[
@@ -705,24 +646,14 @@ const SalesPage: React.FC = () => {
               'Client dictating terms',
               'Growth getting harder to control',
             ].map((item, i) => (
-              <div
-                key={i}
-                className="flex items-baseline gap-5 py-5 border-b border-foreground/10"
-              >
-                <span className="font-mono text-[11px] tracking-[0.22em] text-foreground/40 w-6 shrink-0">
-                  {String(i + 1).padStart(2, '0')}
-                </span>
-                <span className="font-serif text-xl md:text-2xl text-foreground leading-snug">
-                  {item}
-                </span>
+              <div key={i} className="flex items-baseline gap-5 py-5 border-b border-foreground/10">
+                <span className="font-mono text-[11px] tracking-[0.22em] text-foreground/40 w-6 shrink-0">{String(i + 1).padStart(2, '0')}</span>
+                <span className="font-serif text-xl md:text-2xl text-foreground leading-snug">{item}</span>
               </div>
             ))}
           </div>
 
-          <p className="mt-10 body-text-emphasis text-foreground/85 max-w-[44ch]">
-            Not a book you read once. A reference you return to while decisions
-            are being made.
-          </p>
+          <p className="mt-10 body-text-emphasis text-foreground/85 max-w-[44ch]">Not a book you read once. A reference you return to while decisions are being made.</p>
         </div>
       </AnimatedSection>
 
@@ -732,70 +663,42 @@ const SalesPage: React.FC = () => {
       <AnimatedSection className="py-24 sm:py-28 px-6 bg-muted/30 border-t border-border">
         <div className="max-w-5xl mx-auto">
           <p className="eyebrow mb-8">What Changes</p>
-          <h2 className="section-heading text-3xl md:text-5xl mb-14 max-w-[20ch]">
-            What changes when you operate with ALP.
-          </h2>
+          <h2 className="section-heading text-3xl md:text-5xl mb-14 max-w-[20ch]">What changes when you operate with ALP.</h2>
 
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
                 tag: 'Operate',
                 title: 'Run the Company',
-                items: [
-                  'Stop running from owner memory.',
-                  'Build scorecards, roles, Rocks, issues, process, weekly execution.',
-                  'Turn recurring friction into systems.',
-                ],
+                items: ['Stop running from owner memory.', 'Build scorecards, roles, Rocks, issues, process, weekly execution.', 'Turn recurring friction into systems.'],
               },
               {
                 tag: 'Protect',
                 title: 'Protect the Money',
-                items: [
-                  'Protect margin before the job leaks.',
-                  'Use documentation as proof, not paperwork.',
-                  'Monetize disruption instead of absorbing it.',
-                ],
+                items: ['Protect margin before the job leaks.', 'Use documentation as proof, not paperwork.', 'Monetize disruption instead of absorbing it.'],
               },
               {
                 tag: 'Control',
                 title: 'Control the Work',
-                items: [
-                  'Control time through schedules, notices, sequence.',
-                  'Position upstream so you are invited, not just bid.',
-                  'Sell with pressure, clarity, qualification.',
-                ],
+                items: ['Control time through schedules, notices, sequence.', 'Position upstream so you are invited, not just bid.', 'Sell with pressure, clarity, qualification.'],
               },
               {
                 tag: 'Lead',
                 title: 'Lead Under Pressure',
-                items: [
-                  'Remove the owner from every decision.',
-                  'Scale without losing standards, margin, or identity.',
-                ],
+                items: ['Remove the owner from every decision.', 'Scale without losing standards, margin, or identity.'],
               },
             ].map(({ tag, title, items }, i) => (
-              <div
-                key={i}
-                className="bg-background border border-foreground/15 p-7 sm:p-8 shadow-[0_1px_0_hsl(var(--foreground)/0.04),0_12px_30px_-20px_hsl(var(--foreground)/0.18)]"
-              >
+              <div key={i} className="bg-background border border-foreground/15 p-7 sm:p-8 shadow-[0_1px_0_hsl(var(--foreground)/0.04),0_12px_30px_-20px_hsl(var(--foreground)/0.18)]">
                 <div className="flex items-center justify-between mb-5">
                   <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground/45">
                     {String(i + 1).padStart(2, '0')} · {tag}
                   </p>
-                  <span
-                    aria-hidden
-                    className="block w-6 h-px bg-foreground/30"
-                  />
+                  <span aria-hidden className="block w-6 h-px bg-foreground/30" />
                 </div>
-                <p className="font-serif text-2xl md:text-3xl text-foreground mb-5">
-                  {title}
-                </p>
+                <p className="font-serif text-2xl md:text-3xl text-foreground mb-5">{title}</p>
                 <ul className="space-y-2.5">
                   {items.map((it, j) => (
-                    <li
-                      key={j}
-                      className="flex items-baseline gap-3 text-[15px] leading-snug text-foreground/80"
-                    >
+                    <li key={j} className="flex items-baseline gap-3 text-[15px] leading-snug text-foreground/80">
                       <span className="text-foreground/30 shrink-0">—</span>
                       <span>{it}</span>
                     </li>
@@ -814,32 +717,25 @@ const SalesPage: React.FC = () => {
         <div className="max-w-5xl mx-auto">
           <p className="uppercase tracking-[0.28em] text-[11px] font-mono text-primary-foreground/55 mb-8 inline-flex items-center gap-3">
             <span className="block w-7 h-px bg-primary-foreground/40" />
-            AOS Edition
+            Professional Contractor Edition
           </p>
-          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.02] tracking-[-0.02em] mb-10 max-w-[20ch]">
-            The doctrine, plus the application to run it.
-          </h2>
+          <h2 className="font-serif text-3xl md:text-5xl lg:text-6xl leading-[1.02] tracking-[-0.02em] mb-10 max-w-[20ch]">The doctrine, plus the applications to run it.</h2>
 
           <div className="grid md:grid-cols-2 gap-10 lg:gap-16 items-start mb-12">
             <div className="space-y-4 text-primary-foreground/80 text-lg leading-relaxed max-w-[42ch]">
-              <p>The Handbook explains the doctrine.</p>
-              <p>The AOS application gives the doctrine a place to live inside your company.</p>
+              <p>The Handbook explains the doctrine and the control loop.</p>
+              <p>AOS runs the company. OverWatch runs IOR and field control on the projects.</p>
             </div>
             <p className="text-primary-foreground/55 text-sm leading-relaxed border-l border-primary-foreground/20 pl-5 max-w-[48ch]">
-              Every Handbook purchase includes access to the AOS application —
-              the centralized operating system where Vision, People, Data,
-              Issues, Process, and Traction are installed, tracked, and run.
-              One place for the entire system. Not scattered across docs,
-              sheets, and notebooks.
+              Every Handbook purchase includes free-tier access to AOS and OverWatch through the Contractor Circle Hub. AOS centralizes company direction and execution. OverWatch gives IOR, project
+              risk, Daily Logs, and Daily Project WIP a working home.
             </p>
           </div>
 
           <div className="mb-16 border-t border-primary-foreground/15 pt-8">
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-primary-foreground/55 mb-3">
-              Included with the Handbook
-            </p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-primary-foreground/55 mb-3">Included with the Handbook</p>
             <p className="font-serif text-2xl md:text-3xl text-primary-foreground leading-snug max-w-[36ch]">
-              Access to AOS — the application that runs the operating system in your business.
+              Free-tier access to AOS and OverWatch — company control, project control, and field truth.
             </p>
           </div>
 
@@ -854,15 +750,9 @@ const SalesPage: React.FC = () => {
               { k: 'Traction', q: 'What must be executed this week?' },
             ].map(({ k, q }, i) => (
               <div key={i} className="bg-primary p-6 sm:p-7 transition-colors duration-300 hover:bg-primary-foreground/5">
-                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-primary-foreground/45 mb-4">
-                  {String(i + 1).padStart(2, '0')}
-                </p>
-                <p className="font-serif text-2xl md:text-[1.7rem] text-primary-foreground mb-2">
-                  {k}
-                </p>
-                <p className="text-[13.5px] leading-snug text-primary-foreground/65">
-                  {q}
-                </p>
+                <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-primary-foreground/45 mb-4">{String(i + 1).padStart(2, '0')}</p>
+                <p className="font-serif text-2xl md:text-[1.7rem] text-primary-foreground mb-2">{k}</p>
+                <p className="text-[13.5px] leading-snug text-primary-foreground/65">{q}</p>
               </div>
             ))}
           </div>
@@ -875,15 +765,11 @@ const SalesPage: React.FC = () => {
       <AnimatedSection className="py-24 sm:py-28 px-6 bg-muted/30 border-t border-border">
         <div className="max-w-4xl mx-auto">
           <p className="eyebrow mb-8">Who It Is For</p>
-          <h2 className="section-heading text-3xl md:text-5xl mb-12 max-w-[18ch]">
-            For operators, not spectators.
-          </h2>
+          <h2 className="section-heading text-3xl md:text-5xl mb-12 max-w-[18ch]">For operators, not spectators.</h2>
 
           <div className="grid md:grid-cols-2 gap-10 lg:gap-14">
             <div>
-              <p className="uppercase tracking-[0.22em] text-[11px] font-mono text-foreground/60 mb-5">
-                This handbook is for
-              </p>
+              <p className="uppercase tracking-[0.22em] text-[11px] font-mono text-foreground/60 mb-5">This handbook is for</p>
               <ul className="space-y-3">
                 {[
                   'Contractor owners',
@@ -903,16 +789,9 @@ const SalesPage: React.FC = () => {
             </div>
 
             <div>
-              <p className="uppercase tracking-[0.22em] text-[11px] font-mono text-foreground/60 mb-5">
-                This is not for
-              </p>
+              <p className="uppercase tracking-[0.22em] text-[11px] font-mono text-foreground/60 mb-5">This is not for</p>
               <ul className="space-y-3">
-                {[
-                  'People looking for shortcuts',
-                  'Owners who want sympathy more than truth',
-                  'Teams that refuse accountability',
-                  'Contractors who want growth without discipline',
-                ].map((item, i) => (
+                {['People looking for shortcuts', 'Owners who want sympathy more than truth', 'Teams that refuse accountability', 'Contractors who want growth without discipline'].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 body-text text-foreground/55">
                     <XCircle className="w-4 h-4 text-foreground/40 shrink-0 mt-2" strokeWidth={1.5} />
                     <span>{item}</span>
@@ -922,9 +801,7 @@ const SalesPage: React.FC = () => {
             </div>
           </div>
 
-          <p className="body-text-emphasis mt-12 pt-8 border-t border-border">
-            ALP rewards clear thinking and decisive action.
-          </p>
+          <p className="body-text-emphasis mt-12 pt-8 border-t border-border">ALP rewards clear thinking and decisive action.</p>
         </div>
       </AnimatedSection>
 
@@ -934,45 +811,21 @@ const SalesPage: React.FC = () => {
       <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
         <div className="max-w-5xl mx-auto">
           <p className="eyebrow mb-8">About / Proof</p>
-          <h2 className="section-heading text-3xl md:text-5xl mb-12 max-w-[22ch]">
-            Written by someone who has lived the pressure.
-          </h2>
+          <h2 className="section-heading text-3xl md:text-5xl mb-12 max-w-[22ch]">Written by someone who has lived the pressure.</h2>
 
           <div className="grid lg:grid-cols-3 gap-12 items-start">
             <div className="lg:col-span-1 flex justify-center lg:justify-start">
-              <img
-                src={marshallPhoto}
-                alt="Marshall Wilkinson"
-                className="w-64 lg:w-full max-w-xs rounded-sm shadow-xl"
-              />
+              <img src={marshallPhoto} alt="Marshall Wilkinson" className="w-64 lg:w-full max-w-xs rounded-sm shadow-xl" />
             </div>
             <div className="lg:col-span-2 body-text space-y-5 text-foreground/80">
+              <p>Marshall Wilkinson is a second-generation contractor, construction executive, and entrepreneur with more than two decades of experience inside high-stakes construction.</p>
               <p>
-                Marshall Wilkinson is a second-generation contractor,
-                construction executive, and entrepreneur with more than two
-                decades of experience inside high-stakes construction.
+                He has executed and advised on more than <span className="body-text-emphasis">$2.5 billion in New York City public works construction</span>, spanning infrastructure, municipal, and
+                large-scale commercial work.
               </p>
-              <p>
-                He has executed and advised on more than{' '}
-                <span className="body-text-emphasis">
-                  $2.5 billion in New York City public works construction
-                </span>
-                , spanning infrastructure, municipal, and large-scale
-                commercial work.
-              </p>
-              <p>
-                His work sits at the intersection of operations, contracts,
-                scheduling, entitlement, documentation, negotiation, and
-                company-building.
-              </p>
-              <p>
-                ALP was built from real jobs, real disputes, real pressure, and
-                real consequences.
-              </p>
-              <p className="body-text-emphasis pt-2">
-                Not theory. Not classroom advice. Field-tested operating
-                doctrine.
-              </p>
+              <p>His work sits at the intersection of operations, contracts, scheduling, entitlement, documentation, negotiation, and company-building.</p>
+              <p>ALP was built from real jobs, real disputes, real pressure, and real consequences.</p>
+              <p className="body-text-emphasis pt-2">Not theory. Not classroom advice. Field-tested operating doctrine.</p>
             </div>
           </div>
         </div>
@@ -984,20 +837,14 @@ const SalesPage: React.FC = () => {
       <AnimatedSection className="py-24 sm:py-28 px-6 bg-muted/30 border-t border-border">
         <div className="max-w-5xl mx-auto">
           <p className="eyebrow mb-8">Testimonials</p>
-          <h2 className="section-heading text-3xl md:text-5xl mb-4 max-w-[18ch]">
-            Operators recognize operators.
-          </h2>
-          <p className="font-serif italic text-xl md:text-2xl text-foreground/70 mb-14 max-w-[40ch]">
-            &ldquo;The language is direct because the results are real.&rdquo;
-          </p>
+          <h2 className="section-heading text-3xl md:text-5xl mb-4 max-w-[18ch]">Operators recognize operators.</h2>
+          <p className="font-serif italic text-xl md:text-2xl text-foreground/70 mb-14 max-w-[40ch]">&ldquo;The language is direct because the results are real.&rdquo;</p>
 
           <div className="grid md:grid-cols-2 gap-8">
             {testimonials.slice(0, 2).map((t, i) => (
               <div key={i} className="relative p-8 bg-background border border-border rounded-sm hover-lift">
                 <Quote className="w-8 h-8 text-primary/20 absolute top-6 left-6" />
-                <blockquote className="body-text text-foreground/85 mb-6 pt-6 relative z-10">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
+                <blockquote className="body-text text-foreground/85 mb-6 pt-6 relative z-10">&ldquo;{t.quote}&rdquo;</blockquote>
                 <div className="border-t border-border pt-4">
                   <p className="body-text-emphasis text-sm">{t.name}</p>
                   <p className="text-sm opacity-50">{t.company}</p>
@@ -1014,9 +861,7 @@ const SalesPage: React.FC = () => {
       <AnimatedSection className="py-24 sm:py-28 px-6 border-t border-border">
         <div className="max-w-5xl mx-auto">
           <p className="eyebrow mb-8">Product / Access</p>
-          <h2 className="section-heading text-3xl md:text-5xl mb-12 max-w-[14ch]">
-            What you get.
-          </h2>
+          <h2 className="section-heading text-3xl md:text-5xl mb-12 max-w-[14ch]">What you get.</h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-px bg-foreground/15 border border-foreground/15">
             {[
@@ -1037,8 +882,8 @@ const SalesPage: React.FC = () => {
               },
               {
                 Icon: Target,
-                label: 'AOS Application Access',
-                copy: 'Centralized app to install and run the operating system in your business.',
+                label: 'AOS + OverWatch Access',
+                copy: 'Free-tier application access for company, project, and field control.',
               },
               {
                 Icon: Infinity,
@@ -1053,56 +898,35 @@ const SalesPage: React.FC = () => {
             ].map(({ Icon, label, copy }, i) => (
               <div key={i} className="bg-background p-7 sm:p-8 transition-colors duration-300 hover:bg-muted/30">
                 <div className="flex items-center justify-between mb-6">
-                  <Icon
-                    className="w-5 h-5 text-foreground/75"
-                    strokeWidth={1.5}
-                  />
-                  <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground/40">
-                    {String(i + 1).padStart(2, '0')}
-                  </p>
+                  <Icon className="w-5 h-5 text-foreground/75" strokeWidth={1.5} />
+                  <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-foreground/40">{String(i + 1).padStart(2, '0')}</p>
                 </div>
-                <p className="uppercase tracking-[0.2em] text-[11px] font-mono font-medium text-foreground mb-3">
-                  {label}
-                </p>
-                <p className="text-[14.5px] leading-snug text-foreground/70">
-                  {copy}
-                </p>
+                <p className="uppercase tracking-[0.2em] text-[11px] font-mono font-medium text-foreground mb-3">{label}</p>
+                <p className="text-[14.5px] leading-snug text-foreground/70">{copy}</p>
               </div>
             ))}
           </div>
 
           <div className="mt-12 max-w-[44ch]">
-            <p className="text-foreground/70 text-lg leading-relaxed">
-              This is not a PDF download.
-            </p>
-            <p className="font-serif text-2xl md:text-3xl text-foreground mt-2 leading-snug">
-              It is a digital handbook built to be used in real time.
-            </p>
+            <p className="text-foreground/70 text-lg leading-relaxed">This is not a PDF download.</p>
+            <p className="font-serif text-2xl md:text-3xl text-foreground mt-2 leading-snug">It is a digital handbook built to be used in real time.</p>
           </div>
         </div>
       </AnimatedSection>
-
-
 
       {/* ============================================================
           13 — FINAL CTA
           ============================================================ */}
       <section className="py-20 sm:py-28 lg:py-32 px-6 bg-primary text-primary-foreground">
         <div className="max-w-3xl mx-auto text-center">
-          <p className="uppercase tracking-[0.28em] text-[11px] font-mono text-primary-foreground/60 mb-8">
-            Final
-          </p>
-          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.98] tracking-[-0.02em] mb-10">
-            Get the ALP Handbook.
-          </h2>
+          <p className="uppercase tracking-[0.28em] text-[11px] font-mono text-primary-foreground/60 mb-8">Final</p>
+          <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[0.98] tracking-[-0.02em] mb-10">Get the ALP Handbook.</h2>
 
           <div className="space-y-4 mb-12 text-primary-foreground/85 max-w-[44ch] mx-auto">
             <p className="text-lg sm:text-xl">Build the company behind the projects.</p>
             <p className="text-base sm:text-lg">
-              Get immediate access to the interactive Handbook and the AOS
-              application — the centralized system where the operating system
-              gets installed and run. Includes selected audio chapters and
-              lifetime access.
+              Get immediate access to the interactive Handbook plus free-tier AOS and OverWatch — the applications where company control, project control, and field truth get installed and run. Includes
+              selected audio chapters and lifetime access to future Handbook updates.
             </p>
           </div>
 
@@ -1119,19 +943,14 @@ const SalesPage: React.FC = () => {
               {checkoutLoading ? 'Loading…' : 'Get Immediate Access — $47'}
             </button>
 
-            <Link
-              to="/preview"
-              className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] font-sans text-primary-foreground/70 hover:text-primary-foreground transition-colors"
-            >
+            <Link to="/preview" className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.28em] font-sans text-primary-foreground/70 hover:text-primary-foreground transition-colors">
               <Eye className="w-3.5 h-3.5" />
               Preview First
             </Link>
           </div>
 
           <div className="mt-12 pt-8 border-t border-primary-foreground/15">
-            <p className="text-[11px] sm:text-xs uppercase tracking-[0.24em] font-mono text-primary-foreground/55">
-              Interactive handbook · AOS application access · Audio chapters · Lifetime access
-            </p>
+            <p className="text-[11px] sm:text-xs uppercase tracking-[0.24em] font-mono text-primary-foreground/55">Interactive handbook · AOS + OverWatch access · Audio chapters · Lifetime access</p>
           </div>
 
           {!user && (
@@ -1147,19 +966,20 @@ const SalesPage: React.FC = () => {
 
       {/* Footer */}
       <footer className="py-16 text-center border-t border-border">
-        <p className="text-sm uppercase tracking-[0.2em] opacity-40 mb-4">
-          The ALP Handbook
-        </p>
-        <p className="text-sm opacity-30 mb-6">
-          © Marshall Wilkinson
-        </p>
+        <p className="text-sm uppercase tracking-[0.2em] opacity-40 mb-4">The ALP Handbook</p>
+        <p className="text-sm opacity-30 mb-6">© Marshall Wilkinson</p>
         <div className="flex justify-center gap-6 text-xs opacity-40">
-          <Link to="/refund-policy" className="hover:opacity-70 underline">Refund Policy</Link>
-          <Link to="/privacy-policy" className="hover:opacity-70 underline">Privacy Policy</Link>
+          <Link to="/refund-policy" className="hover:opacity-70 underline">
+            Refund Policy
+          </Link>
+          <Link to="/privacy-policy" className="hover:opacity-70 underline">
+            Privacy Policy
+          </Link>
         </div>
       </footer>
 
       <StickyPreviewButton />
-    </div>;
+    </div>
+  );
 };
 export default SalesPage;

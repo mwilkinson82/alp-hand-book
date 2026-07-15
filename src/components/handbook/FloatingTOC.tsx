@@ -29,7 +29,7 @@ const tocData: (TocSection & { eyebrow?: string })[] = [
     title: 'Front Matter',
     items: [
       { id: 'dedication', title: 'Dedication' },
-      { id: 'foreword', title: 'Foreword / Author\'s Note' },
+      { id: 'foreword', title: "Foreword / Author's Note" },
       { id: 'how-to-use', title: 'How to Use This Handbook' },
     ],
   },
@@ -37,8 +37,16 @@ const tocData: (TocSection & { eyebrow?: string })[] = [
     part: 'I',
     title: 'The Frame',
     items: [
-      { id: 'chapter-1', chapter: '1', title: 'The ALP Doctrine — Altitude, Logic, Pressure' },
-      { id: 'chapter-2', chapter: '2', title: 'All Problems Are Entrepreneurial Problems' },
+      {
+        id: 'chapter-1',
+        chapter: '1',
+        title: 'The ALP Doctrine — Altitude, Logic, Pressure',
+      },
+      {
+        id: 'chapter-2',
+        chapter: '2',
+        title: 'All Problems Are Entrepreneurial Problems',
+      },
       { id: 'chapter-3', chapter: '3', title: 'The ALP Scaling Stool' },
     ],
   },
@@ -48,57 +56,140 @@ const tocData: (TocSection & { eyebrow?: string })[] = [
     eyebrow: 'Volume 2 — New',
     items: [
       { id: 'volume-2-intro', title: 'Why the Operating System' },
-      { id: 'chapter-27', chapter: '4', title: 'A Contracting Company Cannot Run on the Owner' },
-      { id: 'chapter-28', chapter: '5', title: 'Hierarchy Is Not Accountability' },
-      { id: 'chapter-29', chapter: '6', title: 'The Six Components of a Contracting Operating System' },
-      { id: 'chapter-30', chapter: '7', title: 'Weekly Execution Is Where the Company Is Won' },
-      { id: 'chapter-31', chapter: '8', title: 'Systems Remove Personality from the Business' },
-      { id: 'chapter-32', chapter: '9', title: 'Why AOS Belongs in an Application' },
+      {
+        id: 'chapter-27',
+        chapter: '4',
+        title: 'A Contracting Company Cannot Run on the Owner',
+      },
+      {
+        id: 'chapter-28',
+        chapter: '5',
+        title: 'Hierarchy Is Not Accountability',
+      },
+      {
+        id: 'chapter-29',
+        chapter: '6',
+        title: 'The Six Components of a Contracting Operating System',
+      },
+      {
+        id: 'chapter-30',
+        chapter: '7',
+        title: 'Weekly Execution Is Where the Company Is Won',
+      },
+      {
+        id: 'chapter-31',
+        chapter: '8',
+        title: 'Systems Remove Personality from the Business',
+      },
+      {
+        id: 'chapter-32',
+        chapter: '9',
+        title: 'Why AOS Belongs in an Application',
+      },
     ],
   },
   {
     part: 'III',
-    title: 'The Business Systems',
-    eyebrow: 'Reorganized in V2',
+    title: 'The Professional Contractor Field Guide',
+    eyebrow: 'New',
     items: [
-      { id: 'chapter-4', chapter: '10', title: 'Marketing as Infrastructure' },
-      { id: 'chapter-5', chapter: '11', title: 'Upstream Marketing & Being "In the Know"' },
-      { id: 'chapter-6', chapter: '12', title: 'Sales, Pressure, and Clarity' },
-      { id: 'chapter-7', chapter: '13', title: 'Operations as Margin Protection' },
-      { id: 'chapter-10', chapter: '14', title: 'From Chaos to Control' },
+      {
+        id: 'professional-contractor-field-guide',
+        title: 'The Professional Contractor Control Loop',
+      },
     ],
   },
   {
     part: 'IV',
-    title: 'Time, Money, and Commercial Control',
+    title: 'The Business Systems',
     eyebrow: 'Reorganized in V2',
     items: [
-      { id: 'chapter-12', chapter: '15', title: 'Documentation, Entitlement, and Proof' },
-      { id: 'chapter-13', chapter: '16', title: 'Notices & Playing Offense' },
-      { id: 'chapter-14', chapter: '17', title: 'Scheduling, Start–Stop Work, and the Cost of Disorder' },
-      { id: 'chapter-8', chapter: '18', title: 'General Conditions: From Invisible Cost to Profit Center' },
-      { id: 'chapter-19', chapter: '19', title: 'Change Order Velocity and Monetizing Disruption' },
-      { id: 'chapter-16', chapter: '20', title: 'Financial Command and Financial Authority' },
-      { id: 'chapter-9', chapter: '21', title: 'The ALP Decision Matrix' },
+      { id: 'chapter-4', chapter: '10', title: 'Marketing as Infrastructure' },
+      {
+        id: 'chapter-5',
+        chapter: '11',
+        title: 'Upstream Marketing & Being "In the Know"',
+      },
+      { id: 'chapter-6', chapter: '12', title: 'Sales, Pressure, and Clarity' },
+      {
+        id: 'chapter-7',
+        chapter: '13',
+        title: 'Operations as Margin Protection',
+      },
+      { id: 'chapter-10', chapter: '14', title: 'From Chaos to Control' },
     ],
   },
   {
     part: 'V',
-    title: 'Identity, Leadership, and Scale',
+    title: 'Time, Money, and Commercial Control',
     eyebrow: 'Reorganized in V2',
     items: [
-      { id: 'chapter-23', chapter: '22', title: 'Identity, Pressure, and the Entrepreneur\'s Responsibility' },
-      { id: 'chapter-26', chapter: '23', title: 'Leadership, Standards, and Cultural Enforcement' },
-      { id: 'chapter-25', chapter: '24', title: 'Scaling Without Losing Control' },
+      {
+        id: 'chapter-12',
+        chapter: '15',
+        title: 'Documentation, Entitlement, and Proof',
+      },
+      { id: 'chapter-13', chapter: '16', title: 'Notices & Playing Offense' },
+      {
+        id: 'chapter-14',
+        chapter: '17',
+        title: 'Scheduling, Start–Stop Work, and the Cost of Disorder',
+      },
+      {
+        id: 'chapter-8',
+        chapter: '18',
+        title: 'General Conditions: From Invisible Cost to Profit Center',
+      },
+      {
+        id: 'chapter-19',
+        chapter: '19',
+        title: 'Change Order Velocity and Monetizing Disruption',
+      },
+      {
+        id: 'chapter-16',
+        chapter: '20',
+        title: 'Financial Command and Financial Authority',
+      },
+      { id: 'chapter-9', chapter: '21', title: 'The ALP Decision Matrix' },
     ],
   },
   {
     part: 'VI',
+    title: 'Identity, Leadership, and Scale',
+    eyebrow: 'Reorganized in V2',
+    items: [
+      {
+        id: 'chapter-23',
+        chapter: '22',
+        title: "Identity, Pressure, and the Entrepreneur's Responsibility",
+      },
+      {
+        id: 'chapter-26',
+        chapter: '23',
+        title: 'Leadership, Standards, and Cultural Enforcement',
+      },
+      {
+        id: 'chapter-25',
+        chapter: '24',
+        title: 'Scaling Without Losing Control',
+      },
+    ],
+  },
+  {
+    part: 'VII',
     title: 'Real-Time Application & Commitment',
     eyebrow: 'Reorganized in V2',
     items: [
-      { id: 'chapter-24', chapter: '25', title: 'Using the ALP Handbook in Real Time' },
-      { id: 'final-chapter', chapter: '26', title: 'The ALP Way — Doctrine & Commitment' },
+      {
+        id: 'chapter-24',
+        chapter: '25',
+        title: 'Using the ALP Handbook in Real Time',
+      },
+      {
+        id: 'final-chapter',
+        chapter: '26',
+        title: 'The ALP Way — Doctrine & Commitment',
+      },
     ],
   },
 ];
@@ -106,38 +197,193 @@ const tocData: (TocSection & { eyebrow?: string })[] = [
 // Parable index — chapter numbers reflect new display numbering
 const parableData: ParableItem[] = [
   // Regular Parables
-  { id: 'parable-calm-operator', title: 'The Calm Operator', chapter: '1', isIdentity: false },
-  { id: 'parable-broken-toolbelt', title: 'The Broken Toolbelt', chapter: '2', isIdentity: false },
-  { id: 'parable-uneven-table', title: 'The Uneven Table', chapter: '3', isIdentity: false },
-  { id: 'parable-silent-expert', title: 'The Silent Expert', chapter: '10', isIdentity: false },
-  { id: 'parable-quiet-recommendation', title: 'The Quiet Recommendation', chapter: '11', isIdentity: false },
-  { id: 'parable-indecisive-buyer', title: 'The Indecisive Buyer', chapter: '12', isIdentity: false },
-  { id: 'parable-crowded-site', title: 'The Crowded Site', chapter: '13', isIdentity: false },
-  { id: 'parable-one-week-extension', title: 'The One-Week Extension', chapter: '18', isIdentity: false },
-  { id: 'parable-deferred-call', title: 'The Deferred Call', chapter: '21', isIdentity: false },
-  { id: 'parable-noisy-jobsite', title: 'The Noisy Jobsite', chapter: '14', isIdentity: false },
-  { id: 'parable-unwritten-delay', title: 'The Unwritten Delay', chapter: '15', isIdentity: false },
-  { id: 'parable-polite-contractor', title: 'The Polite Contractor', chapter: '16', isIdentity: false },
-  { id: 'parable-flexible-timeline', title: 'The Flexible Timeline', chapter: '17', isIdentity: false },
-  { id: 'parable-interrupted-trade', title: 'The Interrupted Trade', chapter: '17', isIdentity: false },
-  { id: 'parable-profitable-company-wasnt', title: 'The Profitable Company That Wasn\'t', chapter: '20', isIdentity: false },
-  { id: 'parable-job-looked-profitable', title: 'The Job That Looked Profitable', chapter: '18', isIdentity: false },
-  { id: 'parable-change-order-died', title: 'The Change Order That Died Quietly', chapter: '19', isIdentity: false },
-  { id: 'parable-profitable-company-collapsed', title: 'The Profitable Company That Collapsed', chapter: '20', isIdentity: false },
-  { id: 'parable-calm-operator-21', title: 'The Calm Operator', chapter: '21', isIdentity: false },
-  { id: 'parable-fork-in-road', title: 'The Fork in the Road', chapter: '21', isIdentity: false },
-  { id: 'parable-unmoved-operator', title: 'The Unmoved Operator', chapter: '22', isIdentity: false },
-  { id: 'parable-owner-fixed-wrong', title: 'The Owner Who Fixed the Wrong Thing', chapter: '25', isIdentity: false },
-  { id: 'parable-clean-decision', title: 'The Clean Decision', chapter: '25', isIdentity: false },
-  { id: 'parable-expanding-circle', title: 'The Expanding Circle', chapter: '24', isIdentity: false },
-  { id: 'parable-first-exception', title: 'The First Exception', chapter: '23', isIdentity: false },
+  {
+    id: 'parable-calm-operator',
+    title: 'The Calm Operator',
+    chapter: '1',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-broken-toolbelt',
+    title: 'The Broken Toolbelt',
+    chapter: '2',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-uneven-table',
+    title: 'The Uneven Table',
+    chapter: '3',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-silent-expert',
+    title: 'The Silent Expert',
+    chapter: '10',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-quiet-recommendation',
+    title: 'The Quiet Recommendation',
+    chapter: '11',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-indecisive-buyer',
+    title: 'The Indecisive Buyer',
+    chapter: '12',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-crowded-site',
+    title: 'The Crowded Site',
+    chapter: '13',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-one-week-extension',
+    title: 'The One-Week Extension',
+    chapter: '18',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-deferred-call',
+    title: 'The Deferred Call',
+    chapter: '21',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-noisy-jobsite',
+    title: 'The Noisy Jobsite',
+    chapter: '14',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-unwritten-delay',
+    title: 'The Unwritten Delay',
+    chapter: '15',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-polite-contractor',
+    title: 'The Polite Contractor',
+    chapter: '16',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-flexible-timeline',
+    title: 'The Flexible Timeline',
+    chapter: '17',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-interrupted-trade',
+    title: 'The Interrupted Trade',
+    chapter: '17',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-profitable-company-wasnt',
+    title: "The Profitable Company That Wasn't",
+    chapter: '20',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-job-looked-profitable',
+    title: 'The Job That Looked Profitable',
+    chapter: '18',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-change-order-died',
+    title: 'The Change Order That Died Quietly',
+    chapter: '19',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-profitable-company-collapsed',
+    title: 'The Profitable Company That Collapsed',
+    chapter: '20',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-calm-operator-21',
+    title: 'The Calm Operator',
+    chapter: '21',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-fork-in-road',
+    title: 'The Fork in the Road',
+    chapter: '21',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-unmoved-operator',
+    title: 'The Unmoved Operator',
+    chapter: '22',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-owner-fixed-wrong',
+    title: 'The Owner Who Fixed the Wrong Thing',
+    chapter: '25',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-clean-decision',
+    title: 'The Clean Decision',
+    chapter: '25',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-expanding-circle',
+    title: 'The Expanding Circle',
+    chapter: '24',
+    isIdentity: false,
+  },
+  {
+    id: 'parable-first-exception',
+    title: 'The First Exception',
+    chapter: '23',
+    isIdentity: false,
+  },
   // Identity Parables
-  { id: 'identity-parable-17', title: 'The Owner Who Had to Be Needed', chapter: '18', isIdentity: true },
-  { id: 'identity-parable-18', title: 'The Operator Who Hated Planning', chapter: '25', isIdentity: true },
-  { id: 'identity-parable-19', title: 'The Nice Contractor', chapter: '19', isIdentity: true },
-  { id: 'identity-parable-20', title: 'The Contractor Afraid of Being Wrong', chapter: '23', isIdentity: true },
-  { id: 'identity-parable-21', title: 'The Owner Who Avoided the Numbers', chapter: '20', isIdentity: true },
-  { id: 'identity-parable-22', title: 'The Delayer', chapter: '21', isIdentity: true },
+  {
+    id: 'identity-parable-17',
+    title: 'The Owner Who Had to Be Needed',
+    chapter: '18',
+    isIdentity: true,
+  },
+  {
+    id: 'identity-parable-18',
+    title: 'The Operator Who Hated Planning',
+    chapter: '25',
+    isIdentity: true,
+  },
+  {
+    id: 'identity-parable-19',
+    title: 'The Nice Contractor',
+    chapter: '19',
+    isIdentity: true,
+  },
+  {
+    id: 'identity-parable-20',
+    title: 'The Contractor Afraid of Being Wrong',
+    chapter: '23',
+    isIdentity: true,
+  },
+  {
+    id: 'identity-parable-21',
+    title: 'The Owner Who Avoided the Numbers',
+    chapter: '20',
+    isIdentity: true,
+  },
+  {
+    id: 'identity-parable-22',
+    title: 'The Delayer',
+    chapter: '21',
+    isIdentity: true,
+  },
 ];
 
 const FloatingTOC: React.FC = () => {
@@ -151,8 +397,8 @@ const FloatingTOC: React.FC = () => {
     }
   };
 
-  const regularParables = parableData.filter(p => !p.isIdentity);
-  const identityParables = parableData.filter(p => p.isIdentity);
+  const regularParables = parableData.filter((p) => !p.isIdentity);
+  const identityParables = parableData.filter((p) => p.isIdentity);
   const portalRoot = typeof document === 'undefined' ? null : document.body;
 
   if (!portalRoot) return null;
@@ -173,7 +419,7 @@ const FloatingTOC: React.FC = () => {
             Navigation
           </SheetTitle>
         </SheetHeader>
-        
+
         <Tabs defaultValue="chapters" className="w-full mt-4">
           <TabsList className="w-full px-6">
             <TabsTrigger value="chapters" className="flex-1 gap-2">
@@ -185,15 +431,23 @@ const FloatingTOC: React.FC = () => {
               Parables
             </TabsTrigger>
           </TabsList>
-          
+
           <TabsContent value="chapters" className="mt-0">
             <ScrollArea className="h-[calc(100dvh-180px)]">
               <div className="p-6 pt-4">
                 {tocData.map((section, sectionIndex) => (
                   <div key={sectionIndex} className="mb-6">
                     {section.part ? (
-                      <div className="text-xs uppercase tracking-widest opacity-50 pt-4 pb-2 flex items-center gap-2 flex-wrap" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '0.15em' }}>
-                        <span>Part {section.part} — {section.title}</span>
+                      <div
+                        className="text-xs uppercase tracking-widest opacity-50 pt-4 pb-2 flex items-center gap-2 flex-wrap"
+                        style={{
+                          fontFamily: 'Inter, sans-serif',
+                          letterSpacing: '0.15em',
+                        }}
+                      >
+                        <span>
+                          Part {section.part} — {section.title}
+                        </span>
                         {section.eyebrow && (
                           <span className="text-[9px] px-1.5 py-0.5 rounded-sm bg-brand-accent/15 text-brand-accent" style={{ letterSpacing: '0.18em' }}>
                             {section.eyebrow}
@@ -201,7 +455,13 @@ const FloatingTOC: React.FC = () => {
                         )}
                       </div>
                     ) : (
-                      <div className="text-xs uppercase tracking-widest opacity-50 pb-2" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '0.15em' }}>
+                      <div
+                        className="text-xs uppercase tracking-widest opacity-50 pb-2"
+                        style={{
+                          fontFamily: 'Inter, sans-serif',
+                          letterSpacing: '0.15em',
+                        }}
+                      >
                         {section.title}
                       </div>
                     )}
@@ -226,13 +486,19 @@ const FloatingTOC: React.FC = () => {
               </div>
             </ScrollArea>
           </TabsContent>
-          
+
           <TabsContent value="parables" className="mt-0">
             <ScrollArea className="h-[calc(100dvh-180px)]">
               <div className="p-6 pt-4">
                 {/* Regular Parables */}
                 <div className="mb-8">
-                  <div className="text-xs uppercase tracking-widest opacity-50 pb-3" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '0.15em' }}>
+                  <div
+                    className="text-xs uppercase tracking-widest opacity-50 pb-3"
+                    style={{
+                      fontFamily: 'Inter, sans-serif',
+                      letterSpacing: '0.15em',
+                    }}
+                  >
                     Parables
                   </div>
                   {regularParables.map((parable) => (
@@ -250,10 +516,16 @@ const FloatingTOC: React.FC = () => {
                     </button>
                   ))}
                 </div>
-                
+
                 {/* Identity Parables */}
                 <div>
-                  <div className="text-xs uppercase tracking-widest pb-3 text-brand-accent" style={{ fontFamily: 'Inter, sans-serif', letterSpacing: '0.15em' }}>
+                  <div
+                    className="text-xs uppercase tracking-widest pb-3 text-brand-accent"
+                    style={{
+                      fontFamily: 'Inter, sans-serif',
+                      letterSpacing: '0.15em',
+                    }}
+                  >
                     Identity Parables
                   </div>
                   {identityParables.map((parable) => (
@@ -277,7 +549,7 @@ const FloatingTOC: React.FC = () => {
         </Tabs>
       </SheetContent>
     </Sheet>,
-    portalRoot
+    portalRoot,
   );
 };
 

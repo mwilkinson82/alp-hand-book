@@ -1,5 +1,15 @@
 # Welcome to your Lovable project
 
+## Handbook content authority
+
+This repository is the editorial source of truth for the ALP Handbook. Canonical
+reader content lives in `src/components/handbook/content`.
+
+The Contractor Circle Hub keeps its own reader shell, entitlement logic, and
+navigation, but pulls canonical content from this repository through the Hub's
+`Sync ALP Handbook` workflow. Update and publish this Handbook first; then review
+and merge the synchronization pull request created in `mwilkinson82/contractor-command`.
+
 ## Project info
 
 **URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
